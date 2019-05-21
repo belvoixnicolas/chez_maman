@@ -1,0 +1,8 @@
+jaune : #fcf183
+gris : #cccccc
+vert : #b1f2b9
+rose : #f0b7bd
+
+papier sombre : +22% saturation
+
+meringue sombre : +41% saturation
