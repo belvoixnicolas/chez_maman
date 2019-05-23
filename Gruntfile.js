@@ -3,7 +3,6 @@ module.exports = function(grunt) {
       sass: {
         dist: {
           options: {
-            sourcemap: "none",
             style: "expanded",
           },
           files: [
@@ -20,11 +19,11 @@ module.exports = function(grunt) {
       },
       watch: {
         scripts: {
-          files: "**/*.js",
+          files: "js/*.js",
           tasks: ["scripts:dev"],
         },
         styles: {
-          files: "**/*.scss",
+          files: "sass/*.scss",
           tasks: ["sass:dist"],
         },
       },
@@ -48,5 +47,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-postcss');
   
     grunt.registerTask("dev", ["sass:dist", 'postcss:dist']);
-    grunt.registerTask("default", ["sass:dist", 'watch']);
+    grunt.registerTask("test", ["sass:dist"]);
+    grunt.registerTask("default", ["test", 'watch']);
   };  

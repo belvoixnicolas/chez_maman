@@ -1,3 +1,11 @@
 body {
-    background: yellow;
+    video {
+        width: 10vw;
+    }
+
+    img {
+        width: 10vw;
+    }
 }
+
+@import '_reset', '_navbar';
