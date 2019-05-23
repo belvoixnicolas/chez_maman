@@ -347,6 +347,7 @@ nav {
     grid-template-columns: min-content auto min-content min-content;
     grid-template-rows: 100%;
     column-gap: 3vw;
+    background: white;
     height: 10vh;
     border: 1px solid black; }
     nav .bar h4 {
@@ -413,6 +414,7 @@ nav {
         margin: 0 1vw; }
   nav .menu {
     display: none;
+    background: white;
     height: calc(100vh - 10vh);
     border-right: 1px solid black; }
     nav .menu h4 {
