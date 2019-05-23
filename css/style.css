@@ -468,4 +468,21 @@ nav {
       font-size: 4rem;
       text-align: center; }
 
+#description {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  background: white;
+  min-height: 90vh;
+  padding: 1vh 1vw; }
+  #description h3 {
+    font-size: 4rem;
+    text-align: center;
+    padding: 2vh 0; }
+  #description p {
+    justify-self: center;
+    align-self: center;
+    font-size: 2rem;
+    width: 80%; }
+
 /*# sourceMappingURL=style.css.map */
