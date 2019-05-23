@@ -16,7 +16,30 @@
     }
 
     .info {
+        flex-flow: column nowrap;
         grid-column: 1 / -1;
         grid-row: 1 / -1;
+        justify-self: center;
+        align-self: center;
+
+        h4 {
+            display: none;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 3vh;
+
+            img {
+                height: 30vh;
+                width: auto;
+            }
+        }
+
+        h2 {
+            font-size: 4rem;
+            text-align: center;
+        }
     }
 }

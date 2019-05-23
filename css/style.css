@@ -450,7 +450,22 @@ nav {
     z-index: -1;
     object-fit: cover; }
   #header .info {
+    flex-flow: column nowrap;
     grid-column: 1 / -1;
-    grid-row: 1 / -1; }
+    grid-row: 1 / -1;
+    justify-self: center;
+    align-self: center; }
+    #header .info h4 {
+      display: none; }
+    #header .info h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      margin-bottom: 3vh; }
+      #header .info h1 img {
+        height: 30vh;
+        width: auto; }
+    #header .info h2 {
+      font-size: 4rem;
+      text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
