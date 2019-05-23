@@ -425,6 +425,7 @@ nav {
       border-style: solid; }
       nav .menu ul li a {
         display: inline-block;
+        width: 100%;
         font-size: 2rem;
         font-weight: bold;
         text-decoration: none;
