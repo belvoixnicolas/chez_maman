@@ -474,7 +474,8 @@ nav {
   grid-template-rows: min-content 1fr;
   background: white;
   min-height: 90vh;
-  padding: 1vh 1vw; }
+  padding: 1vh 1vw;
+  border: 1px solid black; }
   #description h3 {
     font-size: 4rem;
     text-align: center;
@@ -484,5 +485,64 @@ nav {
     align-self: center;
     font-size: 2rem;
     width: 80%; }
+
+#commentaire {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content;
+  row-gap: 3vh;
+  border: 1px solid black;
+  min-height: 90vh;
+  padding: 5vh 0; }
+  #commentaire h3 {
+    display: none; }
+  #commentaire .commentaires {
+    width: 70%;
+    justify-self: center;
+    align-self: center; }
+    #commentaire .commentaires h4 {
+      display: none; }
+    #commentaire .commentaires ul {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-auto-rows: min-content;
+      row-gap: 5vh; }
+      #commentaire .commentaires ul li {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center; }
+        #commentaire .commentaires ul li img {
+          height: 10vh;
+          width: auto; }
+        #commentaire .commentaires ul li p {
+          display: flex;
+          align-items: center;
+          min-height: 10vh;
+          border: 1px solid black;
+          border-radius: 15px;
+          font-size: 1.5rem;
+          padding: 1.5vh 1.5vw;
+          margin-left: 5vw; }
+  #commentaire .formulaire {
+    justify-self: center;
+    width: 70%; }
+    #commentaire .formulaire h4 {
+      display: none; }
+    #commentaire .formulaire form {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center; }
+      #commentaire .formulaire form input[name=com] {
+        width: 100%;
+        font-size: 1.5rem;
+        padding: 1vh 1vw;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin-bottom: 2vh; }
+      #commentaire .formulaire form input[type=submit] {
+        width: 20%;
+        height: 4vh;
+        border: 1px solid black;
+        border-radius: 10px; }
 
 /*# sourceMappingURL=style.css.map */
