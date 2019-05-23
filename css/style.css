@@ -337,8 +337,11 @@ html {
   box-sizing: border-box; }
 
 nav {
-  position: sticky;
-  top: 0px; }
+  position: fixed;
+  top: 0px;
+  width: 100vw; }
+  nav + * {
+    margin-top: 10vh; }
   nav .bar {
     display: grid;
     grid-template-columns: min-content auto min-content min-content;
@@ -349,12 +352,29 @@ nav {
     nav .bar h4 {
       display: none; }
     nav .bar .menuBurger {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       grid-column: 1 / span 1;
       grid-row: 1 / span 1;
-      border: 1px solid grey; }
+      border-right: 1px solid grey;
+      cursor: pointer; }
+      nav .bar .menuBurger > * {
+        font-size: 5vh;
+        margin: 0 calc((10vh - 5vh) / 2); }
     nav .bar .horraire {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
       grid-column: 2 / span 1;
       grid-row: 1 / span 1; }
+      nav .bar .horraire img {
+        height: 70%;
+        width: auto;
+        margin-right: 1vw; }
+      nav .bar .horraire p {
+        font-size: 1.5rem; }
     nav .bar .lien {
       display: flex;
       flex-flow: row nowrap;
@@ -385,10 +405,31 @@ nav {
       justify-content: center;
       align-items: center;
       grid-column: 4 / span 1;
-      grid-row: 1 / span 1; }
+      grid-row: 1 / span 1;
+      margin-right: 3vw; }
       nav .bar .reseaux img {
-        height: 7vh;
+        height: 5vh;
         width: auto;
         margin: 0 1vw; }
+  nav .menu {
+    display: none;
+    height: calc(100vh - 10vh);
+    border-right: 1px solid black; }
+    nav .menu h4 {
+      display: none; }
+    nav .menu ul li {
+      border-width: 1px 0;
+      border-color: black;
+      border-style: solid; }
+      nav .menu ul li a {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 3vh 3vw; }
+      nav .menu ul li:first-child {
+        border-top-width: 0; }
+      nav .menu ul li:last-child {
+        border-bottom-width: 2px; }
 
 /*# sourceMappingURL=style.css.map */

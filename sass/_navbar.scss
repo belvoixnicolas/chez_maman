@@ -1,7 +1,12 @@
 nav {
-    position: sticky;
+    position: fixed;
     top: 0px;
-    
+    width: 100vw;
+
+    & + * {
+        margin-top: 10vh;
+    }
+
     .bar {
         display: grid;
         grid-template-columns: min-content auto min-content min-content;
@@ -15,14 +20,37 @@ nav {
         }
 
         .menuBurger {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             grid-column: 1 / span 1;
             grid-row: 1 / span 1;
-            border: 1px solid grey;
+            border-right: 1px solid grey;
+            cursor: pointer;
+
+            &>* {
+                font-size: 5vh;
+                margin: 0 calc((10vh - 5vh) / 2);
+            }
         }
 
         .horraire {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
             grid-column: 2 / span 1;
             grid-row: 1 / span 1;
+
+            img {
+                height: 70%;
+                width: auto;
+                margin-right: 1vw;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
         }
 
         .lien {
@@ -66,11 +94,45 @@ nav {
             align-items: center;
             grid-column: 4 / span 1;
             grid-row: 1 / span 1;
+            margin-right: 3vw;
 
             img {
-                height: 7vh;
+                height: 5vh;
                 width: auto;
                 margin: 0 1vw;
+            }
+        }
+    }
+
+    .menu {
+        //display: inline-block;
+        display: none;
+        height: calc(100vh - 10vh);
+        border-right: 1px solid black;
+
+        h4 {
+            display: none;
+        }
+
+        ul li {
+            border-width: 1px 0;
+            border-color: black;
+            border-style: solid;
+
+            a {
+                display: inline-block;
+                font-size: 2rem;
+                font-weight: bold;
+                text-decoration: none;
+                padding: 3vh 3vw;
+            }
+
+            &:first-child {
+                border-top-width: 0;
+            }
+
+            &:last-child {
+                border-bottom-width: 2px;
             }
         }
     }
