@@ -1,0 +1,16 @@
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    border: 1px solid black;
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    & + a {
+        font-size: 1rem;
+    }
+}
