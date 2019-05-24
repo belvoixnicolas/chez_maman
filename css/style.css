@@ -570,4 +570,43 @@ nav {
       font-size: 1.5rem;
       margin: 2vh 0; }
 
+#horraireMap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  min-height: 90vh;
+  border: 1px solid black; }
+  #horraireMap h3 {
+    display: none; }
+  #horraireMap .horraire {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    #horraireMap .horraire h4 {
+      display: none; }
+    #horraireMap .horraire table {
+      border-collapse: separate;
+      border-spacing: 5vw 0; }
+      #horraireMap .horraire table th, #horraireMap .horraire table td {
+        font-size: 2rem;
+        padding: 1vh 0; }
+      #horraireMap .horraire table th {
+        text-align: left; }
+      #horraireMap .horraire table td {
+        text-align: right; }
+  #horraireMap .localisation {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center; }
+    #horraireMap .localisation h4 {
+      display: none; }
+    #horraireMap .localisation a {
+      font-size: 2rem;
+      text-decoration: none; }
+    #horraireMap .localisation iframe {
+      height: 38vw;
+      width: 38vw;
+      border-radius: 50px; }
+
 /*# sourceMappingURL=style.css.map */

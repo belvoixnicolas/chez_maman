@@ -1,0 +1,61 @@
+#horraireMap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    min-height: 90vh;
+    border: 1px solid black;
+
+    h3 {
+        display: none;
+    }
+
+    .horraire {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+            display: none;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 5vw 0;
+
+            th, td {
+                font-size: 2rem;
+                padding: 1vh 0;
+            }
+    
+            th {
+                text-align: left;
+            }
+    
+            td {
+                text-align: right;
+            }
+        }
+    }
+
+    .localisation {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+
+        h4 {
+            display: none;
+        }
+
+        a {
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        iframe {
+            height: 38vw;
+            width: 38vw;
+            border-radius: 50px;
+        }
+    }
+}
