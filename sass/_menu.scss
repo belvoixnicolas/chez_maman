@@ -1,0 +1,63 @@
+article {
+    min-height: 90vh;
+    padding: 3vh 3vw;
+    border: 1px solid black;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 5vh;
+
+        img {
+            height: 15vh;
+            width: auto;
+        }
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: min-content;
+        row-gap: 3vh;
+        column-gap: 3vh;
+        align-items: stretch;
+
+        figure {
+            position: relative;
+
+            img {
+                height: auto; 
+                width: 100%;
+            }
+
+            figcaption {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-between;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                padding: 1vh 1vw;
+                opacity: 0;
+                transition: .5s;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                p {
+                    height: 75%;
+                    overflow: auto;
+                    font-size: 1.5rem;
+                }
+
+                h5 {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
