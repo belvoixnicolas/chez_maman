@@ -30,6 +30,20 @@
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
+
+                @media screen and (max-width: 490px) {
+                    & {
+                        flex-flow: column nowrap;
+
+                        img {
+                            display: none;
+                        }
+
+                        p {
+                            margin-left: 0 !important;
+                        }
+                    }
+                }
                 
                 img {
                     height: 10vh;
@@ -72,7 +86,7 @@
                 margin-bottom: 2vh;
             }
 
-            input[type=submit] {
+            input[type=button] {
                 width: 20%;
                 height: 4vh;
                 border: 1px solid black;

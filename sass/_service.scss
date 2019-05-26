@@ -1,9 +1,10 @@
 #service {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
+    grid-auto-rows: auto;
     min-height: 90vh;
     border: 1px solid black;
+    align-content: center;
 
     h3 {
         display: none;
@@ -15,13 +16,30 @@
         justify-content: space-around;
         align-items: center;
         border: 1px solid black;
+        padding: 2vh 0;
+
+        @media screen and (max-width: 372px) {
+            & {
+                flex-flow: column nowrap;
+
+                img {
+                    height: auto !important;
+                    width: 25vw !important;
+                    margin-bottom: 3vh !important;
+                }
+
+                p {
+                    width: 90% !important;
+                }
+            }
+        }
 
         h4 {
             display: none;
         }
 
         img {
-            height: 70%;
+            height: 15vh;
             width: auto;
         }
 
@@ -29,7 +47,6 @@
             max-height: 100%;
             width: 70%;
             font-size: 1.5rem;
-            margin: 2vh 0;
         }
     }
 }

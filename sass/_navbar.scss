@@ -1,7 +1,8 @@
 nav {
     position: fixed;
     top: 0px;
-    width: 100vw;
+    right: 0px;
+    left: 0px;
     z-index: 1;
 
     & + * {
@@ -16,6 +17,36 @@ nav {
         background: white;
         height: 10vh;
         border: 1px solid black;
+
+        @media screen and (max-width: 398px) {
+            & {
+                grid-template-columns: min-content min-content min-content;
+                column-gap: 1vw;
+
+                .menuBurger i {
+                    font-size: 3vh;
+                    margin: 0 calc((10vh - 3vh) / 2);
+                }
+            }
+        }
+
+        @media screen and (max-width: 344px) {
+            & {
+                grid-template-columns: min-content min-content;
+
+                .lien {
+                    justify-self: end;
+
+                    li:last-child {
+                        border-right-width: 0 !important;
+                    }
+                }
+
+                .reseaux {
+                    display: none !important;
+                }
+            }
+        }
 
         h4 {
             display: none;
@@ -43,6 +74,12 @@ nav {
             align-items: center;
             grid-column: 2 / span 1;
             grid-row: 1 / span 1;
+
+            @media screen and (max-width: 590px) {
+                & {
+                    display: none;
+                }
+            }
 
             img {
                 height: 70%;
@@ -107,11 +144,18 @@ nav {
     }
 
     .menu {
-        //display: inline-block;
-        display: none;
+        display: inline-block;
+        //display: none;
         background: white;
         height: calc(100vh - 10vh);
+        min-width: 20vw;
         border-right: 1px solid black;
+
+        @media screen and (max-width: 430px) {
+            & {
+                width: 100%;
+            }
+        }
 
         h4 {
             display: none;
