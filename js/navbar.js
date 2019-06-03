@@ -8,6 +8,15 @@ $(document).ready(function(){
         }else {
             $('.bar .lien li:first-child').html('<button>Appeler</button>');
         }
+
+        if (viewport <= 500) {
+            $('#tel').removeClass();
+            $('#pc').removeClass().addClass('none');
+            alert('ok');
+        } else {
+            $('#pc').removeClass();
+            $('#tel').removeClass().addClass('none');
+        }
     }
 
     viewport ();

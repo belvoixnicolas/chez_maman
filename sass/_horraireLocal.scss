@@ -5,6 +5,17 @@
     min-height: 90vh;
     border: 1px solid black;
 
+    @media screen AND (max-width: 840px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 5vh;
+        padding: 3vh 1vw;
+
+        .localisation a {
+            margin-bottom: 3vh;
+        }
+    }
+
     h3 {
         display: none;
     }
@@ -56,6 +67,11 @@
             height: 60vh;
             width: 60vh;
             border-radius: 50px;
+
+            @media screen AND (max-width: 470px) {
+                height: 90vw;
+                width: 90vw;
+            }
         }
     }
 }
