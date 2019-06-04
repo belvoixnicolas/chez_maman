@@ -12,7 +12,6 @@ $(document).ready(function(){
         if (viewport <= 500) {
             $('#tel').removeClass();
             $('#pc').removeClass().addClass('none');
-            alert('ok');
         } else {
             $('#pc').removeClass();
             $('#tel').removeClass().addClass('none');

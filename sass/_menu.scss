@@ -3,6 +3,41 @@ article {
     padding: 3vh 3vw;
     border: 1px solid black;
 
+    @media screen AND (max-width: 770px) {
+        h2 img {
+            height: 20vh !important;
+        }
+
+        ul {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+
+    @media screen AND (max-width: 450px) {
+        h2 img {
+            height: 20vh !important;
+        }
+
+        ul {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+
+    @media screen AND (max-width: 320px) {
+        h2 img {
+            height: 20vh !important;
+        }
+
+        ul {
+            grid-template-columns: 1fr !important;
+
+            li {
+                width: 90% !important;
+                justify-self: center !important;
+            }
+        }
+    }
+
     h2 {
         text-align: center;
         font-size: 2rem;
