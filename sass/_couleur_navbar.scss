@@ -1,3 +1,21 @@
 & {
-    background-color: black;
+    background-color: rgba($noir, .5);
+    @media screen and (max-width: 430px) {
+        & {
+            background-color: rgba($noir, 0)
+        }
+    }
+
+    .bar {
+        background-color: $rose;
+        color: #FFF;
+
+        & li button {
+            color: #FFF;
+        }
+
+        & a {
+            color: #FFF;
+        }
+    }
 }

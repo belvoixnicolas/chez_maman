@@ -1,6 +1,4 @@
 nav {
-    @import '_couleur_navbar';
-
     position: fixed;
     top: 0px;
     right: 0px;
@@ -16,9 +14,7 @@ nav {
         grid-template-columns: min-content auto min-content min-content;
         grid-template-rows: 100%;
         column-gap: 3vw;
-        background: white;
         height: 10vh;
-        border: 1px solid black;
 
         @media screen and (max-width: 398px) {
             & {
@@ -60,7 +56,6 @@ nav {
             align-items: center;
             grid-column: 1 / span 1;
             grid-row: 1 / span 1;
-            border-right: 1px solid grey;
             cursor: pointer;
 
             &>* {
@@ -102,18 +97,6 @@ nav {
             grid-row: 1 / span 1;
 
             li {
-                border-width: 0 1px;
-                border-style: solid;
-                border-color: black;
-
-                &:first-child {
-                    border-width: 0 1px 0 2px;
-                }
-
-                &:last-child {
-                    border-width: 0 2px 0 1px;
-                }
-
                 &>* {
                     display: flex;
                     align-items: center;
@@ -122,7 +105,6 @@ nav {
                     border: none;
                     font-size: 1.5rem;
                     background: none;
-                    color: black;
                     text-decoration: none;
                 }
             }
@@ -146,12 +128,10 @@ nav {
     }
 
     .menu {
-        display: inline-block;
-        //display: none;
-        background: white;
+        //display: inline-block;
+        display: none;
         height: calc(100vh - 10vh);
         min-width: 20vw;
-        border-right: 1px solid black;
 
         @media screen and (max-width: 430px) {
             & {
@@ -164,10 +144,6 @@ nav {
         }
 
         ul li {
-            border-width: 1px 0;
-            border-color: black;
-            border-style: solid;
-
             a {
                 display: inline-block;
                 width: 100%;
@@ -176,14 +152,8 @@ nav {
                 text-decoration: none;
                 padding: 3vh 3vw;
             }
-
-            &:first-child {
-                border-top-width: 0;
-            }
-
-            &:last-child {
-                border-bottom-width: 2px;
-            }
         }
     }
+
+    @import '_couleur_navbar';
 }
