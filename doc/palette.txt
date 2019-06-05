@@ -1,7 +1,7 @@
-jaune : #fcf183
+jaune : #ffff99
 gris : #cccccc
-vert : #b1f2b9
-rose : #f0b7bd
+vert : #99ffcc
+rose : #ffcccc
 
 papier sombre : +22% saturation
 
