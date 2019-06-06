@@ -19,7 +19,6 @@ $(document).ready(function(){
     }
 
     viewport ();
-    $("nav .menu").hide();
     var text = $('.bar .lien button').text();
 
     $("nav .menuBurger").on('click', function () {
@@ -31,12 +30,20 @@ $(document).ready(function(){
             $('.menuBurger i').removeClass().addClass('fas fa-bars');
         }
 
-        $('nav .menu').animate({width: 'toggle'}, 500);
+        var menu = $('nav .menu').css('width').slice(0, -2);
+
+        if (menu == 0) {
+            $('nav .menu').css('height','').animate({minWidth: '20vw'}, 500);
+        }else {
+            $('nav .menu').animate({minWidth: '0vw'}, 500, function () {
+                $(this).css('height', '0vh');
+            });
+        }
     });
 
     $(".menu a").on('click', function () {
         $('.menuBurger i').removeClass().addClass('fas fa-bars');
-        $('nav .menu').animate({width: 'toggle'}, 500);
+        $('nav .menu').animate({width: '0vw'}, 500);
     });
 
     $('.bar .lien').on('click', 'button', function () {

@@ -375,47 +375,51 @@ html {
 
 /* line 1, ../sass/_navbar.scss */
 nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content auto;
   position: fixed;
   top: 0px;
   right: 0px;
   left: 0px;
   z-index: 1; }
-  /* line 8, ../sass/_navbar.scss */
+  /* line 11, ../sass/_navbar.scss */
   nav + * {
     margin-top: 10vh; }
-  /* line 12, ../sass/_navbar.scss */
+  /* line 15, ../sass/_navbar.scss */
   nav .bar {
     display: grid;
     grid-template-columns: min-content auto min-content min-content;
     grid-template-rows: 100%;
     column-gap: 3vw;
-    height: 10vh; }
+    height: 10vh;
+    width: 100%; }
     @media screen and (max-width: 398px) {
-      /* line 20, ../sass/_navbar.scss */
+      /* line 24, ../sass/_navbar.scss */
       nav .bar {
         grid-template-columns: min-content min-content min-content;
         column-gap: 1vw; }
-        /* line 24, ../sass/_navbar.scss */
+        /* line 28, ../sass/_navbar.scss */
         nav .bar .menuBurger i {
           font-size: 3vh;
           margin: 0 calc((10vh - 3vh) / 2); } }
     @media screen and (max-width: 344px) {
-      /* line 32, ../sass/_navbar.scss */
+      /* line 36, ../sass/_navbar.scss */
       nav .bar {
         grid-template-columns: min-content min-content; }
-        /* line 35, ../sass/_navbar.scss */
+        /* line 39, ../sass/_navbar.scss */
         nav .bar .lien {
           justify-self: end; }
-          /* line 38, ../sass/_navbar.scss */
+          /* line 42, ../sass/_navbar.scss */
           nav .bar .lien li:last-child {
             border-right-width: 0 !important; }
-        /* line 43, ../sass/_navbar.scss */
+        /* line 47, ../sass/_navbar.scss */
         nav .bar .reseaux {
           display: none !important; } }
-    /* line 49, ../sass/_navbar.scss */
+    /* line 53, ../sass/_navbar.scss */
     nav .bar h4 {
       display: none; }
-    /* line 53, ../sass/_navbar.scss */
+    /* line 57, ../sass/_navbar.scss */
     nav .bar .menuBurger {
       display: flex;
       justify-content: center;
@@ -423,11 +427,11 @@ nav {
       grid-column: 1 / span 1;
       grid-row: 1 / span 1;
       cursor: pointer; }
-      /* line 61, ../sass/_navbar.scss */
+      /* line 65, ../sass/_navbar.scss */
       nav .bar .menuBurger > * {
         font-size: 5vh;
         margin: 0 calc((10vh - 5vh) / 2); }
-    /* line 67, ../sass/_navbar.scss */
+    /* line 71, ../sass/_navbar.scss */
     nav .bar .horraire {
       display: flex;
       flex-flow: row nowrap;
@@ -436,25 +440,25 @@ nav {
       grid-column: 2 / span 1;
       grid-row: 1 / span 1; }
       @media screen and (max-width: 590px) {
-        /* line 76, ../sass/_navbar.scss */
+        /* line 80, ../sass/_navbar.scss */
         nav .bar .horraire {
           display: none; } }
-      /* line 81, ../sass/_navbar.scss */
+      /* line 85, ../sass/_navbar.scss */
       nav .bar .horraire img {
         height: 70%;
         width: auto;
         margin-right: 1vw; }
-      /* line 87, ../sass/_navbar.scss */
+      /* line 91, ../sass/_navbar.scss */
       nav .bar .horraire p {
         font-size: 1.5rem; }
-    /* line 92, ../sass/_navbar.scss */
+    /* line 96, ../sass/_navbar.scss */
     nav .bar .lien {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
       grid-column: 3 / span 1;
       grid-row: 1 / span 1; }
-      /* line 100, ../sass/_navbar.scss */
+      /* line 104, ../sass/_navbar.scss */
       nav .bar .lien li > * {
         display: flex;
         align-items: center;
@@ -464,7 +468,7 @@ nav {
         font-size: 1.5rem;
         background: none;
         text-decoration: none; }
-    /* line 113, ../sass/_navbar.scss */
+    /* line 117, ../sass/_navbar.scss */
     nav .bar .reseaux {
       display: flex;
       flex-flow: row nowrap;
@@ -473,24 +477,24 @@ nav {
       grid-column: 4 / span 1;
       grid-row: 1 / span 1;
       margin-right: 3vw; }
-      /* line 122, ../sass/_navbar.scss */
+      /* line 126, ../sass/_navbar.scss */
       nav .bar .reseaux img {
         height: 5vh;
         width: auto;
         margin: 0 1vw; }
-  /* line 130, ../sass/_navbar.scss */
+  /* line 134, ../sass/_navbar.scss */
   nav .menu {
-    display: none;
+    display: inline-block;
     height: calc(100vh - 10vh);
-    min-width: 20vw; }
+    width: 0; }
     @media screen and (max-width: 430px) {
-      /* line 137, ../sass/_navbar.scss */
+      /* line 142, ../sass/_navbar.scss */
       nav .menu {
         width: 100%; } }
-    /* line 142, ../sass/_navbar.scss */
+    /* line 147, ../sass/_navbar.scss */
     nav .menu h4 {
       display: none; }
-    /* line 147, ../sass/_navbar.scss */
+    /* line 152, ../sass/_navbar.scss */
     nav .menu ul li a {
       display: inline-block;
       width: 100%;
@@ -515,6 +519,9 @@ nav {
       /* line 17, ../sass/_couleur_navbar.scss */
       nav .bar a {
         color: #FFF; }
+    /* line 22, ../sass/_couleur_navbar.scss */
+    nav .menu {
+      background-color: #FF9; }
 
 /* line 1, ../sass/_footer.scss */
 footer {

@@ -1,4 +1,7 @@
 nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content auto;
     position: fixed;
     top: 0px;
     right: 0px;
@@ -15,6 +18,7 @@ nav {
         grid-template-rows: 100%;
         column-gap: 3vw;
         height: 10vh;
+        width: 100%;
 
         @media screen and (max-width: 398px) {
             & {
@@ -128,10 +132,11 @@ nav {
     }
 
     .menu {
-        //display: inline-block;
-        display: none;
+        display: inline-block;
+        //display: none;
         height: calc(100vh - 10vh);
-        min-width: 20vw;
+        width: 0;
+        //overflow: hidden;
 
         @media screen and (max-width: 430px) {
             & {
