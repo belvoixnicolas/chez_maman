@@ -33,11 +33,9 @@ $(document).ready(function(){
         var menu = $('nav .menu').css('width').slice(0, -2);
 
         if (menu == 0) {
-            $('nav .menu').css('height','').animate({minWidth: '20vw'}, 500);
+            $('nav .menu').removeClass('close');
         }else {
-            $('nav .menu').animate({minWidth: '0vw'}, 500, function () {
-                $(this).css('height', '0vh');
-            });
+            $('nav .menu').addClass('close');
         }
     });
 

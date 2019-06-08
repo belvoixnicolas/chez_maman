@@ -40,13 +40,21 @@ module.exports = function(grunt) {
           src: 'css/*.css'
         }
       },
+      compass: {
+        dist: {
+          options: {
+            config: 'config.rb'
+          }
+        }
+      }
     });
   
     grunt.loadNpmTasks("grunt-contrib-sass");
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-contrib-compass');
   
-    grunt.registerTask("dev", ["sass:dist", 'postcss:dist']);
-    grunt.registerTask("test", ["sass:dist"]);
+    grunt.registerTask("dev", ["compass", 'postcss:dist']);
+    grunt.registerTask("test", ["compass"]);
     grunt.registerTask("default", ["test", 'watch']);
   };  

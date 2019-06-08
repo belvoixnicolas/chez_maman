@@ -131,12 +131,18 @@ nav {
         }
     }
 
+    .close {
+        width: 0vw !important;
+        height: 0vh !important;
+        overflow: hidden;
+    }
+
     .menu {
         display: inline-block;
         //display: none;
         height: calc(100vh - 10vh);
-        width: 0;
-        //overflow: hidden;
+        width: max-content;
+        justify-self: left;
 
         @media screen and (max-width: 430px) {
             & {
