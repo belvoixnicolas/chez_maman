@@ -18,6 +18,10 @@ $(document).ready(function(){
         }
     }
 
+    var couleur = $(".bar").css('backgroundColor');
+
+    $("meta[name=theme-color]").attr('content', couleur);
+
     viewport ();
     var text = $('.bar .lien button').text();
 
@@ -41,7 +45,7 @@ $(document).ready(function(){
 
     $(".menu a").on('click', function () {
         $('.menuBurger i').removeClass().addClass('fas fa-bars');
-        $('nav .menu').animate({width: '0vw'}, 500);
+        $('nav .menu').addClass('close');
     });
 
     $('.bar .lien').on('click', 'button', function () {
