@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu:500&display=swap');
 @import '_reset', '_couleur', '_navbar', '_footer';
+
+html {
+    font-family: 'Ubuntu', sans-serif;
+}
 
 #index {
     @import '_header', '_description', '_avie', '_service', '_horraireLocal.scss';

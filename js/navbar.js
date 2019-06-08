@@ -3,7 +3,7 @@ $(document).ready(function(){
         var viewport = $(window).width();
         console.log(viewport);
 
-        if (viewport <= 430) {
+        if (viewport <= 490) {
             $('.bar .lien li:first-child').html('<a href="tel:+33324530905">Appeler</a>');
         }else {
             $('.bar .lien li:first-child').html('<button>Appeler</button>');
@@ -34,7 +34,7 @@ $(document).ready(function(){
             $('.menuBurger i').removeClass().addClass('fas fa-bars');
         }
 
-        var menu = $('nav .menu').css('width').slice(0, -2);
+        var menu = $('nav .menu').css('minWidth').slice(0, -2);
 
         if (menu == 0) {
             $('nav .menu').removeClass('close');

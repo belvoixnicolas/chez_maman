@@ -76,7 +76,7 @@ nav {
             grid-column: 2 / span 1;
             grid-row: 1 / span 1;
 
-            @media screen and (max-width: 590px) {
+            @media screen and (max-width: 670px) {
                 & {
                     display: none;
                 }
@@ -89,7 +89,7 @@ nav {
             }
 
             p {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
         }
 
@@ -107,7 +107,7 @@ nav {
                     height: 10vh;
                     padding: 0 1.5vw;
                     border: none;
-                    font-size: 1.5rem;
+                    font-size: 1.8rem;
                     background: none;
                     text-decoration: none;
                 }
@@ -132,7 +132,7 @@ nav {
     }
 
     .close {
-        width: 0vw !important;
+        min-width: 0vw !important;
         height: 0vh !important;
         overflow: hidden;
     }
@@ -141,7 +141,7 @@ nav {
         display: inline-block;
         //display: none;
         height: calc(100vh - 10vh);
-        width: max-content;
+        min-width: 20vw;
         justify-self: left;
 
         @media screen and (max-width: 430px) {
