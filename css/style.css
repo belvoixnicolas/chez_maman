@@ -611,6 +611,9 @@ html {
     #index #header .info h2 {
       font-size: 4rem;
       text-align: center; }
+  /* line 2, ../sass/_couleur_header.scss */
+  #index #header h1, #index #header h2 {
+    font-family: 'Kaushan Script', cursive; }
 /* line 1, ../sass/_description.scss */
 #index #description {
   display: grid;
