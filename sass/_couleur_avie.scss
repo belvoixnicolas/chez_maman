@@ -1,0 +1,23 @@
+& {
+    background-color: $bleu;
+
+    .commentaires ul li {
+        background-color: #FFF;
+        border-radius: 20px;
+    }
+
+    .formulaire form {
+        input[type="text"], input:last-child {
+            background-color: #FFF;
+            border: 0px;
+            border-radius: 10px;
+            color: $noir;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        input:last-child {
+            font-family: 'Kaushan Script', cursive;
+            color: $bleu;
+        }
+    }
+}
