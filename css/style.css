@@ -740,43 +740,44 @@ html {
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
   min-height: 90vh;
-  border: 1px solid black;
   align-content: center; }
-  /* line 9, ../sass/_service.scss */
+  /* line 8, ../sass/_service.scss */
   #index #service h3 {
     display: none; }
-  /* line 13, ../sass/_service.scss */
+  /* line 12, ../sass/_service.scss */
   #index #service section {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid black;
     padding: 2vh 0; }
     @media screen and (max-width: 372px) {
-      /* line 22, ../sass/_service.scss */
+      /* line 20, ../sass/_service.scss */
       #index #service section {
         flex-flow: column nowrap; }
-        /* line 25, ../sass/_service.scss */
+        /* line 23, ../sass/_service.scss */
         #index #service section img {
           height: auto !important;
           width: 25vw !important;
           margin-bottom: 3vh !important; }
-        /* line 31, ../sass/_service.scss */
+        /* line 29, ../sass/_service.scss */
         #index #service section p {
           width: 90% !important; } }
-    /* line 37, ../sass/_service.scss */
+    /* line 35, ../sass/_service.scss */
     #index #service section h4 {
       display: none; }
-    /* line 41, ../sass/_service.scss */
+    /* line 39, ../sass/_service.scss */
     #index #service section img {
       height: 15vh;
       width: auto; }
-    /* line 46, ../sass/_service.scss */
+    /* line 44, ../sass/_service.scss */
     #index #service section p {
       max-height: 100%;
       width: 70%;
       font-size: 1.5rem; }
+  /* line 1, ../sass/_couleur_service.scss */
+  #index #service {
+    background-color: #CCC; }
 /* line 1, ../sass/_horraireLocal.scss */
 #index #horraireMap {
   display: grid;
