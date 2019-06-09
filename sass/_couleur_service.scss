@@ -1,3 +1,8 @@
 & {
-    background-color: $gris;
+    background-color: $jaune;
+
+    section {
+        box-shadow: inset 1px -10px 25px -20px rgba(black, .5);
+        //border-bottom: 1px solid black;
+    }
 }

@@ -777,7 +777,10 @@ html {
       font-size: 1.5rem; }
   /* line 1, ../sass/_couleur_service.scss */
   #index #service {
-    background-color: #CCC; }
+    background-color: #FF9; }
+    /* line 4, ../sass/_couleur_service.scss */
+    #index #service section {
+      box-shadow: inset 1px -10px 25px -20px rgba(0, 0, 0, 0.5); }
 /* line 1, ../sass/_horraireLocal.scss */
 #index #horraireMap {
   display: grid;
