@@ -1,0 +1,15 @@
+& {
+    background-color: $rose;
+    color: #fff;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        transition: .5s;
+
+        &:hover {
+            color: $noir;
+            text-decoration: revert;
+        }
+    }
+}

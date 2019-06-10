@@ -542,31 +542,43 @@ footer {
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  border: 1px solid black;
   padding: 1vh 1vw; }
-  /* line 10, ../sass/_footer.scss */
+  /* line 9, ../sass/_footer.scss */
   footer p {
     font-size: 1.5rem; }
     @media screen and (max-width: 500px) {
-      /* line 14, ../sass/_footer.scss */
+      /* line 13, ../sass/_footer.scss */
       footer p {
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center; }
-        /* line 20, ../sass/_footer.scss */
+        /* line 19, ../sass/_footer.scss */
         footer p span:nth-child(1) {
           margin-bottom: 1vh; }
-      /* line 25, ../sass/_footer.scss */
+      /* line 24, ../sass/_footer.scss */
       footer p + a {
         font-size: 1.2rem;
         margin-top: 2vh; } }
-  /* line 32, ../sass/_footer.scss */
+  /* line 31, ../sass/_footer.scss */
   footer + a {
     font-size: 1rem; }
-  /* line 36, ../sass/_footer.scss */
+  /* line 35, ../sass/_footer.scss */
   footer .none {
     display: none; }
+  /* line 1, ../sass/_couleur_footer.scss */
+  footer {
+    background-color: #FCC;
+    color: #fff; }
+    /* line 5, ../sass/_couleur_footer.scss */
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: .5s; }
+      /* line 10, ../sass/_couleur_footer.scss */
+      footer a:hover {
+        color: #585858;
+        text-decoration: revert; }
 
 /* line 4, ../sass/style.scss */
 html {
