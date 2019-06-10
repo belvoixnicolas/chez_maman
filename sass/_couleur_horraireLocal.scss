@@ -1,0 +1,43 @@
+& {
+    background-color: $bleu;
+
+    .horraire {
+        box-shadow: inset -20px 0px 25px -28px rgba(#000, .5);
+
+        table {
+            font-family: 'Kaushan Script', cursive;
+
+            th {
+                font-weight: bold; 
+            }
+        }
+    }
+
+    .localisation {
+        box-shadow: inset 20px 0px 25px -28px rgba(#000, .5);
+
+        a {
+            font-family: 'Kaushan Script', cursive;
+            color: $noir;
+        }
+
+        iframe {
+            border-radius: 30px;
+            transition: border-radius .5s;
+
+            &:hover {
+                border-radius: 5px;
+            }
+        }
+    }
+
+    @media screen AND (max-width: 840px) {
+        .horraire {
+            box-shadow: inset 0px -20px 25px -28px rgba(#000, .5);
+        }
+    
+        .localisation {
+            box-shadow: inset 0px 20px 25px -28px rgba(#000, .5);
+        }
+    }
+}

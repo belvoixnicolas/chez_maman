@@ -3,13 +3,14 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     min-height: 90vh;
-    border: 1px solid black;
 
     @media screen AND (max-width: 840px) {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        row-gap: 5vh;
-        padding: 3vh 1vw;
+        grid-template-rows: 1fr 1fr;
+
+        section {
+            padding: 5vh 1vh;
+        }
 
         .localisation a {
             margin-bottom: 3vh;
@@ -30,12 +31,20 @@
         }
 
         table {
-            border-collapse: separate;
-            border-spacing: 5vw 0;
+            width: 90%;
+
+            tbody {
+                width: 100%;
+            }
 
             th, td {
-                font-size: 2rem;
-                padding: 1vh 0;
+                font-size: 3rem;
+                letter-spacing: .25ex;
+                padding: 1ex 0;
+
+                &:last-child {
+                    padding-top: 0px;
+                }
             }
     
             th {
@@ -59,14 +68,15 @@
         }
 
         a {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            line-height: 4ex;
+            letter-spacing: .3ex;
             text-decoration: none;
         }
 
         iframe {
             height: 60vh;
             width: 60vh;
-            border-radius: 50px;
 
             @media screen AND (max-width: 470px) {
                 height: 90vw;
@@ -74,4 +84,6 @@
             }
         }
     }
+
+    @import "_couleur_horraireLocal";
 }
