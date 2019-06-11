@@ -1,7 +1,6 @@
 article {
     min-height: 90vh;
     padding: 3vh 3vw;
-    border: 1px solid black;
 
     @media screen AND (max-width: 770px) {
         h2 img {
@@ -95,4 +94,6 @@ article {
             }
         }
     }
+
+    @import "_couleur_menu";
 }
