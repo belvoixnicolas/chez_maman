@@ -1,6 +1,16 @@
 & {
     background-color: $jaune;
 
+    h2 {
+        background: {
+            image: url('../src/img/neon.png');
+            origin: border-box;
+            repeat: no-repeat;
+            position: center;
+            size: 100% 100%;
+        }
+    }
+
     figcaption {
         background: rgba($bleu, .5);
 

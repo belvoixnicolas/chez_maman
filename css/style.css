@@ -984,8 +984,15 @@ html {
   #menu article {
     background-color: #FF9; }
     /* line 4, ../sass/_couleur_menu.scss */
+    #menu article h2 {
+      background-image: url("../src/img/neon.png");
+      background-origin: border-box;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%; }
+    /* line 14, ../sass/_couleur_menu.scss */
     #menu article figcaption {
       background: rgba(102, 153, 255, 0.5); }
-      /* line 7, ../sass/_couleur_menu.scss */
+      /* line 17, ../sass/_couleur_menu.scss */
       #menu article figcaption h5 {
         color: #9F6; }
