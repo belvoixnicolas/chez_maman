@@ -23,30 +23,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body id="index">
-    <?php include('../view/navbar.php') ?>
-    <header id="header">
-        <video src="src/video/video.mp4" autoplay loop muted>
-
-        </video>
-        <section class="info">
-            <h4>info</h4>
-            <h1>
-                <img src="src/img/logo.svg" alt="Logo de chez maman">
-            </h1>
-            <h2>
-                Phrase
-            </h2>
-        </section>
-    </header>
+    <?php include('navbar.php') ?>
+    <?php include('header.php') ?>
     <main>
-        <article id="description">
-            <h3>
-                Description
-            </h3>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui tempora adipisci pariatur itaque quae quisquam delectus asperiores illo labore neque totam quod accusantium earum eos suscipit nesciunt ipsam, voluptate expedita, provident illum, accusamus distinctio optio ratione facere! Assumenda velit quod dolores aperiam, dolorem tempora? Totam quas ratione, quam modi harum cumque vel recusandae eum ea quod eos repellat ex error minus dolorem deleniti fugit quasi? Molestias incidunt ducimus quibusdam obcaecati, eaque placeat temporibus eos ipsa provident laborum cumque? Exercitationem perferendis officiis nostrum maiores sapiente atque quaerat. Voluptatibus necessitatibus officia, sint rerum excepturi recusandae, at laboriosam corrupti, impedit deleniti distinctio dicta!
-            </p>
-        </article>
+        <?php
+            if (isset($description) && $description) {
+                include('description.php');
+            }
+        ?>
         <article id="commentaire">
             <h3>
                 Commentaire
