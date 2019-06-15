@@ -20,81 +20,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="src/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body id="menu">
-    <nav>
-        <section class="bar">
-            <h4>navbar</h4>
-            <div class="menuBurger">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="horraire">
-                <img src="src/img/paneau_ouvert.svg" alt="Paneau ouvert" />
-                <p>
-                    jusqu'à 17 h 00
-                </p>
-            </div>
-            <ul class="lien">
-                <li>
-                    <button>
-                        Appeler
-                    </button>
-                </li>
-                <li>
-                    <a href="../index.php?page=index">
-                        aceuil
-                    </a>
-                </li>
-                <li>
-                    <a href="https://goo.gl/maps/Vm3LQ9AkFP3qhctG9" target="_blank" rel="noopener noreferrer nofollow">
-                        Itinéraire
-                    </a>
-                </li>
-            </ul>
-            <ul class="reseaux">
-                <li>
-                    <a href="https://www.instagram.com/chez_maman_charleville/" target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/instagram.png" alt="Instagram">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/FabulousTrucknMagicCakes/" target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/facebook.png" alt="Facebook">
-                    </a>
-                </li>
-            </ul>
-        </section>
-        <section class="menu close">
-            <h4>menu</h4>
-            <ul>
-                <li>
-                    <a href="#1">
-                        lien
-                    </a>
-                </li>
-                <li>
-                    <a href="#2">
-                        lien
-                    </a>
-                </li>
-                <li>
-                    <a href="#3">
-                        lien
-                    </a>
-                </li>
-                <li>
-                    <a href="#4">
-                        lien
-                    </a>
-                </li>
-                <li>
-                    <a href="#5">
-                        lien
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </nav>
+    <?php include('../view/navbar.php'); ?>
     <main>
         <article id="1">
             <h2><img src="https://ipsumimage.appspot.com/70x70" alt="Titre"></h2>
@@ -809,7 +738,7 @@
         </p>
         <a href="#">Connexion</a>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <script src="js/navbar.js"></script>
 </body>
 </html>
