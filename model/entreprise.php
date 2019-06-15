@@ -105,5 +105,25 @@
                 return $description;
             }
         }
+
+        public function address() {
+            $numero = $this->_numeroDeRue;
+            $rue = $this->_rue;
+            $ville = $this->_ville;
+            $cp = $this->_cp;
+
+            if ($numero != null && $rue != null && $ville != null && $cp != null) {
+                $array = array(
+                    'numero' => $numero,
+                    'rue' => $rue,
+                    'ville' => $ville,
+                    'cp' => $cp
+                );
+
+                return $array;
+            }else {
+                return false;
+            }
+        }
     }
 ?>
