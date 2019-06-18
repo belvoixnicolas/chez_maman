@@ -7,7 +7,7 @@
 
         public function __construct() {
             $this->_host = 'localhost';
-            $this->_dbname = 'chez_maman';
+            $this->_dbname = 'chez_mama';
             $this->_user = 'root';
             $this->_mdp = "";
         }
