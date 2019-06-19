@@ -5,10 +5,21 @@
     <section class="horraire">
             <h4>horraire</h4>
         <table>
+            <?php
+                if (isset($horraireTab) && $horraireTab) {
+                    $tableau = '';
+                    foreach ($horraireTab as $value) {
+            ?>
+
             <tr>
-                <th>Lundi</th>
-                <td>Fermer</td>
+                <th><?= $value['jour'] ?></th>
+                <td><?= $value['heure'] ?></td>
             </tr>
+
+            <?php
+                    }
+                }
+            ?>
         </table>
     </section>
     <section class="localisation">

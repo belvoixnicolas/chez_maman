@@ -5,6 +5,7 @@
     require_once('../model/entreprise.php');
     require_once('../model/avie.php');
     require_once('../model/service.php');
+    require_once('../model/horraire.php');
 
     $lien = new navbar;
     $lien = $lien->lien();
@@ -22,6 +23,9 @@
 
     $service = new service;
     $services = $service->services();
+
+    $horraire = new horraire;
+    $horraireTab = $horraire->horraireTab();
 
     include_once ('../view/acceuil_html.php');
 ?>
