@@ -1,139 +1,328 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le :  mer. 19 juin 2019 à 05:14
+-- Version du serveur :  10.1.38-MariaDB
+-- Version de PHP :  7.3.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-#------------------------------------------------------------
-# Table: entreprise
-#------------------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE entreprise(
-        id          Int  Auto_increment  NOT NULL ,
-        logo        Varchar (50) ,
-        video       Varchar (50) ,
-        phrase      Varchar (50) ,
-        description Text ,
-        telephone   Int ,
-        numeroRue   Int ,
-        rue         Varchar (50) ,
-        ville       Varchar (50) ,
-        cp          Int
-	,CONSTRAINT entreprise_PK PRIMARY KEY (id)
-)ENGINE=InnoDB;
+--
+-- Base de données :  `chez_maman`
+--
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: profil
-#------------------------------------------------------------
+--
+-- Structure de la table `avie`
+--
 
-CREATE TABLE profil(
-        id            Int  Auto_increment  NOT NULL ,
-        mail          Varchar (50) NOT NULL ,
-        motDePasse    Text NOT NULL ,
-        salt          Text NOT NULL ,
-        admin         Bool NOT NULL ,
-        id_entreprise Int NOT NULL
-	,CONSTRAINT profil_PK PRIMARY KEY (id)
+CREATE TABLE `avie` (
+  `id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `afficher` int(1) NOT NULL DEFAULT '0',
+  `id_entreprise` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-	,CONSTRAINT profil_entreprise_FK FOREIGN KEY (id_entreprise) REFERENCES entreprise(id)
-)ENGINE=InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `entreprise`
+--
 
-#------------------------------------------------------------
-# Table: avie
-#------------------------------------------------------------
+CREATE TABLE `entreprise` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(50) DEFAULT NULL,
+  `logo` varchar(50) DEFAULT NULL,
+  `video` varchar(50) DEFAULT NULL,
+  `phrase` varchar(50) DEFAULT NULL,
+  `description` text,
+  `telephone` int(11) DEFAULT NULL,
+  `numeroRue` int(11) DEFAULT NULL,
+  `rue` varchar(50) DEFAULT NULL,
+  `ville` varchar(50) DEFAULT NULL,
+  `cp` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE avie(
-        id            Int  Auto_increment  NOT NULL ,
-        text          Text NOT NULL ,
-        date          Date NOT NULL ,
-        afficher      Bool NOT NULL ,
-        id_entreprise Int NOT NULL
-	,CONSTRAINT avie_PK PRIMARY KEY (id)
+--
+-- Déchargement des données de la table `entreprise`
+--
 
-	,CONSTRAINT avie_entreprise_FK FOREIGN KEY (id_entreprise) REFERENCES entreprise(id)
-)ENGINE=InnoDB;
+INSERT INTO `entreprise` (`id`, `titre`, `logo`, `video`, `phrase`, `description`, `telephone`, `numeroRue`, `rue`, `ville`, `cp`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: services
-#------------------------------------------------------------
+--
+-- Structure de la table `horraire`
+--
 
-CREATE TABLE services(
-        id            Int  Auto_increment  NOT NULL ,
-        text          Text NOT NULL ,
-        image         Varchar (50) NOT NULL ,
-        ordre         Int NOT NULL ,
-        id_entreprise Int NOT NULL
-	,CONSTRAINT services_PK PRIMARY KEY (id)
+CREATE TABLE `horraire` (
+  `id` int(11) NOT NULL,
+  `jour` varchar(8) NOT NULL,
+  `ouvertMat` time DEFAULT NULL,
+  `fermeMat` time DEFAULT NULL,
+  `ouvertAp` time DEFAULT NULL,
+  `fermeAp` time DEFAULT NULL,
+  `id_entreprise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-	,CONSTRAINT services_entreprise_FK FOREIGN KEY (id_entreprise) REFERENCES entreprise(id)
-)ENGINE=InnoDB;
+--
+-- Déchargement des données de la table `horraire`
+--
 
+INSERT INTO `horraire` (`id`, `jour`, `ouvertMat`, `fermeMat`, `ouvertAp`, `fermeAp`, `id_entreprise`) VALUES
+(1, 'lundi', NULL, NULL, NULL, NULL, 1),
+(2, 'mardi', NULL, NULL, NULL, NULL, 1),
+(3, 'mercredi', NULL, NULL, NULL, NULL, 1),
+(4, 'jeudi', NULL, NULL, NULL, NULL, 1),
+(5, 'vendredi', NULL, NULL, NULL, NULL, 1),
+(6, 'samedi', NULL, NULL, NULL, NULL, 1),
+(7, 'dimanche', NULL, NULL, NULL, NULL, 1);
 
-#------------------------------------------------------------
-# Table: menu
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE menu(
-        id            Int  Auto_increment  NOT NULL ,
-        titre         Varchar (50) NOT NULL ,
-        image         Varchar (50) NOT NULL ,
-        ordre         Int NOT NULL ,
-        id_entreprise Int NOT NULL
-	,CONSTRAINT menu_PK PRIMARY KEY (id)
+--
+-- Structure de la table `menu`
+--
 
-	,CONSTRAINT menu_entreprise_FK FOREIGN KEY (id_entreprise) REFERENCES entreprise(id)
-)ENGINE=InnoDB;
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `ordre` int(11) NOT NULL,
+  `id_entreprise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: produit
-#------------------------------------------------------------
+--
+-- Structure de la table `produit`
+--
 
-CREATE TABLE produit(
-        id      Int  Auto_increment  NOT NULL ,
-        text    Text ,
-        image   Varchar (50) NOT NULL ,
-        prix    Float NOT NULL ,
-        ordre   Int NOT NULL ,
-        id_menu Int NOT NULL
-	,CONSTRAINT produit_PK PRIMARY KEY (id)
+CREATE TABLE `produit` (
+  `id` int(11) NOT NULL,
+  `text` text,
+  `image` varchar(50) NOT NULL,
+  `prix` float NOT NULL,
+  `ordre` int(11) NOT NULL,
+  `id_menu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-	,CONSTRAINT produit_menu_FK FOREIGN KEY (id_menu) REFERENCES menu(id)
-)ENGINE=InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `profil`
+--
 
-#------------------------------------------------------------
-# Table: reseau
-#------------------------------------------------------------
+CREATE TABLE `profil` (
+  `id` int(11) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `motDePasse` text NOT NULL,
+  `salt` text NOT NULL,
+  `admin` tinyint(1) NOT NULL,
+  `id_entreprise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE reseau(
-        id            Int  Auto_increment  NOT NULL ,
-        titre         Varchar (50) NOT NULL ,
-        image         Varchar (50) NOT NULL ,
-        url           Text NOT NULL ,
-        id_entreprise Int NOT NULL
-	,CONSTRAINT reseau_PK PRIMARY KEY (id)
+-- --------------------------------------------------------
 
-	,CONSTRAINT reseau_entreprise_FK FOREIGN KEY (id_entreprise) REFERENCES entreprise(id)
-)ENGINE=InnoDB;
+--
+-- Structure de la table `reseau`
+--
 
+CREATE TABLE `reseau` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `url` text NOT NULL,
+  `id_entreprise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#------------------------------------------------------------
-# Table: horraire
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE horraire(
-        id            Int  Auto_increment  NOT NULL ,
-        jour          Varchar (8) NOT NULL ,
-        ouvertMat     Time ,
-        fermeMat      Time ,
-        ouvertAp      Time ,
-        fermeAp       Time NOT NULL ,
-        id_entreprise Int NOT NULL
-	,CONSTRAINT horraire_PK PRIMARY KEY (id)
+--
+-- Structure de la table `services`
+--
 
-	,CONSTRAINT horraire_entreprise_FK FOREIGN KEY (id_entreprise) REFERENCES entreprise(id)
-)ENGINE=InnoDB;
+CREATE TABLE `services` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(50) NOT NULL,
+  `text` text NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `ordre` int(11) NOT NULL,
+  `id_entreprise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `avie`
+--
+ALTER TABLE `avie`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `avie_entreprise_FK` (`id_entreprise`);
+
+--
+-- Index pour la table `entreprise`
+--
+ALTER TABLE `entreprise`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `horraire`
+--
+ALTER TABLE `horraire`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `horraire_entreprise_FK` (`id_entreprise`);
+
+--
+-- Index pour la table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `menu_entreprise_FK` (`id_entreprise`);
+
+--
+-- Index pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produit_menu_FK` (`id_menu`);
+
+--
+-- Index pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profil_entreprise_FK` (`id_entreprise`);
+
+--
+-- Index pour la table `reseau`
+--
+ALTER TABLE `reseau`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reseau_entreprise_FK` (`id_entreprise`);
+
+--
+-- Index pour la table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `services_entreprise_FK` (`id_entreprise`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `avie`
+--
+ALTER TABLE `avie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `entreprise`
+--
+ALTER TABLE `entreprise`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `horraire`
+--
+ALTER TABLE `horraire`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `produit`
+--
+ALTER TABLE `produit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `profil`
+--
+ALTER TABLE `profil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `reseau`
+--
+ALTER TABLE `reseau`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `avie`
+--
+ALTER TABLE `avie`
+  ADD CONSTRAINT `avie_entreprise_FK` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`);
+
+--
+-- Contraintes pour la table `horraire`
+--
+ALTER TABLE `horraire`
+  ADD CONSTRAINT `horraire_entreprise_FK` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`);
+
+--
+-- Contraintes pour la table `menu`
+--
+ALTER TABLE `menu`
+  ADD CONSTRAINT `menu_entreprise_FK` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`);
+
+--
+-- Contraintes pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD CONSTRAINT `produit_menu_FK` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id`);
+
+--
+-- Contraintes pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD CONSTRAINT `profil_entreprise_FK` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`);
+
+--
+-- Contraintes pour la table `reseau`
+--
+ALTER TABLE `reseau`
+  ADD CONSTRAINT `reseau_entreprise_FK` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`);
+
+--
+-- Contraintes pour la table `services`
+--
+ALTER TABLE `services`
+  ADD CONSTRAINT `services_entreprise_FK` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
