@@ -108,13 +108,13 @@
                 if ($value['ouvertMat'] == null && $value['ouvertAp'] == null ) {
                     $horraire['heure'] = 'fermer';
                 }elseif ( $value['ouvertMat'] != null && $value['fermeAp'] != null && $value['fermeMat'] == null) {
-                    $horraire['heure'] = $value['ouvertMat'] . ' à ' . $value['fermeAp'];
+                    $horraire['heure'] = $this->format($value['ouvertMat']) . ' à ' . $this->format($value['fermeAp']);
                 }elseif ($value['ouvertMat'] == null && $value['ouvertAp'] != null && $value['fermeAp'] != null) {
-                    $horraire['heure'] = $value['ouvertAp'] . ' à ' . $value['fermeAp'];
+                    $horraire['heure'] = $this->format($value['ouvertAp']) . ' à ' . $this->format($value['fermeAp']);
                 }elseif ($value['ouvertMat'] != null && $value['fermeMat'] != null && $value['ouvertAp'] == null) {
-                    $horraire['heure'] = $value['ouvertMat'] . ' à ' . $value['fermeMat'];
+                    $horraire['heure'] = $this->format($value['ouvertMat']) . ' à ' . $this->format($value['fermeMat']);
                 }elseif ($value['ouvertMat'] != null && $value['fermeMat'] != null && $value['ouvertAp'] != null && $value['fermeAp'] != null) {
-                    $horraire['heure'] = $value['ouvertMat'] . ' à ' . $value['fermeMat'] . ' <br/> ' .$value['ouvertAp'] . ' à ' . $value['fermeAp'];
+                    $horraire['heure'] = $this->format($value['ouvertMat']) . ' à ' . $this->format($value['fermeMat']) . ' <br/> ' . $this->format($value['ouvertAp']) . ' à ' . $this->format($value['fermeAp']);
                 }else {
                     $horraire['heure'] = 'erreur';
                 }
@@ -123,6 +123,23 @@
             }
 
             return $horraireTab;
+        }
+
+        private function format ($heure) {
+            if (isset($heure)) {
+                $format = explode(':', $heure);
+
+                if ($format[1] > 0) {
+                    $format = $format[0] . ' h ' . $format[1];
+                }else {
+                    $format = $format[0] . 'h';
+                }
+
+                return $format;
+            } else {
+                return 'erreur';
+            }
+            
         }
     }
 ?>
