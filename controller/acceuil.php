@@ -7,8 +7,9 @@
     require_once('../model/service.php');
     require_once('../model/horraire.php');
 
-    $lien = new navbar;
-    $lien = $lien->lien();
+    $nav = new navbar;
+    $lien = $nav->lien();
+    $etat = $nav->horraire();
 
     $entreprise = new entreprise;
     $titre = $entreprise->titre();

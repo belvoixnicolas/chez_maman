@@ -125,7 +125,7 @@
             return $horraireTab;
         }
 
-        private function format ($heure) {
+        public function format ($heure) {
             if (isset($heure)) {
                 $format = explode(':', $heure);
 
