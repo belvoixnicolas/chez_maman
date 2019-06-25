@@ -1,9 +1,14 @@
 <?php 
     require_once('horraire.php');
+    require_once('entreprise.php');
+    require_once('reseaux.php');
 
     class navbar {
         private $_fichier;
         private $_horraire;
+        private $_entreprise;
+        private $_reseaux;
+
 
         public function __construct() {
             $lien = explode("/", $_SERVER['PHP_SELF']);
@@ -12,6 +17,12 @@
             $horraire = new horraire;
             $horraire = $horraire->horraire();
             $this->_horraire = $horraire;
+
+            $entreprise = new entreprise;
+            $this->_entreprise = $entreprise;
+
+            $reseaux = new reseaux;
+            $this->_reseaux = $reseaux;
         }
 
         /// getter ///
@@ -207,6 +218,20 @@
             }
 
             return $resultat;
+        }
+
+        public function address () {
+            $adresse = $this->_entreprise;
+            $adresse = $adresse->address();
+
+            return $adresse;
+        }
+
+        public function reseau () {
+            $reseaux = $this->_reseaux;
+            $reseaux = $reseaux->reseaux();
+
+            return $reseaux;
         }
 
         private function delai ($debut, $fin) {

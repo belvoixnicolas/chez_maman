@@ -10,6 +10,8 @@
     $nav = new navbar;
     $lien = $nav->lien();
     $etat = $nav->horraire();
+    $lienAddress = $nav->address();
+    $reseaux = $nav->reseau();
 
     $entreprise = new entreprise;
     $titre = $entreprise->titre();

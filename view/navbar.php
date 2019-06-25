@@ -31,24 +31,44 @@
                 <li>
                     <?= $lien; ?>
                 </li>
-                <li>
-                    <a href="https://goo.gl/maps/Vm3LQ9AkFP3qhctG9" target="_blank" rel="noopener noreferrer nofollow">
-                        Itinéraire
-                    </a>
-                </li>
+                <?php
+                    if (isset($lienAddress) && $lienAddress) {
+                        $lien = str_replace(' ', '+', $lienAddress['numero'] . ' ' . $lienAddress['rue'] . ' ' . $lienAddress['cp'] . ' ' . $lienAddress['ville']);
+                ?>
+
+                    <li>
+                        <a href="https://www.google.com/maps/place/<?= $lien ?>" target="_blank" rel="noopener noreferrer nofollow">
+                            Itinéraire
+                        </a>
+                    </li>
+
+                <?php
+                    }
+                ?>
             </ul>
+            <?php
+                if (isset($reseaux) && $reseaux) {
+            ?>
+
             <ul class="reseaux">
+                <?php
+                    foreach ($reseaux as $value) {
+                ?>
+
                 <li>
-                    <a href="https://www.instagram.com/chez_maman_charleville/" target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/instagram.png" alt="Instagram">
+                    <a href="<?= $value['url'] ?>" target="_blank" rel="noopener noreferrer">
+                        <img src="src/reseaux/<?= $value['image'] ?>" alt="Logo de <?= $value['titre'] ?>">
                     </a>
                 </li>
-                <li>
-                    <a href="https://www.facebook.com/FabulousTrucknMagicCakes/" target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/facebook.png" alt="Facebook">
-                    </a>
-                </li>
+
+                <?php
+                    }
+                ?>
             </ul>
+
+            <?php
+                }
+            ?>
         </section>
         <section class="menu close">
             <h4>menu</h4>

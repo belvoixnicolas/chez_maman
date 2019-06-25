@@ -7,6 +7,8 @@
     $nav = new navbar;
     $lien = $nav->lien();
     $etat = $nav->horraire();
+    $lienAddress = $nav->address();
+    $reseaux = $nav->reseau();
 
     $menu = new sectionMenu;
     $menus = $menu->menus();
