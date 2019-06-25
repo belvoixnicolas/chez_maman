@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 19 juin 2019 à 05:14
+-- Généré le :  mar. 25 juin 2019 à 06:36
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.4
 
@@ -53,7 +53,7 @@ CREATE TABLE `entreprise` (
   `numeroRue` int(11) DEFAULT NULL,
   `rue` varchar(50) DEFAULT NULL,
   `ville` varchar(50) DEFAULT NULL,
-  `cp` int(11) DEFAULT NULL
+  `cp` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -114,10 +114,10 @@ CREATE TABLE `menu` (
 
 CREATE TABLE `produit` (
   `id` int(11) NOT NULL,
+  `titre` varchar(50) NOT NULL,
   `text` text,
   `image` varchar(50) NOT NULL,
   `prix` float NOT NULL,
-  `ordre` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -146,8 +146,8 @@ CREATE TABLE `reseau` (
   `id` int(11) NOT NULL,
   `titre` varchar(50) NOT NULL,
   `image` varchar(50) NOT NULL,
-  `url` text NOT NULL,
-  `id_entreprise` int(11) NOT NULL
+  `url` text,
+  `id_entreprise` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -232,7 +232,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT pour la table `avie`
 --
 ALTER TABLE `avie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `entreprise`
@@ -250,13 +250,13 @@ ALTER TABLE `horraire`
 -- AUTO_INCREMENT pour la table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `profil`
@@ -268,13 +268,13 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT pour la table `reseau`
 --
 ALTER TABLE `reseau`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
