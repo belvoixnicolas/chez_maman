@@ -5,10 +5,22 @@
                 <i class="fas fa-bars"></i>
             </div>
             <div class="horraire">
-                <img src="src/img/paneau_ouvert.svg" alt="Paneau ouvert" />
-                <p>
-                    jusqu'à 17 h 00
-                </p>
+                <?php 
+                    if (isset($etat) && $etat) {
+                ?>
+
+                    <img src="src/img/<?= $etat['image'] ?>" alt="Paneau" />
+                    <p>
+                        <?php 
+                            if ($etat['text']) {
+                                echo $etat['text'];
+                            }
+                        ?>
+                    </p>
+
+                <?php
+                    }
+                ?>
             </div>
             <ul class="lien">
                 <li>

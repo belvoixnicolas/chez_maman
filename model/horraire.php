@@ -129,6 +129,12 @@
             if (isset($heure)) {
                 $format = explode(':', $heure);
 
+                $h = $format[0];
+
+                if ($h[0] == 0) {
+                    $format[0] = $h[1];
+                }
+
                 if ($format[1] > 0) {
                     $format = $format[0] . ' h ' . $format[1];
                 }else {

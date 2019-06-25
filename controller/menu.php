@@ -4,8 +4,9 @@
     require_once('../model/navbar.php');
     require_once('../model/section_menu.php');
 
-    $lien = new navbar;
-    $lien = $lien->lien();
+    $nav = new navbar;
+    $lien = $nav->lien();
+    $etat = $nav->horraire();
 
     $menu = new sectionMenu;
     $menus = $menu->menus();
