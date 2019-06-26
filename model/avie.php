@@ -30,5 +30,29 @@
                 return false;
             }
         }
+
+        /// setter ///
+        public function setAvie($text) {
+            if (is_string($text) && isset($text) && $text != '') {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare("INSERT INTO `avie` (`id`, `text`) VALUES (NULL, :text)");
+                $variables = array(
+                    ':text' => $text
+                );
+
+                if ($req->execute($variables)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return true;
+                }else {
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
     }
 ?>

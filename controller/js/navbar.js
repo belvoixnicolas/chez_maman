@@ -56,12 +56,12 @@ $(document).ready(function(){
         }
     });*/
 
-    $('.formulaire input[type=button]').on('click', function () {
+    /*$('.formulaire input[type=button]').on('click', function () {
         var li = '<li>' + $('.commentaires ul li:first-child').html() + '</li>';
 
         var ul = $('.commentaires ul').html() + li;
         $('.commentaires ul').html(ul);
-    });
+    });*/
 
     $(window).resize(function () {
         viewport();

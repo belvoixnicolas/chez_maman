@@ -36,5 +36,6 @@
         
                 <input type="button" value="Poster">
             </form>
+            <script src="js/ajax/post_avie.js"></script>
         </section>
 </article>
