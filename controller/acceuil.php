@@ -12,6 +12,7 @@
     $etat = $nav->horraire();
     $lienAddress = $nav->address();
     $reseaux = $nav->reseau();
+    $numero = $nav->numero();
 
     $entreprise = new entreprise;
     $titre = $entreprise->titre();

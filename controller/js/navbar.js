@@ -3,11 +3,11 @@ $(document).ready(function(){
         var viewport = $(window).width();
         console.log(viewport);
 
-        if (viewport <= 490) {
+        /*if (viewport <= 490) {
             $('.bar .lien li:first-child').html('<a href="tel:+33324530905">Appeler</a>');
         }else {
             $('.bar .lien li:first-child').html('<button>Appeler</button>');
-        }
+        }*/
 
         if (viewport <= 500) {
             $('#tel').removeClass();
@@ -48,13 +48,13 @@ $(document).ready(function(){
         $('nav .menu').addClass('close');
     });
 
-    $('.bar .lien').on('click', 'button', function () {
+    /*$('.bar .lien').on('click', 'button', function () {
         if ($(this).attr('class') != 'tel') {
             $(this).addClass('tel').text('03.24.53.09.05');
         }else {
             $(this).removeClass().text(text);
         }
-    });
+    });*/
 
     $('.formulaire input[type=button]').on('click', function () {
         var li = '<li>' + $('.commentaires ul li:first-child').html() + '</li>';

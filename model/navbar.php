@@ -2,12 +2,14 @@
     require_once('horraire.php');
     require_once('entreprise.php');
     require_once('reseaux.php');
+    require_once('Mobile_Detect.php');
 
     class navbar {
         private $_fichier;
         private $_horraire;
         private $_entreprise;
         private $_reseaux;
+        private $_mobile;
 
 
         public function __construct() {
@@ -23,6 +25,9 @@
 
             $reseaux = new reseaux;
             $this->_reseaux = $reseaux;
+
+            $mobile = new Mobile_Detect;
+            $this->_mobile = $mobile;
         }
 
         /// getter ///
@@ -232,6 +237,29 @@
             $reseaux = $reseaux->reseaux();
 
             return $reseaux;
+        }
+
+        public function numero () {
+            $entreprise = $this->_entreprise;
+
+            $numero = $entreprise->numero();
+
+            if ($numero) {
+                $mobile = $this->_mobile;
+                if ($mobile->isMobile() || $mobile->isTablet()) {
+                    return array (
+                        'mobile' => true,
+                        'numero' => $numero
+                    );
+                }else {
+                    return array (
+                        'mobile' => false,
+                        'numero' => $numero
+                    );
+                }
+            }else {
+                return false;
+            }
         }
 
         private function delai ($debut, $fin) {

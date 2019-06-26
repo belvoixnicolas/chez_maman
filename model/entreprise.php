@@ -125,5 +125,15 @@
                 return false;
             }
         }
+
+        public function numero() {
+            $numero = $this->_telephone;
+
+            if ($numero != null) {
+                return '0' . $numero;
+            }else {
+                return false;
+            }
+        }
     }
 ?>

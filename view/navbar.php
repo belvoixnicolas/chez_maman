@@ -23,11 +23,31 @@
                 ?>
             </div>
             <ul class="lien">
-                <li>
-                    <button>
-                        Appeler
-                    </button>
-                </li>
+                <?php
+                    if (isset($numero) && $numero) {
+                        if ($numero['mobile']) {
+                ?>
+
+                    <li>
+                        <a href="tel:+33<?= substr($numero['numero'], 1) ?>">
+                            Appeler
+                        </a>
+                    </li>
+
+                <?php
+                        }else {
+                ?>
+
+                    <li>
+                        <span>
+                            <?= implode('.', str_split($numero['numero'], 2)) ?>
+                        </span>
+                    </li>
+
+                <?php
+                        }
+                    }
+                ?>
                 <li>
                     <?= $lien; ?>
                 </li>
