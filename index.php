@@ -14,6 +14,11 @@
                 header('Location: controller/menu.php');
                 exit();
                 break;
+
+            case 'connexion':
+                header('Location: controller/connexion.php');
+                exit();
+                break;
             
             default:
                 header('Location: controller/acceuil.php');
