@@ -308,5 +308,19 @@
                 }
             }
         }
+
+        public function deco() {
+            if (isset($_SESSION['profil'])) {
+                unset($_SESSION['profil']);
+
+                if (isset($_SESSION['profil'])) {
+                    return false;
+                }else {
+                    return true;
+                }
+            }else {
+                return true;
+            }
+        }
     }
 ?>

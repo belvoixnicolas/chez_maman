@@ -28,6 +28,19 @@
                 header('location: controller/admin.php');
                 exit();
                 break;
+
+            case 'gestion':
+                if (isset($_GET['precis']) && $_GET['precis'] == 'entreprise') {
+                    header('Location: controller/gestion.php?precis=entreprise');
+                    exit();
+                }elseif (isset($_GET['precis']) && $_GET['precis'] == 'perso') {
+                    header('Location: controller/gestion.php?precis=perso');
+                    exit();
+                }else {
+                    header('Location: controller/gestion.php');
+                    exit();
+                }
+                break;
             
             default:
                 header('Location: controller/acceuil.php');

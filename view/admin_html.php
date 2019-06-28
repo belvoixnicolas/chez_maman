@@ -9,7 +9,7 @@
     <nav>
         <ul>
             <li>
-                <a href="../index.php?page">
+                <a href="../index.php?page=gestion">
                     Gestion
                 </a>
             </li>
