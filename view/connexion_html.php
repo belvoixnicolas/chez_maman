@@ -32,17 +32,17 @@
             <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required>
             
             <?php
-                if (isset($mail) == false || $mail == false) {
+                $checked = '';
+                if (isset($mail)) {
+                    $checked = 'checked';
+                }
             ?>
                 <fieldset>
-                    <input type="checkbox" name="souv" id="souv">
+                    <input type="checkbox" name="souv" id="souv" <?= $checked ?>>
                     <label for="souv">
                         Se souvenir de moi
                     </label>
                 </fieldset>
-            <?php
-                }
-            ?>
 
             <input type="submit" value="Connexion">
         </form>

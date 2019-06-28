@@ -13,22 +13,14 @@
 
     $profil = new profil;
 
-    if (isset($_POST['mail']) && isset($_POST['mdp']) && isset($_POST['souv'])) {
-        if ($_POST['souv'] == 'on') {
-            $_POST['souv'] = true;
+    if (isset($_POST['mail']) && isset($_POST['mdp'])) {
+        if (isset($_POST['souv'])) {
+            $souv = true;
         }else {
-            $_POST['souv'] = false;
+            $souv = false;
         }
 
-        if ($connexion = $profil->connexion($_POST['mail'], $_POST['mdp'], $_POST['souv'])) {
-            $_SESSION['profil'] = $connexion;
-            header('Location: ../index.php?page=admin');
-            exit();
-        }else {
-            $connexion = false;
-        }
-    }elseif (isset($_POST['mail']) && isset($_POST['mdp'])) {
-        if ($connexion = $profil->connexion($_POST['mail'], $_POST['mdp'])) {
+        if ($connexion = $profil->connexion($_POST['mail'], $_POST['mdp'], $souv)) {
             $_SESSION['profil'] = $connexion;
             header('Location: ../index.php?page=admin');
             exit();

@@ -24,6 +24,10 @@
                 if (password_verify($mdp, $result['motDePasse'])) {
                     if (is_bool($souv) && $souv) {
                         setcookie("souv", $result['mail'], strtotime('+1 year'));
+                    }elseif (is_bool($souv) && isset($_COOKIE['souv']) && $souv == false) {
+                        if ($_COOKIE['souv'] == $mail) {
+                            setcookie("souv", "", time() - 3600);
+                        }
                     }
 
                     $hash = $result['motDePasse'];
@@ -97,7 +101,7 @@
                     'result' => false,
                     'text' => 'Se n\'est pas une addresse mail'
                 );
-            }elseif ($this->comparMail($mail) == false) {
+            }elseif ($this->comparMail($mail)) {
                 return array(
                     'result' => false,
                     'text' => 'Cette addresse mail est déja utiliser'
@@ -218,7 +222,7 @@
             }elseif ($this->comparMail($mail) == false) {
                 return array(
                     'result' => false,
-                    'text' => 'Cette addresse mail est déja utiliser'
+                    'text' => 'Cette addresse mail n\'existe pas'
                 );
             }elseif ($mail == 'admin@admin') {
                 return array(
@@ -229,8 +233,45 @@
                 $newmdp =  $this->mdpAleatoire();
                 $newmdphash = password_hash($newmdp, PASSWORD_BCRYPT);
 
-                if (mail($mail, 'Nouveaux mot de passe', $newmdp)) {
-                    return 'ok';
+                $to = $mail;
+                $subject = "Mot de passe oublier";
+                $txt = '<p>' . $newmdp . '</p>';
+                $headers = array(
+                    'From' => "webmaster@chezmaman.com",
+                    'MIME-Version' => '1.0',
+                    'Content-type' => 'text/html; charset=iso-8859-1'
+                );
+
+                if (mail($to,$subject,$txt,$headers)) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('UPDATE profil SET motDePasse = :mdp WHERE mail = :mail');
+                    $value = array(
+                        ':mdp' => $newmdphash,
+                        ':mail' => $mail
+                    );
+
+                    if ($req->execute($value)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        $subject = 'Erreur mot de passe';
+                        $txt = '<p>Le mot de passe n\'a pas put étre envoyer a la base de donner</p>';
+                        mail($to,$subject,$txt,$headers);
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le mot de passe n\'a pas put étre envoyer a la base de donner'
+                        );
+                    }
                 }else {
                     return array(
                         'result' => false,
