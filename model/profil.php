@@ -50,6 +50,34 @@
             }
         }
 
+        public function verifProfil ($profil) {
+            if (is_array($profil) && isset($profil['id'], $profil['mail'], $profil['admin'])) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('SELECT id, mail, admin FROM profil WHERE id = :id AND mail = :mail AND admin = :admin');
+                $req->execute(array(
+                    ':id' => $profil['id'],
+                    ':mail' => $profil['mail'],
+                    ':admin' => $profil['admin']
+                ));
+
+                if ($req->fetch()) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return true;
+                }else {
+                    $req->closecursor ();
+                    $bdd = null;
+
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
         private function comparMail ($mail) {
             $bdd = $this->_bdd;
             $bdd = $bdd->co();

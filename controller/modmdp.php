@@ -9,5 +9,5 @@
         $modmdp = $profil->mdpPerdu($_POST['mail']);
     }
 
-    include_once('../view/modmdp.php');
+    include_once('../view/modmdp_html.php');
 ?>
