@@ -68,6 +68,18 @@
             }
         }
 
+        private function mdpAleatoire() {
+         $chaine = '';
+         $listeCar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+         $max = mb_strlen($listeCar, '8bit') - 1;
+
+         for ($i = 0; $i < 10; ++$i) {
+            $chaine .= $listeCar[random_int(0, $max)];
+         }
+
+         return $chaine;
+        }
+
         /// setter ///
         public function addProfil ($mail, $mdp, $admin = null) {
             if (is_string($mail) == false || $mail == '') {
@@ -78,14 +90,14 @@
             }elseif (strlen($mail) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'L\'addresse mail est trop long ' . strlen($mail)
+                    'text' => 'L\'addresse mail est trop long '
                 );
             }elseif (strpos($mail, '@') === false || strpos($mail, ' ')) {
                 return array(
                     'result' => false,
                     'text' => 'Se n\'est pas une addresse mail'
                 );
-            }elseif ($this->comparMail($mail)) {
+            }elseif ($this->comparMail($mail) == false) {
                 return array(
                     'result' => false,
                     'text' => 'Cette addresse mail est déja utiliser'
@@ -188,6 +200,42 @@
                             'text' => 'Une erreur c\'est produit sur la variable admin'
                         );
                     }
+                }
+            }
+        }
+
+        public function mdpPerdu($mail) {
+            if (is_string($mail) == false || $mail == '') {
+                return array(
+                    'result' => false,
+                    'text' => 'Il manque l\'adresse mail'
+                );
+            }elseif (strpos($mail, '@') === false || strpos($mail, ' ')) {
+                return array(
+                    'result' => false,
+                    'text' => 'Se n\'est pas une addresse mail'
+                );
+            }elseif ($this->comparMail($mail) == false) {
+                return array(
+                    'result' => false,
+                    'text' => 'Cette addresse mail est déja utiliser'
+                );
+            }elseif ($mail == 'admin@admin') {
+                return array(
+                    'result' => false,
+                    'text' => 'Ce compte ne peux pas étre modifier'
+                );
+            }else {
+                $newmdp =  $this->mdpAleatoire();
+                $newmdphash = password_hash($newmdp, PASSWORD_BCRYPT);
+
+                if (mail($mail, 'Nouveaux mot de passe', $newmdp)) {
+                    return 'ok';
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le mail n\'à pas put étre envoyer'
+                    );
                 }
             }
         }

@@ -19,6 +19,15 @@
                 header('Location: controller/connexion.php');
                 exit();
                 break;
+
+            case 'modmdp':
+                header('Location: controller/modmdp.php');
+                break;
+
+            case 'admin':
+                header('location: controller/admin.php');
+                exit();
+                break;
             
             default:
                 header('Location: controller/acceuil.php');

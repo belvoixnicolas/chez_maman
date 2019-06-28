@@ -4,6 +4,17 @@
     <?php include('head.php'); ?>
 </head>
 <body id="connexion">
+    <?php
+        if (isset($connexion) && $connexion == false) {
+    ?>
+
+        <div id="erreur">
+            Le mot de passe ou l'addresse mail est mauvais
+        </div>
+
+    <?php
+        }
+    ?>
     <nav>
         <a href="../index.php?page=index"><i class="fas fa-chevron-left"></i></a>
     </nav>
@@ -17,7 +28,7 @@
                     $mailText = '';
                 }
             ?>
-            <input type="text" name="mail" id="mail" placeholder="Email" <?= $mailText   ?> required>
+            <input type="email" name="mail" id="mail" placeholder="Email" <?= $mailText   ?> required>
             <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required>
             
             <?php
@@ -36,7 +47,7 @@
             <input type="submit" value="Connexion">
         </form>
 
-        <a href="#">
+        <a href="../index.php?page=modmdp">
             Mot de passe oublier
         </a>
     </main>
