@@ -22,11 +22,12 @@
                 $bdd = null;
 
                 if (password_verify($mdp, $result['motDePasse'])) {
-                    if (is_bool($souv) && $souv) {
+                    if (is_bool($souv) && $souv && strtolower($mail) != strtolower('admin@admin')) {
                         setcookie("souv", $result['mail'], strtotime('+1 year'));
                     }elseif (is_bool($souv) && isset($_COOKIE['souv']) && $souv == false) {
                         if ($_COOKIE['souv'] == $mail) {
                             setcookie("souv", "", time() - 3600);
+                            unset($_COOKIE['souv']);
                         }
                     }
 
