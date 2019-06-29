@@ -13,6 +13,8 @@
 
             header('Location: ../index.php');
             exit();
+        }else {
+            $profiluser = $_SESSION['profil'];
         }
     }else {
         unset($_SESSION['profil']);

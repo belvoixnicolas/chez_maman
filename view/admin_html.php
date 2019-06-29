@@ -13,31 +13,55 @@
                     Gestion
                 </a>
             </li>
-            <li>
-                <a href="../index.php?page">
-                    Description
-                </a>
-            </li>
+            <?php
+                if (isset($profiluser['admin']) && $profiluser['admin'] == 1) {
+            ?>
+
+                <li>
+                    <a href="../index.php?page">
+                        Description
+                    </a>
+                </li>
+
+            <?php
+                }
+            ?>
             <li>
                 <a href="../index.php?page">
                     Avis
                 </a>
             </li>
-            <li>
-                <a href="../index.php?page">
-                    Service
-                </a>
-            </li>
+            <?php
+                if (isset($profiluser['admin']) && $profiluser['admin'] == 1) {
+            ?>
+
+                <li>
+                    <a href="../index.php?page">
+                        Service
+                    </a>
+                </li>
+
+            <?php
+                }
+            ?>
             <li>
                 <a href="../index.php?page">
                     Menu
                 </a>
             </li>
-            <li>
-                <a href="../index.php?page">
-                    Horraires
-                </a>
-            </li>
+            <?php
+                if (isset($profiluser['admin']) && $profiluser['admin'] == 1) {
+            ?>
+
+                <li>
+                    <a href="../index.php?page">
+                        Horraires
+                    </a>
+                </li>
+
+            <?php
+                }
+            ?>
         </ul>
     </nav>
 </body>
