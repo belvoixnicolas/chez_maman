@@ -1,6 +1,24 @@
 $(document).ready(function(){
     //console.log(window.location.href);
 
+    $('#navbaradmin .bar .menuBurger').on('click', function () {
+        var atribut = $('.menuBurger i').attr('class');
+
+        if (atribut == 'fas fa-bars') {
+            $('.menuBurger i').removeClass().addClass('fas fa-times');
+        }else {
+            $('.menuBurger i').removeClass().addClass('fas fa-bars');
+        }
+
+        var menu = $('nav .menu').css('minWidth').slice(0, -2);
+
+        if (menu == 0) {
+            $('nav .menu').removeClass('close');
+        }else {
+            $('nav .menu').addClass('close');
+        }
+    });
+
     $('#navbaradmin .menu #deconnexion').on('click', function () {
         event.preventDefault();
         

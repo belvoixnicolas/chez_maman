@@ -237,6 +237,92 @@
             }
         }
 
+        public function modident ($mail, $pwd, $id) {
+            $mail = $this->modifmail($mail, $id);
+            $pwd = $this->modifpwd($pwd, $id);
+
+            if ($mail == false) {
+                $mail = 0;
+            }
+
+            if ($pwd == false) {
+                $pwd = 0;
+            }
+
+            return $mail . '|' . $pwd;
+        }
+
+        public function modifmail ($mail, $id) {
+            if (filter_var($mail, FILTER_VALIDATE_EMAIL) && strlen($mail) <= 50 && $mail != "admin@admin" && $this->comparMail($mail) == false) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('UPDATE profil SET mail = :mail WHERE id = :id');
+                
+                $array = array(
+                    ':mail' => $mail,
+                    ':id' => $id
+                );
+
+                if ($req->execute($array)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    $www = $_SERVER['HTTP_HOST'];
+
+                    $to = $mail;
+                    $subject = "Adresse mail modifier";
+                    $txt = '<p>Votre adresse mail à bien étais modifier</p><br/><a href="' . $www . '/chez_maman/index.php?page=connexion" target="_blank">Ce conecter</a>';
+                    $headers = array(
+                        'From' => "webmaster@chezmaman.com",
+                        'MIME-Version' => '1.0',
+                        'Content-type' => 'text/html; charset=iso-8859-1'
+                    );
+
+                    mail($to,$subject,$txt,$headers);
+
+                    return true;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
+        public function modifpwd ($pwd, $id) {
+            if (is_string($pwd) || is_float($pwd) && is_int($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('UPDATE profil SET motDePasse = :pwd WHERE id = :id');
+
+                $hash = password_hash($pwd, PASSWORD_BCRYPT);
+
+                $array = array(
+                    ':pwd' => $hash,
+                    ':id' => $id
+                );
+
+                if ($req->execute($array)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return true;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
         public function mdpPerdu($mail) {
             if (is_string($mail) == false || $mail == '') {
                 return array(

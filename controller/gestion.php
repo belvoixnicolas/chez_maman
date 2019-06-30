@@ -19,7 +19,7 @@
             if ($session['admin'] == 0) {
                 include_once('../view/gestion_perso_html.php');
             }elseif ($session['admin'] == 1) {
-                if (isset($_GET['precis']) && $_GET['precis'] == 'perso') {
+                if (isset($_GET['precis']) && $_GET['precis'] == 'perso' && $session['mail'] != 'admin@admin') {
                     include_once('../view/gestion_perso_html.php');
                 }elseif (isset($_GET['precis']) && $_GET['precis'] == 'entreprise') {
                     include_once('../view/gestion_entreprise_html.php');
