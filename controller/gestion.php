@@ -2,6 +2,7 @@
     session_start();
 
     require_once('../model/profil.php');
+    require_once('../model/entreprise.php');
 
     $profil = new profil;
     
@@ -21,9 +22,12 @@
             }elseif ($session['admin'] == 1) {
                 if (isset($_GET['precis']) && $_GET['precis'] == 'perso' && $session['mail'] != 'admin@admin') {
                     include_once('../view/gestion_perso_html.php');
-                }elseif (isset($_GET['precis']) && $_GET['precis'] == 'entreprise') {
-                    include_once('../view/gestion_entreprise_html.php');
                 }else {
+                    $entreprise = new entreprise;
+
+                    $logo = $entreprise->logo();
+                    $titre = $entreprise->titre();
+                    
                     include_once('../view/gestion_entreprise_html.php');
                 }
             }else {

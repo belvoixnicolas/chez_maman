@@ -38,6 +38,107 @@
             $this->_cp = $resultat['cp'];
         }
 
+        /// setter ///
+        public function setterlogo($file) {
+            if (is_array($file) && isset($file['name'], $file['type'], $file['tmp_name'])) {
+                switch ($file['type']) {
+                    case 'image/gif':
+                    case 'image/jpeg':
+                    case 'image/png':
+                    case 'image/svg+xml':
+
+                        $type = true;
+                        break;
+                    
+                    default:
+                        $type = false;
+                        break;
+                }
+
+                if ($type) {
+                    if (move_uploaded_file($file['tmp_name'], 'src/logo/' . $file['name'])) {
+                        $logo = $this->logo();
+                        $bdd = $this->_bdd;
+                        $bdd = $bdd->co();
+
+                        $req = $bdd->prepare('UPDATE entreprise SET logo = :logo WHERE id = 1');
+
+                        if ($logo) {
+                            $array = array(
+                                ':logo' => $file['name']
+                            );
+
+                            if ($req->execute($array)) {
+                                $req->closecursor();
+                                $bdd = null;
+
+                                unlink('src/logo/' . $logo);
+                                $this->_logo = $file['name'];
+
+                                return array(
+                                    'result' => true,
+                                    'text' => 'Le logo a bien étais mis a jour',
+                                    'img' => $file['name']
+                                );
+                            }else {
+                                $req->closecursor();
+                                $bdd = null;
+
+                                unlink('src/logo/' . $file['name']);
+
+                                return array(
+                                    'result' => false,
+                                    'text' => 'La base de donner n\'a pas put étre mis a jour'
+                                );
+                            }
+                        }else {
+                            $array = array(
+                                ':logo' => $file['name']
+                            );
+
+                            if ($req->execute($array)) {
+                                $req->closecursor();
+                                $bdd = null;
+
+                                $this->_logo = $file['name'];
+
+                                return array(
+                                    'result' => true,
+                                    'text' => 'Le logo a bien étais mis a jour',
+                                    'img' => $file['name']
+                                );
+                            }else {
+                                $req->closecursor();
+                                $bdd = null;
+
+                                unlink('src/logo/' . $file['name']);
+
+                                return array(
+                                    'result' => false,
+                                    'text' => 'La base de donner n\'a pas put étre mis a jour'
+                                );
+                            }
+                        }
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'Le fichier n\'a pas étais envoyer au serveur'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Seul les .gif, .jpeg, .png et .svg sont autoriser'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Vous n\'avais pas envoyer de fichier'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;
