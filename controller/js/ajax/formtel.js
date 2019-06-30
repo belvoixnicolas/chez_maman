@@ -46,14 +46,12 @@ $(document).ready(function(){
                     }, 5000);
                 }
             }).fail(function () {
-                console.log('fail');
-
-                /*$('#message .text').html('Une erreur c\'est produit');
+                $('#message .text').html('Une erreur c\'est produit');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
                     $('#message button').trigger('click');
-                }, 5000);*/
+                }, 5000);
             });
         }
     });
