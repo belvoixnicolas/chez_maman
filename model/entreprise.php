@@ -153,11 +153,19 @@
                     );
 
                     if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        $this->_titre = $titre;
+
                         return array(
                             'result' => true,
                             'text' => 'Le titre a étais mis à jour'
                         );
                     }else {
+                        $req->closecursor();
+                        $bdd = null;
+
                         return array(
                             'result' => false,
                             'text' => 'Le titre n\'a pas put étre mis à jour'
@@ -183,6 +191,70 @@
                 return array(
                     'result' => false,
                     'text' => 'Une erreur c\'est produit'
+                );
+            }
+        }
+
+        public function setterphrase($phrase) {
+            if (is_string($phrase)) {
+                if (strlen($phrase) <= 50) {
+                    $oldphrase = $this->phrase();
+
+                    if ($oldphrase != $phrase) {
+                        $bdd = $this->_bdd;
+                        $bdd = $bdd->co();
+
+                        $req = $bdd->prepare('UPDATE entreprise SET phrase = :phrase WHERE id = 1');
+
+                        if ($phrase == '') {
+                            $array = array(
+                                ':phrase' => null
+                            );
+                        }else {
+                            $array = array(
+                                ':phrase' => $phrase
+                            );
+                        }
+
+                        if ($req->execute($array)) {
+                            $req->closecursor();
+                            $bdd = null;
+
+                            if ($phrase == '') {
+                                $this->_phrase = null;
+                            }else {
+                                $this->_phrase = $phrase;
+                            }
+
+                            return array(
+                                'result' => true,
+                                'text' => 'Le slogan a bien étais modifier'
+                            );
+                        }else {
+                            $req->closecursor();
+                            $bdd = null;
+
+                            return array(
+                                'result' => false,
+                                'text' => 'Ce slogan n\'a pas put étre envoier a la base de donner'
+                            );
+                        }
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'Ce slogan est déja utiliser'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le titre ne peux faire 50 caractére maximum. Il est actuellement de ' . strlen($phrase)
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Seul le text est autoriser'
                 );
             }
         }

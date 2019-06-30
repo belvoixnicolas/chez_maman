@@ -27,6 +27,7 @@
 
                     $logo = $entreprise->logo();
                     $titre = $entreprise->titre();
+                    $phrase = $entreprise->phrase();
                     
                     include_once('../view/gestion_entreprise_html.php');
                 }

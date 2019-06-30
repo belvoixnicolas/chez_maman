@@ -22,6 +22,9 @@
     <?php
         include_once('formtitre.php');
     ?>
+    <?php
+        include_once('formphrase.php');
+    ?>
     </main>
 </body>
 </html>
