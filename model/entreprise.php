@@ -139,12 +139,60 @@
             }
         }
 
+        public function settertitre($titre) {
+            if (is_string($titre) && $titre != '' && strlen($titre) <= 50) {
+                $oldtitre = $this->titre();
+
+                if ($oldtitre != $titre) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('UPDATE entreprise SET titre = :titre WHERE id = 1');
+                    $array = array(
+                        ':titre' => $titre
+                    );
+
+                    if ($req->execute($array)) {
+                        return array(
+                            'result' => true,
+                            'text' => 'Le titre a étais mis à jour'
+                        );
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'Le titre n\'a pas put étre mis à jour'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Ce titre est déja utiliser'
+                    );
+                }
+            }elseif (strlen($titre) > 50) {
+                return array(
+                    'result' => false,
+                    'text' => 'Le titre doit faire moin de 50 caractére. Il est actuellement de ' . strlen($titre)
+                );
+            }elseif ($titre == '') {
+                return array(
+                    'result' => false,
+                    'text' => 'Vous avez envoyer du text vide'
+                );
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Une erreur c\'est produit'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;
 
             if ($titre == null) {
-                $titre = 'Titre';
+                $titre = 'titre';
             }
 
             return $titre;

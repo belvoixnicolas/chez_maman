@@ -6,17 +6,17 @@ $(document).ready(function(){
         //window.clearTimeout(delayMessage);
     });
 
-    $('#formlogo').on('submit', function () {
+    $('#formtitre').on('submit', function () {
         event.preventDefault();
 
-        var inputLogo = $('#formlogo #logo').val();
+        var inputTitre = $('#formtitre #titre').val();
 
-        if (inputLogo != '') {
+        if (inputTitre != '') {
             var formData = new FormData();
-            formData.append('file', $('#formlogo #logo')[0].files[0]);
+            formData.append('titre', $('#formtitre input').val());
 
             $.ajax({
-                url : 'modlogo.php',
+                url : 'modtitre.php',
                 type : 'POST',
                 data : formData,
                 dataType: 'json',
@@ -25,8 +25,6 @@ $(document).ready(function(){
             }).done(function (data) {
                 if (typeof data == 'object' && typeof data.result !== 'undefined' && typeof data.text !== 'undefined') {
                     if (data.result) {
-                        $('#sectionformlogo img').attr('src', 'src/logo/' + data.img);
-                        $('#formlogo #logo').val(null);
                         $('#message .text').html(data.text);
                         $('#message').addClass('true').removeClass('hidden');
                         
@@ -34,7 +32,6 @@ $(document).ready(function(){
                             $('#message button').trigger('click');
                         }, 5000);
                     }else {
-                        $('#formlogo #logo').val(null);
                         $('#message .text').html(data.text);
                         $('#message').addClass('false').removeClass('hidden');
                         
@@ -43,7 +40,6 @@ $(document).ready(function(){
                         }, 5000);
                     }
                 }else {
-                    $('#formlogo #logo').val(null);
                     $('#message .text').html('Une erreur c\'est produit');
                     $('#message').addClass('false').removeClass('hidden');
                     
@@ -52,7 +48,6 @@ $(document).ready(function(){
                     }, 5000);
                 }
             }).fail(function () {
-                $('#formlogo #logo').val(null);
                 $('#message .text').html('Une erreur c\'est produit');
                 $('#message').addClass('false').removeClass('hidden');
                 

@@ -19,6 +19,9 @@
     <?php
         include_once('formlogo.php');
     ?>
+    <?php
+        include_once('formtitre.php');
+    ?>
     </main>
 </body>
 </html>

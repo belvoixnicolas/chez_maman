@@ -272,7 +272,7 @@
 
                     $to = $mail;
                     $subject = "Adresse mail modifier";
-                    $txt = '<p>Votre adresse mail à bien étais modifier</p><br/><a href="' . $www . '/chez_maman/index.php?page=connexion" target="_blank">Ce conecter</a>';
+                    $txt = '<p>Votre adresse mail à bien étais modifier</p><br/><a href="' . $www . '/index.php?page=connexion" target="_blank">Ce conecter</a>';
                     $headers = array(
                         'From' => "webmaster@chezmaman.com",
                         'MIME-Version' => '1.0',

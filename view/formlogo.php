@@ -1,4 +1,4 @@
-        <section id="formlogo">
+        <section id="sectionformlogo">
             <h2>
                 logo
             </h2>
