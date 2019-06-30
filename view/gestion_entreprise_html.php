@@ -28,6 +28,9 @@
     <?php
         include_once('formtel.php');
     ?>
+    <?php
+        include_once('formadresse.php');
+    ?>
     </main>
 </body>
 </html>
