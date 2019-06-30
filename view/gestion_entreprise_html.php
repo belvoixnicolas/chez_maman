@@ -25,6 +25,9 @@
     <?php
         include_once('formphrase.php');
     ?>
+    <?php
+        include_once('formtel.php');
+    ?>
     </main>
 </body>
 </html>

@@ -259,6 +259,64 @@
             }
         }
 
+        public function setternumero($tel) {
+            if (is_int($tel) && $tel != 0 && strlen($tel) == 9 || $tel == '') {
+                $tel = 0 . $tel;
+                $oldtel = $this->numero();
+                
+                if ($oldtel == false) {
+                    $oldtel = '00';
+                }
+
+                if ($tel != $oldtel) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('UPDATE entreprise SET telephone = :tel WHERE id = 1');
+
+                    if ($tel == 00) {
+                        $array = array(
+                            ':tel' => null
+                        );
+                    }else {
+                        $array = array(
+                            ':tel' => substr($tel, 1)
+                        );
+                    }
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        $this->_telephone = $array[':tel'];
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le nouveau numero a bien étais mis a jour'
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le nouveau numero n\'a pas put étre envoyer a la base de donner'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le numero est déja utiliser'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Seul les numero de teléphone sont autoriser'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;

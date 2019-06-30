@@ -28,6 +28,7 @@
                     $logo = $entreprise->logo();
                     $titre = $entreprise->titre();
                     $phrase = $entreprise->phrase();
+                    $tel = $entreprise->numero();
                     
                     include_once('../view/gestion_entreprise_html.php');
                 }
