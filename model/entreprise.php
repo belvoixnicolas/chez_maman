@@ -317,6 +317,17 @@
             }
         }
 
+        public function setteraddress($nbrue, $rue, $ville, $cp) {
+            if ($nbrue != '' && $rue != '' && $ville != '' && $cp != '') {
+                return 'ok';
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Il manque une ou plusieur information'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;

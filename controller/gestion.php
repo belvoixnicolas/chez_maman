@@ -20,7 +20,7 @@
             if ($session['admin'] == 0) {
                 include_once('../view/gestion_perso_html.php');
             }elseif ($session['admin'] == 1) {
-                if (isset($_GET['precis']) && $_GET['precis'] == 'perso' && $session['mail'] != 'admin@admin') {
+                if (isset($_GET['precis']) && $_GET['precis'] == 'perso' && $session['id'] != '1') {
                     include_once('../view/gestion_perso_html.php');
                 }else {
                     $entreprise = new entreprise;
@@ -29,6 +29,7 @@
                     $titre = $entreprise->titre();
                     $phrase = $entreprise->phrase();
                     $tel = $entreprise->numero();
+                    $address = $entreprise->address();
                     
                     include_once('../view/gestion_entreprise_html.php');
                 }
