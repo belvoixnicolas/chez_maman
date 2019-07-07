@@ -319,7 +319,90 @@
 
         public function setteraddress($nbrue, $rue, $ville, $cp) {
             if ($nbrue != '' && $rue != '' && $ville != '' && $cp != '') {
-                return 'ok';
+                if (is_int($nbrue) && is_int($cp)) {
+                    if (strlen($nbrue) <= 11 && strlen($rue) <= 50 && strlen($ville) <= 50 && strlen($cp) <= 5) {
+                        if (strlen($cp) == 5) {
+                            $cp = $cp;
+                        }elseif (strlen($cp) == 4) {
+                            $num = substr($cp, 0, 1);
+
+                            if ($num != 0) {
+                                $cp = 0 . $cp;
+                            }else {
+                                $cp = false;
+                            }
+                        }else {
+                            $cp = false;
+                        }
+
+                        if ($cp) {
+                            $bdd = $this->_bdd;
+                            $bdd = $bdd->co();
+
+                            $req = $bdd->prepare('UPDATE entreprise SET numeroRue = :num, rue = :rue, ville = :ville, cp = :cp WHERE id = 1');
+
+                            $array = array(
+                                ':num' => $nbrue,
+                                ':rue' => $rue,
+                                ':ville' => $ville,
+                                ':cp' => $cp
+                            );
+
+                            if ($req->execute($array)) {
+                                $req->closecursor();
+                                $bdd = null;
+
+                                return array(
+                                    'result' => true,
+                                    'text' => 'L\'addresse à étais mis a jour'
+                                );
+                            }else {
+                                $req->closecursor();
+                                $bdd = null;
+
+                                return array(
+                                    'result' => false,
+                                    'text' => 'La nouvelle addresse n\'a pas put étre mis a jour'
+                                );
+                            }
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Vous n\'avais pas idiquer le code postale'
+                            );
+                        }
+                    }elseif (strlen($nbrue) > 11) {
+                        return array(
+                            'result' => false,
+                            'text' => 'Le numero de rue ne peux jusqu\'a 99999999999'
+                        );
+                    }elseif (strlen($rue) > 50) {
+                        return array(
+                            'result' => false,
+                            'text' => 'Le nom de rue ne peux contenir plus de 50 caractéres. Elle est actuellement de ' . strlen($rue) . ' caractéres'
+                        );
+                    }elseif (strlen($ville) > 50) {
+                        return array(
+                            'result' => false,
+                            'text' => 'La ville ne peux contenir plus de 50 caractéres. Elle est actuellement de ' . strlen($ville) . ' caractéres'
+                        );
+                    }elseif (strlen($cp) > 5) {
+                        return array(
+                            'result' => false,
+                            'text' => 'Vous n\'avez pas indiquer le code postale'
+                        );
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'erreur'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le numero de rue et le code postale doit étre un nombre'
+                    );
+                }
             }else {
                 return array(
                     'result' => false,

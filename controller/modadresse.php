@@ -6,7 +6,7 @@
     if (isset($_POST['nrue'], $_POST['rue'], $_POST['ville'], $_POST['cp'])) {
         $entreprise = new entreprise;
 
-        echo json_encode($entreprise->setteraddress($_POST['nrue'], $_POST['rue'], $_POST['ville'], $_POST['cp']));
+        echo json_encode($entreprise->setteraddress((int)$_POST['nrue'], $_POST['rue'], $_POST['ville'], (int)$_POST['cp']));
     }else {
         echo json_encode(array(
             'result' => false,
