@@ -411,6 +411,37 @@
             }
         }
 
+        public function supadresse() {
+            $bdd = $this->_bdd;
+            $bdd = $bdd->co();
+
+            $req = $bdd->prepare('UPDATE entreprise SET numeroRue = :num, rue = :rue, ville = :ville, cp = :cp WHERE id = 1');
+            $array = array(
+                ':num' => null,
+                ':rue' => null,
+                ':ville' => null,
+                ':cp' => null
+            );
+
+            if ($req->execute($array)) {
+                $req->closecursor();
+                $bdd = null;
+
+                return array(
+                    'result' => true,
+                    'text' => 'L\'addresse à étais suprimer'
+                );
+            }else {
+                $req->closecursor();
+                $bdd = null;
+
+                return array(
+                    'result' => false,
+                    'text' => 'L\'addresse n\'a pas étais suprimer'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;
