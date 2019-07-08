@@ -3,6 +3,7 @@
 
     require_once('../model/profil.php');
     require_once('../model/entreprise.php');
+    require_once('../model/profil.php');
 
     $profil = new profil;
     
@@ -30,6 +31,10 @@
                     $phrase = $entreprise->phrase();
                     $tel = $entreprise->numero();
                     $address = $entreprise->address();
+
+                    $profil = new profil;
+
+                    $profils = $profil->profils();
                     
                     include_once('../view/gestion_entreprise_html.php');
                 }

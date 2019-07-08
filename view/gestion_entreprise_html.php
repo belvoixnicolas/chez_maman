@@ -31,6 +31,9 @@
     <?php
         include_once('formadresse.php');
     ?>
+    <?php
+        include_once('profil.php');
+    ?>
     </main>
 </body>
 </html>

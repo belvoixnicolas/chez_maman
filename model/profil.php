@@ -79,6 +79,56 @@
             }
         }
 
+        public function profils ($id = null) {
+            if (is_null($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->query('SELECT id, nom, mail, admin FROM profil WHERE id != 1');
+
+                if ($result = $req->fetchall()) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return $result;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }elseif (is_int($id) && $id != 1) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('SELECT id, nom, mail, admin FROM profil WHERE id = :id');
+                $array = array(
+                    ':id' => $id
+                );
+
+                if ($req->execute($array)) {
+                    if ($result = $req->fetch()) {
+                        $req->closecursor();
+                        $bdd = null;
+    
+                        return $result;
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+    
+                        return false;
+                    }
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+    
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
         private function comparMail ($mail) {
             $bdd = $this->_bdd;
             $bdd = $bdd->co();
@@ -407,6 +457,99 @@
                 }
             }else {
                 return true;
+            }
+        }
+
+        public function modadmin($id, $bollen = null) {
+            if (is_null($bollen) && is_int($id) && $id != 1 && $id != 0) {
+                if ($profil = $this->profils($id)) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('UPDATE profil SET admin = :admin WHERE id = :id');
+
+                    if ($profil['admin'] == 0) {
+                        $array = array(
+                            ':admin' => 1,
+                            ':id' => $id
+                        );
+                    }else {
+                        $array = array(
+                            ':admin' => 0,
+                            ':id' => $id
+                        );
+                    }
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Les droit on étais changer'
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Les droit n\'ont pas put étre changer'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Ce profil n\'existe pas'
+                    );
+                }
+            }elseif (is_bool($bollen) && is_int($id) && $id != 1 && $id != 0) {
+                if ($profil = $this->profils($id)) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('UPDATE profil SET admin = :admin WHERE id = :id');
+
+                    if ($bollen == true) {
+                        $array = array(
+                            ':admin' => 1,
+                            ':id' => $id
+                        );
+                    }else {
+                        $array = array(
+                            ':admin' => 0,
+                            ':id' => $id
+                        );
+                    }
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Les droit on étais changer'
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Les droit n\'ont pas put étre changer'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Ce profil n\'existe pas'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Une erreur c\'est produit'
+                );
             }
         }
     }
