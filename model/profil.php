@@ -164,126 +164,102 @@
         }
 
         /// setter ///
-        public function addProfil ($mail, $mdp, $admin = null) {
-            if (is_string($mail) == false || $mail == '') {
-                return array(
-                    'result' => false,
-                    'text' => 'Il manque l\'adresse mail'
-                );
-            }elseif (strlen($mail) > 50) {
-                return array(
-                    'result' => false,
-                    'text' => 'L\'addresse mail est trop long '
-                );
-            }elseif (strpos($mail, '@') === false || strpos($mail, ' ')) {
-                return array(
-                    'result' => false,
-                    'text' => 'Se n\'est pas une addresse mail'
-                );
-            }elseif ($this->comparMail($mail)) {
-                return array(
-                    'result' => false,
-                    'text' => 'Cette addresse mail est déja utiliser'
-                );
-            }else {
-                if (is_string($mdp) == false || $mdp == '') {
-                    return array(
-                        'result' => false,
-                        'text' => 'Il manque le mot de passe'
+        public function addProfil ($mail, $nom) {
+            if (strlen($mail) <= 50 && strlen('$nom') <= 50 && $mail != '' && $nom != '') {
+                if (filter_var($mail, FILTER_VALIDATE_EMAIL) && $this->comparMail($mail) == false) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+                    $mdp = $this->mdpAleatoire();
+                    $mdphash = password_hash($mdp, PASSWORD_BCRYPT);
+                    
+                    $req = $bdd->prepare('INSERT INTO profil (id, mail, motDePasse, nom) VALUES (NULL, :mail, :mdp, :nom)');
+                    $array = array(
+                        ':mail' => $mail,
+                        ':mdp' => $mdphash,
+                        ':nom' => $nom
                     );
-                }else {
-                    if (is_null($admin)) {
-                        $bdd = $this->_bdd;
-                        $bdd = $bdd->co();
 
-                        $req = $bdd->prepare('INSERT INTO `profil` (`id`, `mail`, `motDePasse`) VALUES (NULL, :mail, :mdp)');
+                    $to = $mail;
+                    $subject = "Chez maman";
+                    $txt = '<p>' . $mail . '</p><p>' . $mdp . '</p>';
+                    $headers = array(
+                        'From' => "webmaster@chezmaman.com",
+                        'MIME-Version' => '1.0',
+                        'Content-type' => 'text/html; charset=iso-8859-1'
+                    );
 
-                        $hash = password_hash($mdp, PASSWORD_BCRYPT);
+                    if (mail($to,$subject,$txt,$headers)) {
+                        if ($req->execute($array)) {
+                            $req->closecursor();
+                            $id = $bdd->lastInsertId();
+                            $bdd = null;
 
-                        if ($hash) {
-                            $valeurreq = array(
-                                ':mail' => $mail,
-                                ':mdp' => $hash
+                            return array(
+                                'result' => true,
+                                'text' => 'Le nouvelle utilisateur a était ajouter',
+                                'html' => '<tr><td class="nom">' . $nom . '</td><td class="mail">' . $mail . '</td><td class="admin"><button id="modifprofil" name="id" value="' . $id . '"><i class="far fa-star"></i></button></td><td class="sup"><button id="supprofil" name="id" value="' . $id . '"><i class="fas fa-times"></i></button></td></tr>'
+                            
                             );
-
-                            if ($req->execute($valeurreq)) {
-                                $req->closecursor();
-                                $bdd = null;
-
-                                return array(
-                                    'result' => true
-                                );
-                            }else {
-                                $req->closecursor();
-                                $bdd = null;
-
-                                return array(
-                                    'result' => false,
-                                    'text' => 'Une erreur c\'est produit lors de l\'envoie a la base de donner'
-                                );
-                            }
                         }else {
                             $req->closecursor();
                             $bdd = null;
 
-                            return array(
-                                'result' => false,
-                                'text' => 'Une erreur c\'est produit lors du hashag de votre mot de passe'
-                            );
-                        }
-                    }elseif (is_bool($admin)) {
-                        $bdd = $this->_bdd;
-                        $bdd = $bdd->co();
+                            $txt = '<p>Une erreur c\'est produit</p>';
 
-                        $req = $bdd->prepare('INSERT INTO `profil` (`id`, `mail`, `motDePasse`, `admin`) VALUES (NULL, :mail, :mdp, :admin)');
-
-                        $hash = password_hash($mdp, PASSWORD_BCRYPT);
-
-                        if ($hash) {
-                            if ($admin) {
-                                $admin = 1;
-                            }else {
-                                $admin = 0;
-                            }
-
-                            $valeurreq = array(
-                                ':mail' => $mail,
-                                ':mdp' => $hash,
-                                ':admin' => $admin
-                            );
-
-                            if ($req->execute($valeurreq)) {
-                                $req->closecursor();
-                                $bdd = null;
-
-                                return array(
-                                    'result' => true
-                                );
-                            }else {
-                                $req->closecursor();
-                                $bdd = null;
-
+                            if (mail($to,$subject,$txt,$headers)) {
                                 return array(
                                     'result' => false,
-                                    'text' => 'Une erreur c\'est produit lors de l\'envoie a la base de donner'
+                                    'text' => 'Le nouvelle utilisateur n\'a pas put étre ajouter'
+                                );
+                            }else {
+                                return array(
+                                    'result' => false,
+                                    'text' => 'Le nouvelle utilisateur n\'a pas put étre ajouter et il n\'a pas put étre prévenu de l\'erreur'
                                 );
                             }
-                        }else {
-                            $req->closecursor();
-                            $bdd = null;
-
-                            return array(
-                                'result' => false,
-                                'text' => 'Une erreur c\'est produit lors du hashag de votre mot de passe'
-                            );
                         }
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'Une erreur c\'est produit sur la variable admin'
+                            'text' => 'Aucun mail n\'a put étre envoyer'
                         );
                     }
+                }elseif (filter_var($mail, FILTER_VALIDATE_EMAIL) && $this->comparMail($mail) == true) {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le mail renseigner existe déja'
+                    );
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le mail renseigner n\'est pas une addresse mail'
+                    );
                 }
+            }elseif (strlen($mail) > 50) {
+                return array(
+                    'result' => false,
+                    'text' => 'L\'addresse mail ne peut faire plus de 50 caractére'
+                );
+            }elseif ($mail == '') {
+                return array(
+                    'result' => false,
+                    'text' => 'Il manque l\'addresse mail'
+                );
+            }elseif (strlen($nom) > 50) {
+                return array(
+                    'result' => false,
+                    'text' => 'Le nom ne peut faire plus de 50 caractére'
+                );
+            }elseif ($nom == '') {
+                return array(
+                    'result' => false,
+                    'text' => 'Il manque le nom'
+                );
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Une erreur c\'est produit'
+                );
             }
         }
 
@@ -537,6 +513,48 @@
                         return array(
                             'result' => false,
                             'text' => 'Les droit n\'ont pas put étre changer'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Ce profil n\'existe pas'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Une erreur c\'est produit'
+                );
+            }
+        }
+
+        public function supprofil($id) {
+            if (is_int($id) && $id != 1 && $id != 0) {
+                if ($this->profils($id)) {
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('DELETE FROM profil WHERE id = :id');
+                    $array = array(
+                        ':id' => $id
+                    );
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le profil a étais suprimer'
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le profil n\'a pas étais suprimer'
                         );
                     }
                 }else {
