@@ -18,7 +18,7 @@
             ?>
 
                 <li>
-                    <a href="../index.php?page">
+                    <a href="../index.php?page=description">
                         Description
                     </a>
                 </li>

@@ -442,6 +442,70 @@
             }
         }
 
+        public function setterdescription($description) {
+            if (is_string($description)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('UPDATE entreprise SET description = :descript WHERE id = 1');
+                $array = array(
+                    ':descript' => $description
+                );
+
+                if ($req->execute($array)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    $this->_description = $description;
+
+                    return array(
+                        'result' => true,
+                        'text' => 'La description a étais mis a jour'
+                    );
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return array(
+                        'result' => false,
+                        'text' => 'La description n\'a pas put étre mis a jour'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Seul du texte peut étre envoyer'
+                );
+            }
+        }
+
+        public function supdescription() {
+            $bdd = $this->_bdd;
+            $bdd = $bdd->co();
+
+            $req = $bdd->query('UPDATE entreprise SET description = NULL WHERE id = 1');
+
+            if ($req) {
+                $req->closecursor();
+                $bdd = null;
+
+                $this->_description = null;
+
+                return array(
+                    'result' => true,
+                    'text' => 'La description a étais suprimer'
+                );
+            }else {
+                $req->closecursor();
+                $bdd = null;
+
+                return array(
+                    'result' => true,
+                    'text' => 'La description n\'a pas étais suprimer'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;
