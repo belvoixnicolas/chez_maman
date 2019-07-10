@@ -108,54 +108,59 @@ $(document).ready(function(){
     $('#formprofil').on('submit', function () {
         event.preventDefault();
 
-        var formData = new FormData();
-        formData.append('mail', $('#formprofil #mailprofil').val());
-        formData.append('nom', $('#formprofil #nomprofil').val());
-        formData.append('action', 'addprofil');
+        var mail = $('#formprofil #mailprofil').val();
+        var nom = $('#formprofil #nomprofil').val();
 
-        $.ajax({
-            url : 'modprofil.php',
-            type : 'POST',
-            data : formData,
-            dataType: 'json',
-            processData: false,  // tell jQuery not to process the data
-            contentType: false,  // tell jQuery not to set contentType
-        }).done(function (data) {
-            if (typeof data == 'object' && typeof data.result !== 'undefined' && typeof data.text !== 'undefined') {
-                if (data.result && typeof data.html !== 'undefined') {
-                    $('#message .text').html(data.text);
-                    $('#message').addClass('true').removeClass('hidden');
+        if (mail != '' && nom != '') {
+            var formData = new FormData();
+            formData.append('mail', $('#formprofil #mailprofil').val());
+            formData.append('nom', $('#formprofil #nomprofil').val());
+            formData.append('action', 'addprofil');
 
-                    $('#formprofil #mailprofil').val(null);
-                    $('#formprofil #nomprofil').val(null);
-                    $('#sectionprofil table').append(data.html);
-                    
-                    var delayMessage = window.setTimeout(function () {
-                        $('#message button').trigger('click');
-                    }, 5000);
+            $.ajax({
+                url : 'modprofil.php',
+                type : 'POST',
+                data : formData,
+                dataType: 'json',
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (typeof data == 'object' && typeof data.result !== 'undefined' && typeof data.text !== 'undefined') {
+                    if (data.result && typeof data.html !== 'undefined') {
+                        $('#message .text').html(data.text);
+                        $('#message').addClass('true').removeClass('hidden');
+
+                        $('#formprofil #mailprofil').val(null);
+                        $('#formprofil #nomprofil').val(null);
+                        $('#sectionprofil table').append(data.html);
+                        
+                        var delayMessage = window.setTimeout(function () {
+                            $('#message button').trigger('click');
+                        }, 5000);
+                    }else {
+                        $('#message .text').html(data.text);
+                        $('#message').addClass('false').removeClass('hidden');
+                        
+                        var delayMessage = window.setTimeout(function () {
+                            $('#message button').trigger('click');
+                        }, 5000);
+                    }
                 }else {
-                    $('#message .text').html(data.text);
+                    $('#message .text').html('Une erreur c\'est produit');
                     $('#message').addClass('false').removeClass('hidden');
                     
                     var delayMessage = window.setTimeout(function () {
                         $('#message button').trigger('click');
                     }, 5000);
                 }
-            }else {
+            }).fail(function () {
                 $('#message .text').html('Une erreur c\'est produit');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
                     $('#message button').trigger('click');
                 }, 5000);
-            }
-        }).fail(function () {
-            $('#message .text').html('Une erreur c\'est produit');
-            $('#message').addClass('false').removeClass('hidden');
-            
-            var delayMessage = window.setTimeout(function () {
-                $('#message button').trigger('click');
-            }, 5000);
-        });
+            });
+        }
     });
 });
