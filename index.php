@@ -46,6 +46,11 @@
                 header('location: controller/description.php');
                 exit();
                 break;
+
+            case 'avie':
+                header('location: controller/avie.php');
+                exit();
+                break;
             
             default:
                 header('Location: controller/acceuil.php');

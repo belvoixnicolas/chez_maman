@@ -50,7 +50,7 @@
                     }
                 ?>
                 <li>
-                    <a href="../index.php?page=">
+                    <a href="../index.php?page=avie">
                         avis
                     </a>
                 </li>

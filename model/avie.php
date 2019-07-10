@@ -21,12 +21,89 @@
         }
 
         /// getter ///
-        public function avies() {
-            $avies = $this->_avies;
+        public function avies($limite = true) {
+            if (is_bool($limite) && $limite == false) {
+                $avies = $this->_avies;
 
-            if (count($avies) != 0) {
-                return $avies;
+                if (count($avies) != 0) {
+                    return $avies;
+                }else {
+                    return false;
+                }
             }else {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->query('SELECT id, text, afficher FROM avie ORDER BY afficher DESC, date DESC');
+
+                if ($resultat = $req->fetchall()) {
+                    $req->closecursor();
+                    $bdd = null;
+                    
+                    return $resultat;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }
+        }
+
+        public function compteurafficher() {
+            $bdd = $this->_bdd;
+            $bdd = $bdd->co();
+
+            if($req = $bdd->query('SELECT COUNT(*) AS nb FROM avie WHERE afficher = 1')) {
+                if ($resultat = $req->fetch()) {
+                    $req->closeCursor();
+                    $bdd = null;
+
+                    return $resultat['nb'];
+                    //return false;
+                }else {
+                    $req->closeCursor();
+                    $bdd = null;
+
+                    return 0;
+                }
+            }else {
+                return false;
+            }
+        }
+
+        private function afficher($id) {
+            $bdd = $this->_bdd;
+            $bdd = $bdd->co();
+
+            $req = $bdd->prepare('SELECT afficher FROM avie WHERE id = :id');
+            $req->execute(array(
+                ':id' => $id
+            ));
+
+            if ($result = $req->fetch()) {
+                $req->closecursor();
+                $bdd = null;
+
+                switch ($result['afficher']) {
+                    case '0':
+                        $result = false;
+                        break;
+                    
+                    case '1':
+                        $result = true;
+                        break;
+                    
+                    default:
+                        $result = false;
+                        break;
+                }
+
+                return $result;
+            }else {
+                $req->closecursor();
+                $bdd = null;
+
                 return false;
             }
         }
@@ -52,6 +129,102 @@
                 }
             }else {
                 return false;
+            }
+        }
+
+        public function setafficher($id) {
+            if (is_int($id) && $id > 0 && is_bool($this->compteurafficher()) == false && $this->compteurafficher() >= 0) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('UPDATE avie SET afficher = :aff WHERE id = :id');
+
+                if ($this->afficher($id)) {
+                    $array = array(
+                        ':aff' => 0,
+                        ':id' => $id
+                    );
+                }else {
+                    if ($this->compteurafficher() >= 5) {
+                        $array = false;
+                    }else {
+                        $array = array(
+                            ':aff' => 1,
+                            ':id' => $id
+                        );
+                    }
+                }
+
+                if ($array && $req->execute($array)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return array(
+                        'result' => true,
+                        'text' => 'Avie modifier',
+                        'afficher' => $this->afficher($id),
+                        'compteur' => $this->compteurafficher()
+                    );
+                }elseif ($array == false) {
+                    return array(
+                        'result' => false,
+                        'text' => 'Il y a déja 5 avies afficher'
+                    );
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return array(
+                        'result' => false,
+                        'text' => 'Erreur favorie'
+                    );
+                }
+            }elseif ($this->compteurafficher() && $this->compteurafficher() >= 5) {
+                return array(
+                    'result' => false,
+                    'text' => 'Il y a déja 5 avies afficher'
+                );
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
+            }
+        }
+
+        public function supafficher($id) {
+            if (is_int($id) && $id > 0) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('DELETE FROM avie WHERE id = :id');
+                $array = array(
+                    ':id' => $id
+                );
+
+                if ($req->execute($array)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return array(
+                        'result' => true,
+                        'text' => 'L\'avie a étais suprimer',
+                        'compteur' => $this->compteurafficher()
+                    );
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return array(
+                        'result' => false,
+                        'text' => 'L\'avie n\'a pas put étre suprimer'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
             }
         }
     }

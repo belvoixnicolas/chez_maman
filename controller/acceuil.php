@@ -23,7 +23,7 @@
     $address = $entreprise->address();
 
     $avie = new avie;
-    $avies = $avie->avies();
+    $avies = $avie->avies(false);
 
     $service = new service;
     $services = $service->services();
