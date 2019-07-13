@@ -59,7 +59,7 @@
                 ?>
 
                     <li>
-                        <a href="../index.php?page=">
+                        <a href="../index.php?page=service">
                             services
                         </a>
                     </li>

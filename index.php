@@ -51,6 +51,11 @@
                 header('location: controller/avie.php');
                 exit();
                 break;
+
+            case 'service':
+                header('location: controller/service.php');
+                exit();
+                break;
             
             default:
                 header('Location: controller/acceuil.php');

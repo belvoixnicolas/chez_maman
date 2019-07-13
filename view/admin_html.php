@@ -36,7 +36,7 @@
             ?>
 
                 <li>
-                    <a href="../index.php?page">
+                    <a href="../index.php?page=service">
                         Service
                     </a>
                 </li>
