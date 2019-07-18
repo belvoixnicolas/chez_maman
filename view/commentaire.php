@@ -31,10 +31,10 @@
     </section>
         <section class="formulaire">
             <h4>formulaire</h4>
-            <form action="#" method="post">
-                <input type="text" name="com" placeholder="Laisser nous un commentaire">
+            <form action="#" method="post" id="formposte">
+                <input type="text" name="com" id="com" placeholder="Laisser nous un commentaire">
         
-                <input type="button" value="Poster">
+                <input type="submit" value="Envoyer">
             </form>
             <script src="js/ajax/post_avie.js"></script>
         </section>

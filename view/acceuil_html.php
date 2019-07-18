@@ -4,6 +4,12 @@
     <?php include('head.php') ?>
 </head>
 <body id="index">
+    <div id="message" class='hidden'>
+        <span class="text"></span>
+        <button>
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
     <?php include('navbar.php') ?>
     <?php include('header.php') ?>
     <main>

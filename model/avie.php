@@ -123,12 +123,21 @@
                     $req->closecursor();
                     $bdd = null;
 
-                    return true;
+                    return array(
+                        'result' => true,
+                        'text' => 'Le commentaire a éte envoier'
+                    );
                 }else {
-                    return false;
+                    return array(
+                        'result' => false,
+                        'text' => 'Le commentaire n\'a pas éte envoier'
+                    );
                 }
             }else {
-                return false;
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
             }
         }
 
