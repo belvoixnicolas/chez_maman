@@ -3,6 +3,6 @@
         Description
     </h3>
     <p>
-        <?= $description ?>
+        <?= $description; ?>
     </p>
 </article>

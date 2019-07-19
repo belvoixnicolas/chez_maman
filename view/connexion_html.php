@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include('head.php'); ?>
+    <?php include('../view/head.php'); ?>
 </head>
 <body id="connexion">
     <?php

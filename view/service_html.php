@@ -41,7 +41,6 @@
                         </li>
                     <?php } ?>
                 </ul>
-                <script src="js/ajax/servicemod.js"></script>
             <?php } ?>
         </section>
         <section class="formservice">
@@ -54,5 +53,6 @@
             </form>
         </section>
     </main>
+    <script src="js/ajax/servicemod.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
                 if (isset($_POST['id']) && $_POST['id'] != '' && $service->verifid((int)$_POST['id'])) {
                     $id = (int)$_POST['id'];
 
-                    include('../view\form_service_img.php');
+                    include('../view/form_service_img.php');
                 }elseif (isset($_POST['id']) && $_POST['id'] != '' && $service->verifid((int)$_POST['id']) == false) {
                     echo 'false id';
                 }else {
@@ -27,7 +27,7 @@
                     $id = (int)$_POST['id'];
                     $text = $service->service($id);
 
-                    include('../view\form_service_text.php');
+                    include('../view/form_service_text.php');
                 }elseif (isset($_POST['id']) && $_POST['id'] != '' && $service->verifid((int)$_POST['id']) == false) {
                     echo 'false id';
                 }else {

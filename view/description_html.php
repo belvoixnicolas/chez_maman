@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include_once('head.php') ?>
+    <?php include_once('../view/head.php') ?>
 </head>
 <body id="gestiondescription">
     <div id="message" class='hidden'>
@@ -10,7 +10,7 @@
             <i class="fas fa-times"></i>
         </button>
     </div>
-    <?php include_once('navadmin.php') ?>
+    <?php include_once('../view/navadmin.php') ?>
 
     <main>
         <h1>description</h1>

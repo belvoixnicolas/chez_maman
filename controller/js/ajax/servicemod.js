@@ -331,7 +331,7 @@ $(document).ready(function(){
                     }, 5000);
                 }
             }else {
-                $('#message .text').html('Une erreur c\'est produit');
+                $('#message .text').html(data.text);
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
@@ -339,7 +339,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }).fail(function () {
-            $('#message .text').html('Une erreur c\'est produit');
+            $('#message .text').html('Une erreur c\'est produi');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {

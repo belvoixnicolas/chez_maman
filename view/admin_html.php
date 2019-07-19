@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <?php
-        include('head.php');
+        include('../view/head.php');
     ?>
 </head>
 <body id="admin">

@@ -31,5 +31,5 @@
     $horraire = new horraire;
     $horraireTab = $horraire->horraireTab();
 
-    include_once ('../view/acceuil_html.php');
+    include_once('../view/acceuil_html.php');
 ?>

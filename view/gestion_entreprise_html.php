@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <?php
-        include_once('head.php');
+        include_once('../view/head.php');
     ?>
     <style type="text/css">
         img {
@@ -18,26 +18,26 @@
         </button>
     </div>
     <?php
-        include_once('navadmin.php');
+        include_once('../view/navadmin.php');
     ?>
     <main>
     <?php
-        include_once('formlogo.php');
+        include_once('../view/formlogo.php');
     ?>
     <?php
-        include_once('formtitre.php');
+        include_once('../view/formtitre.php');
     ?>
     <?php
-        include_once('formphrase.php');
+        include_once('../view/formphrase.php');
     ?>
     <?php
-        include_once('formtel.php');
+        include_once('../view/formtel.php');
     ?>
     <?php
-        include_once('formadresse.php');
+        include_once('../view/formadresse.php');
     ?>
     <?php
-        include_once('profil.php');
+        include_once('../view/profil.php');
     ?>
     </main>
 </body>

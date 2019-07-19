@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <?php
-        include_once('head.php');
+        include_once('../view/head.php');
     ?>
 </head>
 <body id="gestionPerso">
@@ -13,7 +13,7 @@
         </button>
     </div>
     <?php
-        include_once('navadmin.php');
+        include_once('../view/navadmin.php');
     ?>
     <main>
         <form action="#" method="post" id="formident">
