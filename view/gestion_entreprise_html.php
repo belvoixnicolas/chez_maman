@@ -4,6 +4,11 @@
     <?php
         include_once('head.php');
     ?>
+    <style type="text/css">
+        img {
+            height: 5vh;
+        }
+    </style>
 </head>
 <body id="gestionEntreprise">
     <div id="message" class='hidden'>
