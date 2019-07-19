@@ -2,7 +2,7 @@
     session_start();
 
     require_once('../model/navbar.php');
-    require_once('../model/section_menu.php');
+    require_once('../model/menu.php');
 
     $nav = new navbar;
     $lien = $nav->lien();
@@ -10,7 +10,7 @@
     $lienAddress = $nav->address();
     $reseaux = $nav->reseau();
 
-    $menu = new sectionMenu;
+    $menu = new menu;
     $menus = $menu->menus();
 
     include_once('../view/menu_html.php');

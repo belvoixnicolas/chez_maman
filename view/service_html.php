@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include_once('head.php') ?>
+    <?php include_once('../view/head.php') ?>
     <style type="text/css">
         img {
             height: 5vh;
@@ -15,7 +15,7 @@
             <i class="fas fa-times"></i>
         </button>
     </div>
-    <?php include_once('navadmin.php') ?>
+    <?php include_once('../view/navadmin.php') ?>
 
     <main>
         <h1>service</h1>

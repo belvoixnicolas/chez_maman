@@ -68,7 +68,7 @@
                     }
                 ?>
                 <li>
-                    <a href="../index.php?page=">
+                    <a href="../index.php?page=menugestion">
                         menu
                     </a>
                 </li>

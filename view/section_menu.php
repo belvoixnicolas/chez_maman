@@ -1,6 +1,6 @@
 <?php
-    require_once('../model/section_menu.php');
-    $produit = new sectionMenu;
+    require_once('../model/menu.php');
+    $produit = new menu;
 
     foreach ($menus as $value) {
 ?>

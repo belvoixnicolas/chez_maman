@@ -56,6 +56,11 @@
                 header('location: controller/service.php');
                 exit();
                 break;
+
+            case 'menugestion':
+                header('location: controller/menugestion.php');
+                exit();
+                break;
             
             default:
                 header('Location: controller/acceuil.php');
