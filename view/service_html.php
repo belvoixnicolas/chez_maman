@@ -21,23 +21,35 @@
         <h1>service</h1>
         <section class="services">
             <h2>services</h2>
-            <ul>
-                <li class="service">
-                    <img src="src/services/wifi.svg" alt="titre">
-                    <p class="text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere dolorum optio quod unde molestias, veritatis ratione accusamus totam error excepturi natus, aut ad magnam laudantium voluptate sunt. Fugiat laudantium nulla officia autem. Nobis reprehenderit, vel veniam placeat iure voluptas, eveniet facilis aperiam, incidunt recusandae expedita quaerat delectus odit animi. Nesciunt?
-                    </p>
-                    <button>
-                        <i class="fas fa-times"></i>
-                    </button>
-                </li>
-            </ul>
+            <?php if (isset($services) && $services) { ?>
+                <ul>
+                    <?php foreach ($services as $value) { ?>
+                        <li id="<?= $value['id'] ?>" class="service">
+                            <div class="image">
+                                <img src="src/services/<?= $value['image'] ?>" alt="image de <?= $value['titre'] ?>">
+                                <button id="modimg" value="<?= $value['id'] ?>">Modifier</button>
+                            </div>
+                            <div class="txt">
+                                <p class="text">
+                                    <?= $value['text'] ?>
+                                </p>
+                                <button id="modtext" value="<?= $value['id'] ?>">Modifier</button>
+                            </div>
+                            <button id="supservice" value="<?= $value['id'] ?>">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </li>
+                    <?php } ?>
+                </ul>
+                <script src="js/ajax/servicemod.js"></script>
+            <?php } ?>
         </section>
         <section class="formservice">
-            <form action="#" method="post">
-                <img src="truc" alt="titre">
-                <input type="file" name="image" id="image">
-                <textarea name="txt" id="txt"></textarea>
+            <form action="#" id="formservice" method="post" ENCTYPE="multipart/form-data">
+                <img class="preview">
+                <input type="text" name="titre" id="titre" placeholder="Titre" required>
+                <input type="file" name="image" id="image" data-preview=".preview" required>
+                <textarea name="txt" id="txt" placeholder="Text" required></textarea>
                 <input type="submit" value="envoyer">
             </form>
         </section>

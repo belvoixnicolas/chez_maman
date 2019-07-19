@@ -2,6 +2,7 @@
     session_start();
 
     require_once('../model/profil.php');
+    require_once('../model/service.php');
 
     $profil = new profil;
     
@@ -14,7 +15,9 @@
             header('Location: ../index.php');
             exit();
         }else {
+            $service = new service;
             
+            $services = $service->services();
 
             include_once('../view/service_html.php');
         }
