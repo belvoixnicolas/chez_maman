@@ -9,6 +9,7 @@
     $etat = $nav->horraire();
     $lienAddress = $nav->address();
     $reseaux = $nav->reseau();
+    $numero = $nav->numero();
 
     $menu = new menu;
     $menus = $menu->menus();

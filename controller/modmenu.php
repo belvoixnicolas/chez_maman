@@ -9,12 +9,12 @@
             case 'formmenu':
                 $menu = new menu;
 
-                if (isset($_POST['id']) && $_POST['id'] != '' && $menu->verifiemenu((int)$_POST['id'])) {
+                if (isset($_POST['id']) && $_POST['id'] != '' && $menu->verifMenu((int)$_POST['id'])) {
                     $id = (int)$_POST['id'];
                     $dataMenu = $menu->menus($id);
 
                     include('../view/form_menu.php');
-                }elseif (isset($_POST['id']) && $_POST['id'] != '' && $menu->verifiemenu((int)$_POST['id']) == false) {
+                }elseif (isset($_POST['id']) && $_POST['id'] != '' && $menu->verifMenu((int)$_POST['id']) == false) {
                     echo 'false id';
                 }else {
                     echo 'false';
@@ -24,10 +24,10 @@
             case 'modmenu':
                 $menu = new menu;
 
-                if (isset($_POST['id'], $_POST['titre'], $_FILES['image']) && $_POST['id'] != '' && $_POST['titre'] != '' && $_FILES['image']['name'] != '' && $menu->verifiemenu((int)$_POST['id'])) {
+                if (isset($_POST['id'], $_POST['titre'], $_FILES['image']) && $_POST['id'] != '' && $_POST['titre'] != '' && $_FILES['image']['name'] != '' && $menu->verifMenu((int)$_POST['id'])) {
 
                     echo json_encode($menu->addMenu($_POST['titre'], $_FILES['image'], $_POST['id']));
-                }elseif (isset($_POST['id']) && $_POST['id'] != '' && $service->verifiemenu((int)$_POST['id']) == false) {
+                }elseif (isset($_POST['id']) && $_POST['id'] != '' && $service->verifMenu((int)$_POST['id']) == false) {
                     echo json_encode(array(
                         'result' => false,
                         'text' => 'L\'id du menu ne corespond pas avec la base de donner'
@@ -54,10 +54,10 @@
             case 'supmenu':
                 $menu = new menu;
 
-                if (isset($_POST['id']) && $_POST['id'] != '' && $menu->verifiemenu((int)$_POST['id'])) {
+                if (isset($_POST['id']) && $_POST['id'] != '' && $menu->verifMenu((int)$_POST['id'])) {
 
                     echo json_encode($menu->supMenu((int)$_POST['id']));
-                }elseif (isset($_POST['id']) && $_POST['id'] != '' && $service->verifiemenu((int)$_POST['id']) == false) {
+                }elseif (isset($_POST['id']) && $_POST['id'] != '' && $service->verifMenu((int)$_POST['id']) == false) {
                     echo json_encode(array(
                         'result' => false,
                         'text' => 'L\'id du menu ne corespond pas avec la base de donner'

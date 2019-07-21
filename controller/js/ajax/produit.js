@@ -12,15 +12,15 @@ $(document).ready(function(){
         $('#form').remove();
     });
 
-    $('body').on('click', '#modmenu', function () {
+    $('body').on('click', '#modproduit', function () {
         var id = $(this).val();
 
         var formData = new FormData();
         formData.append('id', id);
-        formData.append('action', 'formmenu');
+        formData.append('action', 'formproduit');
 
         $.ajax({
-            url : 'modmenu.php',
+            url : 'modproduit.php',
             type : 'POST',
             data : formData,
             dataType: 'html',
@@ -61,28 +61,29 @@ $(document).ready(function(){
         });
     });
 
-    $('body').on('click', '#supmenu', function () {
+    $('body').on('click', '#supproduit', function () {
         var id = $(this).val();
 
-        if (confirm('Cette action va suprimer le menu et tout les produit qui le concerne')) {
+        if (confirm('Cette action va suprimer le produit')) {
             var formData = new FormData();
-            formData.append('action', 'supmenu');
+            formData.append('action', 'supproduit');
             formData.append('id', id);
 
             $.ajax({
-                url : 'modmenu.php',
+                url : 'modproduit.php',
                 type : 'POST',
                 data : formData,
                 dataType: 'json',
                 processData: false,  // tell jQuery not to process the data
                 contentType: false,  // tell jQuery not to set contentType
             }).done(function (data) {
+                console.log(data);
                 if (typeof data == 'object' && typeof data.result !== 'undefined' && typeof data.text !== 'undefined') {
                     if (data.result) {
                         $('#message .text').html(data.text);
                         $('#message').addClass('true').removeClass('hidden');
     
-                        $('.listemenu #' + id).remove();
+                        $('.listeproduit #' + id).remove();
                         
                         var delayMessage = window.setTimeout(function () {
                             $('#message button').trigger('click');
@@ -90,8 +91,6 @@ $(document).ready(function(){
                     }else {
                         $('#message .text').html(data.text);
                         $('#message').addClass('false').removeClass('hidden');
-    
-                        $('#formmenumod #img').val(null);
                         
                         var delayMessage = window.setTimeout(function () {
                             $('#message button').trigger('click');
@@ -106,6 +105,7 @@ $(document).ready(function(){
                     }, 5000);
                 }
             }).fail(function () {
+                console.log('fail');
                 $('#message .text').html('Une erreur c\'est produit');
                 $('#message').addClass('false').removeClass('hidden');
                 
@@ -116,7 +116,7 @@ $(document).ready(function(){
         }
     });
 
-    $('#formmenu #image[data-preview]').on('change', function () {
+    $('#formproduit #image[data-preview]').on('change', function () {
         var input	= $(this);
 		var oFReader	= new FileReader();
 		oFReader.readAsDataURL(this.files[0]);
@@ -125,7 +125,7 @@ $(document).ready(function(){
         }
     });
 
-    $('body').on('change', '#formmenumod #image[data-preview]', function () {
+    $('body').on('change', '#formproduitmod #image[data-preview]', function () {
         var input	= $(this);
 		var oFReader	= new FileReader();
 		oFReader.readAsDataURL(this.files[0]);
@@ -134,18 +134,24 @@ $(document).ready(function(){
         }
     });
 
-    $('body').on('submit', '#formmenumod', function () {
+    $('body').on('keydown', '#prix', function (event) {
+        var touche = event.keyCode;
+        
+        if (touche == 110 || touche == 190 || touche == 59) {
+            alert('Les point ne sont pas reconue par le navigateur, utiliser les vigule a la place');
+        }
+    });
+
+    $('body').on('submit', '#formproduitmod', function () {
         event.preventDefault();
 
-        var id = $('#formmenumod').attr('value');
-        var form = document.getElementById('formmenumod');
+        var form = document.getElementById('formproduitmod');
         
         var formData = new FormData(form);
-        formData.append('action', 'modmenu');
-        formData.append('id', id);
+        formData.append('action', 'modproduit');
 
         $.ajax({
-            url : 'modmenu.php',
+            url : 'modproduit.php',
             type : 'POST',
             data : formData,
             dataType: 'json',
@@ -157,8 +163,9 @@ $(document).ready(function(){
                     $('#message .text').html(data.text);
                     $('#message').addClass('true').removeClass('hidden');
 
-                    $('.listemenu #' + data.data.id + ' img').attr('src', 'src/menu/' + data.data.image);
-                    $('.listemenu #' + data.data.id + ' h3').text(data.data.titre);
+                    if (data.html && data.id) {
+                        $('.listeproduit #' + data.id).html(data.html);
+                    }
                     $('#form').remove();
                     
                     var delayMessage = window.setTimeout(function () {
@@ -192,16 +199,16 @@ $(document).ready(function(){
         });
     });
 
-    $('#formmenu').on('submit', function () {
+    $('#formproduit').on('submit', function () {
         event.preventDefault();
 
-        var form = document.getElementById('formmenu');
+        var form = document.getElementById('formproduit');
         
         var formData = new FormData(form);
-        formData.append('action', 'addmenu');
+        formData.append('action', 'addproduit');
 
         $.ajax({
-            url : 'modmenu.php',
+            url : 'modproduit.php',
             type : 'POST',
             data : formData,
             dataType: 'json',
@@ -213,12 +220,14 @@ $(document).ready(function(){
                     $('#message .text').html(data.text);
                     $('#message').addClass('true').removeClass('hidden');
 
-                    $('#formmenu img').attr('src', null);
-                    $('#formmenu #titre').val(null);
-                    $('#formmenu #image').val(null);
+                    $('#formproduit img').attr('src', null);
+                    $('#formproduit #image').val(null);
+                    $('#formproduit #titre').val(null);
+                    $('#formproduit #txt').val(null);
+                    $('#formproduit #prix').val(null);
 
                     if (data.html) {
-                        $('.listemenu ul').prepend(data.html);
+                        $('.listeproduit ul').prepend(data.html);
                     }
                     
                     var delayMessage = window.setTimeout(function () {
@@ -227,6 +236,8 @@ $(document).ready(function(){
                 }else {
                     $('#message .text').html(data.text);
                     $('#message').addClass('false').removeClass('hidden');
+
+                    $('#formmenumod #img').val(null);
                     
                     var delayMessage = window.setTimeout(function () {
                         $('#message button').trigger('click');

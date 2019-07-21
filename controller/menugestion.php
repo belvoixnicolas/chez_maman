@@ -16,9 +16,18 @@
             exit();
         }else {
             $menu = new menu;
-            $menuGestion = $menu->menugestionhtml();
 
-            include_once('../view/menugestion_html.php');
+            if (isset($_GET['menu']) && $menu->verifMenu((int)$_GET['menu'])) {
+                $menuData = $menu->menus((int)$_GET['menu']);
+                $produitHtml = $menu->produitsGestionHtml($_GET['menu']);
+                $id = $_GET['menu'];
+                
+                include_once('../view/produit_html.php');
+            }else {
+                $menuGestion = $menu->menugestionhtml();
+
+                include_once('../view/menugestion_html.php');
+            }
         }
     }else {
         unset($_SESSION['profil']);

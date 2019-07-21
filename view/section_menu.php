@@ -11,7 +11,7 @@
     </h2>
     <ul>
         <?php 
-            if ($produits = $produit->produit($value['id'])) {
+            if ($produits = $produit->produits($value['id'])) {
                 foreach ($produits as $value) {
         ?>
 

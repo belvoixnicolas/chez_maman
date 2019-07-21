@@ -5,6 +5,7 @@
         private $_bdd;
         private $_menu;
         private $_modelMenuHtmlGestion;
+        private $_modelProduitHtmlGestion;
 
         public function __construct () {
             $this->_bdd = new bdd;
@@ -20,12 +21,20 @@
                 $this->_menu = false;
             }
 
-            $html = file_get_contents('../view/menumodelgestion.html');
+            $menuHtml = file_get_contents('../view/menumodelgestion.html');
 
-            if ($html) {
-                $this->_modelMenuHtmlGestion = $html;
+            if ($menuHtml) {
+                $this->_modelMenuHtmlGestion = $menuHtml;
             }else {
                 $this->_modelMenuHtmlGestion = false;
+            }
+
+            $produitHtml = file_get_contents('../view/produitModelGestion.html');
+
+            if ($produitHtml) {
+                $this->_modelProduitHtmlGestion = $produitHtml;
+            }else {
+                $this->_modelProduitHtmlGestion = false;
             }
 
             $req->closeCursor();
@@ -111,35 +120,7 @@
             }
         }
 
-        public function produit ($id) {
-            $bdd = $this->_bdd;
-            $bdd = $bdd->co();
-
-            $req = $bdd->prepare('SELECT titre, text, image, prix FROM produit WHERE id_menu = :id ORDER BY titre');
-            $req->execute(array(
-                ':id' => $id
-            ));
-
-            if ($resu = $req->fetchall()) {
-                $req->closeCursor();
-                $bdd = null;
-
-                foreach ($resu as $key => $value) {
-                    if (file_exists('src/produit/' . $value['image']) == false) {
-                        $value['image'] = 'defaul.svg';
-                        $resu[$key] = $value;
-                    }
-                }
-
-                return $resu;
-            }else {
-                $req->closeCursor();
-                $bdd = null;
-                return false;
-            }
-        }
-
-        public function verifiemenu ($id) {
+        public function verifMenu ($id) {
             if ($id != 0 && is_int($id)) {
                 $bdd = $this->_bdd;
                 $bdd = $bdd->co();
@@ -165,16 +146,170 @@
             }
         }
 
+        public function produit ($id) {
+            if (is_null($id) != true && $id != 0 && is_int($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('SELECT * FROM produit WHERE id = :id');
+                $req->execute(array(
+                    ':id' => $id
+                ));
+
+                if ($result = $req->fetch()) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return $result;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
+        public function produits ($id) {
+            $bdd = $this->_bdd;
+            $bdd = $bdd->co();
+
+            $req = $bdd->prepare('SELECT id, titre, text, image, prix FROM produit WHERE id_menu = :id ORDER BY titre');
+            $req->execute(array(
+                ':id' => $id
+            ));
+
+            if ($resu = $req->fetchall()) {
+                $req->closeCursor();
+                $bdd = null;
+
+                foreach ($resu as $key => $value) {
+                    if (file_exists('src/produit/' . $value['image']) == false) {
+                        $value['image'] = 'defaul.svg';
+                        $resu[$key] = $value;
+                    }
+                }
+
+                return $resu;
+            }else {
+                $req->closeCursor();
+                $bdd = null;
+                return false;
+            }
+        }
+
+        public function produitsGestionHtml($idMenu ,$idProduit=null) {
+            if (is_null($idProduit) && $this->_modelProduitHtmlGestion && $this->produits($idMenu)) {
+                $model = $this->_modelProduitHtmlGestion;
+                $produits = $this->produits($idMenu);
+
+                $html = '';
+                foreach ($produits as $value) {
+                    if (file_exists('src/produit/' . $value['image']) == false) {
+                        $value['image'] = 'default.svg'; 
+                    }
+                    $construct = $model;
+
+                    $construct = str_replace('%id%', $value['id'], $construct);
+                    $construct = str_replace('%titre%', $value['titre'], $construct);
+                    $construct = str_replace('%img%', $value['image'], $construct);
+
+                    if (is_null($value['text'])) {
+                       $construct = preg_replace('/%if text null%(.*)%end if text%/', '', $construct);
+                    }else {
+                        $search = array('%if text null%', '%end if text%', '%txt%');
+                        $replace = array('', '', $value['text']);
+
+                        $construct = str_replace($search, $replace, $construct);
+                    }
+
+                    if (is_null($value['prix'])) {
+                        $construct = preg_replace('/%if prix null%(.*)%end if prix%/', '', $construct);
+                    }else {
+                         $search = array('%if prix null%', '%end if prix%', '%prix%');
+                         $replace = array('', '', $value['prix']);
+ 
+                         $construct = str_replace($search, $replace, $construct);
+                     }
+
+                    $html .= $construct;
+                }
+
+                return $html;
+            }elseif (is_null($idProduit) != true && $this->_modelProduitHtmlGestion && $this->produit($idProduit)) {
+                $model = $this->_modelProduitHtmlGestion;
+                $produit = $this->produit($idProduit);
+
+                if (file_exists('src/produit/' . $produit['image']) == false) {
+                    $produit['image'] = 'default.svg'; 
+                }
+
+                $model = str_replace('%id%', $produit['id'], $model);
+                $model = str_replace('%titre%', $produit['titre'], $model);
+                $model = str_replace('%img%', $produit['image'], $model);
+
+                if (is_null($produit['text'])) {
+                   $model = preg_replace('/%if text null%(.*)%end if text%/', '', $model);
+                }else {
+                    $search = array('%if text null%', '%end if text%', '%txt%');
+                    $replace = array('', '', $produit['text']);
+
+                    $model = str_replace($search, $replace, $model);
+                }
+
+                if (is_null($produit['prix'])) {
+                    $model = preg_replace('/%if prix null%(.*)%end if prix%/', '', $model);
+                }else {
+                     $search = array('%if prix null%', '%end if prix%', '%prix%');
+                     $replace = array('', '', $produit['prix']);
+
+                     $model = str_replace($search, $replace, $model);
+                 }
+
+                return $model;
+            }else {
+                return false;
+            }
+        }
+
+        public function verifProduit($id) {
+            if ($id != 0 && is_int($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('SELECT id FROM produit WHERE id = :id');
+                $req->execute(array(
+                    ':id' => $id
+                ));
+
+                if ($req->fetch()) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return true;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
         /// SETTER ///
         public function addMenu($titre, $file, $id=null) {
             if (isset($file['name'], $file['type'], $file['tmp_name']) && is_array($file) && is_string($titre) && strlen($file['name']) <= 50 && strlen($titre) <= 50) {
-                $upload = $this->uploadimg($file);
+                $upload = $this->uploadimg($file, 'menu');
 
                 if ($upload['result']) {
                     $bdd = $this->_bdd;
                     $bdd = $bdd->co();
                     
-                    if (is_null($id) == false && $this->verifiemenu((int)$id)) {
+                    if (is_null($id) == false && $this->verifMenu((int)$id)) {
                         $req = $bdd->prepare('UPDATE menu SET titre = :titre, image = :img WHERE id = :id');
                         $array = array(
                             ':titre' => $titre,
@@ -256,11 +391,11 @@
         }
 
         public function supMenu($id) {
-            if (is_int($id) && $this->verifiemenu($id)) {
+            if (is_int($id) && $this->verifMenu($id)) {
                 $bdd = $this->_bdd;
                 $bdd = $bdd->co();
 
-                if ($produit = $this->produit($id)) {
+                if ($produit = $this->produits($id)) {
                     foreach ($produit as $value) {
                         if ($value['image'] != 'defaul.svg') {
                             unlink('src/produit/' . $value['image']);
@@ -324,7 +459,220 @@
             }
         }
 
-        private function uploadimg ($file) {
+        public function addProduit($titre, $text, $prix, $file, $idMenu, $idProduit=null) {
+            if (is_null($idProduit) && $this->verifMenu((int)$idMenu)) {
+                if ($titre != '' && strlen($titre) <= 50 && strlen($file['name']) <= 50) {
+                    if ($file['size'] > 0 && $file['name'] != '' && $file['tmp_name'] != '') {
+                        $upload = $this->uploadimg($file, 'produit');
+    
+                        if ($upload['result'] == false) {
+                            return $upload;
+                        }
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'Le fichier est corempue'
+                        );
+                    }
+
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+
+                    $req = $bdd->prepare('INSERT INTO produit (id, titre, text, image, prix, id_menu) VALUES (NULL, :titre, :txt, :img, :prix, :id)');
+
+                    if ($text == '') {
+                        $text = null;
+                    }
+                    if ($prix == '') {
+                        $prix = null;
+                    }
+
+                    $array = array(
+                        ':titre' => $titre,
+                        ':txt' => $text,
+                        ':img' => $file['name'],
+                        ':prix' => $prix,
+                        ':id' => $idMenu
+                    );
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $idProduit = $bdd->lastInsertId();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le produit à été ajouter',
+                            'html' => $this->produitsGestionHtml((int)$idMenu ,(int)$idProduit)
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        unlink('src/produit/' . $file['name']);
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le produit n\'a pas été ajouter'
+                        );
+                    }
+                }elseif ($titre != '' && strlen($titre) > 50) {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le titre ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($titre)
+                    );
+                }elseif (strlen($file['name']) > 50) {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le nom de l\'image ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($file['name'])
+                    );
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Il manque le titre'
+                    );
+                }
+            }elseif (is_null($idProduit) != true && $this->verifProduit((int)$idProduit) && $this->verifMenu((int)$idMenu)) {
+                if ($titre != '' && strlen($titre) <= 50 && strlen($file['name']) <= 50) {
+                    if ($file['size'] > 0 && $file['name'] != '' && $file['tmp_name'] != '') {
+                        $upload = $this->uploadimg($file, 'produit');
+    
+                        if ($upload['result'] == false) {
+                            return $upload;
+                        }
+                    }elseif ($file['size'] == 0 && $file['name'] == '' && $file['tmp_name'] == '') {
+                        $file = false;
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'Le fichier est corempue'
+                        );
+                    }
+
+                    $bdd = $this->_bdd;
+                    $bdd = $bdd->co();
+                    $oldProduit = $this->produit((int)$idProduit);
+
+                    $req = $bdd->prepare('UPDATE produit SET titre = :titre, text = :txt, image = :img, prix = :prix WHERE id = :id');
+
+                    if ($text == '') {
+                        $text = null;
+                    }
+                    if ($file == false) {
+                        $img = $oldProduit['image'];
+                    }else {
+                        $img = $file['name'];
+                    }
+                    if ($prix == '') {
+                        $prix = null;
+                    }
+
+                    $array = array(
+                        ':titre' => $titre,
+                        ':txt' => $text,
+                        ':img' => $img,
+                        ':prix' => $prix,
+                        ':id' => $idProduit
+                    );
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        if ($oldProduit['image'] != $file['name'] && $file) {
+                            unlink('src/produit/' . $oldProduit['image']);
+                        }
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le produit à été mis a jour',
+                            'html' => $this->produitsGestionHtml((int)$idMenu ,(int)$idProduit),
+                            'id' => $oldProduit['id']
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        if ($file) {
+                            unlink('src/produit/' . $file['name']);
+                        }
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le produit n\'a pas été mis a jour'
+                        );
+                    }
+                }elseif ($titre != '' && strlen($titre) > 50) {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le titre ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($titre)
+                    );
+                }elseif (strlen($file['name']) > 50) {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le nom de l\'image ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($file['name'])
+                    );
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Il manque le titre'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
+            }
+        }
+
+        public function supProduit($id) {
+            if (is_int($id) && $this->verifProduit($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+               
+                if ($produit = $this->produit((int)$id)) {
+                    if ($produit['image'] != 'default.svg') {
+                        unlink('src/produit/' . $produit['image']);
+                    }
+
+                    $req = $bdd->prepare('DELETE FROM produit WHERE id = :id');
+                    $array = array(
+                        ':id' => $id
+                    );
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le produit a étais suprimer'
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le produit n\'a pas étais suprimer'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le produit n\'a pas étais trouver'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
+            }
+        }
+
+        private function uploadimg ($file, $var) {
             if (isset($file['name'], $file['type'], $file['tmp_name']) && is_array($file)) {
                 switch ($file['type']) {
                     case 'image/gif':
@@ -341,7 +689,24 @@
                 }
 
                 if ($type) {
-                    if (move_uploaded_file($file['tmp_name'], 'src/menu/' . $file['name'])) {
+                    switch ($var) {
+                        case 'menu':
+                            $chemin = 'src/menu/';
+                            break;
+                        
+                        case 'produit':
+                            $chemin = 'src/produit/';
+                            break;
+                        
+                        default:
+                            return array(
+                                'result' => false,
+                                'text' => 'La deuxiéme variavle de la function uploadimg n\'est pas reconue'
+                            );
+                            break;
+                    }
+
+                    if (move_uploaded_file($file['tmp_name'], $chemin . $file['name'])) {
                         return array(
                             'result' => true,
                             'text' => 'L\'image a était envoyer'

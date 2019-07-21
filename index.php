@@ -58,8 +58,13 @@
                 break;
 
             case 'menugestion':
-                header('location: controller/menugestion.php');
-                exit();
+                if (isset($_GET['menu'])) {
+                    header('location: controller/menugestion.php?menu=' . $_GET['menu']);
+                    exit();
+                }else {
+                    header('location: controller/menugestion.php');
+                    exit();
+                }
                 break;
             
             default:

@@ -1,0 +1,11 @@
+<li id="%id%">
+    <figure>
+        <img src="src/produit/%img%" alt="Photo du produit %titre%">
+        <figcaption>
+            %if text null% <p id="text">%txt%</p> %end if text%
+            %if prix null% <p id="prix">%prix% €</p> %end if prix%
+            <button id="supproduit" value="%id%">Suprimer</button>
+            <button id="modproduit" value="%id%">modifier</button>
+        </figcaption>
+    </figure>
+</li>
