@@ -223,7 +223,7 @@ $(document).ready(function(){
                     $('#formproduit img').attr('src', null);
                     $('#formproduit #image').val(null);
                     $('#formproduit #titre').val(null);
-                    $('#formproduit #txt').val(null);
+                    $('#formproduit #text').val(null);
                     $('#formproduit #prix').val(null);
 
                     if (data.html) {
