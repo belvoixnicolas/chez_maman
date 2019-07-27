@@ -54,7 +54,7 @@
             ?>
 
                 <li>
-                    <a href="../index.php?page">
+                    <a href="../index.php?page=horraire">
                         Horraires
                     </a>
                 </li>

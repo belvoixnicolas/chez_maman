@@ -77,7 +77,6 @@ $(document).ready(function(){
                 processData: false,  // tell jQuery not to process the data
                 contentType: false,  // tell jQuery not to set contentType
             }).done(function (data) {
-                console.log(data);
                 if (typeof data == 'object' && typeof data.result !== 'undefined' && typeof data.text !== 'undefined') {
                     if (data.result) {
                         $('#message .text').html(data.text);
@@ -105,7 +104,6 @@ $(document).ready(function(){
                     }, 5000);
                 }
             }).fail(function () {
-                console.log('fail');
                 $('#message .text').html('Une erreur c\'est produit');
                 $('#message').addClass('false').removeClass('hidden');
                 

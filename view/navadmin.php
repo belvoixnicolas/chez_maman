@@ -77,7 +77,7 @@
                 ?>
 
                     <li>
-                        <a href="../index.php?page=" id="déco">
+                        <a href="../index.php?page=horraire" id="déco">
                             horraire
                         </a>
                     </li>

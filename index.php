@@ -66,6 +66,11 @@
                     exit();
                 }
                 break;
+
+            case 'horraire':
+                header('location: controller/horraire.php');
+                exit;
+                break;
             
             default:
                 header('Location: controller/acceuil.php');
