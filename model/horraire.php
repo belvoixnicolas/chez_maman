@@ -147,5 +147,134 @@
             }
             
         }
+
+        /// SETTER ///
+        public function setHorraire($jour, $indicateur, $val) {
+            if ($jour != '' && $indicateur != '' && $val != '') {
+                switch ($jour) {
+                    case 'lundi':
+                        $horraireJour = $this->_lundi;
+                        break;
+
+                    case 'mardi':
+                        $horraireJour = $this->_mardi;
+                        break;
+
+                    case 'mercredi':
+                        $horraireJour = $this->_mercredi;
+                        break;
+
+                    case 'jeudi':
+                        $horraireJour = $this->_jeudi;
+                        break;
+
+                    case 'vendredi':
+                        $horraireJour = $this->_vendredi;
+                        break;
+
+                    case 'samedi':
+                        $horraireJour = $this->_samedi;
+                        break;
+
+                    case 'dimanche':
+                        $horraireJour = $this->_dimanche;
+                        break;
+                    
+                    default:
+                        $horraireJour = false;
+                        break;
+                }
+
+                if ($horraireJour) {
+                    switch ($indicateur) {
+                        case 'ouvertMat':
+                        case 'fermeMat':
+                            if (str_replace(':', '', $val) <= 1200) {
+                                $verifHorraire = true;
+                            }else {
+                                $verifHorraire = false;
+                            }
+                            break;
+
+                        case 'ouvertAp':
+                        case 'fermeAp':
+                            if (str_replace(':', '', $val) >= 1200 && str_replace(':', '', $val) <= 2359 || str_replace(':', '', $val) == 0000) {
+                                $verifHorraire = true;
+                            }else {
+                                $verifHorraire = false;
+                            }
+                            break;
+                        
+                        default:
+                            $verifHorraire = false;
+                            break;
+                    }
+
+                    if ($verifHorraire) {
+                        $bdd = $this->_bdd;
+                        $bdd = $bdd->co();
+
+                        $req = $bdd->prepare("UPDATE horraire SET $indicateur = :val WHERE jour = :jour");
+
+                        if (str_replace(':', '', $val) == 0000) {
+                            $val = null;
+                        }else {
+                            $val = explode(':', $val);
+                            $val = $val[0] . ':' . $val[1];
+                        }
+
+                        $array = array(
+                            ':val' => $val,
+                            ':jour' => $jour
+                        );
+
+                        if ($req->execute($array)) {
+                            $req->closecursor();
+                            $bdd = null;
+                            
+                            $horraireJour[$indicateur] = $val;
+
+                            if (is_null($horraireJour['ouvertMat']) && is_null($horraireJour['ouvertAp'])) {
+                                $ajout = 'Penser a ajouter une heure d\'ouverture';
+                            }elseif(is_null($horraireJour['fermeMat']) && is_null($horraireJour['fermeAp']) || is_null($horraireJour['ouvertAp']) == false && is_null($horraireJour['fermeAp']) || is_null($horraireJour['ouvertMat']) == false && is_null($horraireJour['fermeMat']) && is_null($horraireJour['fermeAp'])) {
+                                $ajout = 'Penser a ajouter une heure de fermeture';
+                            }else {
+                                $ajout = '';
+                            }
+
+                            return array(
+                                'result' => true,
+                                'text' => 'L\'horraire à été mis a jour. ' . $ajout,
+                                'time' => $val
+                            );
+                        }else {
+                            $req->closecursor();
+                            $bdd = null;
+                            
+                            return array(
+                                'result' => false,
+                                'text' => 'L\'horraire n\'a pas put étre mis a jour',
+                                'time' => $horraireJour[$indicateur]
+                            );
+                        }
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'L\'horraire ne fait pas partie de l\'intervale autoriser'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le jour indiquer n\'est pas un jour de la semaine'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
+            }
+        }
     }
 ?>

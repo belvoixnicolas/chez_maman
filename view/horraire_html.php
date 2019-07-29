@@ -42,11 +42,11 @@
                             <label for="<?= $value['jour'] ?>_ouvertAp">
                                 et de
                             </label>
-                            <input type="time" name="<?= $value['jour'] ?>_ouvertAp" id="<?= $value['jour'] ?>_ouvertAp" min="12:00" max="23:59" step="60" placeholder="hh:mm" value="<?= $value['ouvertAp'] ?>">
+                            <input type="time" name="<?= $value['jour'] ?>_ouvertAp" id="<?= $value['jour'] ?>_ouvertAp" step="60" placeholder="hh:mm" value="<?= $value['ouvertAp'] ?>">
                             <label for="<?= $value['jour'] ?>_fermeAp">
                                 à
                             </label>
-                            <input type="time" name="<?= $value['jour'] ?>_fermeAp" id="<?= $value['jour'] ?>_fermeAp" min="12:00" max="23:59" step="60" placeholder="hh:mm" value="<?= $value['fermeAp'] ?>">
+                            <input type="time" name="<?= $value['jour'] ?>_fermeAp" id="<?= $value['jour'] ?>_fermeAp" step="60" placeholder="hh:mm" value="<?= $value['fermeAp'] ?>">
                         </fieldset>
 
                     <?php
