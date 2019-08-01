@@ -33,6 +33,22 @@
                 }
                 break;
 
+            case 'modreseau':
+                if (isset($_POST['id']) && $_POST['id'] != '' && $_POST['id'] > 0) {
+                    $reseaux = new reseaux;
+
+                    $reseau = $reseaux->formHtml($_POST['id']);
+
+                    if (is_array($reseau) && $reseau) {
+                        include('../view/form_reseau.php');
+                    }else {
+                        echo 'false';
+                    }
+                }else {
+                    echo 'false';
+                }
+                break;
+
             default:
                 echo json_encode(array(
                     'result' => false,

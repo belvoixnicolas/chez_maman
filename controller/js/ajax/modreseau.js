@@ -12,7 +12,65 @@ $(document).ready(function(){
         $('#form').remove();
     });
 
+    $('body').on('click', '#modreseau', function () {
+        var id = $(this).val();
+
+        var formData = new FormData();
+        formData.append('id', id);
+        formData.append('action', 'modreseau');
+
+        $.ajax({
+            url : 'modreseau.php',
+            type : 'POST',
+            data : formData,
+            dataType: 'html',
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+        }).done(function (data) {
+            if (data != 'false' && data != 'false id') {
+                $('body').append(data);
+            }else if (data == 'false') {
+                $('#message .text').html('L\'id du reseau n\'a pas étais envoyer');
+                $('#message').addClass('false').removeClass('hidden');
+                
+                var delayMessage = window.setTimeout(function () {
+                    $('#message button').trigger('click');
+                }, 5000);
+            }else if (data == 'false id') {
+                $('#message .text').html('L\'id du reseau ne corespond pas avec la base de donner');
+                $('#message').addClass('false').removeClass('hidden');
+                
+                var delayMessage = window.setTimeout(function () {
+                    $('#message button').trigger('click');
+                }, 5000);
+            }else {
+                $('#message .text').html('Une erreur c\'est produit');
+                $('#message').addClass('false').removeClass('hidden');
+                
+                var delayMessage = window.setTimeout(function () {
+                    $('#message button').trigger('click');
+                }, 5000);
+            }
+        }).fail(function () {
+            $('#message .text').html('Connexion avec le serveur perdue');
+            $('#message').addClass('false').removeClass('hidden');
+            
+            var delayMessage = window.setTimeout(function () {
+                $('#message button').trigger('click');
+            }, 5000);
+        });
+    });
+
     $('#formreseau #image[data-preview]').on('change', function () {
+        var input	= $(this);
+		var oFReader	= new FileReader();
+		oFReader.readAsDataURL(this.files[0]);
+		oFReader.onload	= function(oFREvent) {
+            $(input.data('preview')).attr('src', oFREvent.target.result);
+        }
+    });
+
+    $('body').on('change', '#formmodreseau #image[data-preview]', function () {
         var input	= $(this);
 		var oFReader	= new FileReader();
 		oFReader.readAsDataURL(this.files[0]);

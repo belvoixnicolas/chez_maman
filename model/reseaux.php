@@ -72,6 +72,32 @@
             }
         }
 
+        public function formHtml ($id) {
+            if ($this->verifId($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('SELECT * FROM reseau WHERE id = :id');
+                $req->execute(array(
+                    ':id' => $id
+                ));
+
+                if ($resultat = $req->fetch()) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return $resultat;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+
         private function reseauHtml ($id, $titre, $url, $img) {
             if ($this->_model) {
                 $model = $this->_model;
@@ -90,6 +116,28 @@
 
                 return $model;
             }else {
+                return false;
+            }
+        }
+
+        private function verifId ($id) {
+            $bdd = $this->_bdd;
+            $bdd = $bdd->co();
+
+            $req = $bdd->prepare('SELECT * FROM reseau WHERE id = :id');
+            $req->execute(array(
+                ':id' => $id
+            ));
+
+            if ($req->fetch()) {
+                $req->closecursor();
+                $bdd = null;
+
+                return true;
+            }else {
+                $req->closecursor();
+                $bdd = null;
+
                 return false;
             }
         }

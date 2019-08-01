@@ -33,8 +33,8 @@
         ?>
     </ul>
 
-    <form action="#" method="post" id="formreseau">
-            <img class="preview" src="src/produit/<?= $produit['image'] ?>">
+    <form action="#" method="post" id="formreseau" ENCTYPE="multipart/form-data">
+            <img class="preview">
             <input type="file" name="image" id="image" data-preview=".preview" required>
             <input type="text" name="titre" id="titre" placeholder="Titre" required>
             <input type="url" name="url" id="url" placeholder="Url" required>
