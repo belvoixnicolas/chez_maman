@@ -69,7 +69,7 @@
 
             case 'horraire':
                 header('location: controller/horraire.php');
-                exit;
+                exit();
                 break;
             
             default:

@@ -1,8 +1,8 @@
 <?php 
-    require_once('horraire.php');
-    require_once('entreprise.php');
-    require_once('reseaux.php');
-    require_once('Mobile_Detect.php');
+    require_once('../model/horraire.php');
+    require_once('../model/entreprise.php');
+    require_once('../model/reseaux.php');
+    require_once('../model/Mobile_Detect.php');
 
     class navbar {
         private $_fichier;
