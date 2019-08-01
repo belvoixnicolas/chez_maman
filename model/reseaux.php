@@ -218,6 +218,39 @@
             }
         }
 
+        public function modReseau ($id, $titre, $url, $file) {
+            if ($this->verifId($id) && $titre != '' && strlen($titre) <= 50 && $url != '' && is_array($file)) {
+                return 'ok';
+            }elseif ($this->verifId($id) != true) {
+                return array(
+                    'result' => false,
+                    'text' => 'Le reseau n\'a pas été trouver dans la base de donner'
+                );
+            }elseif ($titre == '' || strlen($titre) > 50) {
+                if ($titre == '') {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le titre est vide'
+                    );
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le titre ne peux faire plus de 50 caractéres'
+                    );
+                }
+            }elseif ($url == '') {
+                return array(
+                    'result' => false,
+                    'text' => 'L\'url est vide'
+                );
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
+            }
+        }
+
         private function uploadimg ($file) {
             if (isset($file['name'], $file['type'], $file['tmp_name']) && is_array($file) && $file['name'] != '' && $file['type'] != '' && $file['tmp_name'] != '' && $file['size'] > 0) {
                 switch ($file['type']) {
