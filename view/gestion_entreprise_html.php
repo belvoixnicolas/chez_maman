@@ -37,6 +37,9 @@
         include_once('../view/formadresse.php');
     ?>
     <?php
+        include_once('../view/formReseau.php');
+    ?>
+    <?php
         include_once('../view/profil.php');
     ?>
     </main>

@@ -4,6 +4,7 @@
     require_once('../model/profil.php');
     require_once('../model/entreprise.php');
     require_once('../model/profil.php');
+    require_once('../model/reseaux.php');
 
     $profil = new profil;
     
@@ -35,6 +36,11 @@
                     $profil = new profil;
 
                     $profils = $profil->profils();
+
+                    $reseau = new reseaux;
+
+                    $reseaux = $reseau->reseauxGestion();
+                    $model = file('../view/reseaumodel.html');
                     
                     include_once('../view/gestion_entreprise_html.php');
                 }

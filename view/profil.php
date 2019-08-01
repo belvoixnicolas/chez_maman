@@ -1,6 +1,6 @@
 <section id="sectionprofil">
     <h2>
-        Titre
+        Profil
     </h2>
 
     <table>
