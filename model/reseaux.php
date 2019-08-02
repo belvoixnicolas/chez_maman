@@ -29,21 +29,43 @@
         }
 
         /// getter ///
-        public function reseaux() {
-            $reseau = $this->_reseaux;
+        public function reseaux($id=null) {
+            if (is_null($id)) {
+                $reseau = $this->_reseaux;
 
-            if ($reseau) {
-                foreach ($reseau as $key => $value) {
-                    if (file_exists('src/reseaux/' . $value['image']) == false) {
-                        $value['image'] = 'default.svg';
+                if ($reseau) {
+                    foreach ($reseau as $key => $value) {
+                        if (file_exists('src/reseaux/' . $value['image']) == false) {
+                            $value['image'] = 'default.svg';
 
-                        $reseau[$key] = $value;
+                            $reseau[$key] = $value;
+                        }
                     }
-                }
 
-                return $reseau;
+                    return $reseau;
+                }else {
+                    return false;
+                }
             }else {
-                return false;
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('SELECT * FROM reseau WHERE id = :id');
+                $req->execute(array(
+                    ':id' => $id
+                ));  
+
+                if ($result = $req->fetch()) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return $result;
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    return false;
+                }
             }
         }
 
@@ -98,23 +120,40 @@
             }
         }
 
-        private function reseauHtml ($id, $titre, $url, $img) {
-            if ($this->_model) {
-                $model = $this->_model;
+        private function reseauHtml ($id) {
+            if ($this->verifId($id) && $reseau = $this->reseaux($id)) {
+                error_reporting(0);
+                if ($this->_model) {
+                    $model = $this->_model;
+    
+                    $model = str_replace('%id%', $reseau['id'], $model);
+                    $model = str_replace('%titre%', $reseau['titre'], $model);
+                    $model = str_replace('%url%', $reseau['url'], $model);
 
-                $model = str_replace('%id%', $id, $model);
-                $model = str_replace('%titre%', $titre, $model);
-                $model = str_replace('%url%', $url, $model);
-                $model = str_replace('%class%', '', $model);
-                $model = str_replace('%txt%', '', $model);
-
-                if (file_exists('src/reseaux/' . $img)) {
-                    $model = str_replace('%img%', $img, $model);
+                    if (is_null($reseau['url']) || fopen($reseau['url'], 'r') == false) {
+                        $model = str_replace('%class%', 'class="erreur"', $model);
+                    }else {
+                        $model = str_replace('%class%', '', $model);
+                    }
+                    
+                    if (is_null($reseau['url'])) {
+                        $model = str_replace('%txt%', '(Aucun lien)', $model);
+                    }elseif (fopen($reseau['url'], 'r') == false) {
+                        $model = str_replace('%txt%', '(Lien mort)', $model);
+                    }else {
+                        $model = str_replace('%txt%', '', $model);
+                    }
+    
+                    if (file_exists('src/reseaux/' . $reseau['image'])) {
+                        $model = str_replace('%img%', $reseau['image'], $model);
+                    }else {
+                        $model = str_replace('%img%', 'default.svg', $model);
+                    }
+    
+                    return $model;
                 }else {
-                    $model = str_replace('%img%', 'default.svg', $model);
+                    return false;
                 }
-
-                return $model;
             }else {
                 return false;
             }
@@ -169,7 +208,7 @@
                         return array(
                             'result' => true,
                             'text' => 'Lien ajouter',
-                            'html' => $this->reseauHtml($lastId, $titre, $url, $file['name'])
+                            'html' => $this->reseauHtml($lastId)
                         );
                     }else {
                         $req->closecursor();
@@ -219,8 +258,86 @@
         }
 
         public function modReseau ($id, $titre, $url, $file) {
-            if ($this->verifId($id) && $titre != '' && strlen($titre) <= 50 && $url != '' && is_array($file)) {
-                return 'ok';
+            error_reporting(0);
+            if ($this->verifId($id) && $titre != '' && strlen($titre) <= 50 && $url != '' && fopen($url, 'r') && is_array($file)) {
+                if ($file['size'] > 0) {
+                    $ifImg = true;
+
+                    $upload = $this->uploadimg($file);
+                    if ($upload['result'] == false) {
+                        return $upload;
+                    }
+                }else {
+                    $ifImg = false;
+                }
+
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+                if ($ifImg) {
+                    $req = $bdd->prepare('UPDATE reseau SET titre = :titre, image = :img, url = :url WHERE id = :id');
+                    $array = array(
+                        ':titre' => $titre,
+                        ':img' => $file['name'],
+                        ':url' => $url,
+                        ':id' => $id
+                    );
+
+                    $oldImg = $this->reseaux($id)['image'];
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        if ($oldImg && $oldImg != $file['name'] && $oldImg != 'default.svg') {
+                            unlink('src/reseaux/' . $oldImg);
+                        }
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le reseau a été mis a jour',
+                            'html' => $this->reseauHtml($id),
+                            'id' => $id
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        if ($file['name'] != 'default.svg') {
+                            unlink('src/reseaux/' . $file['name']);
+                        }
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Une erreur c\'est produit lors de la mise a jour du reseaux'
+                        );
+                    }
+                }else {
+                    $req = $bdd->prepare('UPDATE reseau SET titre = :titre, url = :url WHERE id = :id');
+                    $array = array(
+                        ':titre' => $titre,
+                        ':url' => $url,
+                        ':id' => $id
+                    );
+
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le reseau a été mis a jour',
+                            'html' => $this->reseauHtml($id),
+                            'id' => $id
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Une erreur c\'est produit lors de la mise a jour du reseaux'
+                        );
+                    }
+                }
             }elseif ($this->verifId($id) != true) {
                 return array(
                     'result' => false,
@@ -243,10 +360,62 @@
                     'result' => false,
                     'text' => 'L\'url est vide'
                 );
+            }elseif (fopen($url, 'r') == false) {
+                return array(
+                    'result' => false,
+                    'text' => 'L\'url est un lien mort'
+                );
             }else {
                 return array(
                     'result' => false,
                     'text' => 'Erreur'
+                );
+            }
+        }
+
+        public function supReseau ($id) {
+            if ($this->verifId($id)) {
+                $bdd = $this->_bdd;
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('DELETE FROM reseau WHERE id = :id');
+                $array = array(
+                    ':id' => $id
+                );
+
+                $img = $this->reseaux($id);
+                if ($img) {
+                    if ($req->execute($array)) {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        if ($img['image'] != 'default.svg' && file_exists('src/reseaux/' . $img['image'])) {
+                            unlink('src/reseaux/' . $img['image']);
+                        }
+
+                        return array(
+                            'result' => true,
+                            'text' => 'Le reseau a été suprimer'
+                        );
+                    }else {
+                        $req->closecursor();
+                        $bdd = null;
+
+                        return array(
+                            'result' => false,
+                            'text' => 'Le reseau n\'a pas put étre suprimer'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Une erreur c\'est produit'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Le reseaux n\'a pas été trouver dans la base de donner'
                 );
             }
         }

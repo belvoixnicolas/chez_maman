@@ -87,6 +87,19 @@
                 }
                 break;
 
+            case 'supreseau':
+                if (isset($_POST['id'])) {
+                    $reseaux = new reseaux; 
+
+                    echo json_encode($reseaux->supReseau($_POST['id']));
+                }else {
+                    echo json_encode(array(
+                        'result' => false,
+                        'text' => 'Une erreur c\'est produit'
+                    ));
+                }
+                break;
+
             default:
                 echo json_encode(array(
                     'result' => false,
