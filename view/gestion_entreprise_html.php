@@ -31,6 +31,9 @@
         include_once('../view/formphrase.php');
     ?>
     <?php
+        include_once('../view/formvideo.php');
+    ?>
+    <?php
         include_once('../view/formtel.php');
     ?>
     <?php

@@ -30,6 +30,7 @@
                     $logo = $entreprise->logo();
                     $titre = $entreprise->titre();
                     $phrase = $entreprise->phrase();
+                    $video = $entreprise->video();
                     $tel = $entreprise->numero();
                     $address = $entreprise->address();
 

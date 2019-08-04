@@ -506,6 +506,124 @@
             }
         }
 
+        public function setVideo($file) {
+            $upload = $this->uploadVideo($file);
+
+            if ($upload['result'] && strlen($file['name']) <= 50) {
+                $bdd = $this->_bdd;
+                $oldVideo = $this->video();
+
+                $bdd = $bdd->co();
+
+                $req = $bdd->prepare('UPDATE entreprise SET video = :video');
+                $array = array(
+                    ':video' => $file['name']
+                );
+
+                if ($req->execute($array)) {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    if (is_array($oldVideo) == false && $file['name'] != $oldVideo && $oldVideo != 'default.mp4') {
+                        unlink('src/video/' . $oldVideo);
+                    }
+
+                    return array(
+                        'result' => true,
+                        'text' => 'La video a été mis a jour',
+                        'video' => $file['name']
+                    );
+                }else {
+                    $req->closecursor();
+                    $bdd = null;
+
+                    if ($file['name'] != 'default.mp4') {
+                        unlink('src/video/' . $file['name']);
+                    }
+
+                    return array(
+                        'result' => false,
+                        'text' => 'La video n\'a pas put étre mis a jour'
+                    );
+                }
+            }elseif (strlen($file['name']) > 50) {
+                if ($file['name'] != 'default.mp4') {
+                    unlink('src/video/' . $file['name']);
+                }
+
+                return array(
+                    'result' => false,
+                    'text' => 'Le titre de la video ne peux faire plus de 50 caractéres'
+                );
+            }else {
+                return $upload;
+            }
+        }
+
+        private function uploadVideo ($file) {
+            if (isset($file['name'], $file['type'], $file['tmp_name']) && is_array($file) && $file['name'] != '' && $file['type'] != '' && $file['tmp_name'] != '' && $file['size'] > 0 && $file['size'] <= 67108864 && $file['name'] != 'default.mp4') {
+                if ($file['type'] == 'video/mp4') {
+                    $type = true;
+                }else {
+                    $type = false;
+                }
+
+                if ($type) {
+                    if (move_uploaded_file($file['tmp_name'], 'src/video/' . $file['name'])) {
+                        return array(
+                            'result' => true,
+                            'text' => 'La viedo a était envoyer'
+                        );
+                    }else {
+                        return array(
+                            'result' => false,
+                            'text' => 'La video n\'a pas put étre uploader'
+                        );
+                    }
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le fichier est dans un format inconue. Seul le format mp4 est reconnue.',
+                    );
+                }
+            }elseif ($file['name'] == '') {
+                return array(
+                    'result' => false,
+                    'text' => 'Le nom du fichier n\'est pas renseigner'
+                );
+            }elseif ($file['name'] == 'default.mp4') {
+                return array(
+                    'result' => false,
+                    'text' => 'Le nom du fichier est déja utiliser'
+                );
+            }elseif ($file['type']) {
+                return array(
+                    'result' => false,
+                    'text' => 'Le type du fichier n\'est pas renseigner'
+                );
+            }elseif ($file['tmp_name']) {
+                return array(
+                    'result' => false,
+                    'text' => 'Le chemin du fichier n\'est pas renseigner'
+                );
+            }elseif ($file['size'] == '' || $file['size'] == 0) {
+                return array(
+                    'result' => false,
+                    'text' => 'La taille du fichier n\'est pas renseigner'
+                );
+            }elseif ($file['size'] > 67108864) {
+                return array(
+                    'result' => false,
+                    'text' => 'La taille du fichier est trop lourd. il ne peut exéder 64 Mo.'
+                );
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Erreur'
+                );
+            }
+        }
+
         /// getter ///
         public function titre() {
             $titre = $this->_titre;
@@ -549,16 +667,7 @@
                     'mp4' => 'default.mp4'
                 );
             }else {
-                $extension = array ('webm', 'ogg', 'mp4');
-                $videos = array();
-
-                foreach ($extension as $value) {
-                    if (file_exists('src/video/' . $video . '.' . $value)) {
-                        $videos[$value] = $video . '.' . $value;
-                    }else {
-                        $videos[$value] = 'default.' . $value;
-                    }
-                }
+                $videos = $this->_video;
             }
 
             return $videos;
