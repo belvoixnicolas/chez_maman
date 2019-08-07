@@ -3,6 +3,6 @@
         Description
     </h3>
     <p>
-        <?= $description; ?>
+        <?= nl2br(htmlspecialchars($description)) ?>
     </p>
 </article>

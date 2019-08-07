@@ -4,7 +4,9 @@ $(document).ready(function(){
     var liste = "";
     for (let index = 0; index < test.length; index++) {
          var id = test[index].getAttribute("id");
-         liste += "<li><a href=\"#" + id + "\">" + id + "</a></li>"
+         var text = id.replace(/_/gi, ' ');
+
+         liste += "<li><a href=\"#" + id + "\">" + text.charAt(0).toUpperCase() + text.substring(1).toLowerCase() + "</a></li>"
     }
 
     console.log(liste);

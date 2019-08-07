@@ -1,0 +1,40 @@
+#message {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 100%;
+    column-gap: 2vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    padding: 1vh 1vw;
+    height: 10vh;
+    transition: height 1s, padding 1s;
+    overflow: hidden;
+
+    .text {
+        display: flex;
+        align-items: center;
+        padding: 1vh 0 1vh 1vw;
+        font-size: 1.8rem;
+        overflow-wrap: anywhere;
+    }
+
+    button {
+        font-size: 4vh;
+        padding: .5vh .5vw;
+
+        @media screen AND (max-width: 608px) {
+            padding: 2vh 2vw !important;
+        }
+    }
+}
+
+.hidden {
+    height: 0px !important;
+    padding: 0px 1vw !important;
+    //overflow: hidden;
+}
+
+@import '_couleur_message';

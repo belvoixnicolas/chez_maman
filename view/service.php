@@ -8,9 +8,9 @@
 
     <section>
         <h4><?= $value['titre'] ?></h4>
-        <img src="src/services/<?= $value['image'] ?>" alt="illustration de <?= $value['titre'] ?>">
+        <img src="src/services/<?= htmlspecialchars($value['image']) ?>" alt="illustration de <?= htmlspecialchars($value['titre']) ?>">
         <p>
-            <?= $value['text'] ?>
+            <?= nl2br(htmlspecialchars($value['text'])) ?>
         </p>
     </section>
 

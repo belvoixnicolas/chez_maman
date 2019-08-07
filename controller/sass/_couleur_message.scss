@@ -1,0 +1,20 @@
+#message button {
+    background: none;
+    border: none;
+}
+
+.true {
+    background: #b1fc93;
+    
+    span, button {
+        color: #008000;
+    }
+}
+
+.false {
+    background: #fc9393;
+    
+    span, button {
+        color: red;
+    }
+}

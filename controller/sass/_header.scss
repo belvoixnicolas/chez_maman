@@ -21,6 +21,7 @@
         grid-row: 1 / -1;
         justify-self: center;
         align-self: center;
+        margin: 1vh 1vw;
 
         h4 {
             display: none;
@@ -32,14 +33,17 @@
             margin-bottom: 3vh;
 
             img {
+                display: block;
                 height: 30vh;
                 width: auto;
+                margin: 0 auto;
             }
         }
 
         h2 {
             font-size: 4rem;
             text-align: center;
+            overflow-wrap: anywhere;
         }
     }
 

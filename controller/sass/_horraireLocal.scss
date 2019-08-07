@@ -37,14 +37,17 @@
                 width: 100%;
             }
 
+            tr {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+            }
+
             th, td {
                 font-size: 3rem;
                 letter-spacing: .25ex;
                 padding: 1ex 0;
-
-                &:last-child {
-                    padding-top: 0px;
-                }
             }
     
             th {
@@ -72,6 +75,10 @@
             line-height: 4ex;
             letter-spacing: .3ex;
             text-decoration: none;
+
+            @media screen AND (max-width: 422px) {
+                text-align: center;
+            }
         }
 
         iframe {

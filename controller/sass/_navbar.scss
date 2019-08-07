@@ -110,6 +110,7 @@ nav {
                     font-size: 1.8rem;
                     background: none;
                     text-decoration: none;
+                    text-transform: capitalize;
                 }
             }
         }
@@ -131,39 +132,37 @@ nav {
         }
     }
 
-    .close {
-        min-width: 0vw !important;
-        height: 0vh !important;
-        overflow: hidden;
-    }
-
     .menu {
         display: inline-block;
-        //display: none;
         height: calc(100vh - 10vh);
-        min-width: 30vw;
+        width: 100vw;
         justify-self: left;
-
-        @media screen and (max-width: 430px) {
-            & {
-                width: 100%;
-            }
-        }
+        overflow: hidden;
+        transition: height 1s;
 
         h4 {
             display: none;
         }
 
-        ul li {
-            a {
-                display: inline-block;
-                width: 100%;
-                font-size: 2rem;
+        ul {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            overflow: auto;
+
+            li a {
+                font-size: 3rem;
                 font-weight: bold;
                 text-decoration: none;
-                padding: 3vh 3vw;
+                margin: 1vh 0;
             }
         }
+    }
+
+    .close {
+        height: 0vh !important;
     }
 
     @import '_couleur_navbar';

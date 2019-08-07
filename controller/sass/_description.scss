@@ -16,7 +16,8 @@
         justify-self: center;
         align-self: center;
         font-size: 2rem;
-        width: 80%;
+        min-width: 0%;
+        max-width: 80%;
     }
 
     @import '_couleur_description';

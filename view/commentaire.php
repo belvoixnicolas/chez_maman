@@ -2,33 +2,34 @@
     <h3>
         Commentaire
     </h3>
-    <section class="commentaires">
-        <h4>commentaires</h4>
-        <ul>
-            <?php
-                if (isset($avies) && $avies) {
+    <?php if (isset($avies) && $avies) { ?>
+        <section class="commentaires">
+            <h4>commentaires</h4>
+            
+            <ul>
+                <?php 
                     $i = 1;
-                    foreach ($avies as $value) {
-            ?>
-
-            <li>
-                <img src="src/img/cupcake<?= $i ?>.svg" alt="Icon">
-                <p>
-                    <?= $value['text'] ?>
-                </p>
-            </li>
-                    
-            <?php
-                        if ( $i == 3) {
-                            $i = 1;
-                        }else {
-                            $i++;
+                    foreach ($avies as $value) { 
+                ?>
+                
+                <li>
+                    <img src="src/img/cupcake<?= htmlspecialchars($i) ?>.svg" alt="Icon">
+                    <p>
+                        <?= htmlspecialchars($value['text']) ?>
+                    </p>
+                </li>
+                        
+                <?php
+                            if ( $i == 3) {
+                                $i = 1;
+                            }else {
+                                $i++;
+                            }
                         }
-                    }
-                }
-            ?>
-        </ul>
-    </section>
+                ?>
+            </ul>
+        </section>
+    <?php } ?>
         <section class="formulaire">
             <h4>formulaire</h4>
             <form action="#" method="post" id="formposte">

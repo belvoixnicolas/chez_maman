@@ -4,7 +4,47 @@ footer {
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    padding: 1vh 1vw;
+    padding: 2vh 2vw;
+
+    .reseaux {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        min-width: 50vh;
+        max-width: 100vw;
+        margin-bottom: 1vh;
+
+        li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 9.5vh;
+
+            img {
+                height: 5vh;
+                width: auto;
+                margin: 1vh 1vw;
+                transition: height .5s;
+
+                &:hover {
+                    height: 7.5vh;
+                }
+            }
+        }
+
+        @media screen AND (max-width: 840px) {
+            margin-bottom: 2vh !important;
+
+            li a {
+                display: inline;
+
+                img {
+                    margin: 2vh 2vw !important;
+                }
+            }
+        }
+    }
 
     p {
         font-size: 1.5rem;

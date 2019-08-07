@@ -9,11 +9,11 @@
                     if (isset($etat) && $etat) {
                 ?>
 
-                    <img src="src/img/<?= $etat['image'] ?>" alt="Paneau" />
+                    <img src="src/img/<?= htmlspecialchars($etat['image']) ?>" alt="Paneau" />
                     <p>
                         <?php 
                             if ($etat['text']) {
-                                echo $etat['text'];
+                                echo htmlspecialchars($etat['text']);
                             }
                         ?>
                     </p>
@@ -29,7 +29,7 @@
                 ?>
 
                     <li>
-                        <a href="tel:+33<?= substr($numero['numero'], 1) ?>">
+                        <a href="tel:+33<?= htmlspecialchars(substr($numero['numero'], 1)) ?>">
                             Appeler
                         </a>
                     </li>
@@ -40,7 +40,7 @@
 
                     <li>
                         <span>
-                            <?= implode('.', str_split($numero['numero'], 2)) ?>
+                            <?= htmlspecialchars(implode('.', str_split($numero['numero'], 2))) ?>
                         </span>
                     </li>
 
@@ -57,7 +57,7 @@
                 ?>
 
                     <li>
-                        <a href="https://www.google.com/maps/place/<?= $lien ?>" target="_blank" rel="noopener noreferrer nofollow">
+                        <a href="https://www.google.com/maps/place/<?= htmlspecialchars($lien) ?>" target="_blank" rel="noopener noreferrer nofollow">
                             Itinéraire
                         </a>
                     </li>
@@ -72,12 +72,12 @@
 
             <ul class="reseaux">
                 <?php
-                    foreach ($reseaux as $value) {
+                    for ($i=0; $i < 2; $i++) { 
                 ?>
 
                 <li>
-                    <a href="<?= $value['url'] ?>" target="_blank" rel="noopener noreferrer">
-                        <img src="src/reseaux/<?= $value['image'] ?>" alt="Logo de <?= $value['titre'] ?>">
+                    <a href="<?= htmlspecialchars($reseaux[$i]['url']) ?>" title="<?= htmlspecialchars($reseaux[$i]['titre']) ?>" target="_blank" rel="noopener noreferrer">
+                        <img src="src/reseaux/<?= htmlspecialchars($reseaux[$i]['image']) ?>" alt="Logo de <?= htmlspecialchars($reseaux[$i]['titre']) ?>">
                     </a>
                 </li>
 

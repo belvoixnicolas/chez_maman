@@ -2,8 +2,11 @@ $(document).ready(function(){
     //console.log(window.location.href);
 
     $('#message').on('click', 'button', function () {
-        $('#message').removeClass('true false').addClass('hidden');
-        $('#message .text').html('');
+        $('#message').addClass('hidden');
+        setTimeout(function () {
+            $('#message').removeClass('false true');
+            $('#message .text').html('');
+        }, 1500);
 
         //window.clearTimeout(delayMessage);
     });

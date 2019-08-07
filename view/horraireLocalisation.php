@@ -12,7 +12,7 @@
             ?>
 
             <tr>
-                <th><?= $value['jour'] ?></th>
+                <th><?= htmlspecialchars($value['jour']) ?></th>
                 <td><?= $value['heure'] ?></td>
             </tr>
 
@@ -29,9 +29,9 @@
                 $lien = str_replace(' ', '+', $address['numero'] . ' ' . $address['rue'] . ' ' . $address['cp'] . ' ' . $address['ville']);
         ?>
 
-        <a href="https://www.google.com/maps/place/<?= $lien ?>" target="_blank" rel="noopener noreferrer nofollow">
-            <?= $address['numero'] . ' ' . $address['rue'] ?><br/>
-            <?= $address['ville'] . ' ( ' . $address['cp'] . ' )' ?>
+        <a href="https://www.google.com/maps/place/<?= htmlspecialchars($lien) ?>" target="_blank" rel="noopener noreferrer nofollow">
+            <?= htmlspecialchars($address['numero']) . ' ' . htmlspecialchars($address['rue']) ?><br/>
+            <?= htmlspecialchars($address['ville']) . ' (' . htmlspecialchars($address['cp']) . ')' ?>
         </a>
 
         <?php
@@ -40,7 +40,7 @@
             }
         ?>
         <iframe
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7QhxvnZ6DQHSnkgOZFl0l3nA977SSaGQ&q=<?= $lien ?>" allowfullscreen>
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7QhxvnZ6DQHSnkgOZFl0l3nA977SSaGQ&q=<?= htmlspecialchars($lien) ?>" allowfullscreen>
         </iframe>
     </section>
 </article>

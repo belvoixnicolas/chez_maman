@@ -4,7 +4,7 @@
                 if (isset($video) && is_array($video) == false) {
             ?>
 
-                <source src="src/video/<?= $video ?>" type="video/mp4">
+                <source src="src/video/<?= htmlspecialchars($video) ?>" type="video/mp4">
 
             <?php
                 }
@@ -21,17 +21,17 @@
                     if (isset($logo) && $logo && isset($titre) && $titre) {
                 ?>
 
-                <img src="src/logo/<?= $logo?>" alt="<?= $titre ?>">
+                <img src="src/logo/<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($titre) ?>">
 
                 <?php
                     }elseif (isset($logo) && $logo) {
                 ?>
 
-                <img src="src/logo/<?= $logo?>" alt="Logo">
+                <img src="src/logo/<?= htmlspecialchars($logo) ?>" alt="Logo">
 
                 <?php
                     }elseif (isset($titre) && $titre) {
-                        echo $titre;
+                        echo htmlspecialchars($titre);
                     }
                 ?>
                 
@@ -41,7 +41,7 @@
                 ?>
 
                 <h2>
-                        <?= $phrase ?>
+                        <?= htmlspecialchars($phrase) ?>
                 </h2>
 
                 <?php

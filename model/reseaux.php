@@ -10,7 +10,7 @@
             $bdd = new bdd;
             $bdd = $bdd->co();
 
-            $req = $bdd->query('SELECT titre, image, url FROM reseau WHERE url IS NOT NULL ORDER BY titre LIMIT 2');
+            $req = $bdd->query('SELECT titre, image, url FROM reseau WHERE url IS NOT NULL');
 
             if ($resultat = $req->fetchall()) {
                 $req->closeCursor();

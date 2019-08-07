@@ -18,3 +18,4 @@
     <meta name="msapplication-config" content="src/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/navigateur_color.js"></script>
