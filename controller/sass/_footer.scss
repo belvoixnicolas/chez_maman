@@ -49,7 +49,7 @@ footer {
     p {
         font-size: 1.5rem;
 
-        @media screen AND (max-width: 500px) {
+        @media screen AND (max-width: 560px) {
             & {
                 display: flex;
                 flex-flow: column nowrap;
@@ -72,8 +72,16 @@ footer {
         font-size: 1rem;
     }
 
-    .none {
-        display: none;
+    @media screen AND (max-width: 560px) {
+        #pc {
+            display: none;
+        }
+    }
+
+    @media screen AND (min-width: 560px) {
+        #tel {
+            display: none;
+        }
     }
 
     @import '_couleur_footer';
