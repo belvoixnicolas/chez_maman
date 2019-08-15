@@ -5,7 +5,7 @@
         $file = $_FILES['file'];
         $bdd = new bdd;
         $bdd = $bdd->co();
-        $req = $bdd->prepare('INSERT INTO produit (id, titre, text, image, prix, id_menu) VALUES (NULL, `titre`, `text`, :img, 52, 17)');
+        $req = $bdd->prepare('INSERT INTO produit (id, titre, text, image, prix, id_menu) VALUES (NULL, `titre`, `text`, :img, 52, 22)');
 
         switch ($file['type']) {
             case 'image/gif':

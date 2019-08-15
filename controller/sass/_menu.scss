@@ -54,14 +54,24 @@ article {
         grid-auto-rows: min-content;
         row-gap: 3vh;
         column-gap: 3vh;
-        align-items: stretch;
+        align-items: center;
+        justify-items: center;
 
         figure {
             position: relative;
+            height: 100%;
+            cursor: pointer;
 
             img {
-                height: auto; 
+                max-height: 100%; 
                 width: 100%;
+            }
+
+            i {
+                position: absolute;
+                bottom: 2vh;
+                right: 3vw;
+                font-size: 4vh;
             }
 
             figcaption {

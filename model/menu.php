@@ -176,7 +176,7 @@
             $bdd = $this->_bdd;
             $bdd = $bdd->co();
 
-            $req = $bdd->prepare('SELECT id, titre, text, image, prix FROM produit WHERE id_menu = :id ORDER BY titre');
+            $req = $bdd->prepare('SELECT id, titre, text, image, prix FROM produit WHERE id_menu = :id ORDER BY date DESC');
             $req->execute(array(
                 ':id' => $id
             ));

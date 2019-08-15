@@ -3,6 +3,7 @@
 
     require_once('../model/navbar.php');
     require_once('../model/menu.php');
+    require_once('../model/Mobile_Detect.php');
 
     $nav = new navbar;
     $lien = $nav->lien();
@@ -13,6 +14,13 @@
 
     $menu = new menu;
     $menus = $menu->menus();
+
+    $mobile = new Mobile_Detect;
+    if ($mobile->isMobile() || $mobile->isTablet()) {
+        $mobile = true;
+    }else {
+        $mobile = false;
+    }
 
     include_once('../view/menu_html.php');
 ?>
