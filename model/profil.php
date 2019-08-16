@@ -365,7 +365,7 @@
                     'result' => false,
                     'text' => 'Cette addresse mail n\'existe pas'
                 );
-            }elseif ($mail == 'admin@admin') {
+            }elseif (strtoupper($mail) == 'ADMIN@ADMIN') {
                 return array(
                     'result' => false,
                     'text' => 'Ce compte ne peux pas étre modifier'

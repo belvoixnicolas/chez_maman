@@ -8,10 +8,22 @@
         if (isset($connexion) && $connexion == false) {
     ?>
 
-        <div id="erreur">
-            Le mot de passe ou l'addresse mail est mauvais
+        <div id="message" class='false'>
+            <span class="text">Le mot de passe ou l'addresse mail est mauvais</span>
+            <button>
+                <i class="fas fa-times"></i>
+            </button>
         </div>
 
+    <?php
+        }else {
+    ?>
+        <div id="message" class='hidden'>
+            <span class="text"></span>
+            <button>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
     <?php
         }
     ?>
@@ -51,5 +63,6 @@
             Mot de passe oublier
         </a>
     </main>
+    <script src="js/conect.js"></script>
 </body>
 </html>

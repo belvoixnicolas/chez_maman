@@ -18,6 +18,10 @@ html {
     @import '_navbar';
 }
 
-#connexion {
+#connexion, #modmdp {
     @import '_connexion';
+}
+
+#admin {
+    @import '_admin';
 }

@@ -8,16 +8,16 @@
 <body id="modmdp">
     <?php
         if (isset($modmdp)) {
+            if ($modmdp['result']) {
+                $modmdp['text'] = "Un mail vous a été envoyer avec votre nouveaux mot de passe";
+            }
     ?>
 
-        <div id="erreur">
-            <?php
-                if ($modmdp['result']) {
-                    echo 'Un mail vous à étais envoyer avec un nouveaux mot de passe';
-                }else {
-                    echo $modmdp['text'];
-                }
-            ?>
+        <div id="message" class='<?= var_export($modmdp['result']) ?>'>
+            <span class="text"><?= htmlspecialchars($modmdp['text']) ?></span>
+            <button>
+                <i class="fas fa-times"></i>
+            </button>
         </div>
 
     <?php
@@ -36,5 +36,6 @@
             <input type="submit" value="Envoyer">
         </form>
     </main>
+    <script src="js/conect.js"></script>
 </body>
 </html>

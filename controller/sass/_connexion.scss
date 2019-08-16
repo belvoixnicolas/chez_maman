@@ -26,8 +26,8 @@
         grid-column: 1 / -1;
         justify-self: center;
         align-self: center;
-        //min-height: 50%;
-        min-width: 30%;
+        min-width: 50%;
+        max-width: 80%;
         padding: 2vh 2vw;
         border: 1px solid black;
 
@@ -42,7 +42,42 @@
             grid-auto-rows: min-content;
             row-gap: 2vh;
             align-self: center;
+            justify-items: center;
             border: 1px solid black;
+
+            #mail, #mdp {
+                width: 80%;
+                padding: .5pc;
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            fieldset {
+                #souv, label {
+                    cursor: pointer;
+                }
+
+                #souv {
+                    transform: scale(1.5);
+                }
+
+                label {
+                    padding: 3% 0 3% 2vh;
+                    font-size: 1.4rem;
+                }
+            }
+
+            input[type=submit] {
+                width: 70%;
+                padding: .5pc;
+                margin-top: 2vh;
+                font-size: 1.5rem;
+            }
+        }
+
+        a {
+            font-size: 1.4rem;
+            text-align: center;
         }
     }
 }
