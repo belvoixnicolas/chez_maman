@@ -1,0 +1,40 @@
+#sectionformphrase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    border: 1px solid black;
+
+    h2 {
+        display: none;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        grid-template-rows: 1fr;
+        align-items: stretch;
+        justify-items: stretch;
+        width: 50%;
+
+        @media screen AND (max-width: 550px){
+            & {
+                width: 90% !important;
+            }
+        }
+
+        input {
+            font-size: 1.5rem;
+            border: 1px solid black;
+
+            &[name=phrase] {
+                height: 100%;
+                text-align: center;
+            }
+
+            &[type=submit] {
+                padding: .5pc;
+            }
+        }
+    }
+}

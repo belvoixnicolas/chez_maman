@@ -18,7 +18,7 @@ $(document).ready(function(){
         
         var formData = new FormData(form);
 
-        $('#sectionformvideo').append('<div id="progressbar"><div id="progress" pourcentage="0"></div><p>0%</p></div>');
+        $('#sectionformvideo').append('<div id="progressbar"><div id="progress"></div><p>0%</p></div>');
 
         $.ajax({
             url : 'modvideo.php',
@@ -33,7 +33,11 @@ $(document).ready(function(){
                         var pourcentage = (e.loaded / e.total) * 100;
 
                         $('#sectionformvideo #progressbar p').html(Math.round(pourcentage) + '%');
-                        $('#sectionformvideo #progressbar #progress').attr('pourcentage', Math.round(pourcentage));
+                        if (window.innerWidth > 550) {
+                            $('#sectionformvideo #progressbar #progress').css('width', Math.round(pourcentage) + '%');
+                        }else {
+                            $('#sectionformvideo #progressbar #progress').css('height', Math.round(pourcentage) + '%');
+                        }
                     }
                 };
 

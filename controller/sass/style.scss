@@ -27,5 +27,9 @@ html {
 }
 
 #gestionEntreprise {
-    @import '_formLogo', '_formTitre';
+    section {
+        background: white;
+    }
+    
+    @import '_formLogo', '_formTitre', '_formPhrase', '_formVideo';
 }

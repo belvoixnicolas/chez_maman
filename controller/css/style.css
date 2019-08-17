@@ -1314,6 +1314,9 @@ html {
     font-size: 1.8rem;
     border: 1px solid green; }
 
+/* line 30, ../sass/style.scss */
+#gestionEntreprise section {
+  background: white; }
 /* line 1, ../sass/_formLogo.scss */
 #gestionEntreprise #sectionformlogo {
   display: flex;
@@ -1378,3 +1381,122 @@ html {
       /* line 35, ../sass/_formTitre.scss */
       #gestionEntreprise #sectionformtitre form input[type=submit] {
         padding: .5pc; }
+/* line 1, ../sass/_formPhrase.scss */
+#gestionEntreprise #sectionformphrase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  border: 1px solid black; }
+  /* line 8, ../sass/_formPhrase.scss */
+  #gestionEntreprise #sectionformphrase h2 {
+    display: none; }
+  /* line 12, ../sass/_formPhrase.scss */
+  #gestionEntreprise #sectionformphrase form {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    width: 50%; }
+    @media screen and (max-width: 550px) {
+      /* line 21, ../sass/_formPhrase.scss */
+      #gestionEntreprise #sectionformphrase form {
+        width: 90% !important; } }
+    /* line 26, ../sass/_formPhrase.scss */
+    #gestionEntreprise #sectionformphrase form input {
+      font-size: 1.5rem;
+      border: 1px solid black; }
+      /* line 30, ../sass/_formPhrase.scss */
+      #gestionEntreprise #sectionformphrase form input[name=phrase] {
+        height: 100%;
+        text-align: center; }
+      /* line 35, ../sass/_formPhrase.scss */
+      #gestionEntreprise #sectionformphrase form input[type=submit] {
+        padding: .5pc; }
+/* line 1, ../sass/_formVideo.scss */
+#gestionEntreprise #sectionformvideo {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 90vh;
+  border: 1px solid black;
+  background: none; }
+  /* line 9, ../sass/_formVideo.scss */
+  #gestionEntreprise #sectionformvideo h2 {
+    display: none; }
+  /* line 13, ../sass/_formVideo.scss */
+  #gestionEntreprise #sectionformvideo video {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    justify-self: center;
+    align-self: center;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -1;
+    object-fit: cover; }
+  /* line 24, ../sass/_formVideo.scss */
+  #gestionEntreprise #sectionformvideo form {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: min-content min-content;
+    row-gap: 2vh;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    justify-self: center;
+    align-self: center;
+    width: 50%;
+    border: 1px solid black; }
+    @media screen and (max-width: 550px) {
+      /* line 37, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form {
+        width: 90% !important; } }
+    /* line 42, ../sass/_formVideo.scss */
+    #gestionEntreprise #sectionformvideo form input {
+      font-size: 1.5rem;
+      border: 1px solid black; }
+      /* line 46, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form input[name=video] {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        height: 100%; }
+      /* line 52, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form input[type=submit] {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        padding: .5pc; }
+    /* line 59, ../sass/_formVideo.scss */
+    #gestionEntreprise #sectionformvideo form label {
+      grid-column: 1 / -1;
+      grid-row: 2 / span 1;
+      font-size: 1.25rem;
+      text-align: center; }
+  /* line 67, ../sass/_formVideo.scss */
+  #gestionEntreprise #sectionformvideo #progressbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    border: 1px solid red; }
+    /* line 76, ../sass/_formVideo.scss */
+    #gestionEntreprise #sectionformvideo #progressbar #progress {
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      justify-self: left;
+      align-self: flex-end;
+      height: 100%;
+      width: 0%;
+      background: green; }
+      @media screen and (max-width: 550px) {
+        /* line 76, ../sass/_formVideo.scss */
+        #gestionEntreprise #sectionformvideo #progressbar #progress {
+          height: 0%;
+          width: 100%; } }
+    /* line 91, ../sass/_formVideo.scss */
+    #gestionEntreprise #sectionformvideo #progressbar p {
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      justify-self: center;
+      align-self: center;
+      font-size: 5rem; }
