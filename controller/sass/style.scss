@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu:500&display=swap');
-@import '_reset', '_couleur', '_message', '_footer';
+@import '_reset', '_couleur', '_message', '_footer', '_navadmin';
 
 html {
     font-family: 'Ubuntu', sans-serif;
@@ -24,4 +24,8 @@ html {
 
 #admin {
     @import '_admin';
+}
+
+#gestionEntreprise {
+    background: gray;
 }

@@ -1,0 +1,103 @@
+#gestionEntreprise, #gestionPerso {
+    main {
+        margin-top: 10vh;
+    }
+
+    .bar {
+        grid-template-columns: min-content 1fr;
+        width: 100% !important;
+
+        .lien {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                margin: 0 3vw;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    .menu {
+        grid-row: 2 / span 1 !important;
+        height: 90vh !important;
+    }
+}
+
+#navbaradmin {
+    display: grid;
+    grid-template-columns: min-content;
+    grid-template-rows: min-content auto;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 1;
+    border: 1px solid pink;
+
+    .bar {
+        display: grid;
+        grid-template-rows: 1fr;
+        column-gap: 3vw;
+        grid-column: 1 / -1;
+        grid-row: 1 / span 1;
+        height: 10vh;
+        width: min-content;
+    }
+
+    h4 {
+        display: none;
+    }
+
+    .menuBurger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        cursor: pointer;
+
+        &>* {
+            font-size: 5vh;
+            margin: 0 calc((10vh - 5vh) / 2);
+        }
+    }
+
+    .menu {
+        display: inline-block;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        height: 100vh;
+        width: 100vw;
+        justify-self: left;
+        overflow: hidden;
+        z-index: -1;
+        transition: height 1s;
+
+        h4 {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            overflow: auto;
+
+            li a {
+                font-size: 3rem;
+                font-weight: bold;
+                text-decoration: none;
+                margin: 1vh 0;
+            }
+        }
+    }
+
+    .close {
+        height: 0vh !important;
+    }
+}

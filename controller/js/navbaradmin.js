@@ -10,9 +10,7 @@ $(document).ready(function(){
             $('.menuBurger i').removeClass().addClass('fas fa-bars');
         }
 
-        var menu = $('nav .menu').css('minWidth').slice(0, -2);
-
-        if (menu == 0) {
+        if ($('.menuBurger i').hasClass('fas fa-times')) {
             $('nav .menu').removeClass('close');
         }else {
             $('nav .menu').addClass('close');
