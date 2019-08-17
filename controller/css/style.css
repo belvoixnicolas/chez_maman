@@ -1345,3 +1345,36 @@ html {
       /* line 32, ../sass/_formLogo.scss */
       #gestionEntreprise #sectionformlogo form input[type=submit] {
         padding: .5pc; }
+/* line 1, ../sass/_formTitre.scss */
+#gestionEntreprise #sectionformtitre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  border: 1px solid black; }
+  /* line 8, ../sass/_formTitre.scss */
+  #gestionEntreprise #sectionformtitre h2 {
+    display: none; }
+  /* line 12, ../sass/_formTitre.scss */
+  #gestionEntreprise #sectionformtitre form {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    width: 50%; }
+    @media screen and (max-width: 550px) {
+      /* line 21, ../sass/_formTitre.scss */
+      #gestionEntreprise #sectionformtitre form {
+        width: 90% !important; } }
+    /* line 26, ../sass/_formTitre.scss */
+    #gestionEntreprise #sectionformtitre form input {
+      font-size: 1.5rem;
+      border: 1px solid black; }
+      /* line 30, ../sass/_formTitre.scss */
+      #gestionEntreprise #sectionformtitre form input[name=titre] {
+        height: 100%;
+        text-align: center; }
+      /* line 35, ../sass/_formTitre.scss */
+      #gestionEntreprise #sectionformtitre form input[type=submit] {
+        padding: .5pc; }
