@@ -1,0 +1,37 @@
+#sectionformlogo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 90vh;
+    border: 1px solid black;
+
+    h2 {
+        display: none;
+    }
+
+    img {
+        height: 30vh;
+        width: auto;
+    }
+
+    form {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: stretch;
+        align-items: stretch;
+
+        input {
+            font-size: 1.5rem;
+            border: 1px solid black;
+
+            &[name=logo] {
+                height: 100%;
+            }
+
+            &[type=submit] {
+                padding: .5pc;
+            }
+        }
+    }
+}

@@ -1314,6 +1314,34 @@ html {
     font-size: 1.8rem;
     border: 1px solid green; }
 
-/* line 29, ../sass/style.scss */
-#gestionEntreprise {
-  background: gray; }
+/* line 1, ../sass/_formLogo.scss */
+#gestionEntreprise #sectionformlogo {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 90vh;
+  border: 1px solid black; }
+  /* line 9, ../sass/_formLogo.scss */
+  #gestionEntreprise #sectionformlogo h2 {
+    display: none; }
+  /* line 13, ../sass/_formLogo.scss */
+  #gestionEntreprise #sectionformlogo img {
+    height: 30vh;
+    width: auto; }
+  /* line 18, ../sass/_formLogo.scss */
+  #gestionEntreprise #sectionformlogo form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    align-items: stretch; }
+    /* line 24, ../sass/_formLogo.scss */
+    #gestionEntreprise #sectionformlogo form input {
+      font-size: 1.5rem;
+      border: 1px solid black; }
+      /* line 28, ../sass/_formLogo.scss */
+      #gestionEntreprise #sectionformlogo form input[name=logo] {
+        height: 100%; }
+      /* line 32, ../sass/_formLogo.scss */
+      #gestionEntreprise #sectionformlogo form input[type=submit] {
+        padding: .5pc; }

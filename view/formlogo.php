@@ -18,7 +18,7 @@
                 }else {
             ?>
 
-                <img src="src/logo/default.svg" alt="Logo de titre">
+                <img src="src/logo/default.svg" alt="Logo du site">
 
             <?php
                 }
