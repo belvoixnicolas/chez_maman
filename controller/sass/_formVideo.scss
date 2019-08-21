@@ -30,7 +30,7 @@
         grid-row: 1 / -1;
         justify-self: center;
         align-self: center;
-        width: 50%;
+        width: 70%;
         border: 1px solid black;
 
         @media screen AND (max-width: 550px){
@@ -41,6 +41,7 @@
 
         input {
             font-size: 1.5rem;
+            padding: .5pc 0;
             border: 1px solid black;
 
             &[name=video] {
@@ -52,6 +53,7 @@
             &[type=submit] {
                 grid-column: 2 / span 1;
                 grid-row: 1 / span 1;
+                padding: .5pc;
             }
         }
 

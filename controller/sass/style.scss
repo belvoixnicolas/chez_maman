@@ -6,6 +6,19 @@ html {
     color: $noir;
 }
 
+#form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0000007c;
+    z-index: 1;
+}
+
 #index {
     @import '_header', '_description', '_avie', '_service', '_horraireLocal.scss';
 }
@@ -31,5 +44,5 @@ html {
         background: white;
     }
     
-    @import '_formLogo', '_formTitre', '_formPhrase', '_formVideo', '_formTel', '_formAdresse';
+    @import '_formLogo', '_formTitre', '_formPhrase', '_formVideo', '_formTel', '_formAdresse', '_sectionReseau';
 }

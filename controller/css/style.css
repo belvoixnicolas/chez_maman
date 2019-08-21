@@ -607,6 +607,19 @@ html {
   font-family: 'Ubuntu', sans-serif;
   color: #585858; }
 
+/* line 9, ../sass/style.scss */
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0000007c;
+  z-index: 1; }
+
 /* line 1, ../sass/_header.scss */
 #index #header {
   display: grid;
@@ -1314,7 +1327,7 @@ html {
     font-size: 1.8rem;
     border: 1px solid green; }
 
-/* line 30, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 #gestionEntreprise section {
   background: white; }
 /* line 1, ../sass/_formLogo.scss */
@@ -1334,17 +1347,27 @@ html {
     width: auto; }
   /* line 18, ../sass/_formLogo.scss */
   #gestionEntreprise #sectionformlogo form {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: stretch;
-    align-items: stretch; }
-    /* line 24, ../sass/_formLogo.scss */
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    width: 70%; }
+    @media screen and (max-width: 550px) {
+      /* line 27, ../sass/_formLogo.scss */
+      #gestionEntreprise #sectionformlogo form {
+        width: 90% !important; } }
+    /* line 32, ../sass/_formLogo.scss */
     #gestionEntreprise #sectionformlogo form input {
       font-size: 1.5rem;
+      padding: .5pc 0;
       border: 1px solid black; }
-      /* line 28, ../sass/_formLogo.scss */
+      /* line 37, ../sass/_formLogo.scss */
       #gestionEntreprise #sectionformlogo form input[name=logo] {
         height: 100%; }
+      /* line 41, ../sass/_formLogo.scss */
+      #gestionEntreprise #sectionformlogo form input[type=submit] {
+        padding: .5pc; }
 /* line 1, ../sass/_formTitre.scss */
 #gestionEntreprise #sectionformtitre {
   display: flex;
@@ -1362,7 +1385,7 @@ html {
     grid-template-rows: 1fr;
     align-items: stretch;
     justify-items: stretch;
-    width: 50%; }
+    width: 70%; }
     @media screen and (max-width: 550px) {
       /* line 21, ../sass/_formTitre.scss */
       #gestionEntreprise #sectionformtitre form {
@@ -1395,7 +1418,7 @@ html {
     grid-template-rows: 1fr;
     align-items: stretch;
     justify-items: stretch;
-    width: 50%; }
+    width: 70%; }
     @media screen and (max-width: 550px) {
       /* line 21, ../sass/_formPhrase.scss */
       #gestionEntreprise #sectionformphrase form {
@@ -1442,7 +1465,7 @@ html {
     grid-row: 1 / -1;
     justify-self: center;
     align-self: center;
-    width: 50%;
+    width: 70%;
     border: 1px solid black; }
     @media screen and (max-width: 550px) {
       /* line 37, ../sass/_formVideo.scss */
@@ -1451,23 +1474,25 @@ html {
     /* line 42, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo form input {
       font-size: 1.5rem;
+      padding: .5pc 0;
       border: 1px solid black; }
-      /* line 46, ../sass/_formVideo.scss */
+      /* line 47, ../sass/_formVideo.scss */
       #gestionEntreprise #sectionformvideo form input[name=video] {
         grid-column: 1 / span 1;
         grid-row: 1 / span 1;
         height: 100%; }
-      /* line 52, ../sass/_formVideo.scss */
+      /* line 53, ../sass/_formVideo.scss */
       #gestionEntreprise #sectionformvideo form input[type=submit] {
         grid-column: 2 / span 1;
-        grid-row: 1 / span 1; }
-    /* line 58, ../sass/_formVideo.scss */
+        grid-row: 1 / span 1;
+        padding: .5pc; }
+    /* line 60, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo form label {
       grid-column: 1 / -1;
       grid-row: 2 / span 1;
       font-size: 1.25rem;
       text-align: center; }
-  /* line 66, ../sass/_formVideo.scss */
+  /* line 68, ../sass/_formVideo.scss */
   #gestionEntreprise #sectionformvideo #progressbar {
     display: grid;
     grid-template-columns: 1fr;
@@ -1475,7 +1500,7 @@ html {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     border: 1px solid red; }
-    /* line 74, ../sass/_formVideo.scss */
+    /* line 76, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo #progressbar #progress {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
@@ -1485,11 +1510,11 @@ html {
       width: 0%;
       background: green; }
       @media screen and (max-width: 550px) {
-        /* line 74, ../sass/_formVideo.scss */
+        /* line 76, ../sass/_formVideo.scss */
         #gestionEntreprise #sectionformvideo #progressbar #progress {
           height: 0%;
           width: 100%; } }
-    /* line 89, ../sass/_formVideo.scss */
+    /* line 91, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo #progressbar p {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
@@ -1513,7 +1538,7 @@ html {
     grid-template-rows: 1fr;
     align-items: stretch;
     justify-items: stretch;
-    width: 50%; }
+    width: 70%; }
     @media screen and (max-width: 550px) {
       /* line 21, ../sass/_formTel.scss */
       #gestionEntreprise #sectionformtel form {
@@ -1586,8 +1611,163 @@ html {
       justify-content: space-around;
       align-items: center;
       grid-column: 1 / -1;
-      grid-row: -1 / span -1;
+      grid-row: 3 / span 1;
       margin-top: 1pc; }
       /* line 69, ../sass/_formAdresse.scss */
       #gestionEntreprise #sectionformadresse form .boutton .hidden {
         display: none; }
+/* line 75, ../sass/_sectionReseau.scss */
+#gestionEntreprise #sectionreseau {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto min-content;
+  row-gap: 5vh;
+  min-height: 90vh;
+  padding: 5vh 0;
+  border: 1px solid black; }
+  /* line 84, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #sectionreseau h2 {
+    display: none; }
+  /* line 88, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #sectionreseau ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 2.5vw; }
+    /* line 95, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #sectionreseau ul li {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr min-content;
+      grid-auto-rows: min-content;
+      row-gap: 1vh;
+      margin: 1vh 1vw;
+      border: 1px solid black; }
+      /* line 104, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau ul li img {
+        height: 15vh;
+        width: auto;
+        margin: 0 auto; }
+      /* line 110, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau ul li a {
+        text-align: center;
+        font-size: 1.5rem; }
+      /* line 115, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau ul li button {
+        font-size: 0rem;
+        padding: 0pc;
+        border-width: 0;
+        transition: .5s; }
+      /* line 122, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau ul li:hover > button {
+        font-size: 1.5rem;
+        padding: .25pc;
+        border-width: 1px; }
+  /* line 130, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #sectionreseau #formreseau {
+    display: grid;
+    grid-template-rows: max-content repeat(3, min-content);
+    grid-template-columns: 47.5% 47.5%;
+    row-gap: 1pc;
+    column-gap: 5%;
+    border: 1px solid red;
+    width: 70%;
+    margin: 0 auto; }
+    @media screen and (max-width: 550px) {
+      /* line 17, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau #formreseau {
+        width: 90% !important; } }
+    /* line 31, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #sectionreseau #formreseau img {
+      grid-column: 1 / -1;
+      grid-row: 1 / span 1;
+      justify-self: center;
+      align-self: center;
+      height: 15vh;
+      width: auto; }
+    /* line 40, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #sectionreseau #formreseau #image {
+      grid-column: 1 / -1;
+      grid-row: 2 / span 1; }
+    /* line 45, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #sectionreseau #formreseau #titre {
+      grid-column: 1 / span 1;
+      grid-row: 3 / span 1; }
+    /* line 50, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #sectionreseau #formreseau #url {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1; }
+    /* line 55, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #sectionreseau #formreseau input {
+      font-size: 1.5rem;
+      border: 1px solid black;
+      padding: .5pc 0; }
+      /* line 60, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau #formreseau input[name=titre] {
+        text-align: center; }
+      /* line 64, ../sass/_sectionReseau.scss */
+      #gestionEntreprise #sectionreseau #formreseau input[type=submit] {
+        grid-column: 1 / -1;
+        grid-row: 4 / span 1;
+        justify-self: center;
+        align-self: center;
+        padding: .5pc;
+        width: 50%; }
+/* line 136, ../sass/_sectionReseau.scss */
+#gestionEntreprise #formmodreseau {
+  display: grid;
+  grid-template-rows: max-content repeat(3, min-content) 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 47.5% 47.5%;
+  row-gap: 1pc;
+  column-gap: 5%;
+  border: 1px solid red;
+  width: 70%;
+  padding: 2vh 2vw; }
+  @media screen and (max-width: 550px) {
+    /* line 17, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #formmodreseau {
+      width: 90% !important; } }
+  /* line 23, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #formmodreseau #fermer {
+    grid-column: 2 / span 1;
+    grid-row: 1 / -7;
+    justify-self: right;
+    font-size: 5vh; }
+  /* line 31, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #formmodreseau img {
+    grid-column: 1 / -1;
+    grid-row: 1 / span 1;
+    justify-self: center;
+    align-self: center;
+    height: 15vh;
+    width: auto; }
+  /* line 40, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #formmodreseau #image {
+    grid-column: 1 / -1;
+    grid-row: 2 / span 1; }
+  /* line 45, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #formmodreseau #titre {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1; }
+  /* line 50, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #formmodreseau #url {
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 1; }
+  /* line 55, ../sass/_sectionReseau.scss */
+  #gestionEntreprise #formmodreseau input {
+    font-size: 1.5rem;
+    border: 1px solid black;
+    padding: .5pc 0; }
+    /* line 60, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #formmodreseau input[name=titre] {
+      text-align: center; }
+    /* line 64, ../sass/_sectionReseau.scss */
+    #gestionEntreprise #formmodreseau input[type=submit] {
+      grid-column: 1 / -1;
+      grid-row: 4 / span 1;
+      justify-self: center;
+      align-self: center;
+      padding: .5pc;
+      width: 50%; }

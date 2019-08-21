@@ -23,7 +23,7 @@
         <input type="text" name="ville" id="ville" placeholder="Ville" <?= $ville ?> required>
         <input type="number" name="cp" id="cp" placeholder="CP" <?= $cp ?> required>
 
-        <fieldset class="boutton">
+        <div class="boutton">
             <?php
                 if (isset($address) && is_array($address) && $address) {
                     $class = "class=\"\"";
@@ -33,7 +33,7 @@
             ?>
             <input type="button" id='sup' value="Suprimer" <?= $class ?>>
             <input type="submit" value="envoyer">
-        </fieldset>
+        </div>
     </form>
     <script src="js/ajax/formadresse.js"></script>
 </section>

@@ -16,17 +16,30 @@
     }
 
     form {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: stretch;
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        grid-template-rows: 1fr;
         align-items: stretch;
+        justify-items: stretch;
+        width: 70%;
+
+        @media screen AND (max-width: 550px){
+            & {
+                width: 90% !important;
+            }
+        }
 
         input {
             font-size: 1.5rem;
+            padding: .5pc 0;
             border: 1px solid black;
 
             &[name=logo] {
                 height: 100%;
+            }
+
+            &[type=submit] {
+                padding: .5pc;
             }
         }
     }
