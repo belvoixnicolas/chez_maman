@@ -52,7 +52,6 @@
             &[type=submit] {
                 grid-column: 2 / span 1;
                 grid-row: 1 / span 1;
-                padding: .5pc;
             }
         }
 
@@ -71,7 +70,6 @@
         grid-column: 1 / -1;
         grid-row: 1 / -1;
         border: 1px solid red;
-        //background: pink;
 
         #progress {
             grid-column: 1 / -1;

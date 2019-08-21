@@ -27,6 +27,8 @@ $(document).ready(function(){
                 if (data.result) {
                     $('#message .text').html(data.text);
                     $('#message').addClass('true').removeClass('hidden');
+
+                    $('#formadresse #sup').attr('class', '');
                     
                     var delayMessage = window.setTimeout(function () {
                         $('#message button').trigger('click');
@@ -78,6 +80,8 @@ $(document).ready(function(){
                     $('#formadresse #rue').val(null);
                     $('#formadresse #ville').val(null);
                     $('#formadresse #cp').val(null);
+
+                    $('#formadresse #sup').attr('class', 'hidden');
                 }else {
                     $('#message .text').html(data.text);
                     $('#message').addClass('false').removeClass('hidden');

@@ -1345,9 +1345,6 @@ html {
       /* line 28, ../sass/_formLogo.scss */
       #gestionEntreprise #sectionformlogo form input[name=logo] {
         height: 100%; }
-      /* line 32, ../sass/_formLogo.scss */
-      #gestionEntreprise #sectionformlogo form input[type=submit] {
-        padding: .5pc; }
 /* line 1, ../sass/_formTitre.scss */
 #gestionEntreprise #sectionformtitre {
   display: flex;
@@ -1463,15 +1460,14 @@ html {
       /* line 52, ../sass/_formVideo.scss */
       #gestionEntreprise #sectionformvideo form input[type=submit] {
         grid-column: 2 / span 1;
-        grid-row: 1 / span 1;
-        padding: .5pc; }
-    /* line 59, ../sass/_formVideo.scss */
+        grid-row: 1 / span 1; }
+    /* line 58, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo form label {
       grid-column: 1 / -1;
       grid-row: 2 / span 1;
       font-size: 1.25rem;
       text-align: center; }
-  /* line 67, ../sass/_formVideo.scss */
+  /* line 66, ../sass/_formVideo.scss */
   #gestionEntreprise #sectionformvideo #progressbar {
     display: grid;
     grid-template-columns: 1fr;
@@ -1479,7 +1475,7 @@ html {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     border: 1px solid red; }
-    /* line 76, ../sass/_formVideo.scss */
+    /* line 74, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo #progressbar #progress {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
@@ -1489,14 +1485,109 @@ html {
       width: 0%;
       background: green; }
       @media screen and (max-width: 550px) {
-        /* line 76, ../sass/_formVideo.scss */
+        /* line 74, ../sass/_formVideo.scss */
         #gestionEntreprise #sectionformvideo #progressbar #progress {
           height: 0%;
           width: 100%; } }
-    /* line 91, ../sass/_formVideo.scss */
+    /* line 89, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo #progressbar p {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       justify-self: center;
       align-self: center;
       font-size: 5rem; }
+/* line 1, ../sass/_formTel.scss */
+#gestionEntreprise #sectionformtel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  border: 1px solid black; }
+  /* line 8, ../sass/_formTel.scss */
+  #gestionEntreprise #sectionformtel h2 {
+    display: none; }
+  /* line 12, ../sass/_formTel.scss */
+  #gestionEntreprise #sectionformtel form {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    width: 50%; }
+    @media screen and (max-width: 550px) {
+      /* line 21, ../sass/_formTel.scss */
+      #gestionEntreprise #sectionformtel form {
+        width: 90% !important; } }
+    /* line 26, ../sass/_formTel.scss */
+    #gestionEntreprise #sectionformtel form input {
+      font-size: 1.5rem;
+      border: 1px solid black; }
+      /* line 30, ../sass/_formTel.scss */
+      #gestionEntreprise #sectionformtel form input[name=tel] {
+        height: 100%;
+        text-align: center; }
+      /* line 35, ../sass/_formTel.scss */
+      #gestionEntreprise #sectionformtel form input[type=submit] {
+        padding: .5pc; }
+/* line 1, ../sass/_formAdresse.scss */
+#gestionEntreprise #sectionformadresse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  border: 1px solid black; }
+  /* line 8, ../sass/_formAdresse.scss */
+  #gestionEntreprise #sectionformadresse h2 {
+    display: none; }
+  /* line 12, ../sass/_formAdresse.scss */
+  #gestionEntreprise #sectionformadresse form {
+    display: grid;
+    grid-template-columns: min-content 1fr 1fr min-content;
+    grid-template-rows: repeat(3, min-content);
+    column-gap: 1pc;
+    row-gap: 1pc;
+    width: 70%;
+    border: 1px solid black; }
+    @media screen and (max-width: 550px) {
+      /* line 22, ../sass/_formAdresse.scss */
+      #gestionEntreprise #sectionformadresse form {
+        width: 90% !important; } }
+    /* line 27, ../sass/_formAdresse.scss */
+    #gestionEntreprise #sectionformadresse form input {
+      font-size: 1.5rem;
+      border: 1px solid black;
+      padding: .5pc 1pc; }
+      /* line 32, ../sass/_formAdresse.scss */
+      #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionformadresse form input[type=button] {
+        padding: .5pc;
+        width: 40%; }
+    /* line 38, ../sass/_formAdresse.scss */
+    #gestionEntreprise #sectionformadresse form #nrue {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+      width: 5pc; }
+    /* line 44, ../sass/_formAdresse.scss */
+    #gestionEntreprise #sectionformadresse form #rue {
+      grid-column: 2 / -1;
+      grid-row: 1 / span 1; }
+    /* line 49, ../sass/_formAdresse.scss */
+    #gestionEntreprise #sectionformadresse form #ville {
+      grid-column: 1 / -2;
+      grid-row: 2 / span 1; }
+    /* line 54, ../sass/_formAdresse.scss */
+    #gestionEntreprise #sectionformadresse form #cp {
+      grid-column: -2 / -1;
+      grid-row: 2 / span 1;
+      width: 6pc; }
+    /* line 60, ../sass/_formAdresse.scss */
+    #gestionEntreprise #sectionformadresse form .boutton {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+      grid-column: 1 / -1;
+      grid-row: -1 / span -1;
+      margin-top: 1pc; }
+      /* line 69, ../sass/_formAdresse.scss */
+      #gestionEntreprise #sectionformadresse form .boutton .hidden {
+        display: none; }
