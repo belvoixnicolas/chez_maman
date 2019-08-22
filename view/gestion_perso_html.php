@@ -23,7 +23,7 @@
                 </legend>
 
                 <input type="email" name="mail" id="mail" placeholder="changer d'email">
-                <input type="email" name="verifmail" id="verifmail" placeholder="changer d'email" disabled>
+                <input type="email" name="verifmail" id="verifmail" placeholder="réécriver l'email" disabled>
             </fieldset>
             <fieldset>
                 <legend>

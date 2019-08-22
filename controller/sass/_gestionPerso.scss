@@ -1,0 +1,53 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    border: 1px solid black;
+
+    form {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, min-content);
+        row-gap: 2vh;
+        width: 70%;
+        border: 1px solid black;
+
+        @media screen AND (max-width: 550px){
+            & {
+                width: 90% !important;
+            }
+        }
+
+        legend {
+            display: none;
+        }
+
+        input {
+            font-size: 1.5rem;
+            border: 1px solid black;
+            padding: .5pc 0;
+            transition: .5s;
+
+            &[name=mail], &[name=verifmail], &[name=pwd], &[name=verifpwd] {
+                width: 100%;
+                text-align: center;
+            }
+
+            &[name=verifmail], &[name=verifpwd] {
+                margin-top: 2vh;
+            }
+
+            &:disabled {
+                margin-top: 0;
+                font-size: 0;
+                padding: 0;
+                border-width: 0;
+            }
+
+            &[type=submit] {
+                padding: .5pc;
+            }
+        }
+    }
+}

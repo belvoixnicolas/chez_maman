@@ -46,3 +46,7 @@ html {
     
     @import '_formLogo', '_formTitre', '_formPhrase', '_formVideo', '_formTel', '_formAdresse', '_sectionReseau', '_sectionProfil';
 }
+
+#gestionPerso {
+    @import '_gestionPerso';
+}
