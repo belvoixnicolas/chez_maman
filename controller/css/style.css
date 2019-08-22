@@ -1704,7 +1704,7 @@ html {
       border: 1px solid black;
       padding: .5pc 0; }
       /* line 60, ../sass/_sectionReseau.scss */
-      #gestionEntreprise #sectionreseau #formreseau input[name=titre] {
+      #gestionEntreprise #sectionreseau #formreseau input[name=titre], #gestionEntreprise #sectionreseau #formreseau input[name=url] {
         text-align: center; }
       /* line 64, ../sass/_sectionReseau.scss */
       #gestionEntreprise #sectionreseau #formreseau input[type=submit] {
@@ -1761,7 +1761,7 @@ html {
     border: 1px solid black;
     padding: .5pc 0; }
     /* line 60, ../sass/_sectionReseau.scss */
-    #gestionEntreprise #formmodreseau input[name=titre] {
+    #gestionEntreprise #formmodreseau input[name=titre], #gestionEntreprise #formmodreseau input[name=url] {
       text-align: center; }
     /* line 64, ../sass/_sectionReseau.scss */
     #gestionEntreprise #formmodreseau input[type=submit] {
@@ -1771,3 +1771,80 @@ html {
       align-self: center;
       padding: .5pc;
       width: 50%; }
+/* line 1, ../sass/_sectionProfil.scss */
+#gestionEntreprise #sectionprofil {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto min-content;
+  row-gap: 5vh;
+  min-height: 90vh;
+  padding: 5vh 0;
+  border: 1px solid black; }
+  /* line 10, ../sass/_sectionProfil.scss */
+  #gestionEntreprise #sectionprofil h2 {
+    display: none; }
+  /* line 14, ../sass/_sectionProfil.scss */
+  #gestionEntreprise #sectionprofil table {
+    justify-self: center;
+    align-self: center;
+    width: 70%;
+    table-layout: fixed;
+    border: 1px solid black; }
+    @media screen and (max-width: 550px) {
+      /* line 22, ../sass/_sectionProfil.scss */
+      #gestionEntreprise #sectionprofil table {
+        width: 90% !important; } }
+    /* line 27, ../sass/_sectionProfil.scss */
+    #gestionEntreprise #sectionprofil table th, #gestionEntreprise #sectionprofil table td {
+      height: 8vh;
+      padding: 0 2vw;
+      vertical-align: middle;
+      border: 1px solid black; }
+    /* line 34, ../sass/_sectionProfil.scss */
+    #gestionEntreprise #sectionprofil table th {
+      font-size: 1.8rem;
+      width: 33.33%; }
+    /* line 39, ../sass/_sectionProfil.scss */
+    #gestionEntreprise #sectionprofil table td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1.5rem; }
+    /* line 45, ../sass/_sectionProfil.scss */
+    #gestionEntreprise #sectionprofil table .sup, #gestionEntreprise #sectionprofil table .admin {
+      text-align: center;
+      padding: 0; }
+      /* line 49, ../sass/_sectionProfil.scss */
+      #gestionEntreprise #sectionprofil table .sup button, #gestionEntreprise #sectionprofil table .admin button {
+        padding: 0;
+        height: 6vh;
+        width: 6vh; }
+  /* line 57, ../sass/_sectionProfil.scss */
+  #gestionEntreprise #sectionprofil #formprofil {
+    display: grid;
+    grid-template-columns: repeat(3, 30.66%);
+    grid-template-rows: min-content;
+    column-gap: 4%;
+    justify-self: center;
+    width: 70%;
+    border: 1px solid black; }
+    @media screen and (max-width: 550px) {
+      /* line 67, ../sass/_sectionProfil.scss */
+      #gestionEntreprise #sectionprofil #formprofil {
+        width: 90% !important; }
+      /* line 71, ../sass/_sectionProfil.scss */
+      #gestionEntreprise #sectionprofil #formprofil input[type=submit] {
+        width: 100% !important; } }
+    /* line 76, ../sass/_sectionProfil.scss */
+    #gestionEntreprise #sectionprofil #formprofil input {
+      font-size: 1.5rem;
+      border: 1px solid black;
+      padding: .5pc 0; }
+      /* line 81, ../sass/_sectionProfil.scss */
+      #gestionEntreprise #sectionprofil #formprofil input[name=mail], #gestionEntreprise #sectionprofil #formprofil input[name=nom] {
+        text-align: center; }
+      /* line 85, ../sass/_sectionProfil.scss */
+      #gestionEntreprise #sectionprofil #formprofil input[type=submit] {
+        justify-self: right;
+        align-self: center;
+        padding: .5pc;
+        width: 50%; }

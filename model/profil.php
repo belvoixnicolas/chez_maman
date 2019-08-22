@@ -79,12 +79,12 @@
             }
         }
 
-        public function profils ($id = null) {
-            if (is_null($id)) {
+        public function profils ($id, $list = null) {
+            if (is_int($id) && is_null($list) == false && $list == true && $id > 1) {
                 $bdd = $this->_bdd;
                 $bdd = $bdd->co();
 
-                $req = $bdd->query('SELECT id, nom, mail, admin FROM profil WHERE id != 1');
+                $req = $bdd->query("SELECT id, nom, mail, admin FROM profil WHERE id != 1 AND id != $id");
 
                 if ($result = $req->fetchall()) {
                     $req->closecursor();
@@ -197,7 +197,7 @@
                             return array(
                                 'result' => true,
                                 'text' => 'Le nouvelle utilisateur a était ajouter',
-                                'html' => '<tr><td class="nom">' . $nom . '</td><td class="mail">' . $mail . '</td><td class="admin"><button id="modifprofil" name="id" value="' . $id . '"><i class="far fa-star"></i></button></td><td class="sup"><button id="supprofil" name="id" value="' . $id . '"><i class="fas fa-times"></i></button></td></tr>'
+                                'html' => '<tr><td class="nom">' . $nom . '</td><td class="mail">' . $mail . '</td><td class="admin"><button id="modifprofil" name="id" value="' . $id . '"><i class="far fa-user"></i></button></td><td class="sup"><button id="supprofil" name="id" value="' . $id . '"><i class="fas fa-times"></i></button></td></tr>'
                             
                             );
                         }else {

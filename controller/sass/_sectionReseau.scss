@@ -57,7 +57,7 @@
         border: 1px solid black;
         padding: .5pc 0;
 
-        &[name=titre] {
+        &[name=titre], &[name=url] {
             text-align: center;
         }
 

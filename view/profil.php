@@ -16,9 +16,9 @@
                 if (isset($profils) && $profils) { 
                     foreach ($profils as $value) {
                         if ($value['admin'] == 1) {
-                            $icon = '<i class="fas fa-star"></i>';
+                            $icon = '<i class="fas fa-user"></i>';
                         }else {
-                            $icon = '<i class="far fa-star"></i>';
+                            $icon = '<i class="far fa-user"></i>';
                         }
             ?>
 
@@ -37,8 +37,8 @@
     </table>
 
     <form action="#" method="post" id="formprofil">
-        <input type="email" name="mail" id="mailprofil" placeholder="Mail" required>
         <input type="text" name="nom" id="nomprofil" placeholder="Nom" required>
+        <input type="email" name="mail" id="mailprofil" placeholder="Mail" required>
 
         <input type="submit" value="Envoyer">
     </form>

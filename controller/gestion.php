@@ -36,7 +36,7 @@
 
                     $profil = new profil;
 
-                    $profils = $profil->profils();
+                    $profils = $profil->profils((int) $_SESSION['profil']['id'], true);
 
                     $reseau = new reseaux;
 

@@ -25,10 +25,10 @@ $(document).ready(function(){
                 if (data.result) {
                     $('#message .text').html(data.text);
                     $('#message').addClass('true').removeClass('hidden');
-                    if ($(balise).html() == '<i class="far fa-star"></i>'){
-                        $(balise).html('<i class="fas fa-star"></i>');
+                    if ($(balise).html() == '<i class="far fa-user"></i>'){
+                        $(balise).html('<i class="fas fa-user"></i>');
                     }else {
-                        $(balise).html('<i class="far fa-star"></i>');
+                        $(balise).html('<i class="far fa-user"></i>');
                     }
                     
                     var delayMessage = window.setTimeout(function () {
