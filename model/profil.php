@@ -80,7 +80,7 @@
         }
 
         public function profils ($id, $list = null) {
-            if (is_int($id) && is_null($list) == false && $list == true && $id > 1) {
+            if (is_int($id) && is_null($list) == false && $list == true && $id > 0) {
                 $bdd = $this->_bdd;
                 $bdd = $bdd->co();
 
