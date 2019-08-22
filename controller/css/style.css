@@ -1892,4 +1892,48 @@ html {
         border-width: 0; }
       /* line 48, ../sass/_gestionPerso.scss */
       #gestionPerso main form input[type=submit] {
+        justify-self: center;
+        width: 50%;
         padding: .5pc; }
+
+/* line 1, ../sass/_gestionDescription.scss */
+#gestiondescription main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 1px solid black; }
+  /* line 8, ../sass/_gestionDescription.scss */
+  #gestiondescription main h1 {
+    display: none; }
+  /* line 12, ../sass/_gestionDescription.scss */
+  #gestiondescription main form {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr min-content;
+    row-gap: 5vh;
+    width: 70%;
+    border: 1px solid black; }
+    @media screen and (max-width: 550px) {
+      /* line 21, ../sass/_gestionDescription.scss */
+      #gestiondescription main form {
+        width: 90% !important; } }
+    /* line 26, ../sass/_gestionDescription.scss */
+    #gestiondescription main form textarea {
+      height: 30vh; }
+    /* line 30, ../sass/_gestionDescription.scss */
+    #gestiondescription main form .boutton {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center; }
+    /* line 37, ../sass/_gestionDescription.scss */
+    #gestiondescription main form input, #gestiondescription main form button, #gestiondescription main form textarea {
+      font-size: 1.5rem;
+      border: 1px solid black;
+      padding: .5pc 1pc; }
+      /* line 42, ../sass/_gestionDescription.scss */
+      #gestiondescription main form input[type=submit], #gestiondescription main form input[type=button], #gestiondescription main form button[type=submit], #gestiondescription main form button[type=button], #gestiondescription main form textarea[type=submit], #gestiondescription main form textarea[type=button] {
+        padding: .5pc;
+        margin: 0 1vw;
+        width: 40%; }

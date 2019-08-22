@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 1px solid black;
+
+    h1 {
+        display: none;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr min-content;
+        row-gap: 5vh;
+        width: 70%;
+        border: 1px solid black;
+
+        @media screen AND (max-width: 550px){
+            & {
+                width: 90% !important;
+            }
+        }
+
+        textarea {
+            height: 30vh;
+        }
+
+        .boutton {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        input, button, textarea {
+            font-size: 1.5rem;
+            border: 1px solid black;
+            padding: .5pc 1pc;
+
+            &[type=submit], &[type=button] {
+                padding: .5pc;
+                margin: 0 1vw;
+                width: 40%
+            }
+        }
+    }
+}

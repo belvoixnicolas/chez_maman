@@ -22,14 +22,16 @@
                     }
                 ?></textarea>
             
-            <?php 
-                if (isset($descript) && $descript) {
-            ?>
-                <button type="button" id="supdesciption">Suprimer</button>
-            <?php
-                }
-            ?>
-            <input type="submit" value="Envoyer">
+            <div class="boutton">
+                <?php 
+                    if (isset($descript) && $descript) {
+                ?>
+                    <button type="button" id="supdesciption">Suprimer</button>
+                <?php
+                    }
+                ?>
+                <input type="submit" value="Envoyer">
+            </div>
         </form>
         <script src="js/ajax/formdescription.js"></script>
     </main>

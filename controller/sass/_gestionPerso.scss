@@ -46,6 +46,8 @@ main {
             }
 
             &[type=submit] {
+                justify-self: center;
+                width: 50%;
                 padding: .5pc;
             }
         }
