@@ -2011,3 +2011,246 @@ html {
       #gestionavie main .avies ul li:hover > button {
         font-size: 3vh;
         padding: 1vh 1vw; }
+
+/* line 1, ../sass/_gestioService.scss */
+#gestioservice main {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto min-content;
+  row-gap: 3vh;
+  min-height: 100vh;
+  padding: 5vh 3vw;
+  border: 1px solid black; }
+  /* line 10, ../sass/_gestioService.scss */
+  #gestioservice main h1 {
+    display: none; }
+  /* line 15, ../sass/_gestioService.scss */
+  #gestioservice main .services h2 {
+    display: none; }
+  /* line 19, ../sass/_gestioService.scss */
+  #gestioservice main .services ul {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: min-content;
+    row-gap: 5vh;
+    align-content: center;
+    height: 100%; }
+    /* line 27, ../sass/_gestioService.scss */
+    #gestioservice main .services ul .service {
+      display: grid;
+      grid-template-columns: 15% 1fr min-content;
+      grid-template-rows: min-content;
+      column-gap: 5vw;
+      border: 1px solid black; }
+      /* line 34, ../sass/_gestioService.scss */
+      #gestioservice main .services ul .service .image {
+        position: relative;
+        border: 1px solid black; }
+        /* line 38, ../sass/_gestioService.scss */
+        #gestioservice main .services ul .service .image img {
+          height: auto;
+          width: 100%;
+          padding: 1vh 1vw; }
+        /* line 44, ../sass/_gestioService.scss */
+        #gestioservice main .services ul .service .image #modimg {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          font-size: 1.1rem; }
+      /* line 52, ../sass/_gestioService.scss */
+      #gestioservice main .services ul .service .txt {
+        display: flex;
+        flex-flow: row nowrap;
+        border: 1px solid black; }
+        /* line 57, ../sass/_gestioService.scss */
+        #gestioservice main .services ul .service .txt p {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 80%;
+          padding: 1vh 1vw;
+          font-size: 1.5rem;
+          word-break: break-all;
+          border: 1px solid black; }
+        /* line 68, ../sass/_gestioService.scss */
+        #gestioservice main .services ul .service .txt button {
+          width: 20%;
+          font-size: 1.5rem; }
+      /* line 74, ../sass/_gestioService.scss */
+      #gestioservice main .services ul .service #supservice {
+        padding: 0;
+        font-size: 0vh;
+        border-width: 0;
+        transition: .5s; }
+      /* line 81, ../sass/_gestioService.scss */
+      #gestioservice main .services ul .service:hover > #supservice {
+        padding: 1vh 2vw;
+        font-size: 5vh; }
+      @media screen and (max-width: 490px) {
+        /* line 87, ../sass/_gestioService.scss */
+        #gestioservice main .services ul .service {
+          grid-template-columns: 100%;
+          grid-template-rows: 20vh 1fr min-content;
+          row-gap: 3vh; }
+          /* line 92, ../sass/_gestioService.scss */
+          #gestioservice main .services ul .service .image {
+            justify-self: center;
+            width: 50%; }
+            /* line 96, ../sass/_gestioService.scss */
+            #gestioservice main .services ul .service .image img {
+              display: block;
+              height: 100% !important;
+              width: auto !important;
+              margin: 0 auto; }
+            /* line 103, ../sass/_gestioService.scss */
+            #gestioservice main .services ul .service .image #modimg {
+              padding: 1vh 3vw; }
+          /* line 108, ../sass/_gestioService.scss */
+          #gestioservice main .services ul .service .txt {
+            display: initial;
+            position: relative; }
+            /* line 112, ../sass/_gestioService.scss */
+            #gestioservice main .services ul .service .txt p {
+              min-height: 8vh;
+              width: 100%; }
+            /* line 117, ../sass/_gestioService.scss */
+            #gestioservice main .services ul .service .txt button {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              padding: 1vh 3vw;
+              font-size: 1.1rem; }
+          /* line 126, ../sass/_gestioService.scss */
+          #gestioservice main .services ul .service #supservice {
+            justify-self: center;
+            width: 0; }
+          /* line 131, ../sass/_gestioService.scss */
+          #gestioservice main .services ul .service:hover > #supservice {
+            width: 80%; } }
+  /* line 140, ../sass/_gestioService.scss */
+  #gestioservice main .formservice {
+    border: 1px solid black; }
+    /* line 143, ../sass/_gestioService.scss */
+    #gestioservice main .formservice form {
+      display: grid;
+      grid-template-columns: 15% 1fr;
+      grid-template-rows: min-content minmax(5vh, min-content) min-content;
+      column-gap: 5vw;
+      row-gap: 2vh; }
+      /* line 150, ../sass/_gestioService.scss */
+      #gestioservice main .formservice form img {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 2;
+        height: auto;
+        width: 100%;
+        padding: 1vh 1vw;
+        align-self: center;
+        border: 1px solid black; }
+      /* line 160, ../sass/_gestioService.scss */
+      #gestioservice main .formservice form #titre {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1; }
+      /* line 165, ../sass/_gestioService.scss */
+      #gestioservice main .formservice form #txt {
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        padding: 1vh 2vw; }
+      /* line 171, ../sass/_gestioService.scss */
+      #gestioservice main .formservice form input, #gestioservice main .formservice form textarea {
+        font-size: 1.5rem;
+        padding: .5pc 1pc;
+        border: 1px solid black; }
+        /* line 176, ../sass/_gestioService.scss */
+        #gestioservice main .formservice form input[name=titre], #gestioservice main .formservice form input[name=txt], #gestioservice main .formservice form textarea[name=titre], #gestioservice main .formservice form textarea[name=txt] {
+          text-align: center; }
+        /* line 180, ../sass/_gestioService.scss */
+        #gestioservice main .formservice form input[type=submit], #gestioservice main .formservice form textarea[type=submit] {
+          justify-self: center;
+          width: 50%;
+          padding: .5pc; }
+    @media screen and (max-width: 730px) {
+      /* line 189, ../sass/_gestioService.scss */
+      #gestioservice main .formservice form {
+        grid-template-columns: 100%;
+        grid-template-rows: 20vh min-content min-content 20vh min-content; }
+        /* line 193, ../sass/_gestioService.scss */
+        #gestioservice main .formservice form img {
+          grid-column: 1 / span 1;
+          grid-row: 1 / span 1;
+          height: 100% !important;
+          width: auto !important;
+          margin: 0 auto; }
+        /* line 201, ../sass/_gestioService.scss */
+        #gestioservice main .formservice form #image {
+          grid-column: 1 / span 1;
+          grid-row: 2 / span 1; }
+        /* line 206, ../sass/_gestioService.scss */
+        #gestioservice main .formservice form #titre {
+          grid-column: 1 / span 1;
+          grid-row: 3 / span 1; }
+        /* line 211, ../sass/_gestioService.scss */
+        #gestioservice main .formservice form #txt {
+          grid-column: 1 / span 1;
+          grid-row: 4 / span 1; } }
+/* line 220, ../sass/_gestioService.scss */
+#gestioservice #formserviceimg {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr repeat(3, min-content) 1fr;
+  row-gap: 2vh;
+  width: 70%;
+  padding: 2vh 2vw;
+  border: 1px solid red; }
+  /* line 229, ../sass/_gestioService.scss */
+  #gestioservice #formserviceimg img {
+    justify-self: center;
+    height: 20vh;
+    width: auto; }
+  /* line 235, ../sass/_gestioService.scss */
+  #gestioservice #formserviceimg #fermer {
+    justify-self: right;
+    font-size: 5vh; }
+  /* line 240, ../sass/_gestioService.scss */
+  #gestioservice #formserviceimg input {
+    font-size: 1.5rem;
+    padding: .5pc 0;
+    border: 1px solid black; }
+    /* line 245, ../sass/_gestioService.scss */
+    #gestioservice #formserviceimg input[type=submit] {
+      justify-self: center;
+      width: 50%;
+      padding: .5pc; }
+  @media screen and (max-width: 490px) {
+    /* line 253, ../sass/_gestioService.scss */
+    #gestioservice #formserviceimg {
+      width: 90%; } }
+/* line 259, ../sass/_gestioService.scss */
+#gestioservice #formservicetext {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 20vh min-content 1fr;
+  row-gap: 2vh;
+  width: 70%;
+  padding: 2vh 2vw;
+  border: 1px solid red; }
+  /* line 268, ../sass/_gestioService.scss */
+  #gestioservice #formservicetext #fermer {
+    justify-self: right;
+    font-size: 5vh; }
+  /* line 273, ../sass/_gestioService.scss */
+  #gestioservice #formservicetext input, #gestioservice #formservicetext textarea {
+    font-size: 1.5rem;
+    padding: .5pc 1pc;
+    border: 1px solid black; }
+    /* line 278, ../sass/_gestioService.scss */
+    #gestioservice #formservicetext input[name=text], #gestioservice #formservicetext textarea[name=text] {
+      text-align: center; }
+    /* line 282, ../sass/_gestioService.scss */
+    #gestioservice #formservicetext input[type=submit], #gestioservice #formservicetext textarea[type=submit] {
+      justify-self: center;
+      width: 50%;
+      padding: .5pc; }
+  @media screen and (max-width: 490px) {
+    /* line 290, ../sass/_gestioService.scss */
+    #gestioservice #formservicetext {
+      width: 90%; } }

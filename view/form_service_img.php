@@ -6,7 +6,8 @@
             <button type='button' id="fermer">
                 <i class="fas fa-times"></i>
             </button>
-            <input type="file" name="img" id="img" required>
+            <img class="previewmod">
+            <input type="file" name="img" id="img" data-preview=".previewmod" required>
             <input type="submit" value="envoyer">
         </form>
     </div>
