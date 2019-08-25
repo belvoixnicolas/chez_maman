@@ -9,13 +9,13 @@
             <button type='button' id="fermer">
                 <i class="fas fa-times"></i>
             </button>
-            <input type="hidden" name="idproduit" value="<?= $produit['id'] ?>">
-            <input type="hidden" name="idmenu" value="<?= $produit['id_menu'] ?>">
-            <img class="previewmod" src="src/produit/<?= $produit['image'] ?>">
+            <input type="hidden" name="idproduit" value="<?= htmlspecialchars($produit['id']) ?>">
+            <input type="hidden" name="idmenu" value="<?= htmlspecialchars($produit['id_menu']) ?>">
+            <img class="previewmod" src="src/produit/<?= htmlspecialchars($produit['image']) ?>">
             <input type="file" name="image" id="image" data-preview=".previewmod">
-            <input type="text" name="titre" id="titre" placeholder="Titre" value="<?= $produit['titre'] ?>" required>
+            <input type="text" name="titre" id="titre" placeholder="Titre" value="<?= htmlspecialchars($produit['titre']) ?>" required>
             <textarea name="text" id="text" placeholder="Text"><?= $produit['text'] ?></textarea>
-            <input type="number" name="prix" id="prix" placeholder="Prix" value="<?= $produit['prix'] ?>" step="0.01">
+            <input type="number" name="prix" id="prix" placeholder="Prix" value="<?= htmlspecialchars($produit['prix']) ?>" step="0.01">
             <input type="submit" value="envoyer">
         </form>
     </div>

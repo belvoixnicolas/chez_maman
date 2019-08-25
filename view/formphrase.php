@@ -8,7 +8,7 @@
             $val = "";
 
             if (isset($phrase) && $phrase) {
-                $val = 'value="' . $phrase . '"';
+                $val = 'value="' . htmlspecialchars($phrase) . '"';
             }
         ?>
 

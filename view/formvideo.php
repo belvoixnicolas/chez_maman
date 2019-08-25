@@ -2,7 +2,7 @@
     <h2>video</h2>
     <video id="video" autoplay loop muted>
         <?php if (isset($video) && is_array($video) == false) { ?>
-            <source src="src/video/<?= $video ?>" type="video/mp4">
+            <source src="src/video/<?= htmlspecialchars($video) ?>" type="video/mp4">
         <?php } ?>
         <source src="src/video/default.webm" type="video/webm">
         <source src="src/video/default.ogg" type="video/ogg">

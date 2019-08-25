@@ -20,10 +20,10 @@
 
                     $construction = implode($model);
 
-                    $construction = str_replace('%id%', $value['id'], $construction);
-                    $construction = str_replace('%img%', $value['image'], $construction);
-                    $construction = str_replace('%titre%', $value['titre'], $construction);
-                    $construction = str_replace('%url%', $value['url'], $construction);
+                    $construction = str_replace('%id%', htmlspecialchars($value['id']), $construction);
+                    $construction = str_replace('%img%', htmlspecialchars($value['image']), $construction);
+                    $construction = str_replace('%titre%', htmlspecialchars($value['titre']), $construction);
+                    $construction = str_replace('%url%', htmlspecialchars($value['url']), $construction);
                     $construction = str_replace('%txt%', $text, $construction);
                     $construction = str_replace('%class%', $class, $construction);
                     

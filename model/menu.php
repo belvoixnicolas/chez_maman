@@ -212,15 +212,15 @@
                     }
                     $construct = $model;
 
-                    $construct = str_replace('%id%', $value['id'], $construct);
-                    $construct = str_replace('%titre%', $value['titre'], $construct);
-                    $construct = str_replace('%img%', $value['image'], $construct);
+                    $construct = str_replace('%id%', htmlspecialchars($value['id']), $construct);
+                    $construct = str_replace('%titre%', htmlspecialchars($value['titre']), $construct);
+                    $construct = str_replace('%img%', htmlspecialchars($value['image']), $construct);
 
                     if (is_null($value['text'])) {
                        $construct = preg_replace('/%if text null%(.*)%end if text%/', '', $construct);
                     }else {
                         $search = array('%if text null%', '%end if text%', '%txt%');
-                        $replace = array('', '', $value['text']);
+                        $replace = array('', '', nl2br(htmlspecialchars($value['text'])));
 
                         $construct = str_replace($search, $replace, $construct);
                     }
@@ -229,7 +229,7 @@
                         $construct = preg_replace('/%if prix null%(.*)%end if prix%/', '', $construct);
                     }else {
                          $search = array('%if prix null%', '%end if prix%', '%prix%');
-                         $replace = array('', '', $value['prix']);
+                         $replace = array('', '', htmlspecialchars($value['prix']));
  
                          $construct = str_replace($search, $replace, $construct);
                      }
@@ -246,15 +246,15 @@
                     $produit['image'] = 'default.svg'; 
                 }
 
-                $model = str_replace('%id%', $produit['id'], $model);
-                $model = str_replace('%titre%', $produit['titre'], $model);
-                $model = str_replace('%img%', $produit['image'], $model);
+                $model = str_replace('%id%', htmlspecialchars($produit['id']), $model);
+                $model = str_replace('%titre%', htmlspecialchars($produit['titre']), $model);
+                $model = str_replace('%img%', htmlspecialchars($produit['image']), $model);
 
                 if (is_null($produit['text'])) {
                    $model = preg_replace('/%if text null%(.*)%end if text%/', '', $model);
                 }else {
                     $search = array('%if text null%', '%end if text%', '%txt%');
-                    $replace = array('', '', $produit['text']);
+                    $replace = array('', '', nl2br(htmlspecialchars($produit['text'])));
 
                     $model = str_replace($search, $replace, $model);
                 }
@@ -263,7 +263,7 @@
                     $model = preg_replace('/%if prix null%(.*)%end if prix%/', '', $model);
                 }else {
                      $search = array('%if prix null%', '%end if prix%', '%prix%');
-                     $replace = array('', '', $produit['prix']);
+                     $replace = array('', '', htmlspecialchars($produit['prix']));
 
                      $model = str_replace($search, $replace, $model);
                  }

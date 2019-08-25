@@ -8,7 +8,7 @@
             $val = "";
 
             if (isset($titre) && $titre && $titre != "titre") {
-                $val = 'value="' . $titre . '"';
+                $val = 'value="' . htmlspecialchars($titre) . '"';
             }
         ?>
         <input type="text" name="titre" id="titre" placeholder="Entrer le nom du site" <?= $val ?> required>

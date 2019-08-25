@@ -126,9 +126,9 @@
                 if ($this->_model) {
                     $model = $this->_model;
     
-                    $model = str_replace('%id%', $reseau['id'], $model);
-                    $model = str_replace('%titre%', $reseau['titre'], $model);
-                    $model = str_replace('%url%', $reseau['url'], $model);
+                    $model = str_replace('%id%', htmlspecialchars($reseau['id']), $model);
+                    $model = str_replace('%titre%', htmlspecialchars($reseau['titre']), $model);
+                    $model = str_replace('%url%', htmlspecialchars($reseau['url']), $model);
 
                     if (is_null($reseau['url']) || fopen($reseau['url'], 'r') == false) {
                         $model = str_replace('%class%', 'class="erreur"', $model);
@@ -145,7 +145,7 @@
                     }
     
                     if (file_exists('src/reseaux/' . $reseau['image'])) {
-                        $model = str_replace('%img%', $reseau['image'], $model);
+                        $model = str_replace('%img%', htmlspecialchars($reseau['image']), $model);
                     }else {
                         $model = str_replace('%img%', 'default.svg', $model);
                     }

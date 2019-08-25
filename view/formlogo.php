@@ -12,7 +12,7 @@
                     }
             ?>
 
-                <img src="src/logo/<?= $logo ?>" alt="Logo de <?= $titre ?>">
+                <img src="src/logo/<?= htmlspecialchars($logo) ?>" alt="Logo de <?= htmlspecialchars($titre) ?>">
 
             <?php
                 }else {

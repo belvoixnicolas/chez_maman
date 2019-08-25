@@ -50,10 +50,10 @@
                                 <img src="src/img/cupcake<?= $i ?>.svg" alt="Image avie">
                             </div>
                             <p class="text">
-                                <?= $value['text'] ?>
+                                <?= nl2br(htmlspecialchars($value['text'])) ?>
                             </p>
-                            <button id="buttonfavorie" value="<?= $value['id'] ?>"><i class="<?= $value['afficher'] ?>"></i></button>
-                            <button id="buttonsup" value="<?= $value['id'] ?>">
+                            <button id="buttonfavorie" value="<?= htmlspecialchars($value['id']) ?>"><i class="<?= htmlspecialchars($value['afficher']) ?>"></i></button>
+                            <button id="buttonsup" value="<?= htmlspecialchars($value['id']) ?>">
                                 <i class="fas fa-times"></i>
                             </button>
                         </li>

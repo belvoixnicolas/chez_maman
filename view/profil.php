@@ -23,10 +23,10 @@
             ?>
 
                 <tr>
-                    <td class="nom"><?= $value['nom'] ?></td>
-                    <td class="mail"><?= $value['mail'] ?></td>
-                    <td class="admin"><button id="modifprofil" name="id" value="<?= $value['id'] ?>"><?= $icon ?></button></td>
-                    <td class="sup"><button id="supprofil" name="id" value="<?= $value['id'] ?>"><i class="fas fa-times"></i></button></td>
+                    <td class="nom"><?= htmlspecialchars($value['nom']) ?></td>
+                    <td class="mail"><?= htmlspecialchars($value['mail']) ?></td>
+                    <td class="admin"><button id="modifprofil" name="id" value="<?= htmlspecialchars($value['id']) ?>"><?= $icon ?></button></td>
+                    <td class="sup"><button id="supprofil" name="id" value="<?= htmlspecialchars($value['id']) ?>"><i class="fas fa-times"></i></button></td>
                 </tr>
 
             <?php

@@ -8,7 +8,7 @@
             $val = "";
 
             if (isset($tel) && $tel) {
-                $val = 'value="' . $tel . '"';
+                $val = 'value="' . htmlspecialchars($tel) . '"';
             }
         ?>
 

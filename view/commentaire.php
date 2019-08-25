@@ -15,7 +15,7 @@
                 <li>
                     <img src="src/img/cupcake<?= htmlspecialchars($i) ?>.svg" alt="Icon">
                     <p>
-                        <?= htmlspecialchars($value['text']) ?>
+                        <?= nl2br(htmlspecialchars($value['text'])) ?>
                     </p>
                 </li>
                         

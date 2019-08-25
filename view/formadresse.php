@@ -11,10 +11,10 @@
             $cp = "";
 
             if (isset($address) && is_array($address) && $address) {
-                $nbrue = 'value="' . $address['numero'] . '"';
-                $rue = 'value="' . $address['rue'] . '"';
-                $ville = 'value="' . $address['ville'] . '"';
-                $cp = 'value="' . $address['cp'] . '"';
+                $nbrue = 'value="' . htmlspecialchars($address['numero']) . '"';
+                $rue = 'value="' . htmlspecialchars($address['rue']) . '"';
+                $ville = 'value="' . htmlspecialchars($address['ville']) . '"';
+                $cp = 'value="' . htmlspecialchars($address['cp']) . '"';
             }
         ?>
 

@@ -32,10 +32,10 @@
                     $imgMenu = 'default.svg';
                 }
             ?>
-            <h1>Liste de produit du menu <?= $titreMenu ?></h1>
+            <h1>Liste de produit du menu <?= htmlspecialchars($titreMenu) ?></h1>
             <article class="listeproduit">
                 <h2>
-                    <img src="src/menu/<?= $imgMenu ?>" alt="Logo du menu <?= $titreMenu ?>">
+                    <img src="src/menu/<?= htmlspecialchars($imgMenu) ?>" alt="Logo du menu <?= htmlspecialchars($titreMenu) ?>">
                 </h2>
                 <ul>
                     <?php

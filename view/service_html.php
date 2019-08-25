@@ -24,18 +24,18 @@
             <?php if (isset($services) && $services) { ?>
                 <ul>
                     <?php foreach ($services as $value) { ?>
-                        <li id="<?= $value['id'] ?>" class="service">
+                        <li id="<?= htmlspecialchars($value['id']) ?>" class="service">
                             <div class="image">
-                                <img src="src/services/<?= $value['image'] ?>" alt="image de <?= $value['titre'] ?>">
-                                <button id="modimg" value="<?= $value['id'] ?>">Modifier</button>
+                                <img src="src/services/<?= htmlspecialchars($value['image']) ?>" alt="image de <?= htmlspecialchars($value['titre']) ?>">
+                                <button id="modimg" value="<?= htmlspecialchars($value['id']) ?>">Modifier</button>
                             </div>
                             <div class="txt">
                                 <p class="text">
-                                    <?= $value['text'] ?>
+                                    <?= nl2br(htmlspecialchars($value['text'])) ?>
                                 </p>
-                                <button id="modtext" value="<?= $value['id'] ?>">Modifier</button>
+                                <button id="modtext" value="<?= htmlspecialchars($value['id']) ?>">Modifier</button>
                             </div>
-                            <button id="supservice" value="<?= $value['id'] ?>">
+                            <button id="supservice" value="<?= htmlspecialchars($value['id']) ?>">
                                 <i class="fas fa-times"></i>
                             </button>
                         </li>

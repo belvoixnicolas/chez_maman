@@ -2,7 +2,7 @@
     if (isset($id) && is_int($id)) {
 ?>
     <div id="form">
-        <form action="#" method="post" id="formserviceimg" ENCTYPE="multipart/form-data" value="<?= $id ?>">
+        <form action="#" method="post" id="formserviceimg" ENCTYPE="multipart/form-data" value="<?= htmlspecialchars($id) ?>">
             <button type='button' id="fermer">
                 <i class="fas fa-times"></i>
             </button>

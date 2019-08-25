@@ -30,23 +30,23 @@
                     ?>
 
                         <fieldset id="<?= $i ?>">
-                            <legend><?= $value['jour'] ?></legend>
-                            <label for="<?= $value['jour'] ?>_ouvertMat">
+                            <legend><?= htmlspecialchars($value['jour']) ?></legend>
+                            <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertMat">
                                 De
                             </label>
-                            <input type="time" name="<?= $value['jour'] ?>_ouvertMat" id="<?= $value['jour'] ?>_ouvertMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= $value['ouvertMat'] ?>">
-                            <label for="<?= $value['jour'] ?>_fermeMat">
+                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" id="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertMat']) ?>">
+                            <label for="<?= htmlspecialchars($value['jour']) ?>_fermeMat">
                                 à
                             </label>
-                            <input type="time" name="<?= $value['jour'] ?>_fermeMat" id="<?= $value['jour'] ?>_fermeMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= $value['fermeMat'] ?>">
-                            <label for="<?= $value['jour'] ?>_ouvertAp">
+                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeMat" id="<?= htmlspecialchars($value['jour']) ?>_fermeMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeMat']) ?>">
+                            <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertAp">
                                 et de
                             </label>
-                            <input type="time" name="<?= $value['jour'] ?>_ouvertAp" id="<?= $value['jour'] ?>_ouvertAp" step="60" placeholder="hh:mm" value="<?= $value['ouvertAp'] ?>">
-                            <label for="<?= $value['jour'] ?>_fermeAp">
+                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" id="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertAp']) ?>">
+                            <label for="<?= htmlspecialchars($value['jour']) ?>_fermeAp">
                                 à
                             </label>
-                            <input type="time" name="<?= $value['jour'] ?>_fermeAp" id="<?= $value['jour'] ?>_fermeAp" step="60" placeholder="hh:mm" value="<?= $value['fermeAp'] ?>">
+                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeAp" id="<?= htmlspecialchars($value['jour']) ?>_fermeAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeAp']) ?>">
                         </fieldset>
 
                     <?php
