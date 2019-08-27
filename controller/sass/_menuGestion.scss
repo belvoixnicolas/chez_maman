@@ -1,0 +1,154 @@
+main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto min-content;
+    row-gap: 3vh;
+    min-height: 100vh;
+    border: 1px solid black;
+
+    h1 {
+        display: none;
+    }
+
+    .listemenu {
+        align-self: center;
+
+        h2 {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+
+            li {
+                display: grid;
+                grid-template-columns: repeat(3, 26.66%);
+                grid-template-rows: repeat(3, min-content);
+                column-gap: 10%;
+                padding: 1vh 2vw;
+                border: 1px solid black;
+
+                img {
+                    grid-column: 1 / -1;
+                    grid-row: 1 / span 1;
+                    justify-self: center;
+                    height: 15vh;
+                    width: auto;
+                }
+
+                h3 {
+                    grid-column: 1 / -1;
+                    grid-row: 2 / span 1;
+                    justify-self: center;
+                    font-size: 2.5rem;
+                    max-width: 90%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    border: 1px solid black;
+                }
+
+                button, a {
+                    grid-row: 3 / span 1;
+                    justify-self: center;
+                    font-size: 0rem;
+                    text-align: center;
+                    min-width: 0;
+                    padding: 0;
+                    margin-top: 0;
+                    border: 0px solid black;
+                    transition-property: font-size, min-width, padding, border-width, margin-top;
+                    transition-duration: .5s;
+                }
+
+                &:hover > button , &:hover > a {
+                    font-size: 1.5rem;
+                    min-width: 70%;
+                    padding: .5pc;
+                    margin-top: 3vh;
+                    border-width: 1px; 
+                }
+
+                & > * {
+                    margin-top: 3vh;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                @media screen and (max-width: 490px) {
+                    & {
+                        grid-template-rows: repeat(5, min-content);
+
+                        button, a {
+                            min-width: 80%;
+                            grid-column: 1 / -1;
+                        }
+
+                        a {
+                            grid-row: 3 / span 1;
+                        }
+
+                        #modmenu {
+                            grid-row: 4 / span 1;
+                        }
+
+                        #supmenu {
+                            grid-row: 5 / span 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .formmenu {
+
+        h2 {
+            display: none;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(4, min-content);
+            row-gap: 2vh;
+            width: 70%;
+            margin: 0 auto;
+            padding: 3vh 0;
+            border: 1px solid black;
+
+            img {
+                justify-self: center;
+                height: 15vh;
+                width: auto;
+                border: 1px solid black;
+            }
+
+            input {
+                font-size: 1.5rem;
+                padding: .5pc 1pc;
+                border: 1px solid black;
+    
+                &[name=titre] {
+                    grid-row: 3 / span 1;
+                    text-align: center;
+                }
+    
+                &[type=submit] {
+                    justify-self: center;
+                    width: 50%;
+                    padding: .5pc;
+                }
+            }
+
+            @media screen and (max-width: 490px) {
+                & {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
