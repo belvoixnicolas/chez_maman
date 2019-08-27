@@ -1,0 +1,13 @@
+main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto min-content;
+    row-gap: 3vh;
+    min-height: 100vh;
+    padding: 3vh 0;
+    border: 1px solid black;
+
+    h1 {
+        display: none;
+    }
+}

@@ -8,7 +8,7 @@
             }
         </style>
     </head>
-    <body id="menugestion">
+    <body id="menugestionproduit">
         <div id="message" class='hidden'>
             <span class="text"></span>
             <button>

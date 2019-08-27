@@ -2416,3 +2416,16 @@ html {
     /* line 38, ../sass/_formMenuMod.scss */
     #menugestion #formmenumod {
       width: 90%; } }
+
+/* line 1, ../sass/_menuGestionProduit.scss */
+#menugestionproduit main {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: auto min-content;
+  row-gap: 3vh;
+  min-height: 100vh;
+  padding: 3vh 0;
+  border: 1px solid black; }
+  /* line 10, ../sass/_menuGestionProduit.scss */
+  #menugestionproduit main h1 {
+    display: none; }

@@ -66,3 +66,7 @@ html {
 #menugestion {
     @import '_menuGestion', '_formMenuMod';
 }
+
+#menugestionproduit {
+    @import '_menuGestionProduit';
+}
