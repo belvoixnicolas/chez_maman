@@ -2,11 +2,6 @@
 <html lang="fr">
     <head>
         <?php include_once('../view/head.php') ?>
-        <style type="text/css">
-            img {
-                height: 5vh;
-            }
-        </style>
     </head>
     <body id="menugestionproduit">
         <div id="message" class='hidden'>
@@ -61,5 +56,20 @@
             </article>
             <script src="js/ajax/produit.js"></script>
         </main>
+        <div id="form">
+            <form action="#" method="post" id="formproduitmod" enctype="multipart/form-data">
+                <button type="button" id="fermer">
+                    <i class="fas fa-times"></i>
+                </button>
+                <input type="hidden" name="idproduit" value="412">
+                <input type="hidden" name="idmenu" value="22">
+                <img class="previewmod" src="src/produit/45lol.jpg">
+                <input type="file" name="image" id="image" data-preview=".previewmod">
+                <input type="text" name="titre" id="titre" placeholder="Titre" value="" required="">
+                <textarea name="text" id="text" placeholder="Text"></textarea>
+                <input type="number" name="prix" id="prix" placeholder="Prix" value="52" step="0.01">
+                <input type="submit" value="envoyer">
+            </form>
+        </div>
     </body>
 </html>

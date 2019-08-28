@@ -1,0 +1,46 @@
+#formproduitmod {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr repeat(6, min-content) 1fr;
+    row-gap: 2vh;
+    width: 70%;
+    padding: 2vh 2vw;
+    border: 1px solid red;
+
+    #fermer {
+        justify-self: right;
+        font-size: 5vh;
+    }
+
+    img {
+        justify-self: center;
+        height: 20vh;
+        width: auto;
+    }
+
+    input, textarea {
+        font-size: 1.5rem;
+        padding: .5pc 1pc;
+        border: 1px solid black;
+
+        &[name=titre], &[name=prix] {
+            text-align: center;
+        }
+
+        &[type=file] {
+            padding: .5pc 0;
+        }
+
+        &[type=submit] {
+            justify-self: center;
+            width: 50%;
+            padding: .5pc;
+        }
+    }
+
+    @media screen and (max-width: 490px) {
+        & {
+            width: 90%;
+        }
+    }
+}

@@ -10,4 +10,166 @@ main {
     h1 {
         display: none;
     }
+
+    .listeproduit {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: min-content auto;
+        row-gap: 5vh;
+
+        @media screen AND (max-width: 770px) {
+            h2 img {
+                height: 20vh !important;
+            }
+    
+            ul {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+    
+        @media screen AND (max-width: 450px) {
+            ul {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+    
+        @media screen AND (max-width: 320px) {
+            ul {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            border: 1px solid black;
+
+            img {
+                height: 15vh;
+                width: auto;
+            }
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: min-content;
+            row-gap: 3vh;
+            column-gap: 3vh;
+            justify-items: center;
+            align-items: center;
+            align-self: center;
+            padding: 0 3vw;
+
+            li {
+                border: 1px solid black;
+
+                figure {
+                    position: relative;
+
+                    img {
+                        height: auto;
+                        width: 100%;
+                    }
+
+                    figcaption {
+                        display: grid;
+                        grid-template-columns: 45% 45%;
+                        grid-template-rows: minmax(50%, 1fr) min-content min-content;
+                        column-gap: 10%;
+                        row-gap: 1vh;
+                        position: absolute;
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                        padding: 1vh 1vw;
+                        opacity: 0;
+                        transition: .5s;
+                        border: 1px solid black;
+
+                        #text {
+                            grid-column: 1 /  -1;
+                            grid-row: 1 / span 1;
+                            justify-self: center;
+                            align-self: center;
+                            max-height: 100%;
+                            padding: 1%;
+                            font-size: 1.5rem;
+                            overflow-y: auto;
+                            border: 1px solid black;
+                        }
+
+                        #prix {
+                            grid-column: 1 / -1;
+                            grid-row: 2 / span 1;
+                            justify-self: center;
+                            font-size: 2rem;
+                            font-weight: bold;
+                        }
+
+                        button {
+                            grid-row: 3 / span 1;
+                            justify-self: center;
+                            font-size: 1.5rem;
+                            padding: .5pc;
+                            border: 1px solid black;
+                        }
+                    }
+
+                    &:hover > figcaption {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .formproduit {
+        h2 {
+            display: none;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(6, min-content);
+            row-gap: 2vh;
+            width: 70%;
+            border: 1px solid black;
+            margin: 0 auto;
+
+            img {
+                height: 20vh;
+                width: auto;
+                justify-self: center;
+                border: 1px solid black;
+            }
+
+            input, textarea {
+                font-size: 1.5rem;
+                padding: .5pc 1pc;
+                border: 1px solid black;
+    
+                &[name=titre], &[name=prix] {
+                    text-align: center;
+                }
+
+                &[type=file] {
+                    padding: .5pc 0;
+                }
+    
+                &[type=submit] {
+                    justify-self: center;
+                    width: 50%;
+                    padding: .5pc;
+                }
+            }
+
+            @media screen and (max-width: 490px) {
+                & {
+                    width: 90%;
+                }
+            }
+        }
+    }
 }
