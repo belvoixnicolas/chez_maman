@@ -70,3 +70,7 @@ html {
 #menugestionproduit {
     @import '_menuGestionProduit', '_formProduitMod';
 }
+
+#horraire {
+    @import '_horraire';
+}

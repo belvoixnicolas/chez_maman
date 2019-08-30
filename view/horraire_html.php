@@ -22,36 +22,55 @@
             <article>
             <?php if (isset($horraires) && is_array($horraires) && count($horraires) && $horraires) { ?>
                 <form action="#" method="post" id="formHorraire">
+                    <table>
 
-                    <?php 
-                        $i = 0;
-                        foreach ($horraires as $value) {
-                            $i++;
-                    ?>
+                        <?php 
+                            $i = 0;
+                            foreach ($horraires as $value) {
+                                $i++;
+                        ?>
 
-                        <fieldset id="<?= $i ?>">
-                            <legend><?= htmlspecialchars($value['jour']) ?></legend>
-                            <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertMat">
-                                De
-                            </label>
-                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" id="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertMat']) ?>">
-                            <label for="<?= htmlspecialchars($value['jour']) ?>_fermeMat">
-                                à
-                            </label>
-                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeMat" id="<?= htmlspecialchars($value['jour']) ?>_fermeMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeMat']) ?>">
-                            <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertAp">
-                                et de
-                            </label>
-                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" id="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertAp']) ?>">
-                            <label for="<?= htmlspecialchars($value['jour']) ?>_fermeAp">
-                                à
-                            </label>
-                            <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeAp" id="<?= htmlspecialchars($value['jour']) ?>_fermeAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeAp']) ?>">
-                        </fieldset>
+                            <tr id="<?= $i ?>">
+                                <th><?= htmlspecialchars($value['jour']) ?></th>
+                                
+                                <td>
+                                    <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertMat">
+                                        de
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" id="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertMat']) ?>">
+                                </td>
+                                <td>
+                                    <label for="<?= htmlspecialchars($value['jour']) ?>_fermeMat">
+                                        à
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeMat" id="<?= htmlspecialchars($value['jour']) ?>_fermeMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeMat']) ?>">
+                                </td>
+                                <td>
+                                    <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertAp">
+                                        et de
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" id="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertAp']) ?>">
+                                </td>
+                                <td>
+                                    <label for="<?= htmlspecialchars($value['jour']) ?>_fermeAp">
+                                        à
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeAp" id="<?= htmlspecialchars($value['jour']) ?>_fermeAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeAp']) ?>">
+                                </td>
+                            </tr>
 
-                    <?php
-                        }
-                    ?>
+                        <?php
+                            }
+                        ?>
+                    </table>
                 </form>
                 <script src="js/ajax/horraire.js"></script>
             <?php } ?>

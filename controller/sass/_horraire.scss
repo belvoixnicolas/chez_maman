@@ -1,0 +1,39 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10vh 3vw;
+    border: 1px solid black;
+
+    h1 {
+        display: none;
+    }
+
+    form {
+        border: 1px solid black;
+
+        table {
+            border-collapse: separate;
+            border-spacing: .5pc;
+            border: 1px solid black;
+        }
+
+        td, th {
+            font-size: 1.8rem;
+            font-weight: bold;
+            vertical-align: middle;
+            border: 1px solid black;
+
+            input {
+                font-weight: normal;
+                font-size: 1.5rem;
+            }
+        }
+
+        th {
+            text-align: left;
+            text-transform: capitalize;
+        }
+    }
+}
