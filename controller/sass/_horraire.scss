@@ -27,13 +27,18 @@ main {
 
             input {
                 font-weight: normal;
-                font-size: 1.5rem;
+                font-size: 100%;
             }
+        }
+
+        .input {
+            vertical-align: bottom;
         }
 
         th {
             text-align: left;
             text-transform: capitalize;
+            hyphens: auto;
         }
     }
 }

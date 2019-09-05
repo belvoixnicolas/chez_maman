@@ -31,14 +31,14 @@
                         ?>
 
                             <tr id="<?= $i ?>">
-                                <th><?= htmlspecialchars($value['jour']) ?></th>
+                                <th rowspan="2"><?= htmlspecialchars($value['jour']) ?></th>
                                 
                                 <td>
                                     <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertMat">
                                         de
                                     </label>
                                 </td>
-                                <td>
+                                <td class="input">
                                     <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" id="<?= htmlspecialchars($value['jour']) ?>_ouvertMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertMat']) ?>">
                                 </td>
                                 <td>
@@ -46,15 +46,17 @@
                                         à
                                     </label>
                                 </td>
-                                <td>
+                                <td class="input">
                                     <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeMat" id="<?= htmlspecialchars($value['jour']) ?>_fermeMat" min="00:00" max="12:00" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeMat']) ?>">
                                 </td>
+                            </tr>
+                            <tr id="<?= $i ?>">
                                 <td>
                                     <label for="<?= htmlspecialchars($value['jour']) ?>_ouvertAp">
                                         et de
                                     </label>
                                 </td>
-                                <td>
+                                <td class="input">
                                     <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" id="<?= htmlspecialchars($value['jour']) ?>_ouvertAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['ouvertAp']) ?>">
                                 </td>
                                 <td>
@@ -62,7 +64,7 @@
                                         à
                                     </label>
                                 </td>
-                                <td>
+                                <td class="input">
                                     <input type="time" name="<?= htmlspecialchars($value['jour']) ?>_fermeAp" id="<?= htmlspecialchars($value['jour']) ?>_fermeAp" step="60" placeholder="hh:mm" value="<?= htmlspecialchars($value['fermeAp']) ?>">
                                 </td>
                             </tr>
