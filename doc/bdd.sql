@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  Dim 21 juil. 2019 à 03:45
+-- Généré le :  jeu. 05 sep. 2019 à 17:26
 -- Version du serveur :  10.3.16-MariaDB
 -- Version de PHP :  7.3.6
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `chez_maman`
 --
-CREATE DATABASE IF NOT EXISTS `chez_maman` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `chez_maman`;
 
 -- --------------------------------------------------------
 
@@ -119,6 +117,7 @@ CREATE TABLE `produit` (
   `text` text DEFAULT NULL,
   `image` varchar(50) NOT NULL,
   `prix` float DEFAULT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `id_menu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -142,7 +141,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `mail`, `motDePasse`, `admin`, `id_entreprise`, `nom`) VALUES
-(1, 'admin@admin', '$2y$10$AOgbI7kK9DvCMnAnRX2zpOYdQPL7pumIdS22ALOcMlsPpFWhamaOi', 1, 1, 'admin');
+(1, 'admin@admin', '$2y$10$bGbuu8SIurjE9sXGPI07s.Ng41txbfYSszs.DyuqUlZT9ycmg9xsq', 1, 1, 'admin');
 
 -- --------------------------------------------------------
 
@@ -163,8 +162,8 @@ CREATE TABLE `reseau` (
 --
 
 INSERT INTO `reseau` (`id`, `titre`, `image`, `url`, `id_entreprise`) VALUES
-(1, 'facebook', 'facebook.png', 'https://fr-fr.facebook.com/FabulousTrucknMagicCakes/', 1),
-(2, 'instagram', 'instagram.png', 'https://www.instagram.com/chez_maman_charleville/', 1);
+(1, 'facebook', 'facebook.png', NULL, 1),
+(2, 'instagram', 'instagram.png', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -247,49 +246,49 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT pour la table `avie`
 --
 ALTER TABLE `avie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `horraire`
 --
 ALTER TABLE `horraire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=311;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `reseau`
 --
 ALTER TABLE `reseau`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
