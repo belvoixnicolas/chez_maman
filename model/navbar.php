@@ -73,7 +73,7 @@
                     switch ($delai) {
                         case '1':
                             $resultat['image'] = "paneau_ouvert.svg";
-                            $resultat['text'] = "ouvert jusqu'a " . $format->format($horraire['fermeAp']);
+                            $resultat['text'] = "ouvert jusqu'à " . $format->format($horraire['fermeAp']);
                             break;
 
                         case '2':
@@ -107,7 +107,7 @@
                     switch ($delai) {
                         case '1':
                             $resultat['image'] = "paneau_ouvert.svg";
-                            $resultat['text'] = "ouvert jusqu'a " . $format->format($horraire['fermeAp']);
+                            $resultat['text'] = "ouvert jusqu'à " . $format->format($horraire['fermeAp']);
                             break;
 
                         case '2':
@@ -141,7 +141,7 @@
                     switch ($delai) {
                         case '1':
                             $resultat['image'] = "paneau_ouvert.svg";
-                            $resultat['text'] = "ouvert jusqu'a " . $format->format($horraire['fermeMat']);
+                            $resultat['text'] = "ouvert jusqu'à " . $format->format($horraire['fermeMat']);
                             break;
 
                         case '2':
@@ -185,9 +185,9 @@
                         case '1':
                             $resultat['image'] = "paneau_ouvert.svg";
                             if ($repére == 'AM') {
-                                $resultat['text'] = "ouvert jusqu'a " . $format->format($horraire['fermeMat']);
+                                $resultat['text'] = "ouvert jusqu'à " . $format->format($horraire['fermeMat']);
                             }else {
-                                $resultat['text'] = "ouvert jusqu'a " . $format->format($horraire['fermeAp']);
+                                $resultat['text'] = "ouvert jusqu'à " . $format->format($horraire['fermeAp']);
                             }
                             break;
 
