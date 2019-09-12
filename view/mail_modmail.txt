@@ -1,0 +1,3 @@
+Bonjour,
+Vous avez changé votre ancienne adresse mail (%oldMail%) pour celui-ci : %newMail%
+Si vous n'êtes pas à l'origine merci de nous le communiquer.

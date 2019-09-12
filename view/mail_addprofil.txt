@@ -1,0 +1,5 @@
+Bonjour,
+vous avez été ajouté aux utilisateurs du site Chez maman.
+Vos identifiant sont:
+%mail%
+%mdp%

@@ -228,6 +228,212 @@
                             );
                         }
                         break;
+
+                    case 'adProfil':
+                        if (isset($array['to'], $array['sujet'], $array['data'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_addprofil.txt'));
+                            $text = str_replace('%mail%', $array['data']['mail'], $text);
+                            $text = str_replace('%mdp%', $array['data']['mdp'], $text);
+
+                            $bodyMail = implode('', file('../view/mail_body_addprofil.html'));
+                            $bodyMail = str_replace('%mail%', $array['data']['mail'], $bodyMail);
+                            $bodyMail = str_replace('%mdp%', $array['data']['mdp'], $bodyMail);
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case "supprofil":
+                        if (isset($array['to'], $array['sujet'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_supprofil.txt'));
+
+                            $bodyMail = implode('', file('../view/mail_body_supprofil.html'));
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case 'admin':
+                        if (isset($array['to'], $array['sujet'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_admin.txt'));
+
+                            $bodyMail = implode('', file('../view/mail_body_admin.html'));
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case 'supadmin':
+                        if (isset($array['to'], $array['sujet'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_supadmin.txt'));
+
+                            $bodyMail = implode('', file('../view/mail_body_supadmin.html'));
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case 'modmdp':
+                        if (isset($array['to'], $array['sujet'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_modmdp.txt'));
+
+                            $bodyMail = implode('', file('../view/mail_body_modmdp.html'));
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case 'modmail':
+                        if (isset($array['to'], $array['sujet'], $array['data'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_modmail.txt'));
+                            $text = str_replace('%oldMail%', $array['data']['old'], $text);
+                            $text = str_replace('%newMail%', $array['data']['new'], $text);
+
+                            $bodyMail = implode('', file('../view/mail_body_modmail.html'));
+                            $bodyMail = str_replace('%oldMail%', $array['data']['old'], $bodyMail);
+                            $bodyMail = str_replace('%newMail%', $array['data']['new'], $bodyMail);
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case 'modmailold':
+                        if (isset($array['to'], $array['sujet'], $array['data'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_modmailold.txt'));
+                            $text = str_replace('%newMail%', $array['data'], $text);
+
+                            $bodyMail = implode('', file('../view/mail_body_modmailold.html'));
+                            $bodyMail = str_replace('%newMail%', $array['data'], $bodyMail);
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
                     
                     default:
                         return array(
@@ -306,16 +512,17 @@
                         ':nom' => $nom
                     );
 
-                    $to = $mail;
-                    $subject = "Chez maman";
-                    $txt = '<p>' . $mail . '</p><p>' . $mdp . '</p>';
-                    $headers = array(
-                        'From' => "webmaster@chezmaman.com",
-                        'MIME-Version' => '1.0',
-                        'Content-type' => 'text/html; charset=iso-8859-1'
-                    );
+                    $evoiMail = $this->mail(array(
+                        "type" => 'adProfil',
+                        "to" => $mail,
+                        "sujet" => "Vous êtes devenue utilisateur",
+                        "data" => array(
+                            "mail" => $mail,
+                            "mdp" => $mdp
+                        )
+                    ));
 
-                    if (mail($to,$subject,$txt,$headers)) {
+                    if ($evoiMail['result']) {
                         if ($req->execute($array)) {
                             $req->closecursor();
                             $id = $bdd->lastInsertId();
@@ -331,25 +538,13 @@
                             $req->closecursor();
                             $bdd = null;
 
-                            $txt = '<p>Une erreur c\'est produit</p>';
-
-                            if (mail($to,$subject,$txt,$headers)) {
-                                return array(
-                                    'result' => false,
-                                    'text' => 'Le nouvelle utilisateur n\'a pas put étre ajouter'
-                                );
-                            }else {
-                                return array(
-                                    'result' => false,
-                                    'text' => 'Le nouvelle utilisateur n\'a pas put étre ajouter et il n\'a pas put étre prévenu de l\'erreur'
-                                );
-                            }
+                            return array(
+                                'result' => false,
+                                'text' => 'Le nouvelle utilisateur n\'a pas put étre ajouter'
+                            );
                         }
                     }else {
-                        return array(
-                            'result' => false,
-                            'text' => 'Aucun mail n\'a put étre envoyer'
-                        );
+                        return $evoiMail;
                     }
                 }elseif (filter_var($mail, FILTER_VALIDATE_EMAIL) && $this->comparMail($mail) == true) {
                     return array(
@@ -417,22 +612,28 @@
                     ':id' => $id
                 );
 
+                $oldMail = $this->profils((int)$id);
+
                 if ($req->execute($array)) {
                     $req->closecursor();
                     $bdd = null;
 
-                    $www = $_SERVER['HTTP_HOST'];
+                    $this->mail(array(
+                        "type" => "modmailold",
+                        "to" => $oldMail['mail'],
+                        "sujet" => "Votre mail a été modifié",
+                        "data" => $mail
+                    ));
 
-                    $to = $mail;
-                    $subject = "Adresse mail modifier";
-                    $txt = '<p>Votre adresse mail à bien étais modifier</p><br/><a href="' . $www . '/index.php?page=connexion" target="_blank">Ce conecter</a>';
-                    $headers = array(
-                        'From' => "webmaster@chezmaman.com",
-                        'MIME-Version' => '1.0',
-                        'Content-type' => 'text/html; charset=iso-8859-1'
-                    );
-
-                    mail($to,$subject,$txt,$headers);
+                    $this->mail(array(
+                        "type" => "modmail",
+                        "to" => $mail,
+                        "sujet" => "Votre mail a été modifié",
+                        "data" => array(
+                            "old" => $oldMail['mail'],
+                            "new" => $mail
+                        )
+                    ));
 
                     return true;
                 }else {
@@ -461,6 +662,13 @@
                 );
 
                 if ($req->execute($array)) {
+                    $profil = $this->profils((int)$id);
+                    $mail = $this->mail(array(
+                        "type" => "modmdp",
+                        "to" => $profil["mail"],
+                        "sujet" => "Votre mot de passe a été modifié"
+                    ));
+
                     $req->closecursor();
                     $bdd = null;
 
@@ -584,6 +792,20 @@
                         $req->closecursor();
                         $bdd = null;
 
+                        if ($profil['admin'] == 0) {
+                            $this->mail(array(
+                                "type" => "admin",
+                                "to" => $profil['mail'],
+                                "sujet" => "Vous êtes devenue administrateur"
+                            ));
+                        }else {
+                            $this->mail(array(
+                                "type" => "supadmin",
+                                "to" => $profil['mail'],
+                                "sujet" => "Vous n'êtes plus administrateur"
+                            ));
+                        }
+
                         return array(
                             'result' => true,
                             'text' => 'Les droit on étais changer'
@@ -626,6 +848,20 @@
                         $req->closecursor();
                         $bdd = null;
 
+                        if ($bollen) {
+                            $this->mail(array(
+                                "type" => "admin",
+                                "to" => $this->profils($id)['mail'],
+                                "sujet" => "Vous êtes devenue administrateur"
+                            ));
+                        }else {
+                            $this->mail(array(
+                                "type" => "supadmin",
+                                "to" => $this->profils($id)['mail'],
+                                "sujet" => "Vous n'êtes plus administrateur"
+                            ));
+                        }
+
                         return array(
                             'result' => true,
                             'text' => 'Les droit on étais changer'
@@ -664,9 +900,18 @@
                         ':id' => $id
                     );
 
+                    $mail = $this->profils($id)['mail'];
+
+
                     if ($req->execute($array)) {
                         $req->closecursor();
                         $bdd = null;
+
+                        $this->mail(array(
+                            "type" => "supprofil",
+                            "to" => $mail,
+                            "sujet" => "Votre profil a été supprimé"
+                        ));
 
                         return array(
                             'result' => true,
