@@ -1,12 +1,17 @@
 <?php
     require_once('bdd.php');
+    require_once('entreprise.php');
 
     class profil {
         private $_bdd;
+        private $_entreprise;
 
         public function __construct () {
             $bdd = new bdd;
             $this->_bdd = $bdd;
+
+            $entreprise = new entreprise;
+            $this->_entreprise = $entreprise;
         }
 
         /// getter ///
@@ -161,6 +166,128 @@
          }
 
          return $chaine;
+        }
+
+        private function mail ($array) {
+            if (isset($array, $array['type']) && is_array($array)) {
+                switch ($array['type']) {
+                    case 'perdue':
+                        if (isset($array['to'], $array['sujet'], $array['data'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_perdu.txt'));
+                            $text = str_replace('%mdp%', $array['data'], $text);
+
+                            $bodyMail = implode('', file('../view/mail_body_perdu.html'));
+                            $bodyMail = str_replace('%mdp%', $array['data'], $bodyMail);
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire, le sujet ou la data'
+                            );
+                        }
+                        break;
+
+                    case 'erreur_mdp':
+                        if (isset($array['to'], $array['sujet'])) {
+                            $to = $array['to'];
+                            $sujet = $array['sujet'];
+
+                            $text = implode('', file('../view/mail_erreurPerdu.txt'));
+
+                            $bodyMail = implode('', file('../view/mail_body_erreurPerdu.html'));
+
+                            $entreprise = $this->_entreprise;
+                            if ($result = $entreprise->logo()) {
+                                $logo = $result;
+                            }else {
+                                $logo = 'default.svg';
+                            }
+
+                            $html = implode('', file('../view/mail_base.html'));
+                            $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%txt%', $bodyMail, $html);
+                        }else {
+                            return array(
+                                'result' => false,
+                                'text' => 'Il manque le destinataire ou le sujet'
+                            );
+                        }
+                        break;
+                    
+                    default:
+                        return array(
+                            'result' => false,
+                            'text' => 'Le type de mail n\'est pas reconnue'
+                        );
+                        break;
+                }
+
+                $site = $_SERVER['HTTP_HOST'];
+                $from = "webmaster@chezmaman.com";
+                $nom = "Chez maman";
+
+                $from = $nom." <".$from.">";
+
+                $limite = "_----------=_parties_".md5(uniqid (rand()));
+
+                $header  = "Reply-to: ".$from."\n";
+                $header .= "From: ".$from."\n";
+                $header .= "X-Sender: <".$site.">\n";
+                $header .= "X-Mailer: PHP\n";
+                $header .= "X-auth-smtp-user: ".$from." \n";
+                $header .= "X-abuse-contact: ".$from." \n";
+                $header .= "Date: ".date("D, j M Y G:i:s O")."\n";
+                $header .= "MIME-Version: 1.0\n";
+                $header .= "Content-Type: multipart/alternative; boundary=\"".$limite."\"";
+
+                $message = "";
+
+                $message .= "--".$limite."\n";
+                $message .= "Content-Type: text/plain\n";
+                $message .= "charset=\"utf-8\"\n";
+                $message .= "Content-Transfer-Encoding: 8bit\n\n";
+                $message .= $text;
+
+                $message .= "\n\n--".$limite."\n";
+                $message .= "Content-Type: text/html; ";
+                $message .= "charset=\"utf-8\"; ";
+                $message .= "Content-Transfer-Encoding: 8bit;\n\n";
+                $message .= $html;
+
+                $message .= "\n--".$limite."--";
+
+                if (mail($to, $sujet, $message, $header)) {
+                    return array(
+                        'result' => true,
+                        'text' => 'Le mail est envoyer'
+                    );
+                }else {
+                    return array(
+                        'result' => false,
+                        'text' => 'Le mail n\'a pas été envoyé'
+                    );
+                }
+            }else {
+                return array(
+                    'result' => false,
+                    'text' => 'Il manque des valeurs'
+                );
+            }
         }
 
         /// setter ///
@@ -374,16 +501,14 @@
                 $newmdp =  $this->mdpAleatoire();
                 $newmdphash = password_hash($newmdp, PASSWORD_BCRYPT);
 
-                $to = $mail;
-                $subject = "Mot de passe oublier";
-                $txt = '<p>' . $newmdp . '</p>';
-                $headers = array(
-                    'From' => "webmaster@chezmaman.com",
-                    'MIME-Version' => '1.0',
-                    'Content-type' => 'text/html; charset=iso-8859-1'
-                );
+                $resultMail = $this->mail(array(
+                    "type" => 'perdue',
+                    "to" => $mail,
+                    "sujet" => 'Nouveaux mot de passe',
+                    "data" => $newmdp
+                ));
 
-                if (mail($to,$subject,$txt,$headers)) {
+                if ($resultMail['result']) {
                     $bdd = $this->_bdd;
                     $bdd = $bdd->co();
 
@@ -404,9 +529,11 @@
                         $req->closecursor();
                         $bdd = null;
 
-                        $subject = 'Erreur mot de passe';
-                        $txt = '<p>Le mot de passe n\'a pas put étre envoyer a la base de donner</p>';
-                        mail($to,$subject,$txt,$headers);
+                        $this->mail(array(
+                            "type" => "erreur_mdp",
+                            "to" => $mail,
+                            "sujet" => 'Erreur de mot de passe'
+                        ));
 
                         return array(
                             'result' => false,
@@ -414,10 +541,7 @@
                         );
                     }
                 }else {
-                    return array(
-                        'result' => false,
-                        'text' => 'Le mail n\'à pas put étre envoyer'
-                    );
+                    return $resultMail;
                 }
             }
         }

@@ -1,0 +1,3 @@
+Bonjour,
+Une erreur c'est produit lors de l'enregistrement de votre mot de passe.
+Veuillez réessayer.
