@@ -1,0 +1,52 @@
+@mixin couleurElement ($couleur, $img: false) {
+    border: none !important;
+
+    @if $img {
+        background-image: linear-gradient(rgba($couleur, .90), rgba($couleur, .90)) ,url($img);
+    } @else {
+        background-image: linear-gradient(rgba($couleur, .90), rgba($couleur, .90));
+    }
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    letter-spacing: .1pc;
+    color: scale-color($couleur, $lightness: -25%);
+    font-weight: bold;
+    text-decoration: none;
+    transition: .5s;
+
+    &:hover {
+        @if $img {
+            background-image: linear-gradient(rgba($couleur, .85) 0%, rgba($couleur, .5) 10% 90%, rgba($couleur, .85) 100%) ,url($img);
+        }
+        
+        letter-spacing: 1rem;
+    }
+}
+
+& {
+    #gestion {
+        @include couleurElement($rose, '../src/img/gestion.jpg');
+    }
+
+    #description {
+        @include couleurElement($jaune, '../src/img/description.png');
+    }
+
+    #avis {
+        @include couleurElement($bleu, '../src/img/avis.jpeg');
+    }
+
+    #service {
+        @include couleurElement($rose, '../src/img/service.jpg');
+    }
+
+    #menu {
+        @include couleurElement($jaune, '../src/img/menu.png');
+    }
+
+    #horraires {
+        @include couleurElement($bleu, '../src/img/horraire.png');
+    }
+}

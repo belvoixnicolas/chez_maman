@@ -1395,6 +1395,102 @@ html {
     height: 100%;
     font-size: 1.8rem;
     border: 1px solid green; }
+/* line 29, ../sass/_couleur_admin.scss */
+#admin #gestion {
+  border: none !important;
+  background-image: linear-gradient(rgba(255, 204, 204, 0.9), rgba(255, 204, 204, 0.9)), url("../src/img/gestion.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: .1pc;
+  color: #ff5959;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .5s; }
+  /* line 19, ../sass/_couleur_admin.scss */
+  #admin #gestion:hover {
+    background-image: linear-gradient(rgba(255, 204, 204, 0.85) 0%, rgba(255, 204, 204, 0.5) 10% 90%, rgba(255, 204, 204, 0.85) 100%), url("../src/img/gestion.jpg");
+    letter-spacing: 1rem; }
+/* line 33, ../sass/_couleur_admin.scss */
+#admin #description {
+  border: none !important;
+  background-image: linear-gradient(rgba(255, 255, 153, 0.9), rgba(255, 255, 153, 0.9)), url("../src/img/description.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: .1pc;
+  color: #ffff33;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .5s; }
+  /* line 19, ../sass/_couleur_admin.scss */
+  #admin #description:hover {
+    background-image: linear-gradient(rgba(255, 255, 153, 0.85) 0%, rgba(255, 255, 153, 0.5) 10% 90%, rgba(255, 255, 153, 0.85) 100%), url("../src/img/description.png");
+    letter-spacing: 1rem; }
+/* line 37, ../sass/_couleur_admin.scss */
+#admin #avis {
+  border: none !important;
+  background-image: linear-gradient(rgba(102, 153, 255, 0.9), rgba(102, 153, 255, 0.9)), url("../src/img/avis.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: .1pc;
+  color: #0d5eff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .5s; }
+  /* line 19, ../sass/_couleur_admin.scss */
+  #admin #avis:hover {
+    background-image: linear-gradient(rgba(102, 153, 255, 0.85) 0%, rgba(102, 153, 255, 0.5) 10% 90%, rgba(102, 153, 255, 0.85) 100%), url("../src/img/avis.jpeg");
+    letter-spacing: 1rem; }
+/* line 41, ../sass/_couleur_admin.scss */
+#admin #service {
+  border: none !important;
+  background-image: linear-gradient(rgba(255, 204, 204, 0.9), rgba(255, 204, 204, 0.9)), url("../src/img/service.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: .1pc;
+  color: #ff5959;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .5s; }
+  /* line 19, ../sass/_couleur_admin.scss */
+  #admin #service:hover {
+    background-image: linear-gradient(rgba(255, 204, 204, 0.85) 0%, rgba(255, 204, 204, 0.5) 10% 90%, rgba(255, 204, 204, 0.85) 100%), url("../src/img/service.jpg");
+    letter-spacing: 1rem; }
+/* line 45, ../sass/_couleur_admin.scss */
+#admin #menu {
+  border: none !important;
+  background-image: linear-gradient(rgba(255, 255, 153, 0.9), rgba(255, 255, 153, 0.9)), url("../src/img/menu.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: .1pc;
+  color: #ffff33;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .5s; }
+  /* line 19, ../sass/_couleur_admin.scss */
+  #admin #menu:hover {
+    background-image: linear-gradient(rgba(255, 255, 153, 0.85) 0%, rgba(255, 255, 153, 0.5) 10% 90%, rgba(255, 255, 153, 0.85) 100%), url("../src/img/menu.png");
+    letter-spacing: 1rem; }
+/* line 49, ../sass/_couleur_admin.scss */
+#admin #horraires {
+  border: none !important;
+  background-image: linear-gradient(rgba(102, 153, 255, 0.9), rgba(102, 153, 255, 0.9)), url("../src/img/horraire.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: .1pc;
+  color: #0d5eff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .5s; }
+  /* line 19, ../sass/_couleur_admin.scss */
+  #admin #horraires:hover {
+    background-image: linear-gradient(rgba(102, 153, 255, 0.85) 0%, rgba(102, 153, 255, 0.5) 10% 90%, rgba(102, 153, 255, 0.85) 100%), url("../src/img/horraire.png");
+    letter-spacing: 1rem; }
 
 /* line 43, ../sass/style.scss */
 #gestionEntreprise section {

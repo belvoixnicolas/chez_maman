@@ -9,7 +9,7 @@
     <nav>
         <ul>
             <li>
-                <a href="../index.php?page=gestion">
+                <a href="../index.php?page=gestion" id="gestion">
                     Gestion
                 </a>
             </li>
@@ -18,7 +18,7 @@
             ?>
 
                 <li>
-                    <a href="../index.php?page=description">
+                    <a href="../index.php?page=description" id="description">
                         Description
                     </a>
                 </li>
@@ -27,7 +27,7 @@
                 }
             ?>
             <li>
-                <a href="../index.php?page=avie">
+                <a href="../index.php?page=avie" id="avis">
                     Avis
                 </a>
             </li>
@@ -36,7 +36,7 @@
             ?>
 
                 <li>
-                    <a href="../index.php?page=service">
+                    <a href="../index.php?page=service" id="service">
                         Service
                     </a>
                 </li>
@@ -45,7 +45,7 @@
                 }
             ?>
             <li>
-                <a href="../index.php?page=menugestion">
+                <a href="../index.php?page=menugestion" id="menu">
                     Menu
                 </a>
             </li>
@@ -54,7 +54,7 @@
             ?>
 
                 <li>
-                    <a href="../index.php?page=horraire">
+                    <a href="../index.php?page=horraire" id="horraires">
                         Horraires
                     </a>
                 </li>
