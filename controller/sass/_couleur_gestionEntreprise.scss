@@ -101,8 +101,17 @@ section {
         }
 
         label {
-            color: #fff;
-            mix-blend-mode: difference;
+            color: scale-color($noir, $lightness: -100%);
+            mix-blend-mode: overlay;
+        }
+    }
+
+    #progressbar {
+        background-color: rgba($noir, .25);
+        border: none;
+
+        #progress {
+            background-color: rgba(scale-color($vert, $lightness: -50%), .9);
         }
     }
 }
