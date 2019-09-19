@@ -11,6 +11,53 @@
     }
 }
 
+@mixin nav ($color: false) {
+    border: none;
+
+    .bar {
+        .menuBurger i {
+            @if $color {
+                color: $color;
+            } @else {
+                color: $gris;
+            }
+            padding: 1vh;
+            border-radius: 10px;
+            transition: .5s;
+
+            &:hover {
+                background-color: #fff;
+                @if $color {
+                    border: 3px solid $color;
+                } @else {
+                    border: 3px solid $gris;
+                }
+                box-shadow: 3px 3px 6px 0px $gris;
+            }
+        }
+    }
+
+    .menu {
+        @if $color {
+            background-color: rgba($color, .5);
+        } @else {
+            background-color: rgba($gris, .5);
+        }
+
+        a {
+            text-decoration: none;
+            color: $noir;
+            letter-spacing: .1pc;
+            text-transform: capitalize;
+            transition: .5s;
+
+            &:hover {
+                letter-spacing: 1rem;
+            }
+        }
+    }
+}
+
 %input {
         background: #fff;
         border-radius: 10px;
