@@ -42,7 +42,7 @@ main {
                 margin-top: 0;
                 font-size: 0;
                 padding: 0;
-                border-width: 0;
+                border-width: 0px !important;
             }
 
             &[type=submit] {
@@ -53,3 +53,5 @@ main {
         }
     }
 }
+
+@import '_couleur_gestionPerso';

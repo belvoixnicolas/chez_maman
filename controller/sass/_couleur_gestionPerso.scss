@@ -1,0 +1,79 @@
+%inputRose {
+    @extend %input;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: $rose !important;
+
+    &[type=submit] {
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+%sectionRose {
+    @include section($rose);
+}
+
+nav {
+    border: none;
+
+    .bar {
+        background-color: $rose;
+        color: #fff;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: .1pc;
+            transition: .5s;
+
+            &:hover {
+                letter-spacing: 1rem;
+
+                @media screen AND (max-width: 418px) {
+                    letter-spacing: .2pc;
+                }
+            }
+        }
+    }
+
+    .menu {
+        //background-color: $vert;
+        background-color: rgba($rose, .5);
+
+        a {
+            text-decoration: none;
+            color: $noir;
+            letter-spacing: .1pc;
+            text-transform: capitalize;
+            transition: .5s;
+
+            &:hover {
+                letter-spacing: 1rem;
+            }
+        }
+    }
+}
+
+main {
+    @extend %sectionRose;
+
+    border: none;
+
+    form {
+        border: none;
+
+        input {
+            @extend %inputRose;
+
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &[type=submit] {
+                border-radius: calc(1.7rem + .5pc);
+            }
+        }
+    }
+}
