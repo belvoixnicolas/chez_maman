@@ -57,7 +57,13 @@ section {
     }
 }
 
+%sectionRose {
+    @include section($rose);
+}
+
 #sectionformlogo {
+    @extend %sectionRose;
+
     img {
         background-color: rgba($rose, .5);
         padding: 1vh 1vw;
@@ -71,12 +77,16 @@ section {
 }
 
 #sectionformtitre {
+    @extend %sectionRose;
+
     input {
         @extend %inputRose;
     }
 }
 
 #sectionformphrase {
+    @extend %sectionRose;
+
     input {
         @extend %inputRose;
     }
@@ -98,7 +108,205 @@ section {
 }
 
 #sectionformtel {
+    @extend %sectionRose;
+
     input {
         @extend %inputRose;
+    }
+}
+
+#sectionformadresse {
+    @extend %sectionRose;
+
+    form {
+        border: none;
+
+        &:valid input[type=submit] {
+            background: rgba(scale-color($vert, $lightness: -20%), .5);
+            border-color: scale-color($vert, $lightness: -10%) !important;
+            border-radius: calc(1.7rem + .5pc);
+        }
+
+        input {
+            @extend %inputRose;
+
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &[type=submit] {
+                border-radius: calc(1.7rem + .5pc);
+            }
+        }
+    }
+}
+
+#sectionreseau {
+    @extend %sectionRose;
+
+    li {
+        border: none !important;
+
+        &:hover {
+            & > a {
+                text-decoration: underline;
+            }
+        }
+
+        a {
+            color: $noir;
+            text-decoration: none;
+        }
+
+        #modreseau {
+            background: $bleu;
+            border-color: scale-color($bleu, $lightness: -10%) !important;
+            border-radius: calc(1.7rem + .5pc);
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: .1pc;
+
+            &:hover {
+                letter-spacing: .5rem;
+                box-shadow: 3px 3px 6px 0px scale-color($gris, $lightness: -20%);
+            }
+        }
+
+        #supreseau {
+            @extend #modreseau;
+
+            background: scale-color($rose, $lightness: -20%);
+            border-color: scale-color($rose, $lightness: -30%) !important;
+        }
+    }
+
+    form {
+        border: none !important;
+
+        &:valid input[type=submit] {
+            background: rgba(scale-color($vert, $lightness: -20%), .5);
+            border-color: scale-color($vert, $lightness: -10%) !important;
+            border-radius: calc(1.7rem + .5pc);
+        }
+
+        input {
+            @extend %inputRose;
+
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &[type=submit] {
+                border-radius: calc(1.7rem + .5pc);
+            }
+        }
+    }
+}
+
+#sectionprofil {
+    @extend %sectionRose;
+
+    table {
+        border: none;
+        box-shadow: 3px 3px 6px 0px $gris;
+
+        th, td {
+            border: none;
+        }
+
+        th {
+            background-color: $rose;
+        }
+
+        td {
+            #modifprofil {
+                background-color: transparent;
+                border: none;
+                border-radius: 10px;
+                color: scale-color($vert, $saturation: +0%, $lightness: -30%);
+
+                &:hover {
+                    border: 2px solid scale-color($vert, $saturation: +0%, $lightness: -30%);
+                    box-shadow: 3px 3px 6px 0px $gris;
+                    transition: .5s;
+                }
+
+                &:active {
+                    box-shadow: none;
+                    transition: 0s;
+                }
+            }
+
+            #supprofil {
+                @extend #modifprofil;
+
+                color: scale-color($rose, $lightness: -20%);
+
+                &:hover {
+                    border-color: scale-color($rose, $lightness: -20%);
+                }
+            }
+        }
+    }
+
+    form {
+        border: none !important;
+
+        &:valid input[type=submit] {
+            background: rgba(scale-color($vert, $lightness: -20%), .5);
+            border-color: scale-color($vert, $lightness: -10%) !important;
+            border-radius: calc(1.7rem + .5pc);
+        }
+
+        input {
+            @extend %inputRose;
+
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &[type=submit] {
+                border-radius: calc(1.7rem + .5pc);
+            }
+        }
+    }
+}
+
+#formmodreseau {
+    background-color: #fff;
+    border-radius: 30px;
+    border: 5px solid $rose;
+    box-shadow: inset -5px -5px 11px 1px rgba($gris, .5);
+
+    #fermer {
+        background-color: transparent;
+        border: none;
+        border-radius: 10px;
+        color: scale-color($rose, $lightness: -20%);
+
+        &:hover {
+            border: 2px solid scale-color($rose, $lightness: -20%);
+            box-shadow: 3px 3px 6px 0px $gris;
+            transition: .5s;
+        }
+
+        &:active {
+            box-shadow: none;
+            transition: 0s;
+        }
+    }
+
+    &:valid input[type=submit] {
+        background: rgba(scale-color($vert, $lightness: -20%), .5);
+        border-color: scale-color($vert, $lightness: -10%) !important;
+        border-radius: calc(1.7rem + .5pc);
+    }
+
+    input {
+        @extend %inputRose;
+
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        &[type=submit] {
+            border-radius: calc(1.7rem + .5pc);
+        }
     }
 }

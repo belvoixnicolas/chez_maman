@@ -213,7 +213,7 @@ $(document).ready(function(){
                     $('#message .text').html(data.text);
                     $('#message').addClass('true').removeClass('hidden');
 
-                    $('#formmodreseau').remove();
+                    $('#form').remove();
 
                     if (data.html && data.id > 0) {
                         $('#sectionreseau #' + data.id).html(data.html);
