@@ -1,0 +1,51 @@
+%inputRose {
+    @extend %input;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: $rose !important;
+
+    &[type=submit] {
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+nav {
+    @include nav ($rose);
+}
+
+main {
+    border: none;
+
+    @include section ($rose);
+
+    .formservice {
+        border: none;
+
+        form {
+
+            &:valid input[type=submit] {
+                background: rgba(scale-color($vert, $lightness: -20%), .5);
+                border-color: scale-color($vert, $lightness: -10%) !important;
+                border-radius: calc(1.7rem + .5pc);
+            }
+
+            img {
+                border: none;
+            }
+
+            input, textarea {
+                @extend %inputRose;
+
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+
+                &[type=submit] {
+                    border-radius: calc(1.7rem + .5pc);
+                }
+            }
+        }
+    }
+}

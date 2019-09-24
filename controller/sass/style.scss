@@ -63,7 +63,13 @@
         border-radius: 10px;
         border: 2px solid !important;
         color: $noir;
+        letter-spacing: .1pc;
+        font-family: 'Ubuntu', sans-serif;
         transition: .5s;
+
+        @media screen AND (max-width: 550px){
+            letter-spacing: 0pc;
+        }
 
         &:focus {
             box-shadow: inset 0 0 4px 1px $gris;
@@ -152,8 +158,8 @@ html {
     @import '_gestionAvie';
 }
 
-#gestioservice {
-    @import '_gestioService';
+#gestionservice {
+    @import '_gestionService';
 }
 
 #menugestion {

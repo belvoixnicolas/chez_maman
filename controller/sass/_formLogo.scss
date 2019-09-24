@@ -29,6 +29,17 @@
             }
         }
 
+        @media screen AND (max-width: 375px) {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(2, min-content);
+            row-gap: 1pc;
+
+            input[type=submit] {
+                width: 50% !important;
+                justify-self: center !important;
+            }
+        }
+
         input {
             font-size: 1.5rem;
             padding: .5pc 0;

@@ -2,13 +2,8 @@
 <html lang="fr">
 <head>
     <?php include_once('../view/head.php') ?>
-    <style type="text/css">
-        img {
-            height: 5vh;
-        }
-    </style>
 </head>
-<body id="gestioservice">
+<body id="gestionservice">
     <div id="message" class='hidden'>
         <span class="text"></span>
         <button>
@@ -21,9 +16,11 @@
         <h1>service</h1>
         <section class="services">
             <h2>services</h2>
-            <?php if (isset($services) && $services) { ?>
                 <ul>
-                    <?php foreach ($services as $value) { ?>
+                    <?php 
+                        if (isset($services) && $services) {
+                            foreach ($services as $value) { 
+                    ?>
                         <li id="<?= htmlspecialchars($value['id']) ?>" class="service">
                             <div class="image">
                                 <img src="src/services/<?= htmlspecialchars($value['image']) ?>" alt="image de <?= htmlspecialchars($value['titre']) ?>">
@@ -39,9 +36,11 @@
                                 <i class="fas fa-times"></i>
                             </button>
                         </li>
-                    <?php } ?>
+                    <?php
+                            }
+                        } 
+                    ?>
                 </ul>
-            <?php } ?>
         </section>
         <section class="formservice">
             <form action="#" id="formservice" method="post" ENCTYPE="multipart/form-data">

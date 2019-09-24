@@ -57,6 +57,19 @@ section {
     }
 }
 
+%inputFileRose {
+    @extend %inputRose;
+
+        @media screen AND (max-width: 375px) {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &[type=submit] {
+                border-radius: calc(1.7rem + .5pc);
+            }
+        }
+}
+
 %sectionRose {
     @include section($rose);
 }
@@ -72,7 +85,7 @@ section {
     }
 
     input {
-        @extend %inputRose;
+        @extend %inputFileRose;
     }
 }
 
@@ -97,7 +110,7 @@ section {
         border: none;
 
         input {
-            @extend %inputRose;
+            @extend %inputFileRose;
         }
 
         label {
@@ -125,8 +138,6 @@ section {
 }
 
 #sectionformadresse {
-    @extend %sectionRose;
-
     form {
         border: none;
 

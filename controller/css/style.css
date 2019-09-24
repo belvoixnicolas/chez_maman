@@ -603,46 +603,52 @@ footer {
     height: 0vh !important; }
 
 /* line 61, ../sass/style.scss */
-#gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionprofil form input, #gestionEntreprise #formmodreseau input, #gestionEntreprise #gestionPerso main form input, #gestionPerso main form #gestionEntreprise input, #gestionPerso main form input, #gestiondescription main form input, #gestiondescription main form textarea, #gestiondescription main form button {
+#gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionprofil form input, #gestionEntreprise #formmodreseau input, #gestionEntreprise #gestionPerso main form input, #gestionPerso main form #gestionEntreprise input, #gestionPerso main form input, #gestiondescription main form input, #gestiondescription main form textarea, #gestiondescription main form button, #gestionservice #gestionPerso main form input, #gestionPerso main form #gestionservice input, #gestionservice main .formservice form input, #gestionservice main .formservice form textarea {
   background: #fff;
   border-radius: 10px;
   border: 2px solid !important;
   color: #585858;
+  letter-spacing: .1pc;
+  font-family: 'Ubuntu', sans-serif;
   transition: .5s; }
-  /* line 68, ../sass/style.scss */
-  #gestionEntreprise #sectionformlogo input:focus, #gestionEntreprise #sectionformtitre input:focus, #gestionEntreprise #sectionformphrase input:focus, #gestionEntreprise #sectionformvideo form input:focus, #gestionEntreprise #sectionformtel input:focus, #gestionEntreprise #sectionformadresse form input:focus, #gestionEntreprise #sectionreseau form input:focus, #gestionEntreprise #sectionprofil form input:focus, #gestionEntreprise #formmodreseau input:focus, #gestionPerso main form input:focus, #gestiondescription main form input:focus, #gestiondescription main form textarea:focus, #gestiondescription main form button:focus {
+  @media screen and (max-width: 550px) {
+    /* line 61, ../sass/style.scss */
+    #gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionprofil form input, #gestionEntreprise #formmodreseau input, #gestionEntreprise #gestionPerso main form input, #gestionPerso main form #gestionEntreprise input, #gestionPerso main form input, #gestiondescription main form input, #gestiondescription main form textarea, #gestiondescription main form button, #gestionservice #gestionPerso main form input, #gestionPerso main form #gestionservice input, #gestionservice main .formservice form input, #gestionservice main .formservice form textarea {
+      letter-spacing: 0pc; } }
+  /* line 74, ../sass/style.scss */
+  #gestionEntreprise #sectionformlogo input:focus, #gestionEntreprise #sectionformvideo form input:focus, #gestionEntreprise #sectionformtitre input:focus, #gestionEntreprise #sectionformphrase input:focus, #gestionEntreprise #sectionformtel input:focus, #gestionEntreprise #sectionformadresse form input:focus, #gestionEntreprise #sectionreseau form input:focus, #gestionEntreprise #sectionprofil form input:focus, #gestionEntreprise #formmodreseau input:focus, #gestionPerso main form input:focus, #gestiondescription main form input:focus, #gestiondescription main form textarea:focus, #gestiondescription main form button:focus, #gestionservice main .formservice form input:focus, #gestionservice main .formservice form textarea:focus {
     box-shadow: inset 0 0 4px 1px #CCC; }
-  /* line 72, ../sass/style.scss */
-  #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #formmodreseau input[type=submit], #gestionPerso main form input[type=submit], #gestiondescription main form input[type=submit], #gestiondescription main form textarea[type=submit], #gestiondescription main form button[type=submit] {
+  /* line 78, ../sass/style.scss */
+  #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #formmodreseau input[type=submit], #gestionPerso main form input[type=submit], #gestiondescription main form input[type=submit], #gestiondescription main form textarea[type=submit], #gestiondescription main form button[type=submit], #gestionservice main .formservice form input[type=submit], #gestionservice main .formservice form textarea[type=submit] {
     background: #69F;
     border-color: #4281ff !important;
     border-radius: calc(1.7rem + .5pc);
     color: #fff;
     font-weight: bold;
     letter-spacing: .1pc; }
-    /* line 80, ../sass/style.scss */
-    #gestionEntreprise #sectionformlogo input[type=submit]:hover, #gestionEntreprise #sectionformtitre input[type=submit]:hover, #gestionEntreprise #sectionformphrase input[type=submit]:hover, #gestionEntreprise #sectionformvideo form input[type=submit]:hover, #gestionEntreprise #sectionformtel input[type=submit]:hover, #gestionEntreprise #sectionformadresse form input[type=submit]:hover, #gestionEntreprise #sectionreseau form input[type=submit]:hover, #gestionEntreprise #sectionprofil form input[type=submit]:hover, #gestionEntreprise #formmodreseau input[type=submit]:hover, #gestionPerso main form input[type=submit]:hover, #gestiondescription main form input[type=submit]:hover, #gestiondescription main form textarea[type=submit]:hover, #gestiondescription main form button[type=submit]:hover {
+    /* line 86, ../sass/style.scss */
+    #gestionEntreprise #sectionformlogo input[type=submit]:hover, #gestionEntreprise #sectionformvideo form input[type=submit]:hover, #gestionEntreprise #sectionformtitre input[type=submit]:hover, #gestionEntreprise #sectionformphrase input[type=submit]:hover, #gestionEntreprise #sectionformtel input[type=submit]:hover, #gestionEntreprise #sectionformadresse form input[type=submit]:hover, #gestionEntreprise #sectionreseau form input[type=submit]:hover, #gestionEntreprise #sectionprofil form input[type=submit]:hover, #gestionEntreprise #formmodreseau input[type=submit]:hover, #gestionPerso main form input[type=submit]:hover, #gestiondescription main form input[type=submit]:hover, #gestiondescription main form textarea[type=submit]:hover, #gestiondescription main form button[type=submit]:hover, #gestionservice main .formservice form input[type=submit]:hover, #gestionservice main .formservice form textarea[type=submit]:hover {
       letter-spacing: .5rem;
       box-shadow: 3px 3px 6px 0px #a3a3a3; }
-  /* line 86, ../sass/style.scss */
-  #gestionEntreprise #sectionformlogo input[type=button], #gestionEntreprise #sectionformtitre input[type=button], #gestionEntreprise #sectionformphrase input[type=button], #gestionEntreprise #sectionformvideo form input[type=button], #gestionEntreprise #sectionformtel input[type=button], #gestionEntreprise #sectionformadresse form input[type=button], #gestionEntreprise #sectionreseau form input[type=button], #gestionEntreprise #sectionprofil form input[type=button], #gestionEntreprise #formmodreseau input[type=button], #gestionPerso main form input[type=button], #gestiondescription main form input[type=button], #gestiondescription main form textarea[type=button], #gestiondescription main form button[type=button] {
+  /* line 92, ../sass/style.scss */
+  #gestionEntreprise #sectionformlogo input[type=button], #gestionEntreprise #sectionformvideo form input[type=button], #gestionEntreprise #sectionformtitre input[type=button], #gestionEntreprise #sectionformphrase input[type=button], #gestionEntreprise #sectionformtel input[type=button], #gestionEntreprise #sectionformadresse form input[type=button], #gestionEntreprise #sectionreseau form input[type=button], #gestionEntreprise #sectionprofil form input[type=button], #gestionEntreprise #formmodreseau input[type=button], #gestionPerso main form input[type=button], #gestiondescription main form input[type=button], #gestiondescription main form textarea[type=button], #gestiondescription main form button[type=button], #gestionservice main .formservice form input[type=button], #gestionservice main .formservice form textarea[type=button] {
     background: #ff7070;
     border-color: #ff4242 !important;
     border-radius: calc(1.7rem + .5pc);
     color: #fff;
     font-weight: bold;
     letter-spacing: .1pc; }
-    /* line 94, ../sass/style.scss */
-    #gestionEntreprise #sectionformlogo input[type=button]:hover, #gestionEntreprise #sectionformtitre input[type=button]:hover, #gestionEntreprise #sectionformphrase input[type=button]:hover, #gestionEntreprise #sectionformvideo form input[type=button]:hover, #gestionEntreprise #sectionformtel input[type=button]:hover, #gestionEntreprise #sectionformadresse form input[type=button]:hover, #gestionEntreprise #sectionreseau form input[type=button]:hover, #gestionEntreprise #sectionprofil form input[type=button]:hover, #gestionEntreprise #formmodreseau input[type=button]:hover, #gestionPerso main form input[type=button]:hover, #gestiondescription main form input[type=button]:hover, #gestiondescription main form textarea[type=button]:hover, #gestiondescription main form button[type=button]:hover {
+    /* line 100, ../sass/style.scss */
+    #gestionEntreprise #sectionformlogo input[type=button]:hover, #gestionEntreprise #sectionformvideo form input[type=button]:hover, #gestionEntreprise #sectionformtitre input[type=button]:hover, #gestionEntreprise #sectionformphrase input[type=button]:hover, #gestionEntreprise #sectionformtel input[type=button]:hover, #gestionEntreprise #sectionformadresse form input[type=button]:hover, #gestionEntreprise #sectionreseau form input[type=button]:hover, #gestionEntreprise #sectionprofil form input[type=button]:hover, #gestionEntreprise #formmodreseau input[type=button]:hover, #gestionPerso main form input[type=button]:hover, #gestiondescription main form input[type=button]:hover, #gestiondescription main form textarea[type=button]:hover, #gestiondescription main form button[type=button]:hover, #gestionservice main .formservice form input[type=button]:hover, #gestionservice main .formservice form textarea[type=button]:hover {
       letter-spacing: .5rem;
       box-shadow: 3px 3px 6px 0px #a3a3a3; }
 
-/* line 101, ../sass/style.scss */
+/* line 107, ../sass/style.scss */
 html {
   font-family: 'Ubuntu', sans-serif;
   color: #585858; }
 
-/* line 106, ../sass/style.scss */
+/* line 112, ../sass/style.scss */
 #form {
   display: flex;
   justify-content: center;
@@ -1554,15 +1560,25 @@ html {
       /* line 27, ../sass/_formLogo.scss */
       #gestionEntreprise #sectionformlogo form {
         width: 90% !important; } }
-    /* line 32, ../sass/_formLogo.scss */
+    @media screen and (max-width: 375px) {
+      /* line 18, ../sass/_formLogo.scss */
+      #gestionEntreprise #sectionformlogo form {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, min-content);
+        row-gap: 1pc; }
+        /* line 37, ../sass/_formLogo.scss */
+        #gestionEntreprise #sectionformlogo form input[type=submit] {
+          width: 50% !important;
+          justify-self: center !important; } }
+    /* line 43, ../sass/_formLogo.scss */
     #gestionEntreprise #sectionformlogo form input {
       font-size: 1.5rem;
       padding: .5pc 0;
       border: 1px solid black; }
-      /* line 37, ../sass/_formLogo.scss */
+      /* line 48, ../sass/_formLogo.scss */
       #gestionEntreprise #sectionformlogo form input[name=logo] {
         height: 100%; }
-      /* line 41, ../sass/_formLogo.scss */
+      /* line 52, ../sass/_formLogo.scss */
       #gestionEntreprise #sectionformlogo form input[type=submit] {
         padding: .5pc; }
 /* line 1, ../sass/_formTitre.scss */
@@ -1657,7 +1673,7 @@ html {
     display: grid;
     grid-template-columns: 1fr min-content;
     grid-template-rows: min-content min-content;
-    row-gap: 2vh;
+    row-gap: 1pc;
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     justify-self: center;
@@ -1668,28 +1684,47 @@ html {
       /* line 37, ../sass/_formVideo.scss */
       #gestionEntreprise #sectionformvideo form {
         width: 90% !important; } }
-    /* line 42, ../sass/_formVideo.scss */
+    @media screen and (max-width: 375px) {
+      /* line 43, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form input[name=video] {
+        grid-row: 1 / span 1 !important; }
+      /* line 47, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form input[type=submit] {
+        grid-column: 1 / span 1 !important;
+        grid-row: 2 / span 1 !important;
+        width: 50% !important;
+        justify-self: center !important; }
+      /* line 54, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form label {
+        grid-row: 3 / span 1 !important;
+        font-size: 1.7rem !important; } }
+    @media screen and (max-width: 375px) {
+      /* line 24, ../sass/_formVideo.scss */
+      #gestionEntreprise #sectionformvideo form {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, min-content); } }
+    /* line 65, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo form input {
       font-size: 1.5rem;
       padding: .5pc 0;
       border: 1px solid black; }
-      /* line 47, ../sass/_formVideo.scss */
+      /* line 70, ../sass/_formVideo.scss */
       #gestionEntreprise #sectionformvideo form input[name=video] {
         grid-column: 1 / span 1;
         grid-row: 1 / span 1;
         height: 100%; }
-      /* line 53, ../sass/_formVideo.scss */
+      /* line 76, ../sass/_formVideo.scss */
       #gestionEntreprise #sectionformvideo form input[type=submit] {
         grid-column: 2 / span 1;
         grid-row: 1 / span 1;
         padding: .5pc; }
-    /* line 60, ../sass/_formVideo.scss */
+    /* line 83, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo form label {
       grid-column: 1 / -1;
       grid-row: 2 / span 1;
       font-size: 1.25rem;
       text-align: center; }
-  /* line 68, ../sass/_formVideo.scss */
+  /* line 91, ../sass/_formVideo.scss */
   #gestionEntreprise #sectionformvideo #progressbar {
     display: grid;
     grid-template-columns: 1fr;
@@ -1697,7 +1732,7 @@ html {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     border: 1px solid red; }
-    /* line 76, ../sass/_formVideo.scss */
+    /* line 99, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo #progressbar #progress {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
@@ -1707,11 +1742,11 @@ html {
       width: 0%;
       background: green; }
       @media screen and (max-width: 550px) {
-        /* line 76, ../sass/_formVideo.scss */
+        /* line 99, ../sass/_formVideo.scss */
         #gestionEntreprise #sectionformvideo #progressbar #progress {
           height: 0%;
           width: 100%; } }
-    /* line 91, ../sass/_formVideo.scss */
+    /* line 114, ../sass/_formVideo.scss */
     #gestionEntreprise #sectionformvideo #progressbar p {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
@@ -1816,7 +1851,7 @@ html {
 /* line 75, ../sass/_sectionReseau.scss */
 #gestionEntreprise #sectionreseau {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: auto min-content;
   row-gap: 5vh;
   min-height: 90vh;
@@ -2082,65 +2117,73 @@ html {
 #gestionEntreprise section {
   border: none !important; }
 /* line 46, ../sass/_couleur_gestionEntreprise.scss */
-#gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionprofil form input, #gestionEntreprise #formmodreseau input, #gestionEntreprise #gestionPerso main form input, #gestionPerso main form #gestionEntreprise input {
+#gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionprofil form input, #gestionEntreprise #formmodreseau input, #gestionEntreprise #gestionPerso main form input, #gestionPerso main form #gestionEntreprise input, #gestionEntreprise #gestionservice main .formservice form input, #gestionservice main .formservice form #gestionEntreprise input, #gestionEntreprise #gestionservice main .formservice form textarea, #gestionservice main .formservice form #gestionEntreprise textarea {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-color: #FCC !important; }
   /* line 53, ../sass/_couleur_gestionEntreprise.scss */
-  #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #formmodreseau input[type=submit], #gestionEntreprise #gestionPerso main form input[type=submit], #gestionPerso main form #gestionEntreprise input[type=submit] {
+  #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #formmodreseau input[type=submit], #gestionEntreprise #gestionPerso main form input[type=submit], #gestionPerso main form #gestionEntreprise input[type=submit], #gestionEntreprise #gestionservice main .formservice form input[type=submit], #gestionservice main .formservice form #gestionEntreprise input[type=submit], #gestionEntreprise #gestionservice main .formservice form textarea[type=submit], #gestionservice main .formservice form #gestionEntreprise textarea[type=submit] {
     border-radius: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
-/* line 60, ../sass/_couleur_gestionEntreprise.scss */
-#gestionEntreprise #sectionformlogo, #gestionEntreprise #sectionformtitre, #gestionEntreprise #sectionformphrase, #gestionEntreprise #sectionformtel, #gestionEntreprise #sectionformadresse, #gestionEntreprise #sectionreseau, #gestionEntreprise #sectionprofil, #gestionEntreprise #gestionPerso main, #gestionPerso #gestionEntreprise main {
+@media screen and (max-width: 375px) {
+  /* line 60, ../sass/_couleur_gestionEntreprise.scss */
+  #gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformvideo form input {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; }
+    /* line 67, ../sass/_couleur_gestionEntreprise.scss */
+    #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformvideo form input[type=submit] {
+      border-radius: calc(1.7rem + .5pc); } }
+/* line 73, ../sass/_couleur_gestionEntreprise.scss */
+#gestionEntreprise #sectionformlogo, #gestionEntreprise #sectionformtitre, #gestionEntreprise #sectionformphrase, #gestionEntreprise #sectionformtel, #gestionEntreprise #sectionreseau, #gestionEntreprise #sectionprofil, #gestionEntreprise #gestionPerso main, #gestionPerso #gestionEntreprise main {
   background-color: #fff;
   box-shadow: inset 0px -10px 10px -10px rgba(255, 204, 204, 0.5), inset 0px 10px 10px -10px rgba(255, 204, 204, 0.5); }
-/* line 67, ../sass/_couleur_gestionEntreprise.scss */
+/* line 80, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionformlogo img {
   background-color: rgba(255, 204, 204, 0.5);
   padding: 1vh 1vw;
   border-radius: 10px;
   box-shadow: 3px 3px 6px 0px #CCC; }
-/* line 96, ../sass/_couleur_gestionEntreprise.scss */
+/* line 109, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionformvideo form {
   border: none; }
-  /* line 103, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 116, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionformvideo form label {
     color: black;
     mix-blend-mode: overlay; }
-/* line 109, ../sass/_couleur_gestionEntreprise.scss */
+/* line 122, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionformvideo #progressbar {
   background-color: rgba(88, 88, 88, 0.25);
   border: none; }
-  /* line 113, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 126, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionformvideo #progressbar #progress {
     background-color: rgba(0, 204, 102, 0.9); }
-/* line 130, ../sass/_couleur_gestionEntreprise.scss */
+/* line 141, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionformadresse form {
   border: none; }
-  /* line 133, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 144, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionformadresse form:valid input[type=submit] {
     background: rgba(71, 255, 163, 0.5);
     border-color: #70ffb8 !important;
     border-radius: calc(1.7rem + .5pc); }
-  /* line 139, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 150, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionformadresse form input {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px; }
-    /* line 145, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 156, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionformadresse form input[type=submit] {
       border-radius: calc(1.7rem + .5pc); }
-/* line 155, ../sass/_couleur_gestionEntreprise.scss */
+/* line 166, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionreseau li {
   border: none !important; }
-  /* line 159, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 170, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionreseau li:hover > a {
     text-decoration: underline; }
-  /* line 164, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 175, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionreseau li a {
     color: #585858;
     text-decoration: none; }
-  /* line 169, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 180, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionreseau li #modreseau, #gestionEntreprise #sectionreseau li #supreseau {
     background: #69F;
     border-color: #4281ff !important;
@@ -2148,106 +2191,106 @@ html {
     color: #fff;
     font-weight: bold;
     letter-spacing: .1pc; }
-    /* line 177, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 188, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionreseau li #modreseau:hover, #gestionEntreprise #sectionreseau li #supreseau:hover {
       letter-spacing: .5rem;
       box-shadow: 3px 3px 6px 0px #a3a3a3; }
-  /* line 183, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 194, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionreseau li #supreseau {
     background: #ff7070;
     border-color: #ff4242 !important; }
-/* line 191, ../sass/_couleur_gestionEntreprise.scss */
+/* line 202, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionreseau form {
   border: none !important; }
-  /* line 194, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 205, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionreseau form:valid input[type=submit] {
     background: rgba(71, 255, 163, 0.5);
     border-color: #70ffb8 !important;
     border-radius: calc(1.7rem + .5pc); }
-  /* line 200, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 211, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionreseau form input {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px; }
-    /* line 206, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 217, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionreseau form input[type=submit] {
       border-radius: calc(1.7rem + .5pc); }
-/* line 216, ../sass/_couleur_gestionEntreprise.scss */
+/* line 227, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionprofil table {
   border: none;
   box-shadow: 3px 3px 6px 0px #CCC; }
-  /* line 220, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 231, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionprofil table th, #gestionEntreprise #sectionprofil table td {
     border: none; }
-  /* line 224, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 235, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionprofil table th {
     background-color: #FCC; }
-  /* line 229, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 240, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionprofil table td #modifprofil, #gestionEntreprise #sectionprofil table td #supprofil {
     background-color: transparent;
     border: none;
     border-radius: 10px;
     color: #1fff8f; }
-    /* line 235, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 246, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionprofil table td #modifprofil:hover, #gestionEntreprise #sectionprofil table td #supprofil:hover {
       border: 2px solid #1fff8f;
       box-shadow: 3px 3px 6px 0px #CCC;
       transition: .5s; }
-    /* line 241, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 252, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionprofil table td #modifprofil:active, #gestionEntreprise #sectionprofil table td #supprofil:active {
       box-shadow: none;
       transition: 0s; }
-  /* line 247, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 258, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionprofil table td #supprofil {
     color: #ff7070; }
-    /* line 252, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 263, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionprofil table td #supprofil:hover {
       border-color: #ff7070; }
-/* line 259, ../sass/_couleur_gestionEntreprise.scss */
+/* line 270, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #sectionprofil form {
   border: none !important; }
-  /* line 262, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 273, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionprofil form:valid input[type=submit] {
     background: rgba(71, 255, 163, 0.5);
     border-color: #70ffb8 !important;
     border-radius: calc(1.7rem + .5pc); }
-  /* line 268, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 279, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #sectionprofil form input {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px; }
-    /* line 274, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 285, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #sectionprofil form input[type=submit] {
       border-radius: calc(1.7rem + .5pc); }
-/* line 281, ../sass/_couleur_gestionEntreprise.scss */
+/* line 292, ../sass/_couleur_gestionEntreprise.scss */
 #gestionEntreprise #formmodreseau {
   background-color: #fff;
   border-radius: 30px;
   border: 5px solid #FCC;
   box-shadow: inset -5px -5px 11px 1px rgba(204, 204, 204, 0.5); }
-  /* line 287, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 298, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #formmodreseau #fermer {
     background-color: transparent;
     border: none;
     border-radius: 10px;
     color: #ff7070; }
-    /* line 293, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 304, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #formmodreseau #fermer:hover {
       border: 2px solid #ff7070;
       box-shadow: 3px 3px 6px 0px #CCC;
       transition: .5s; }
-    /* line 299, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 310, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #formmodreseau #fermer:active {
       box-shadow: none;
       transition: 0s; }
-  /* line 305, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 316, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #formmodreseau:valid input[type=submit] {
     background: rgba(71, 255, 163, 0.5);
     border-color: #70ffb8 !important;
     border-radius: calc(1.7rem + .5pc); }
-  /* line 311, ../sass/_couleur_gestionEntreprise.scss */
+  /* line 322, ../sass/_couleur_gestionEntreprise.scss */
   #gestionEntreprise #formmodreseau input {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px; }
-    /* line 317, ../sass/_couleur_gestionEntreprise.scss */
+    /* line 328, ../sass/_couleur_gestionEntreprise.scss */
     #gestionEntreprise #formmodreseau input[type=submit] {
       border-radius: calc(1.7rem + .5pc); }
 
@@ -2298,17 +2341,17 @@ html {
         width: 50%;
         padding: .5pc; }
 /* line 1, ../sass/_couleur_gestionPerso.scss */
-#gestionPerso #gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformlogo #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformtitre #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformphrase #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformvideo form #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformtel #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionformadresse form #gestionPerso input, #gestionPerso #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionreseau form #gestionPerso input, #gestionPerso #gestionEntreprise #sectionprofil form input, #gestionEntreprise #sectionprofil form #gestionPerso input, #gestionPerso #gestionEntreprise #formmodreseau input, #gestionEntreprise #formmodreseau #gestionPerso input, #gestionPerso main form input {
+#gestionPerso #gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformlogo #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformvideo form #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformtitre #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformphrase #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformtel #gestionPerso input, #gestionPerso #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionformadresse form #gestionPerso input, #gestionPerso #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionreseau form #gestionPerso input, #gestionPerso #gestionEntreprise #sectionprofil form input, #gestionEntreprise #sectionprofil form #gestionPerso input, #gestionPerso #gestionEntreprise #formmodreseau input, #gestionEntreprise #formmodreseau #gestionPerso input, #gestionPerso main form input, #gestionPerso #gestionservice main .formservice form input, #gestionservice main .formservice form #gestionPerso input, #gestionPerso #gestionservice main .formservice form textarea, #gestionservice main .formservice form #gestionPerso textarea {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-color: #FCC !important; }
   /* line 8, ../sass/_couleur_gestionPerso.scss */
-  #gestionPerso #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformlogo #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformtitre #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformphrase #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformvideo form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformtel #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionformadresse form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionreseau form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #sectionprofil form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #formmodreseau input[type=submit], #gestionEntreprise #formmodreseau #gestionPerso input[type=submit], #gestionPerso main form input[type=submit] {
+  #gestionPerso #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformlogo #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformvideo form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformtitre #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformphrase #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformtel #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionformadresse form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionreseau form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #sectionprofil form #gestionPerso input[type=submit], #gestionPerso #gestionEntreprise #formmodreseau input[type=submit], #gestionEntreprise #formmodreseau #gestionPerso input[type=submit], #gestionPerso main form input[type=submit], #gestionservice main .formservice form #gestionPerso input[type=submit], #gestionPerso #gestionservice main .formservice form textarea[type=submit], #gestionservice main .formservice form #gestionPerso textarea[type=submit] {
     border-radius: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
 /* line 15, ../sass/_couleur_gestionPerso.scss */
-#gestionPerso #gestionEntreprise #sectionformlogo, #gestionEntreprise #gestionPerso #sectionformlogo, #gestionPerso #gestionEntreprise #sectionformtitre, #gestionEntreprise #gestionPerso #sectionformtitre, #gestionPerso #gestionEntreprise #sectionformphrase, #gestionEntreprise #gestionPerso #sectionformphrase, #gestionPerso #gestionEntreprise #sectionformtel, #gestionEntreprise #gestionPerso #sectionformtel, #gestionPerso #gestionEntreprise #sectionformadresse, #gestionEntreprise #gestionPerso #sectionformadresse, #gestionPerso #gestionEntreprise #sectionreseau, #gestionEntreprise #gestionPerso #sectionreseau, #gestionPerso #gestionEntreprise #sectionprofil, #gestionEntreprise #gestionPerso #sectionprofil, #gestionPerso main {
+#gestionPerso #gestionEntreprise #sectionformlogo, #gestionEntreprise #gestionPerso #sectionformlogo, #gestionPerso #gestionEntreprise #sectionformtitre, #gestionEntreprise #gestionPerso #sectionformtitre, #gestionPerso #gestionEntreprise #sectionformphrase, #gestionEntreprise #gestionPerso #sectionformphrase, #gestionPerso #gestionEntreprise #sectionformtel, #gestionEntreprise #gestionPerso #sectionformtel, #gestionPerso #gestionEntreprise #sectionreseau, #gestionEntreprise #gestionPerso #sectionreseau, #gestionPerso #gestionEntreprise #sectionprofil, #gestionEntreprise #gestionPerso #sectionprofil, #gestionPerso main {
   background-color: #fff;
   box-shadow: inset 0px -10px 10px -10px rgba(255, 204, 204, 0.5), inset 0px 10px 10px -10px rgba(255, 204, 204, 0.5); }
 /* line 19, ../sass/_couleur_gestionPerso.scss */
@@ -2562,7 +2605,7 @@ html {
   #gestionavie main .nbfav {
     color: #69F; }
   /* line 15, ../sass/_couleur_gestionAvie.scss */
-  #gestionavie main .avies > p {
+  #gestionavie main .avies p {
     border: none;
     letter-spacing: .1pc;
     color: #69F; }
@@ -2577,8 +2620,9 @@ html {
       box-shadow: 3px 3px 6px 0px #CCC; }
     /* line 31, ../sass/_couleur_gestionAvie.scss */
     #gestionavie main .avies .avie .text {
-      border: none; }
-    /* line 35, ../sass/_couleur_gestionAvie.scss */
+      border: none;
+      letter-spacing: .1pc; }
+    /* line 36, ../sass/_couleur_gestionAvie.scss */
     #gestionavie main .avies .avie #buttonfavorie, #gestionavie main .avies .avie #buttonsup {
       color: #00cc66;
       background: transparent;
@@ -2586,23 +2630,23 @@ html {
       border-color: transparent;
       border-style: solid;
       transition: border .5s; }
-      /* line 43, ../sass/_couleur_gestionAvie.scss */
+      /* line 44, ../sass/_couleur_gestionAvie.scss */
       #gestionavie main .avies .avie #buttonfavorie:hover, #gestionavie main .avies .avie #buttonsup:hover {
         border: 2px solid #00cc66;
         box-shadow: 3px 3px 6px 0px #CCC; }
-      /* line 48, ../sass/_couleur_gestionAvie.scss */
+      /* line 49, ../sass/_couleur_gestionAvie.scss */
       #gestionavie main .avies .avie #buttonfavorie:active, #gestionavie main .avies .avie #buttonsup:active {
         box-shadow: none;
         transition: box-shadow 0s; }
-    /* line 54, ../sass/_couleur_gestionAvie.scss */
+    /* line 55, ../sass/_couleur_gestionAvie.scss */
     #gestionavie main .avies .avie #buttonsup {
       color: #ff1414; }
-      /* line 59, ../sass/_couleur_gestionAvie.scss */
+      /* line 60, ../sass/_couleur_gestionAvie.scss */
       #gestionavie main .avies .avie #buttonsup:hover {
         border-color: #ff1414; }
 
-/* line 1, ../sass/_gestioService.scss */
-#gestioservice main {
+/* line 1, ../sass/_gestionService.scss */
+#gestionservice main {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto min-content;
@@ -2610,49 +2654,49 @@ html {
   min-height: 100vh;
   padding: 5vh 3vw;
   border: 1px solid black; }
-  /* line 10, ../sass/_gestioService.scss */
-  #gestioservice main h1 {
+  /* line 10, ../sass/_gestionService.scss */
+  #gestionservice main h1 {
     display: none; }
-  /* line 15, ../sass/_gestioService.scss */
-  #gestioservice main .services h2 {
+  /* line 15, ../sass/_gestionService.scss */
+  #gestionservice main .services h2 {
     display: none; }
-  /* line 19, ../sass/_gestioService.scss */
-  #gestioservice main .services ul {
+  /* line 19, ../sass/_gestionService.scss */
+  #gestionservice main .services ul {
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: min-content;
     row-gap: 5vh;
     align-content: center;
     height: 100%; }
-    /* line 27, ../sass/_gestioService.scss */
-    #gestioservice main .services ul .service {
+    /* line 27, ../sass/_gestionService.scss */
+    #gestionservice main .services ul .service {
       display: grid;
       grid-template-columns: 15% 1fr min-content;
       grid-template-rows: min-content;
       column-gap: 5vw;
       border: 1px solid black; }
-      /* line 34, ../sass/_gestioService.scss */
-      #gestioservice main .services ul .service .image {
+      /* line 34, ../sass/_gestionService.scss */
+      #gestionservice main .services ul .service .image {
         position: relative;
         border: 1px solid black; }
-        /* line 38, ../sass/_gestioService.scss */
-        #gestioservice main .services ul .service .image img {
+        /* line 38, ../sass/_gestionService.scss */
+        #gestionservice main .services ul .service .image img {
           height: auto;
           width: 100%;
           padding: 1vh 1vw; }
-        /* line 44, ../sass/_gestioService.scss */
-        #gestioservice main .services ul .service .image #modimg {
+        /* line 44, ../sass/_gestionService.scss */
+        #gestionservice main .services ul .service .image #modimg {
           position: absolute;
           bottom: 0;
           right: 0;
           font-size: 1.1rem; }
-      /* line 52, ../sass/_gestioService.scss */
-      #gestioservice main .services ul .service .txt {
+      /* line 52, ../sass/_gestionService.scss */
+      #gestionservice main .services ul .service .txt {
         display: flex;
         flex-flow: row nowrap;
         border: 1px solid black; }
-        /* line 57, ../sass/_gestioService.scss */
-        #gestioservice main .services ul .service .txt p {
+        /* line 57, ../sass/_gestionService.scss */
+        #gestionservice main .services ul .service .txt p {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -2661,73 +2705,73 @@ html {
           font-size: 1.5rem;
           word-break: break-all;
           border: 1px solid black; }
-        /* line 68, ../sass/_gestioService.scss */
-        #gestioservice main .services ul .service .txt button {
+        /* line 68, ../sass/_gestionService.scss */
+        #gestionservice main .services ul .service .txt button {
           width: 20%;
           font-size: 1.5rem; }
-      /* line 74, ../sass/_gestioService.scss */
-      #gestioservice main .services ul .service #supservice {
+      /* line 74, ../sass/_gestionService.scss */
+      #gestionservice main .services ul .service #supservice {
         padding: 0;
         font-size: 0vh;
         border-width: 0;
         transition: .5s; }
-      /* line 81, ../sass/_gestioService.scss */
-      #gestioservice main .services ul .service:hover > #supservice {
+      /* line 81, ../sass/_gestionService.scss */
+      #gestionservice main .services ul .service:hover > #supservice {
         padding: 1vh 2vw;
         font-size: 5vh; }
       @media screen and (max-width: 490px) {
-        /* line 87, ../sass/_gestioService.scss */
-        #gestioservice main .services ul .service {
+        /* line 87, ../sass/_gestionService.scss */
+        #gestionservice main .services ul .service {
           grid-template-columns: 100%;
-          grid-template-rows: 20vh 1fr min-content;
+          grid-template-rows: min-content 1fr min-content;
           row-gap: 3vh; }
-          /* line 92, ../sass/_gestioService.scss */
-          #gestioservice main .services ul .service .image {
+          /* line 92, ../sass/_gestionService.scss */
+          #gestionservice main .services ul .service .image {
             justify-self: center;
             width: 50%; }
-            /* line 96, ../sass/_gestioService.scss */
-            #gestioservice main .services ul .service .image img {
+            /* line 96, ../sass/_gestionService.scss */
+            #gestionservice main .services ul .service .image img {
               display: block;
-              height: 100% !important;
-              width: auto !important;
+              height: auto !important;
+              width: 100% !important;
               margin: 0 auto; }
-            /* line 103, ../sass/_gestioService.scss */
-            #gestioservice main .services ul .service .image #modimg {
+            /* line 103, ../sass/_gestionService.scss */
+            #gestionservice main .services ul .service .image #modimg {
               padding: 1vh 3vw; }
-          /* line 108, ../sass/_gestioService.scss */
-          #gestioservice main .services ul .service .txt {
+          /* line 108, ../sass/_gestionService.scss */
+          #gestionservice main .services ul .service .txt {
             display: initial;
             position: relative; }
-            /* line 112, ../sass/_gestioService.scss */
-            #gestioservice main .services ul .service .txt p {
+            /* line 112, ../sass/_gestionService.scss */
+            #gestionservice main .services ul .service .txt p {
               min-height: 8vh;
               width: 100%; }
-            /* line 117, ../sass/_gestioService.scss */
-            #gestioservice main .services ul .service .txt button {
+            /* line 117, ../sass/_gestionService.scss */
+            #gestionservice main .services ul .service .txt button {
               position: absolute;
               bottom: 0;
               right: 0;
               padding: 1vh 3vw;
               font-size: 1.1rem; }
-          /* line 126, ../sass/_gestioService.scss */
-          #gestioservice main .services ul .service #supservice {
+          /* line 126, ../sass/_gestionService.scss */
+          #gestionservice main .services ul .service #supservice {
             justify-self: center;
             width: 0; }
-          /* line 131, ../sass/_gestioService.scss */
-          #gestioservice main .services ul .service:hover > #supservice {
+          /* line 131, ../sass/_gestionService.scss */
+          #gestionservice main .services ul .service:hover > #supservice {
             width: 80%; } }
-  /* line 140, ../sass/_gestioService.scss */
-  #gestioservice main .formservice {
+  /* line 140, ../sass/_gestionService.scss */
+  #gestionservice main .formservice {
     border: 1px solid black; }
-    /* line 143, ../sass/_gestioService.scss */
-    #gestioservice main .formservice form {
+    /* line 143, ../sass/_gestionService.scss */
+    #gestionservice main .formservice form {
       display: grid;
       grid-template-columns: 15% 1fr;
-      grid-template-rows: min-content minmax(5vh, min-content) min-content;
+      grid-template-rows: 1fr 1fr min-content;
       column-gap: 5vw;
       row-gap: 2vh; }
-      /* line 150, ../sass/_gestioService.scss */
-      #gestioservice main .formservice form img {
+      /* line 150, ../sass/_gestionService.scss */
+      #gestionservice main .formservice form img {
         grid-column: 1 / span 1;
         grid-row: 1 / span 2;
         height: auto;
@@ -2735,54 +2779,54 @@ html {
         padding: 1vh 1vw;
         align-self: center;
         border: 1px solid black; }
-      /* line 160, ../sass/_gestioService.scss */
-      #gestioservice main .formservice form #titre {
+      /* line 160, ../sass/_gestionService.scss */
+      #gestionservice main .formservice form #titre {
         grid-column: 2 / span 1;
         grid-row: 1 / span 1; }
-      /* line 165, ../sass/_gestioService.scss */
-      #gestioservice main .formservice form #txt {
+      /* line 165, ../sass/_gestionService.scss */
+      #gestionservice main .formservice form #txt {
         grid-column: 2 / span 1;
         grid-row: 2 / span 1;
         padding: 1vh 2vw; }
-      /* line 171, ../sass/_gestioService.scss */
-      #gestioservice main .formservice form input, #gestioservice main .formservice form textarea {
+      /* line 171, ../sass/_gestionService.scss */
+      #gestionservice main .formservice form input, #gestionservice main .formservice form textarea {
         font-size: 1.5rem;
         padding: .5pc 1pc;
         border: 1px solid black; }
-        /* line 176, ../sass/_gestioService.scss */
-        #gestioservice main .formservice form input[name=titre], #gestioservice main .formservice form input[name=txt], #gestioservice main .formservice form textarea[name=titre], #gestioservice main .formservice form textarea[name=txt] {
+        /* line 176, ../sass/_gestionService.scss */
+        #gestionservice main .formservice form input[name=titre], #gestionservice main .formservice form input[name=txt], #gestionservice main .formservice form textarea[name=titre], #gestionservice main .formservice form textarea[name=txt] {
           text-align: center; }
-        /* line 180, ../sass/_gestioService.scss */
-        #gestioservice main .formservice form input[type=submit], #gestioservice main .formservice form textarea[type=submit] {
+        /* line 180, ../sass/_gestionService.scss */
+        #gestionservice main .formservice form input[type=submit], #gestionservice main .formservice form textarea[type=submit] {
           justify-self: center;
           width: 50%;
           padding: .5pc; }
     @media screen and (max-width: 730px) {
-      /* line 189, ../sass/_gestioService.scss */
-      #gestioservice main .formservice form {
+      /* line 189, ../sass/_gestionService.scss */
+      #gestionservice main .formservice form {
         grid-template-columns: 100%;
         grid-template-rows: 20vh min-content min-content 20vh min-content; }
-        /* line 193, ../sass/_gestioService.scss */
-        #gestioservice main .formservice form img {
+        /* line 193, ../sass/_gestionService.scss */
+        #gestionservice main .formservice form img {
           grid-column: 1 / span 1;
           grid-row: 1 / span 1;
           height: 100% !important;
           width: auto !important;
           margin: 0 auto; }
-        /* line 201, ../sass/_gestioService.scss */
-        #gestioservice main .formservice form #image {
+        /* line 201, ../sass/_gestionService.scss */
+        #gestionservice main .formservice form #image {
           grid-column: 1 / span 1;
           grid-row: 2 / span 1; }
-        /* line 206, ../sass/_gestioService.scss */
-        #gestioservice main .formservice form #titre {
+        /* line 206, ../sass/_gestionService.scss */
+        #gestionservice main .formservice form #titre {
           grid-column: 1 / span 1;
           grid-row: 3 / span 1; }
-        /* line 211, ../sass/_gestioService.scss */
-        #gestioservice main .formservice form #txt {
+        /* line 211, ../sass/_gestionService.scss */
+        #gestionservice main .formservice form #txt {
           grid-column: 1 / span 1;
           grid-row: 4 / span 1; } }
-/* line 220, ../sass/_gestioService.scss */
-#gestioservice #formserviceimg {
+/* line 220, ../sass/_gestionService.scss */
+#gestionservice #formserviceimg {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr repeat(3, min-content) 1fr;
@@ -2790,31 +2834,31 @@ html {
   width: 70%;
   padding: 2vh 2vw;
   border: 1px solid red; }
-  /* line 229, ../sass/_gestioService.scss */
-  #gestioservice #formserviceimg img {
+  /* line 229, ../sass/_gestionService.scss */
+  #gestionservice #formserviceimg img {
     justify-self: center;
     height: 20vh;
     width: auto; }
-  /* line 235, ../sass/_gestioService.scss */
-  #gestioservice #formserviceimg #fermer {
+  /* line 235, ../sass/_gestionService.scss */
+  #gestionservice #formserviceimg #fermer {
     justify-self: right;
     font-size: 5vh; }
-  /* line 240, ../sass/_gestioService.scss */
-  #gestioservice #formserviceimg input {
+  /* line 240, ../sass/_gestionService.scss */
+  #gestionservice #formserviceimg input {
     font-size: 1.5rem;
     padding: .5pc 0;
     border: 1px solid black; }
-    /* line 245, ../sass/_gestioService.scss */
-    #gestioservice #formserviceimg input[type=submit] {
+    /* line 245, ../sass/_gestionService.scss */
+    #gestionservice #formserviceimg input[type=submit] {
       justify-self: center;
       width: 50%;
       padding: .5pc; }
   @media screen and (max-width: 490px) {
-    /* line 253, ../sass/_gestioService.scss */
-    #gestioservice #formserviceimg {
+    /* line 253, ../sass/_gestionService.scss */
+    #gestionservice #formserviceimg {
       width: 90%; } }
-/* line 259, ../sass/_gestioService.scss */
-#gestioservice #formservicetext {
+/* line 259, ../sass/_gestionService.scss */
+#gestionservice #formservicetext {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr 20vh min-content 1fr;
@@ -2822,27 +2866,87 @@ html {
   width: 70%;
   padding: 2vh 2vw;
   border: 1px solid red; }
-  /* line 268, ../sass/_gestioService.scss */
-  #gestioservice #formservicetext #fermer {
+  /* line 268, ../sass/_gestionService.scss */
+  #gestionservice #formservicetext #fermer {
     justify-self: right;
     font-size: 5vh; }
-  /* line 273, ../sass/_gestioService.scss */
-  #gestioservice #formservicetext input, #gestioservice #formservicetext textarea {
+  /* line 273, ../sass/_gestionService.scss */
+  #gestionservice #formservicetext input, #gestionservice #formservicetext textarea {
     font-size: 1.5rem;
     padding: .5pc 1pc;
     border: 1px solid black; }
-    /* line 278, ../sass/_gestioService.scss */
-    #gestioservice #formservicetext input[name=text], #gestioservice #formservicetext textarea[name=text] {
+    /* line 278, ../sass/_gestionService.scss */
+    #gestionservice #formservicetext input[name=text], #gestionservice #formservicetext textarea[name=text] {
       text-align: center; }
-    /* line 282, ../sass/_gestioService.scss */
-    #gestioservice #formservicetext input[type=submit], #gestioservice #formservicetext textarea[type=submit] {
+    /* line 282, ../sass/_gestionService.scss */
+    #gestionservice #formservicetext input[type=submit], #gestionservice #formservicetext textarea[type=submit] {
       justify-self: center;
       width: 50%;
       padding: .5pc; }
   @media screen and (max-width: 490px) {
-    /* line 290, ../sass/_gestioService.scss */
-    #gestioservice #formservicetext {
+    /* line 290, ../sass/_gestionService.scss */
+    #gestionservice #formservicetext {
       width: 90%; } }
+/* line 1, ../sass/_couleur_gestionService.scss */
+#gestionservice #gestionEntreprise #sectionformlogo input, #gestionEntreprise #sectionformlogo #gestionservice input, #gestionservice #gestionEntreprise #sectionformvideo form input, #gestionEntreprise #sectionformvideo form #gestionservice input, #gestionservice #gestionEntreprise #sectionformtitre input, #gestionEntreprise #sectionformtitre #gestionservice input, #gestionservice #gestionEntreprise #sectionformphrase input, #gestionEntreprise #sectionformphrase #gestionservice input, #gestionservice #gestionEntreprise #sectionformtel input, #gestionEntreprise #sectionformtel #gestionservice input, #gestionservice #gestionEntreprise #sectionformadresse form input, #gestionEntreprise #sectionformadresse form #gestionservice input, #gestionservice #gestionEntreprise #sectionreseau form input, #gestionEntreprise #sectionreseau form #gestionservice input, #gestionservice #gestionEntreprise #sectionprofil form input, #gestionEntreprise #sectionprofil form #gestionservice input, #gestionservice #gestionEntreprise #formmodreseau input, #gestionEntreprise #formmodreseau #gestionservice input, #gestionservice #gestionPerso main form input, #gestionPerso main form #gestionservice input, #gestionservice main .formservice form input, #gestionservice main .formservice form textarea {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #FCC !important; }
+  /* line 8, ../sass/_couleur_gestionService.scss */
+  #gestionservice #gestionEntreprise #sectionformlogo input[type=submit], #gestionEntreprise #sectionformlogo #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionformvideo form input[type=submit], #gestionEntreprise #sectionformvideo form #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionformtitre input[type=submit], #gestionEntreprise #sectionformtitre #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionformphrase input[type=submit], #gestionEntreprise #sectionformphrase #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionformtel input[type=submit], #gestionEntreprise #sectionformtel #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionformadresse form input[type=submit], #gestionEntreprise #sectionformadresse form #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionreseau form input[type=submit], #gestionEntreprise #sectionreseau form #gestionservice input[type=submit], #gestionservice #gestionEntreprise #sectionprofil form input[type=submit], #gestionEntreprise #sectionprofil form #gestionservice input[type=submit], #gestionservice #gestionEntreprise #formmodreseau input[type=submit], #gestionEntreprise #formmodreseau #gestionservice input[type=submit], #gestionservice #gestionPerso main form input[type=submit], #gestionPerso main form #gestionservice input[type=submit], #gestionservice main .formservice form input[type=submit], #gestionservice main .formservice form textarea[type=submit] {
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+/* line 15, ../sass/_couleur_gestionService.scss */
+#gestionservice nav {
+  border: none; }
+  /* line 18, ../sass/style.scss */
+  #gestionservice nav .bar .menuBurger i {
+    color: #FCC;
+    padding: 1vh;
+    border-radius: 10px;
+    transition: .5s; }
+    /* line 28, ../sass/style.scss */
+    #gestionservice nav .bar .menuBurger i:hover {
+      background-color: #fff;
+      border: 3px solid #FCC;
+      box-shadow: 3px 3px 6px 0px #CCC; }
+  /* line 40, ../sass/style.scss */
+  #gestionservice nav .menu {
+    background-color: rgba(255, 204, 204, 0.5); }
+    /* line 47, ../sass/style.scss */
+    #gestionservice nav .menu a {
+      text-decoration: none;
+      color: #585858;
+      letter-spacing: .1pc;
+      text-transform: capitalize;
+      transition: .5s; }
+      /* line 54, ../sass/style.scss */
+      #gestionservice nav .menu a:hover {
+        letter-spacing: 1rem; }
+/* line 19, ../sass/_couleur_gestionService.scss */
+#gestionservice main {
+  border: none;
+  background-color: #fff;
+  box-shadow: inset 0px -10px 10px -10px rgba(255, 204, 204, 0.5), inset 0px 10px 10px -10px rgba(255, 204, 204, 0.5); }
+  /* line 24, ../sass/_couleur_gestionService.scss */
+  #gestionservice main .formservice {
+    border: none; }
+    /* line 29, ../sass/_couleur_gestionService.scss */
+    #gestionservice main .formservice form:valid input[type=submit] {
+      background: rgba(71, 255, 163, 0.5);
+      border-color: #70ffb8 !important;
+      border-radius: calc(1.7rem + .5pc); }
+    /* line 35, ../sass/_couleur_gestionService.scss */
+    #gestionservice main .formservice form img {
+      border: none; }
+    /* line 39, ../sass/_couleur_gestionService.scss */
+    #gestionservice main .formservice form input, #gestionservice main .formservice form textarea {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px; }
+      /* line 45, ../sass/_couleur_gestionService.scss */
+      #gestionservice main .formservice form input[type=submit], #gestionservice main .formservice form textarea[type=submit] {
+        border-radius: calc(1.7rem + .5pc); }
 
 /* line 1, ../sass/_menuGestion.scss */
 #menugestion main {

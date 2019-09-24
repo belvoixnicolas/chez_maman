@@ -12,7 +12,7 @@ main {
     }
 
     .avies {
-        & > p {
+        & p {
             border: none;
             letter-spacing: .1pc;
             color: $bleu;
