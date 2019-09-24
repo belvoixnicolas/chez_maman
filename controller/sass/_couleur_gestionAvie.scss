@@ -1,0 +1,65 @@
+nav {
+    @include nav ($bleu);
+}
+
+main {
+    border: none;
+
+    @include section ($bleu);
+
+    .nbfav {
+        color: $bleu;
+    }
+
+    .avies {
+        & > p {
+            border: none;
+            letter-spacing: .1pc;
+            color: $bleu;
+        }
+
+        .avie {
+            border-color: $bleu;
+            border-width: 3px;
+            border-radius: 20px;
+            transition: .5s;
+            
+            &:hover {
+                box-shadow: 3px 3px 6px 0px $gris;
+            }
+
+            .text {
+                border: none;
+            }
+
+            #buttonfavorie {
+                color: scale-color($vert, $lightness: -50%);
+                background: transparent;
+                border-radius: 10px;
+                border-color: transparent;
+                border-style: solid;
+                transition: border .5s;
+
+                &:hover {
+                    border: 2px solid scale-color($vert, $lightness: -50%);
+                    box-shadow: 3px 3px 6px 0px $gris;
+                }
+
+                &:active {
+                    box-shadow: none;
+                    transition: box-shadow 0s;
+                }
+            }
+
+            #buttonsup {
+                @extend #buttonfavorie;
+
+                color: scale-color($rose, $lightness: -40%);
+
+                &:hover {
+                    border-color: scale-color($rose, $lightness: -40%);
+                }
+            }
+        }
+    }
+}

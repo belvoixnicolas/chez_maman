@@ -4,17 +4,17 @@
 }
 
 .true {
-    background: #b1fc93;
+    background: $vert;
     
     span, button {
-        color: #008000;
+        color: scale-color($vert, $lightness: -50%);
     }
 }
 
 .false {
-    background: #fc9393;
+    background: scale-color($rose, $lightness: -10%);
     
     span, button {
-        color: red;
+        color: scale-color($rose, $lightness: -40%);
     }
 }
