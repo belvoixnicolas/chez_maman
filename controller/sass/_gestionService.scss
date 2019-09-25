@@ -94,7 +94,7 @@ main {
                 @media screen and (max-width: 578px) {
                     & {
                         grid-template-columns: 100%;
-                        grid-template-rows: min-content 1fr min-content;
+                        grid-template-rows: repeat(3, min-content);
                         row-gap: 3vh;
 
                         .image {
@@ -114,18 +114,17 @@ main {
                         }
 
                         .txt {
-                            display: initial;
                             position: relative;
+                            overflow: hidden;
 
                             p {
-                                min-height: 8vh;
                                 width: 100%;
                             }
 
                             button {
                                 position: absolute;
-                                bottom: 0;
-                                right: 0;
+                                bottom: -3px;
+                                right: -3px;
                                 padding: 1vh 3vw;
                                 font-size: 1.1rem;
                             }
