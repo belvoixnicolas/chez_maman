@@ -170,7 +170,8 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'Le text a été mis a jour'
+                        'text' => 'Le text a été mis a jour',
+                        'html' => nl2br(htmlspecialchars($text))
                     );
                 }else {
                     $req->closecursor();
@@ -346,10 +347,10 @@
             $html = file_get_contents('../view/servicemodel.html');
 
             if ($html) {
-                $html = str_replace("%id%", $id, $html);
-                $html = str_replace("%titre%", $titre, $html);
-                $html = str_replace("%text%", $txt, $html);
-                $html = str_replace("%img%", $img, $html);
+                $html = str_replace("%id%", htmlspecialchars($id), $html);
+                $html = str_replace("%titre%", htmlspecialchars($titre), $html);
+                $html = str_replace("%text%", nl2br(htmlspecialchars($txt)), $html);
+                $html = str_replace("%img%", htmlspecialchars($img), $html);
 
                 return $html;
             }else {

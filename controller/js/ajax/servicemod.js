@@ -251,7 +251,8 @@ $(document).ready(function(){
 
                     var text = $('#formservicetext #text').val();
                     
-                    $('.services #' + id + ' p').html(text);
+                    $('.services #' + id + ' p').html(data.html);
+
                     $('#form').remove();
                     
                     var delayMessage = window.setTimeout(function () {

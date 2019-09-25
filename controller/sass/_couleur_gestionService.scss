@@ -21,6 +21,69 @@ main {
 
     @include section ($rose);
 
+    .services {
+        li {
+            border: none !important;
+
+            #modtext, #modimg {
+                background: $bleu;
+                //border-color: scale-color($bleu, $lightness: -10%);
+                border: 2px solid scale-color($bleu, $lightness: -10%);
+                color: #fff;
+                font-weight: bold;
+                transition: .5s;
+
+                &:hover {
+                    letter-spacing: .1pc;
+                    box-shadow: 3px 3px 6px 0px scale-color($gris, $lightness: -20%);
+                }
+            }
+
+            .image {
+                background: scale-color($rose, $lightness: +20%);
+                border: 2px solid $rose !important;
+                border-radius: 10px;
+
+                #modimg {
+                    border-top-left-radius: 5px;
+                }
+            }
+
+            .txt {
+                border: none !important;
+
+                .text {
+                    border: 3px solid $rose !important;
+                    border-radius: 10px 0 0 10px; 
+                }
+
+                #modtext {
+                    border-width: 3px !important;
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+
+            #supservice {
+                color: scale-color($rose, $lightness: -40%);
+                background: transparent;
+                border-radius: 10px;
+                border-color: transparent;
+                border-style: solid;
+                transition: border .5s;
+
+                &:hover {
+                    border-color: scale-color($rose, $lightness: -40%);
+                    box-shadow: 3px 3px 6px 0px $gris;
+                }
+
+                &:active {
+                    box-shadow: none;
+                    transition: box-shadow 0s;
+                }
+            }
+        }
+    }
+
     .formservice {
         border: none;
 
@@ -46,6 +109,29 @@ main {
                     border-radius: calc(1.7rem + .5pc);
                 }
             }
+        }
+    }
+}
+
+#formserviceimg, #formservicetext {
+    @extend %formmod;
+
+    border-color: $rose !important;
+
+    &:valid input[type=submit] {
+        background: rgba(scale-color($vert, $lightness: -20%), .5);
+        border-color: scale-color($vert, $lightness: -10%) !important;
+        border-radius: calc(1.7rem + .5pc);
+    }
+
+    input, textarea {
+        @extend %inputRose;
+
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        &[type=submit] {
+            border-radius: calc(1.7rem + .5pc);
         }
     }
 }

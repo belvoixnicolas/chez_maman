@@ -28,7 +28,9 @@
                             </div>
                             <div class="txt">
                                 <p class="text">
-                                    <?= nl2br(htmlspecialchars($value['text'])) ?>
+                                    <span>
+                                        <?= nl2br(htmlspecialchars($value['text'])) ?>
+                                    </span>
                                 </p>
                                 <button id="modtext" value="<?= htmlspecialchars($value['id']) ?>">Modifier</button>
                             </div>

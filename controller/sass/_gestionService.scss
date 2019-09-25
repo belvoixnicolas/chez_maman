@@ -4,7 +4,7 @@ main {
     grid-template-rows: auto min-content;
     row-gap: 3vh;
     min-height: 100vh;
-    padding:  5vh 3vw;
+    padding:  10vh 3vw 5vh;
     border: 1px solid black;
 
     h1 {
@@ -33,7 +33,9 @@ main {
 
                 .image {
                     position: relative;
+                    align-self: center;
                     border: 1px solid black;
+                    overflow: hidden;
 
                     img {
                         height: auto;
@@ -43,15 +45,19 @@ main {
 
                     #modimg {
                         position: absolute;
-                        bottom: 0;
-                        right: 0;
+                        bottom: -3px;
+                        right: -3px;
+                        padding: .5vh 1vw 1vh 1vw;
                         font-size: 1.1rem;
+                        
                     }
                 }
 
                 .txt {
                     display: flex;
                     flex-flow: row nowrap;
+                    align-self: center;
+                    min-height: 10vh;
                     border: 1px solid black;
 
                     p {
@@ -66,6 +72,7 @@ main {
                     }
 
                     button {
+                        overflow: hidden;
                         width: 20%;
                         font-size: 1.5rem;
                     }
@@ -74,7 +81,8 @@ main {
                 #supservice {
                     padding: 0;
                     font-size: 0vh; 
-                    border-width: 0;
+                    //border-width: 0;
+                    align-self: center;
                     transition: .5s;
                 }
 
@@ -83,7 +91,7 @@ main {
                     font-size: 5vh;
                 }
 
-                @media screen and (max-width: 490px) {
+                @media screen and (max-width: 578px) {
                     & {
                         grid-template-columns: 100%;
                         grid-template-rows: min-content 1fr min-content;
@@ -173,7 +181,7 @@ main {
                 padding: .5pc 1pc;
                 border: 1px solid black;
     
-                &[name=titre], &[name=txt] {
+                &[name=titre] {
                     text-align: center;
                 }
     
@@ -274,10 +282,6 @@ main {
         font-size: 1.5rem;
         padding: .5pc 1pc;
         border: 1px solid black;
-
-        &[name=text] {
-            text-align: center;
-        }
 
         &[type=submit] {
             justify-self: center;
