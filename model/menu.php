@@ -1,14 +1,17 @@
 <?php
     require_once('bdd.php');
+    //require_once('Mobile_Detect.php');
 
     class menu {
         private $_bdd;
+        //private $_mobile;
         private $_menu;
         private $_modelMenuHtmlGestion;
         private $_modelProduitHtmlGestion;
 
         public function __construct () {
             $this->_bdd = new bdd;
+            //$this->_mobile = new Mobile_Detect;
 
             $bdd = $this->_bdd;
             $bdd = $bdd->co();
@@ -92,9 +95,9 @@
 
                     foreach ($menusArray as $value) {
                         $construct = $modelHtml;
-                        $construct = str_replace('%id%', $value['id'], $construct);
-                        $construct = str_replace('%img%', $value['image'], $construct);
-                        $construct = str_replace('%titre%', $value['titre'], $construct);
+                        $construct = str_replace('%id%', htmlspecialchars($value['id']), $construct);
+                        $construct = str_replace('%img%', htmlspecialchars($value['image']), $construct);
+                        $construct = str_replace('%titre%', htmlspecialchars($value['titre']), $construct);
 
                         $html .= $construct;
                     }
@@ -107,9 +110,9 @@
                 $html = $this->_modelMenuHtmlGestion;
 
                 if ($html) {
-                    $html = str_replace('%id%', $menu['id'], $html);
-                    $html = str_replace('%img%', $menu['image'], $html);
-                    $html = str_replace('%titre%', $menu['titre'], $html);
+                    $html = str_replace('%id%', htmlspecialchars($menu['id']), $html);
+                    $html = str_replace('%img%', htmlspecialchars($menu['image']), $html);
+                    $html = str_replace('%titre%', htmlspecialchars($menu['titre']), $html);
 
                     return $html;
                 }else {
@@ -160,6 +163,17 @@
                     $req->closecursor();
                     $bdd = null;
 
+                    $prix = $result['prix'];
+
+                    if (substr_count($prix, '.') != 0) {
+
+                        $decimal = explode('.', $prix)[1];
+
+                        if (strlen($decimal) >= 3) {
+                            $result['prix'] = substr($prix, 0, -1); 
+                        }
+                    }
+
                     return $result;
                 }else {
                     $req->closecursor();
@@ -190,6 +204,17 @@
                         $value['image'] = 'defaul.svg';
                         $resu[$key] = $value;
                     }
+
+                    $prix = $value['prix'];
+
+                    if (substr_count($prix, '.') != 0) {
+                        $decimal = explode('.', $prix)[1];
+
+                        if (strlen($decimal) >= 3) {
+                            $value['prix'] = substr($prix, 0, -1); 
+                            $resu[$key] = $value;
+                        }
+                    }
                 }
 
                 return $resu;
@@ -203,6 +228,7 @@
         public function produitsGestionHtml($idMenu ,$idProduit=null) {
             if (is_null($idProduit) && $this->_modelProduitHtmlGestion && $this->produits($idMenu)) {
                 $model = $this->_modelProduitHtmlGestion;
+                //$mobile = $this->_mobile;
                 $produits = $this->produits($idMenu);
 
                 $html = '';
@@ -215,6 +241,12 @@
                     $construct = str_replace('%id%', htmlspecialchars($value['id']), $construct);
                     $construct = str_replace('%titre%', htmlspecialchars($value['titre']), $construct);
                     $construct = str_replace('%img%', htmlspecialchars($value['image']), $construct);
+
+                    /*if ($mobile->isMobile() || $mobile->isTablet()) {
+                        $construct = str_replace('%i%', '<i class="fas fa-hand-point-up"></i>', $construct);
+                    }else {
+                        $construct = str_replace('%i%', '', $construct);
+                    }*/
 
                     if (is_null($value['text'])) {
                        $construct = preg_replace('/%if text null%(.*)%end if text%/', '', $construct);
@@ -240,6 +272,7 @@
                 return $html;
             }elseif (is_null($idProduit) != true && $this->_modelProduitHtmlGestion && $this->produit($idProduit)) {
                 $model = $this->_modelProduitHtmlGestion;
+                //$mobile = $this->_mobile;
                 $produit = $this->produit($idProduit);
 
                 if (file_exists('src/produit/' . $produit['image']) == false) {
@@ -249,6 +282,12 @@
                 $model = str_replace('%id%', htmlspecialchars($produit['id']), $model);
                 $model = str_replace('%titre%', htmlspecialchars($produit['titre']), $model);
                 $model = str_replace('%img%', htmlspecialchars($produit['image']), $model);
+
+                /*if ($mobile->isMobile() || $mobile->isTablet()) {
+                    $construct = str_replace('%i%', '<i class="fas fa-hand-point-up"></i>', $construct);
+                }else {
+                    $construct = str_replace('%i%', '', $construct);
+                }*/
 
                 if (is_null($produit['text'])) {
                    $model = preg_replace('/%if text null%(.*)%end if text%/', '', $model);
@@ -485,6 +524,12 @@
                     }
                     if ($prix == '') {
                         $prix = null;
+                    }elseif (preg_match('/\.|,/', $prix)) {
+                        $decimal = preg_split('/\.|,/', $prix);
+
+                        if (substr($prix, -1) == 0) {
+                            $prix = $decimal[0] . '.' . $decimal[1] . 1;
+                        }
                     }
 
                     $array = array(
@@ -553,7 +598,7 @@
                     $bdd = $bdd->co();
                     $oldProduit = $this->produit((int)$idProduit);
 
-                    $req = $bdd->prepare('UPDATE produit SET titre = :titre, text = :txt, image = :img, prix = :prix WHERE id = :id');
+                    $req = $bdd->prepare('UPDATE produit SET titre = :titre, text = :txt, image = :img, prix = :prix, date = NOW() WHERE id = :id');
 
                     if ($text == '') {
                         $text = null;
@@ -565,6 +610,12 @@
                     }
                     if ($prix == '') {
                         $prix = null;
+                    }elseif (preg_match('/\.|,/', $prix)) {
+                        $decimal = preg_split('/\.|,/', $prix);
+
+                        if (substr($prix, -1) == 0) {
+                            $prix = $decimal[0] . '.' . $decimal[1] . 1;
+                        }
                     }
 
                     $array = array(

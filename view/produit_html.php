@@ -50,7 +50,7 @@
                     <input type="file" name="image" id="image" data-preview=".preview" required>
                     <input type="text" name="titre" id="titre" placeholder="Titre" required>
                     <textarea name="text" id="text" placeholder="Text"></textarea>
-                    <input type="number" name="prix" id="prix" placeholder="Prix" step="0.01">
+                    <input type="text" name="prix" id="prix" placeholder="Prix" pattern="\d+(,|.\d{1,2})?">
                     <input type="submit" value="envoyer">
                 </form>
             </article>

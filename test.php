@@ -1,11 +1,11 @@
 <?php
     require_once('model/bdd.php');
 
-    if (isset($_FILES['file'])) {
+    if (isset($_FILES['file'], $_POST['id']) && $_POST['id'] > 0) {
         $file = $_FILES['file'];
         $bdd = new bdd;
         $bdd = $bdd->co();
-        $req = $bdd->prepare('INSERT INTO produit (id, titre, text, image, prix, id_menu) VALUES (NULL, `titre`, `text`, :img, 52, 22)');
+        $req = $bdd->prepare('INSERT INTO produit (id, titre, text, image, prix, id_menu) VALUES (NULL, `titre`, `text`, :img, 52, :id)');
 
         switch ($file['type']) {
             case 'image/gif':
@@ -27,7 +27,8 @@
                     copy('controller/src/produit/' . $file['name'], 'controller/src/produit/' . $i . $file['name']);
 
                     $req->execute(array(
-                        ':img' => $i . $file['name']
+                        ':img' => $i . $file['name'],
+                        ':id' => $_POST['id']
                     ));
                 }
             }else {
@@ -41,5 +42,6 @@
 
 <form action="#" method="post" ENCTYPE="multipart/form-data">
     <input type="file" name="file">
+    <input type="number" name="id">
     <input type="submit" value="envoyer">
 </form>

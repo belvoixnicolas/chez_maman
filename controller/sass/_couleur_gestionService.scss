@@ -1,4 +1,4 @@
-%inputRose {
+%inputRoseService {
     @extend %input;
 
     border-top-right-radius: 0;
@@ -116,7 +116,7 @@ main {
             }
 
             input, textarea {
-                @extend %inputRose;
+                @extend %inputRoseService;
 
                 border-top-right-radius: 10px;
                 border-bottom-right-radius: 10px;
@@ -141,7 +141,7 @@ main {
     }
 
     input, textarea {
-        @extend %inputRose;
+        @extend %inputRoseService;
 
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;

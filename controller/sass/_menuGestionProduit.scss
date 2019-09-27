@@ -4,7 +4,7 @@ main {
     grid-auto-rows: auto min-content;
     row-gap: 3vh;
     min-height: 100vh;
-    padding: 3vh 0;
+    padding: 10vh 0 3vh;
     border: 1px solid black;
 
     h1 {
@@ -112,6 +112,8 @@ main {
                             justify-self: center;
                             font-size: 1.5rem;
                             padding: .5pc;
+                            overflow: hidden;
+                            max-width: 100%;
                             border: 1px solid black;
                         }
                     }
@@ -152,6 +154,10 @@ main {
     
                 &[name=titre], &[name=prix] {
                     text-align: center;
+                }
+
+                &[name=prix] {
+                    width: 30%;
                 }
 
                 &[type=file] {

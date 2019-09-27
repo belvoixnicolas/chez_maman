@@ -43,7 +43,7 @@ section {
     border: none !important;
 }
 
-%inputRose {
+%inputRoseEntreprise {
     @extend %input;
 
     border-top-right-radius: 0;
@@ -57,8 +57,8 @@ section {
     }
 }
 
-%inputFileRose {
-    @extend %inputRose;
+%inputFileRoseEntreprise {
+    @extend %inputRoseEntreprise;
 
         @media screen AND (max-width: 375px) {
             border-top-right-radius: 10px;
@@ -70,12 +70,12 @@ section {
         }
 }
 
-%sectionRose {
+%sectionRoseEntreprise {
     @include section($rose);
 }
 
 #sectionformlogo {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     img {
         background-color: rgba($rose, .5);
@@ -85,23 +85,23 @@ section {
     }
 
     input {
-        @extend %inputFileRose;
+        @extend %inputFileRoseEntreprise;
     }
 }
 
 #sectionformtitre {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     input {
-        @extend %inputRose;
+        @extend %inputRoseEntreprise;
     }
 }
 
 #sectionformphrase {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     input {
-        @extend %inputRose;
+        @extend %inputRoseEntreprise;
     }
 }
 
@@ -110,7 +110,7 @@ section {
         border: none;
 
         input {
-            @extend %inputFileRose;
+            @extend %inputFileRoseEntreprise;
         }
 
         label {
@@ -130,15 +130,15 @@ section {
 }
 
 #sectionformtel {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     input {
-        @extend %inputRose;
+        @extend %inputRoseEntreprise;
     }
 }
 
 #sectionformadresse {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     form {
         border: none;
@@ -150,7 +150,7 @@ section {
         }
 
         input {
-            @extend %inputRose;
+            @extend %inputRoseEntreprise;
 
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
@@ -163,7 +163,7 @@ section {
 }
 
 #sectionreseau {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     li {
         border: none !important;
@@ -211,7 +211,7 @@ section {
         }
 
         input {
-            @extend %inputRose;
+            @extend %inputRoseEntreprise;
 
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
@@ -224,7 +224,7 @@ section {
 }
 
 #sectionprofil {
-    @extend %sectionRose;
+    @extend %sectionRoseEntreprise;
 
     table {
         border: none;
@@ -279,7 +279,7 @@ section {
         }
 
         input {
-            @extend %inputRose;
+            @extend %inputRoseEntreprise;
 
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
@@ -303,7 +303,7 @@ section {
     }
 
     input {
-        @extend %inputRose;
+        @extend %inputRoseEntreprise;
 
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;

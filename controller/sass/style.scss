@@ -188,11 +188,11 @@ html, button {
 }
 
 #menugestion {
-    @import '_menuGestion', '_formMenuMod';
+    @import '_menuGestion', '_formMenuMod', '_couleur_menuGestion';
 }
 
 #menugestionproduit {
-    @import '_menuGestionProduit', '_formProduitMod';
+    @import '_menuGestionProduit', '_formProduitMod', '_couleur_menuGestionProduit';
 }
 
 #horraire {

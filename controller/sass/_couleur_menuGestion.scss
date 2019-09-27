@@ -1,0 +1,108 @@
+%inputJauneMenuGestion {
+    @extend %input;
+
+    border-color: $jaune !important;
+}
+
+%sectionJauneMenuGestion {
+    @include section(scale-color($jaune, $lightness: -30%));
+}
+
+nav {
+    @include nav (scale-color($jaune, $lightness: -20%));
+}
+
+main {
+    @extend %sectionJauneMenuGestion;
+
+    border: none;
+    padding-top: 10vh;
+
+    .listemenu {
+        li {
+            border: 1px solid scale-color($jaune, $lightness: -30%) !important;
+            border-left: 0 !important;
+            border-right: 0 !important;
+            transition: box-shadow .5s;
+
+            &:first-child {
+                border-top: none !important;
+            }
+
+            &:last-child {
+                border-bottom: none !important;
+            }
+
+            &:hover {
+                box-shadow: 0 0 8px 1px $gris;
+                border: none !important;
+                z-index: 1;
+            }
+
+            h3 {
+                border: none !important;
+                letter-spacing: .1pc;
+            }
+
+            #supmenu, #modmenu, a {
+                background: $bleu;
+                border-color: scale-color($bleu, $lightness: -10%) !important;
+                border-radius: calc(1.7rem + .5pc);
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: capitalize;
+                letter-spacing: .1pc;
+                transition: .5s;
+
+                &:hover {
+                    box-shadow: 3px 3px 6px 0px scale-color($gris, $lightness: -20%);
+                }
+            }
+
+            #supmenu {
+                background: scale-color($rose, $lightness: -20%);
+                border-color: scale-color($rose, $lightness: -30%) !important;
+            }
+
+            #modmenu {
+                background: scale-color(#ffa500, $lightness: +30%);
+                border-color: scale-color(#ffa500, $lightness: +20%) !important;
+            }
+        }
+    }
+
+    .formmenu form {
+        border: none;
+
+        &:valid input[type=submit] {
+            background: rgba(scale-color($vert, $lightness: -20%), .5);
+            border-color: scale-color($vert, $lightness: -10%) !important;
+            border-radius: calc(1.7rem + .5pc);
+        }
+
+        img {
+            border: none;
+        }
+
+        input {
+            @extend %inputJauneMenuGestion;
+        }
+    }
+}
+
+#formmenumod {
+    @extend %formmod;
+
+    border-color: $jaune !important;
+
+    &:valid input[type=submit] {
+        background: rgba(scale-color($vert, $lightness: -20%), .5);
+        border-color: scale-color($vert, $lightness: -10%) !important;
+        border-radius: calc(1.7rem + .5pc);
+    }
+
+    input {
+        @extend %inputJauneMenuGestion;
+    }
+}

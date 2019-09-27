@@ -15,7 +15,7 @@
             <input type="file" name="image" id="image" data-preview=".previewmod">
             <input type="text" name="titre" id="titre" placeholder="Titre" value="<?= htmlspecialchars($produit['titre']) ?>" required>
             <textarea name="text" id="text" placeholder="Text"><?= $produit['text'] ?></textarea>
-            <input type="number" name="prix" id="prix" placeholder="Prix" value="<?= htmlspecialchars($produit['prix']) ?>" step="0.01">
+            <input type="text" name="prix" id="prix" placeholder="Prix" value="<?= htmlspecialchars($produit['prix']) ?>" pattern="\d+(,|.\d{1,2})?">
             <input type="submit" value="envoyer">
         </form>
     </div>
