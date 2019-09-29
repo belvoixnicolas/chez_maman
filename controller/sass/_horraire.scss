@@ -14,31 +14,52 @@ main {
         border: 1px solid black;
 
         table {
-            border-collapse: separate;
-            border-spacing: .5pc;
+            //border-collapse: separate;
+            //border-spacing: .5pc;
             border: 1px solid black;
+
+            tr:nth-child(2n+0) > * {
+                padding-bottom: 1.25vh;
+                border-bottom: 1px solid black;
+            }
+
+            tr:nth-child(2n+1) > * {
+                padding-top: 1.25vh;
+            }
+
+            tr:last-child > * {
+                border-bottom: none;
+            }
+
+            tr:nth-last-child(2) > th {
+                border: none;
+            }
         }
+
 
         td, th {
             font-size: 1.8rem;
             font-weight: bold;
             vertical-align: middle;
-            border: 1px solid black;
+
+            padding: .5vh 2vw;
 
             input {
                 font-weight: normal;
                 font-size: 100%;
+                width: 5.5pc;
             }
         }
 
         .input {
-            vertical-align: bottom;
+            vertical-align: middle;
         }
 
         th {
             text-align: left;
             text-transform: capitalize;
             hyphens: auto;
+            border-bottom: 1px solid black;
         }
     }
 }

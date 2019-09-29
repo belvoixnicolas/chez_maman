@@ -3,5 +3,27 @@ nav {
 }
 
 main {
-    
+    border: none;
+    @include section($bleu);
+}
+
+form {
+    background-color: rgba($bleu, .5);
+    border: 3px solid $bleu !important;
+    border-radius: 20px;
+    box-shadow: 3px 3px 6px 0px $gris;
+
+    table {
+        border: none !important;
+
+        th, td {
+            border-color: $bleu !important;
+
+            input {
+                @extend %input;
+
+                border-color: $bleu !important;
+            }
+        }
+    }
 }
