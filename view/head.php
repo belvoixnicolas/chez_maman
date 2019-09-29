@@ -1,7 +1,29 @@
+<?php
+    require_once('../model/entreprise.php');
+
+    $entrepriseHead = new entreprise;
+
+    $titreHead = $entrepriseHead->titre();
+    $phraseHead = $entrepriseHead->phrase();
+    $descriptionHead = $entrepriseHead->description();
+
+    if ($phraseHead) {
+        $titreHead .= " | " . $phraseHead;
+    }
+
+    $array = explode('/' ,$_SERVER['PHP_SELF']);
+
+    if (end($array) == 'acceuil.php' || end($array) == 'menu.php' || end($array) == 'connexion.php') {
+        $indexHead = true;
+    }else {
+        $indexHead = false;
+    }
+?>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chez maman Restaurant brunch</title>
+    <title><?= $titreHead ?></title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-touch-icon.png">
@@ -16,6 +38,15 @@
     <meta name="application-name" content="Chez maman">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="src/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="">
+    <?php if ($descriptionHead) { ?>
+        <meta name="description" content="<?= $descriptionHead ?>" />
+    <?php } ?>
+    <?php if ($indexHead) { ?>
+        <meta name="robots" content="index">
+    <?php }else { ?>
+        <meta name="robots" content="noindex">
+    <?php } ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/source_colorconvertor.js"></script>
     <script src="js/navigateur_color.js"></script>

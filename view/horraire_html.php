@@ -2,11 +2,6 @@
 <html lang="fr">
     <head>
         <?php include_once('../view/head.php') ?>
-        <style type="text/css">
-            img {
-                height: 5vh;
-            }
-        </style>
     </head>
     <body id="horraire">
         <div id="message" class='hidden'>

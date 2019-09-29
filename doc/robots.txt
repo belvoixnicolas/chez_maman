@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /
+Allow: /index.php
+Allow: /controller/css
+Allow: /controller/js
+Allow: /controller/acceuil.php
+Allow: /controller/menu.php
+Allow: /controller/connexion.php
+Allow: /controller/src/logo
+Allow: /controller/src/produit
+Allow: /controller/src/video
+
+Sitemap: http://www.test.nicolas-belvoix.fr/sitemap.xml
+Sitemap: https://www.test.nicolas-belvoix.fr/sitemap.xml
