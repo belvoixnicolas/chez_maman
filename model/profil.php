@@ -182,16 +182,9 @@
                             $bodyMail = implode('', file('../view/mail_body_perdu.html'));
                             $bodyMail = str_replace('%mdp%', $array['data'], $bodyMail);
 
-                            $entreprise = $this->_entreprise;
-                            if ($result = $entreprise->logo()) {
-                                $logo = $result;
-                            }else {
-                                $logo = 'default.svg';
-                            }
-
                             $html = implode('', file('../view/mail_base.html'));
                             $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
-                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/img/logo.png', $html);
                             $html = str_replace('%txt%', $bodyMail, $html);
                         }else {
                             return array(
@@ -210,16 +203,9 @@
 
                             $bodyMail = implode('', file('../view/mail_body_erreurPerdu.html'));
 
-                            $entreprise = $this->_entreprise;
-                            if ($result = $entreprise->logo()) {
-                                $logo = $result;
-                            }else {
-                                $logo = 'default.svg';
-                            }
-
                             $html = implode('', file('../view/mail_base.html'));
                             $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
-                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/img/logo.png', $html);
                             $html = str_replace('%txt%', $bodyMail, $html);
                         }else {
                             return array(
@@ -242,16 +228,9 @@
                             $bodyMail = str_replace('%mail%', $array['data']['mail'], $bodyMail);
                             $bodyMail = str_replace('%mdp%', $array['data']['mdp'], $bodyMail);
 
-                            $entreprise = $this->_entreprise;
-                            if ($result = $entreprise->logo()) {
-                                $logo = $result;
-                            }else {
-                                $logo = 'default.svg';
-                            }
-
                             $html = implode('', file('../view/mail_base.html'));
                             $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
-                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/img/logo.png', $html);
                             $html = str_replace('%txt%', $bodyMail, $html);
                         }else {
                             return array(
@@ -270,16 +249,9 @@
 
                             $bodyMail = implode('', file('../view/mail_body_supprofil.html'));
 
-                            $entreprise = $this->_entreprise;
-                            if ($result = $entreprise->logo()) {
-                                $logo = $result;
-                            }else {
-                                $logo = 'default.svg';
-                            }
-
                             $html = implode('', file('../view/mail_base.html'));
                             $html = str_replace('%url%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/connexion.php', $html);
-                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/logo/' . $logo, $html);
+                            $html = str_replace('%urlimg%', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/controller/src/img/logo.png', $html);
                             $html = str_replace('%txt%', $bodyMail, $html);
                         }else {
                             return array(

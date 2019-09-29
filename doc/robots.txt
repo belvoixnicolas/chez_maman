@@ -1,5 +1,7 @@
 User-agent: *
 Disallow: /
+Allow: robots.txt
+Allow: sitemap.xml
 Allow: /index.php
 Allow: /controller/css
 Allow: /controller/js
