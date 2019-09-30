@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 05 sep. 2019 à 17:26
+-- Généré le :  mar. 01 oct. 2019 à 00:20
 -- Version du serveur :  10.3.16-MariaDB
 -- Version de PHP :  7.3.6
 
@@ -141,7 +141,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `mail`, `motDePasse`, `admin`, `id_entreprise`, `nom`) VALUES
-(1, 'admin@admin', '$2y$10$bGbuu8SIurjE9sXGPI07s.Ng41txbfYSszs.DyuqUlZT9ycmg9xsq', 1, 1, 'admin');
+(1, 'admin@admin', '$2y$10$S7qeUqGkjOHds0Tc4vnx/u7zH5Q415LNucM2dwZYycop/DsiN3P9y', 1, 1, 'admin');
 
 -- --------------------------------------------------------
 
@@ -252,13 +252,13 @@ ALTER TABLE `avie`
 -- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `horraire`
 --
 ALTER TABLE `horraire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `menu`
@@ -276,13 +276,13 @@ ALTER TABLE `produit`
 -- AUTO_INCREMENT pour la table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `reseau`
 --
 ALTER TABLE `reseau`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `services`
