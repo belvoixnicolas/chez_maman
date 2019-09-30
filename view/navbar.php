@@ -48,9 +48,11 @@
                         }
                     }
                 ?>
-                <li>
-                    <?= $lien; ?>
-                </li>
+                <?php
+                    if (isset($lien)) {
+                        echo $lien;
+                    }
+                ?>
                 <?php
                     if (isset($lienAddress) && $lienAddress) {
                         $lien = str_replace(' ', '+', $lienAddress['numero'] . ' ' . $lienAddress['rue'] . ' ' . $lienAddress['cp'] . ' ' . $lienAddress['ville']);
@@ -73,6 +75,7 @@
             <ul class="reseaux">
                 <?php
                     for ($i=0; $i < 2; $i++) { 
+                        if (isset($reseaux[$i]['url'], $reseaux[$i]['titre'], $reseaux[$i]['image'])) {
                 ?>
 
                 <li>
@@ -82,6 +85,7 @@
                 </li>
 
                 <?php
+                        }
                     }
                 ?>
             </ul>

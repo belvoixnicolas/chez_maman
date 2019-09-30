@@ -62,7 +62,6 @@
         <a href="../index.php?page=modmdp">
             Mot de passe oublier
         </a>
-        <?= $_SERVER['HTTP_HOST'] ?>
     </main>
     <script src="js/conect.js"></script>
 </body>

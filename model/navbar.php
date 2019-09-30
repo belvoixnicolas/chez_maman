@@ -2,6 +2,7 @@
     require_once('../model/horraire.php');
     require_once('../model/entreprise.php');
     require_once('../model/reseaux.php');
+    require_once('../model/menu.php');
     require_once('../model/Mobile_Detect.php');
 
     class navbar {
@@ -10,6 +11,7 @@
         private $_entreprise;
         private $_reseaux;
         private $_mobile;
+        private $_menu;
 
 
         public function __construct() {
@@ -26,6 +28,9 @@
             $reseaux = new reseaux;
             $this->_reseaux = $reseaux;
 
+            $menu = new menu;
+            $this->_menu = $menu;
+
             $mobile = new Mobile_Detect;
             $this->_mobile = $mobile;
         }
@@ -37,15 +42,19 @@
 
             switch ($page) {
                 case 'acceuil.php':
-                    $lien = "<a href=\"../index.php?page=menu\">menu</a>";
+                    if ($this->menu()) {
+                        $lien = "<li><a href=\"../index.php?page=menu\">menu</a></li>";
+                    }else {
+                        $lien = "";
+                    }
                     break;
         
                 case 'menu.php':
-                    $lien = "<a href=\"../index.php?page=index\">aceuil</a>";
+                    $lien = "<li><a href=\"../index.php?page=index\">aceuil</a></li>";
                     break;
                 
                 default:
-                    # code...
+                    $lien = "";
                     break;
             }
             
@@ -257,6 +266,17 @@
                         'numero' => $numero
                     );
                 }
+            }else {
+                return false;
+            }
+        }
+
+        private function menu () {
+            $menu = $this->_menu;
+            $menu = $menu->menus();
+
+            if (is_array($menu) && count($menu) > 0) {
+                return true;
             }else {
                 return false;
             }

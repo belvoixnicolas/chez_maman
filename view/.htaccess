@@ -1,0 +1,17 @@
+Options All -Indexes
+IndexIgnore *
+
+<files *.php>
+Order allow,deny
+Deny from all
+</files>
+
+<files *.html>
+Order allow,deny
+Deny from all
+</files>
+
+<files *.txt>
+Order allow,deny
+Deny from all
+</files>

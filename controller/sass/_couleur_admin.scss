@@ -35,7 +35,7 @@
     }
 
     #avis {
-        @include couleurElement($bleu, '../src/img/avis.jpeg');
+        @include couleurElement($bleu, '../src/img/avis.jpg');
     }
 
     #service {

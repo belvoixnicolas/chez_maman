@@ -201,7 +201,7 @@
 
                 foreach ($resu as $key => $value) {
                     if (file_exists('src/produit/' . $value['image']) == false) {
-                        $value['image'] = 'defaul.svg';
+                        $value['image'] = 'default.svg';
                         $resu[$key] = $value;
                     }
 
@@ -436,7 +436,7 @@
 
                 if ($produit = $this->produits($id)) {
                     foreach ($produit as $value) {
-                        if ($value['image'] != 'defaul.svg') {
+                        if ($value['image'] != 'default.svg') {
                             unlink('src/produit/' . $value['image']);
                         }
                     }

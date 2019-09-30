@@ -1,4 +1,4 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^test.nicolas-belvoix.fr$
 RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^test.nicolas-belvoix.fr$
 RewriteRule ^(.*)$ https://test.nicolas-belvoix.fr/$1 [R=301,L]
