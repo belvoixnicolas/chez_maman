@@ -2,3 +2,4 @@ node_modules/
 /*.json
 .sass-cache
 bdd.php
+/mdpadmin.txt
