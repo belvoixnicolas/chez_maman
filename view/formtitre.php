@@ -11,7 +11,7 @@
                 $val = 'value="' . htmlspecialchars($titre) . '"';
             }
         ?>
-        <input type="text" name="titre" id="titre" placeholder="Entrer le nom du site" <?= $val ?> required>
+        <input type="text" name="titre" id="titre" placeholder="Le nom du site" <?= $val ?> required>
 
         <input type="submit" value="envoyer">
     </form>

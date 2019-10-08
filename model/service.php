@@ -105,7 +105,7 @@
 
                                 return array(
                                     'result' => true,
-                                    'text' => 'L\'image a été changer'
+                                    'text' => 'L\'image a été changée'
                                 );
                             }else {
                                 $req->closecursor();
@@ -115,13 +115,13 @@
 
                                 return array(
                                     'result' => false,
-                                    'text' => 'L\'image n\'a pas été changer dans la base de donner'
+                                    'text' => 'L\'image n\'a pas été changée dans la base de données'
                                 );
                             }
                         }else {
                             return array(
                                 'result' => true,
-                                'text' => 'L\'image a été changer'
+                                'text' => 'L\'image a été changée'
                             );
                         }
                     }else {
@@ -129,7 +129,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'L\'id du service ne corespond pas avec la base de donner'
+                            'text' => 'L\'id du service ne correspond pas avec la base de données'
                         );
                     }
                 }else {
@@ -138,12 +138,12 @@
             }elseif ($this->verifid($id) == false) {
                 return array(
                     'result' => false,
-                    'text' => 'L\'id du service ne corespond pas avec la base de donner'
+                    'text' => 'L\'id du service ne correspond pas avec la base de données'
                 );
             }elseif (strlen($file['name']) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du fichier ne peux faire plus de 50 caractéres. Il est actuellement de ' . strlen($file['name'])
+                    'text' => 'Le nom du fichier ne peut faire plus de 50 caractères. Il est actuellement de ' . strlen($file['name']) . ' caractères.'
                 );
             }else {
                 return array(
@@ -170,7 +170,7 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'Le text a été mis a jour',
+                        'text' => 'Le text a été mis à jour',
                         'html' => nl2br(htmlspecialchars($text))
                     );
                 }else {
@@ -179,18 +179,18 @@
 
                     return array(
                         'result' => false,
-                        'text' => 'Le text n\'a pas put étre mis a jour'
+                        'text' => 'Le text n\'a pas pu être mis à jour'
                     );
                 }
             }elseif ($this->verifid($id) == false) {
                 return array(
                     'result' => false,
-                    'text' => 'L\'id du service ne corespond pas avec la base de donner'
+                    'text' => 'L\'id du service ne correspond pas avec la base de données'
                 );
             }elseif (is_string($text) == false) {
                 return array(
                     'result' => false,
-                    'text' => 'Seul du text est autoriser'
+                    'text' => 'Seul du texte est autorisé'
                 );
             }else {
                 return array(
@@ -219,7 +219,7 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'Le service a été suprimer'
+                        'text' => 'Le service a été supprimé'
                     );
                 }else {
                     $req->closecursor();
@@ -227,13 +227,13 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'Le service n\'a pas été suprimer'
+                        'text' => 'Le service n\'a pas été supprimé'
                     );
                 }
             }elseif ($this->verifid($id) == false) {
                 return array(
                     'result' => false,
-                    'text' => 'L\'id du service ne corespond pas avec la base de donner'
+                    'text' => 'L\'id du service ne correspond pas avec la base de données'
                 );
             }else {
                 return array(
@@ -266,7 +266,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le service a été ajouter',
+                            'text' => 'Le service a été ajouté',
                             'html' => $this->htmlservice($id, $titre, $txt, $file['name'])
                         );
                     }else {
@@ -277,7 +277,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le service n\'a pas été ajouter'
+                            'text' => 'Le service n\'a pas été ajouté'
                         );
                     }
                 }else {
@@ -286,12 +286,12 @@
             }elseif (strlen($file['name']) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du fichier ne peux faire plus de 50 caractéres. Il est actuellement de ' . strlen($file['name'])
+                    'text' => 'Le nom du fichier ne peut faire plus de 50 caractères. Il est actuellement de ' . strlen($file['name']) . ' caractères.'
                 );
             }elseif (strlen($titre) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du titre ne peux faire plus de 50 caractéres. Il est actuellement de ' . strlen($titre)
+                    'text' => 'Le nom du titre ne peut faire plus de 50 caractères. Il est actuellement de ' . strlen($titre) . ' caractères.'
                 );
             }else {
                 return array(
@@ -321,18 +321,18 @@
                     if (move_uploaded_file($file['tmp_name'], 'src/services/' . $file['name'])) {
                         return array(
                             'result' => true,
-                            'text' => 'L\'image a était envoyer'
+                            'text' => 'L\'image a été envoyée'
                         );
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'L\'image n\'a pas put étre uploader'
+                            'text' => 'L\'image n\'a pas pu être uploadée'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le fichier est dans un format inconue. Le format gif, jpeg, png et svg sont reconnue.',
+                        'text' => 'Le fichier est dans un format inconnue. Les formats gif, jpeg, png et svg sont reconnus.',
                     );
                 }
             }else {

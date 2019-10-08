@@ -29,14 +29,14 @@ $(document).ready(function(){
             if (data != 'false' && data != 'false id') {
                 $('body').append(data);
             }else if (data == 'false') {
-                $('#message .text').html('L\'id du service n\'a pas étais envoyer');
+                $('#message .text').html('L\'id du service n\'a pas été envoyer');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
                     $('#message button').trigger('click');
                 }, 5000);
             }else if (data == 'false id') {
-                $('#message .text').html('L\'id du service ne corespond pas avec la base de donner');
+                $('#message .text').html('L\'id du service ne correspond pas avec la base de données');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
@@ -51,7 +51,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }).fail(function () {
-            $('#message .text').html('Connexion avec le serveur perdue');
+            $('#message .text').html('Connexion avec le serveur perdu');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {
@@ -78,14 +78,14 @@ $(document).ready(function(){
             if (data != 'false' && data != 'false id') {
                 $('body').append(data);
             }else if (data == 'false') {
-                $('#message .text').html('L\'id du service n\'a pas étais envoyer');
+                $('#message .text').html('L\'id du service n\'a pas été envoyer');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
                     $('#message button').trigger('click');
                 }, 5000);
             }else if (data == 'false id') {
-                $('#message .text').html('L\'id du service ne corespond pas avec la base de donner');
+                $('#message .text').html('L\'id du service ne correspond pas avec la base de données');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
@@ -100,7 +100,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }).fail(function () {
-            $('#message .text').html('Connexion avec le serveur perdue');
+            $('#message .text').html('Connexion avec le serveur perdu');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {
@@ -154,7 +154,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }).fail(function () {
-            $('#message .text').html('Connexion avec le serveur perdue');
+            $('#message .text').html('Connexion avec le serveur perdu');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {

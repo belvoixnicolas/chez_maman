@@ -55,7 +55,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }).fail(function () {
-            $('#message .text').html('Connexion avec le serveur perdue');
+            $('#message .text').html('Connexion avec le serveur perdu');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {
@@ -67,7 +67,7 @@ $(document).ready(function(){
     $('body').on('click', '#supmenu', function () {
         var id = $(this).val();
 
-        if (confirm('Cette action va suprimer le menu et tout les produit qui le concerne')) {
+        if (confirm('Cette action va supprimer le menu et tous les produits qui le concernent.')) {
             var formData = new FormData();
             formData.append('action', 'supmenu');
             formData.append('id', id);

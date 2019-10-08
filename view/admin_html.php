@@ -55,7 +55,7 @@
 
                 <li>
                     <a href="../index.php?page=horraire" id="horraires">
-                        Horraires
+                        Horaires
                     </a>
                 </li>
 

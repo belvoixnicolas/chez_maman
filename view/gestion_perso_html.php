@@ -23,7 +23,7 @@
                 </legend>
 
                 <input type="email" name="mail" id="mail" placeholder="changer d'email">
-                <input type="email" name="verifmail" id="verifmail" placeholder="réécriver l'email" disabled>
+                <input type="email" name="verifmail" id="verifmail" placeholder="réécrivez l'email" disabled>
             </fieldset>
             <fieldset>
                 <legend>
@@ -31,7 +31,7 @@
                 </legend>
 
                 <input type="password" name="pwd" id="pwd" placeholder="changer de mot de passe">
-                <input type="password" name="verifpwd" id="verifpwd" placeholder="réécriver votre mot de passe" disabled>
+                <input type="password" name="verifpwd" id="verifpwd" placeholder="réécrivez votre mot de passe" disabled>
             </fieldset>
 
             <input type="submit" value="Changer">

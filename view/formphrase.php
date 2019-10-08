@@ -12,8 +12,8 @@
             }
         ?>
 
-        <!-- laisser vide suprimer -->
-        <input type="text" name="phrase" id="phrase" placeholder="Entrer un slogan" <?= $val ?>>
+        <!-- laisser vide supprimer -->
+        <input type="text" name="phrase" id="phrase" placeholder="Phrase d'accroche" <?= $val ?>>
 
         <input type="submit" value="envoyer">
     </form>

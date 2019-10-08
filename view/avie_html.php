@@ -63,7 +63,7 @@
                 </ul>
                 <script src="js/ajax/avie.js"></script>
             <?php   }else {   ?>
-                <p>il y a aucun avie pour l'instant</p>
+                <p>il n'y aucun avis pour l'instant</p>
             <?php } ?>
         </section>
         <script src="js/ajax/formdescription.js"></script>

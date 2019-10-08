@@ -78,7 +78,7 @@
 
                     <li>
                         <a href="../index.php?page=horraire" id="déco">
-                            horraire
+                            horaires
                         </a>
                     </li>
                 

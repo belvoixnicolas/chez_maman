@@ -387,13 +387,13 @@
 
                             return array(
                                 'result' => true,
-                                'text' => 'Le menu a été mis a jour',
+                                'text' => 'Le menu a été mis à jour',
                                 'data' => $this->menus((int)$oldMenu['id'])
                             );
                         }else {
                             return array(
                                 'result' => true,
-                                'text' => 'Le menu a été ajouter',
+                                'text' => 'Le menu a été ajouté',
                                 'html' => $this->menugestionhtml($lastId)
                             );
                         }
@@ -414,12 +414,12 @@
             }elseif (strlen($file['name']) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du fichier ne peux faire plus de 50 caractéres. Il est actuellement de ' . strlen($file['name'])
+                    'text' => 'Le nom du fichier ne peut faire plus de 50 caractères. Il est actuellement de ' . strlen($file['name']) . ' caractères.'
                 );
             }elseif (strlen($titre) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du titre ne peux faire plus de 50 caractéres. Il est actuellement de ' . strlen($titre)
+                    'text' => 'Le nom du titre ne peut faire plus de 50 caractères. Il est actuellement de ' . strlen($titre) . ' caractères.'
                 );
             }else {
                 return array(
@@ -452,7 +452,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Les produit n\'ont pas étais suprimer'
+                            'text' => 'Les produits n\'ont pas été supprimer'
                         );
                     }
                 }
@@ -473,7 +473,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le menu a étais suprimer'
+                            'text' => 'Le menu a été supprimer'
                         );
                     }else {
                         $req->closecursor();
@@ -481,13 +481,13 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le menu n\'a pas étais suprimer'
+                            'text' => 'Le menu n\'a pas été supprimé'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le menu n\'a pas étais trouver'
+                        'text' => 'Le menu n\'a pas été trouvé'
                     );
                 }
             }else {
@@ -510,7 +510,7 @@
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'Le fichier est corempue'
+                            'text' => 'Le fichier est corrompue'
                         );
                     }
 
@@ -547,7 +547,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le produit à été ajouter',
+                            'text' => 'Le produit a été ajouté',
                             'html' => $this->produitsGestionHtml((int)$idMenu ,(int)$idProduit)
                         );
                     }else {
@@ -564,12 +564,12 @@
                 }elseif ($titre != '' && strlen($titre) > 50) {
                     return array(
                         'result' => false,
-                        'text' => 'Le titre ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($titre)
+                        'text' => 'Le titre ne peut avoir plus de 50 caractères. Il est actuellement de ' . strlen($titre) . ' caractères.'
                     );
                 }elseif (strlen($file['name']) > 50) {
                     return array(
                         'result' => false,
-                        'text' => 'Le nom de l\'image ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($file['name'])
+                        'text' => 'Le nom de l\'image ne peut avoir plus de 50 caractères. Il est actuellement de ' . strlen($file['name']) . ' caractères.'
                     );
                 }else {
                     return array(
@@ -590,7 +590,7 @@
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'Le fichier est corempue'
+                            'text' => 'Le fichier est corrompue'
                         );
                     }
 
@@ -636,7 +636,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le produit à été mis a jour',
+                            'text' => 'Le produit a été mis à jour',
                             'html' => $this->produitsGestionHtml((int)$idMenu ,(int)$idProduit),
                             'id' => $oldProduit['id']
                         );
@@ -650,18 +650,18 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le produit n\'a pas été mis a jour'
+                            'text' => 'Le produit n\'a pas été mis à jour'
                         );
                     }
                 }elseif ($titre != '' && strlen($titre) > 50) {
                     return array(
                         'result' => false,
-                        'text' => 'Le titre ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($titre)
+                        'text' => 'Le titre ne peut avoir plus de 50 caractères. Il est actuellement de ' . strlen($titre) . ' caractères.'
                     );
                 }elseif (strlen($file['name']) > 50) {
                     return array(
                         'result' => false,
-                        'text' => 'Le nom de l\'image ne peux avoir plus de 50 caractére. Il est actuellement de ' . strlen($file['name'])
+                        'text' => 'Le nom de l\'image ne peut avoir plus de 50 caractères. Il est actuellement de ' . strlen($file['name']) . ' caractères.'
                     );
                 }else {
                     return array(
@@ -698,7 +698,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le produit a étais suprimer'
+                            'text' => 'Le produit a été supprimé'
                         );
                     }else {
                         $req->closecursor();
@@ -706,13 +706,13 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le produit n\'a pas étais suprimer'
+                            'text' => 'Le produit n\'a pas été supprimé'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le produit n\'a pas étais trouver'
+                        'text' => 'Le produit n\'a pas été trouvé'
                     );
                 }
             }else {
@@ -752,7 +752,7 @@
                         default:
                             return array(
                                 'result' => false,
-                                'text' => 'La deuxiéme variavle de la function uploadimg n\'est pas reconue'
+                                'text' => 'La deuxième variable de la fonction uploadimg n\'est pas reconnue'
                             );
                             break;
                     }
@@ -760,18 +760,18 @@
                     if (move_uploaded_file($file['tmp_name'], $chemin . $file['name'])) {
                         return array(
                             'result' => true,
-                            'text' => 'L\'image a était envoyer'
+                            'text' => 'L\'image a été envoyée'
                         );
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'L\'image n\'a pas put étre uploader'
+                            'text' => 'L\'image n\'a pas pu être uploadée'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le fichier est dans un format inconue. Le format gif, jpeg, png et svg sont reconnue.',
+                        'text' => 'Le fichier est dans un format inconnue. Le format gif, jpeg, png et svg sont reconnues.',
                     );
                 }
             }else {

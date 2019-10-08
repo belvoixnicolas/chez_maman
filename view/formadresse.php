@@ -31,7 +31,7 @@
                     $class = "class=\"hidden\"";
                 }
             ?>
-            <input type="button" id='sup' value="Suprimer" <?= $class ?>>
+            <input type="button" id='sup' value="supprimer" <?= $class ?>>
             <input type="submit" value="envoyer">
         </div>
     </form>

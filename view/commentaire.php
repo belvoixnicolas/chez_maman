@@ -33,7 +33,7 @@
         <section class="formulaire">
             <h4>formulaire</h4>
             <form action="#" method="post" id="formposte">
-                <input type="text" name="com" id="com" placeholder="Laisser nous un commentaire">
+                <input type="text" name="com" id="com" placeholder="Qu'en pensez vous ?">
         
                 <input type="submit" value="Envoyer">
             </form>

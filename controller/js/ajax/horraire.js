@@ -27,7 +27,7 @@ $(document).ready(function(){
             if (val.replace(':', '') <= 1200 && val.replace(':', '') != '') {
                 autorisation = true;
             }else {
-                $('#message .text').html('Les horraire matinal sont comprise entre 00 H 00 et  12 H 00');
+                $('#message .text').html('Les horaires matinal sont comprises entre 0h et 12h');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
@@ -38,7 +38,7 @@ $(document).ready(function(){
             if (val.replace(':', '') <= 2359 && val.replace(':', '') >= 1200 && val.replace(':', '') != '' || val.replace(':', '') == 0000 && val.replace(':', '') != '') {
                 autorisation = true;
             }else {
-                $('#message .text').html('Les horraire de l\'apres midi sont comprise entre 12 H 00 et  23 H 59');
+                $('#message .text').html('Les horaires de l\'après-midi sont comprises entre 12h et 23h59');
                 $('#message').addClass('false').removeClass('hidden');
                 
                 var delayMessage = window.setTimeout(function () {
@@ -46,7 +46,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }else {
-            $('#message .text').html('Une erreur c\'est produit. Veiller recharger la page');
+            $('#message .text').html('Une erreur c\'est produit. Veillez recharger la page');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {

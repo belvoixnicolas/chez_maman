@@ -26,7 +26,7 @@
                 <?php 
                     if (isset($descript) && $descript) {
                 ?>
-                    <button type="button" id="supdesciption">Suprimer</button>
+                    <button type="button" id="supdesciption">supprimer</button>
                 <?php
                     }
                 ?>

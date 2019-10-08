@@ -125,12 +125,12 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'Le commentaire a éte envoier'
+                        'text' => 'Le commentaire a été envoyé'
                     );
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le commentaire n\'a pas éte envoier'
+                        'text' => 'Le commentaire n\'a pas été envoyé'
                     );
                 }
             }else {
@@ -170,14 +170,14 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'Avie modifier',
+                        'text' => 'Avis modifier',
                         'afficher' => $this->afficher($id),
                         'compteur' => $this->compteurafficher()
                     );
                 }elseif ($array == false) {
                     return array(
                         'result' => false,
-                        'text' => 'Il y a déja 5 avies afficher'
+                        'text' => 'Il y a déja cinq avis affichés'
                     );
                 }else {
                     $req->closecursor();
@@ -185,13 +185,13 @@
 
                     return array(
                         'result' => false,
-                        'text' => 'Erreur favorie'
+                        'text' => 'Erreur favori'
                     );
                 }
             }elseif ($this->compteurafficher() && $this->compteurafficher() >= 5) {
                 return array(
                     'result' => false,
-                    'text' => 'Il y a déja 5 avies afficher'
+                    'text' => 'Il y a déja cinq avis affiché'
                 );
             }else {
                 return array(
@@ -217,7 +217,7 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'L\'avie a étais suprimer',
+                        'text' => 'L\'avis a été supprimé',
                         'compteur' => $this->compteurafficher()
                     );
                 }else {
@@ -226,7 +226,7 @@
 
                     return array(
                         'result' => false,
-                        'text' => 'L\'avie n\'a pas put étre suprimer'
+                        'text' => 'L\'avis n\'a pas pu être supprimé'
                     );
                 }
             }else {

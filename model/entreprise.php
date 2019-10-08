@@ -77,7 +77,7 @@
 
                                 return array(
                                     'result' => true,
-                                    'text' => 'Le logo a bien étais mis a jour',
+                                    'text' => 'Le logo a bien été mis à jour',
                                     'img' => $file['name']
                                 );
                             }else {
@@ -88,7 +88,7 @@
 
                                 return array(
                                     'result' => false,
-                                    'text' => 'La base de donner n\'a pas put étre mis a jour'
+                                    'text' => 'La base de données n\'a pas pu être mis à jour'
                                 );
                             }
                         }else {
@@ -104,7 +104,7 @@
 
                                 return array(
                                     'result' => true,
-                                    'text' => 'Le logo a bien étais mis a jour',
+                                    'text' => 'Le logo a bien été mis à jour',
                                     'img' => $file['name']
                                 );
                             }else {
@@ -115,14 +115,14 @@
 
                                 return array(
                                     'result' => false,
-                                    'text' => 'La base de donner n\'a pas put étre mis a jour'
+                                    'text' => 'La base de données n\'a pas pu être mis à jour'
                                 );
                             }
                         }
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'Le fichier n\'a pas étais envoyer au serveur'
+                            'text' => 'Le fichier n\'a pas été envoyer au serveur'
                         );
                     }
                 }else {
@@ -134,7 +134,7 @@
             }else {
                 return array(
                     'result' => false,
-                    'text' => 'Vous n\'avais pas envoyer de fichier'
+                    'text' => 'Vous n\'avez pas envoyé de fichier'
                 );
             }
         }
@@ -160,7 +160,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le titre a étais mis à jour'
+                            'text' => 'Le titre a été mis à jour'
                         );
                     }else {
                         $req->closecursor();
@@ -168,24 +168,24 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le titre n\'a pas put étre mis à jour'
+                            'text' => 'Le titre n\'a pas pu être mis à jour'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Ce titre est déja utiliser'
+                        'text' => 'Ce titre est déja utilisé'
                     );
                 }
             }elseif (strlen($titre) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le titre doit faire moin de 50 caractére. Il est actuellement de ' . strlen($titre)
+                    'text' => 'Le titre doit faire moins de 50 caractères. Il est actuellement de ' . strlen($titre) . ' caractères'
                 );
             }elseif ($titre == '') {
                 return array(
                     'result' => false,
-                    'text' => 'Vous avez envoyer du text vide'
+                    'text' => 'Vous avez envoyé du texte vide'
                 );
             }else {
                 return array(
@@ -228,7 +228,7 @@
 
                             return array(
                                 'result' => true,
-                                'text' => 'Le slogan a bien étais modifier'
+                                'text' => 'Le slogan a bien été modifier'
                             );
                         }else {
                             $req->closecursor();
@@ -236,25 +236,25 @@
 
                             return array(
                                 'result' => false,
-                                'text' => 'Ce slogan n\'a pas put étre envoier a la base de donner'
+                                'text' => 'Ce slogan n\'a pas pu être envoyé à la base de données'
                             );
                         }
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'Ce slogan est déja utiliser'
+                            'text' => 'Ce slogan est déja utilisé'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le titre ne peux faire 50 caractére maximum. Il est actuellement de ' . strlen($phrase)
+                        'text' => 'Le titre ne peut faire 50 caractères maximum. Il est actuellement de ' . strlen($phrase) . ' caractères'
                     );
                 }
             }else {
                 return array(
                     'result' => false,
-                    'text' => 'Seul le text est autoriser'
+                    'text' => 'Seul le texte est autorisé'
                 );
             }
         }
@@ -292,7 +292,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le nouveau numero a bien étais mis a jour'
+                            'text' => 'Le nouveau numéro a bien été mis à jour'
                         );
                     }else {
                         $req->closecursor();
@@ -300,19 +300,19 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le nouveau numero n\'a pas put étre envoyer a la base de donner'
+                            'text' => 'Le nouveau numéro n\'a pas pu être envoyé à la base de données'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le numero est déja utiliser'
+                        'text' => 'Le numéro est déja utilisé'
                     );
                 }
             }else {
                 return array(
                     'result' => false,
-                    'text' => 'Seul les numero de teléphone sont autoriser'
+                    'text' => 'Seul les numéros de téléphone sont autorisés'
                 );
             }
         }
@@ -354,7 +354,7 @@
 
                                 return array(
                                     'result' => true,
-                                    'text' => 'L\'addresse à étais mis a jour'
+                                    'text' => 'L\'adresse à étais mis à jour'
                                 );
                             }else {
                                 $req->closecursor();
@@ -362,34 +362,34 @@
 
                                 return array(
                                     'result' => false,
-                                    'text' => 'La nouvelle addresse n\'a pas put étre mis a jour'
+                                    'text' => 'La nouvelle adresse n\'a pas pu être mis à jour'
                                 );
                             }
                         }else {
                             return array(
                                 'result' => false,
-                                'text' => 'Vous n\'avais pas idiquer le code postale'
+                                'text' => 'Vous n\'avez pas indiqué le code postale'
                             );
                         }
                     }elseif (strlen($nbrue) > 11) {
                         return array(
                             'result' => false,
-                            'text' => 'Le numero de rue ne peux jusqu\'a 99999999999'
+                            'text' => 'Le numéro de rue ne peux aller jusqu\'a 99999999999'
                         );
                     }elseif (strlen($rue) > 50) {
                         return array(
                             'result' => false,
-                            'text' => 'Le nom de rue ne peux contenir plus de 50 caractéres. Elle est actuellement de ' . strlen($rue) . ' caractéres'
+                            'text' => 'Le nom de rue ne peux contenir plus de 50 caractères. Elle est actuellement de ' . strlen($rue) . ' caractères'
                         );
                     }elseif (strlen($ville) > 50) {
                         return array(
                             'result' => false,
-                            'text' => 'La ville ne peux contenir plus de 50 caractéres. Elle est actuellement de ' . strlen($ville) . ' caractéres'
+                            'text' => 'La ville ne peut contenir plus de 50 caractères. Elle est actuellement de ' . strlen($ville) . ' caractères'
                         );
                     }elseif (strlen($cp) > 5) {
                         return array(
                             'result' => false,
-                            'text' => 'Vous n\'avez pas indiquer le code postale'
+                            'text' => 'Vous n\'avez pas indiqué le code postale'
                         );
                     }else {
                         return array(
@@ -400,13 +400,13 @@
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le numero de rue et le code postale doit étre un nombre'
+                        'text' => 'Le numéro de rue et le code postale doit être un nombre'
                     );
                 }
             }else {
                 return array(
                     'result' => false,
-                    'text' => 'Il manque une ou plusieur information'
+                    'text' => 'Il manque une ou plusieurs informations'
                 );
             }
         }
@@ -429,7 +429,7 @@
 
                 return array(
                     'result' => true,
-                    'text' => 'L\'addresse à étais suprimer'
+                    'text' => 'L\'adresse à étais supprimé'
                 );
             }else {
                 $req->closecursor();
@@ -437,7 +437,7 @@
 
                 return array(
                     'result' => false,
-                    'text' => 'L\'addresse n\'a pas étais suprimer'
+                    'text' => 'L\'adresse n\'a pas été supprimée'
                 );
             }
         }
@@ -460,7 +460,7 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'La description a étais mis a jour'
+                        'text' => 'La description a été mis à jour'
                     );
                 }else {
                     $req->closecursor();
@@ -468,13 +468,13 @@
 
                     return array(
                         'result' => false,
-                        'text' => 'La description n\'a pas put étre mis a jour'
+                        'text' => 'La description n\'a pas pu être mis à jour'
                     );
                 }
             }else {
                 return array(
                     'result' => false,
-                    'text' => 'Seul du texte peut étre envoyer'
+                    'text' => 'Seul du texte peut être envoyé'
                 );
             }
         }
@@ -493,7 +493,7 @@
 
                 return array(
                     'result' => true,
-                    'text' => 'La description a étais suprimer'
+                    'text' => 'La description a été supprimée'
                 );
             }else {
                 $req->closecursor();
@@ -501,7 +501,7 @@
 
                 return array(
                     'result' => true,
-                    'text' => 'La description n\'a pas étais suprimer'
+                    'text' => 'La description n\'a pas été supprimée'
                 );
             }
         }
@@ -530,7 +530,7 @@
 
                     return array(
                         'result' => true,
-                        'text' => 'La video a été mis a jour',
+                        'text' => 'La video a été mise à jour',
                         'video' => $file['name']
                     );
                 }else {
@@ -543,7 +543,7 @@
 
                     return array(
                         'result' => false,
-                        'text' => 'La video n\'a pas put étre mis a jour'
+                        'text' => 'La video n\'a pas pu être mise à jour'
                     );
                 }
             }elseif (strlen($file['name']) > 50) {
@@ -553,7 +553,7 @@
 
                 return array(
                     'result' => false,
-                    'text' => 'Le titre de la video ne peux faire plus de 50 caractéres'
+                    'text' => 'Le titre de la vidéo ne peut faire plus de 50 caractères'
                 );
             }else {
                 return $upload;
@@ -572,18 +572,18 @@
                     if (move_uploaded_file($file['tmp_name'], 'src/video/' . $file['name'])) {
                         return array(
                             'result' => true,
-                            'text' => 'La viedo a était envoyer'
+                            'text' => 'La vidéo a été envoyée'
                         );
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'La video n\'a pas put étre uploader'
+                            'text' => 'La vidéo n\'a pas pu être uploader'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le fichier est dans un format inconue. Seul le format mp4 est reconnue.',
+                        'text' => 'Le fichier est dans un format inconnu. Seul le format mp4 est reconnue.',
                     );
                 }
             }elseif ($file['name'] == '') {
@@ -594,7 +594,7 @@
             }elseif ($file['name'] == 'default.mp4') {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du fichier est déja utiliser'
+                    'text' => 'Le nom du fichier est déja utilisé'
                 );
             }elseif ($file['type']) {
                 return array(

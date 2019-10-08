@@ -502,7 +502,7 @@
 
                             return array(
                                 'result' => true,
-                                'text' => 'Le nouvelle utilisateur a était ajouter',
+                                'text' => 'Le nouvel utilisateur a été ajouté',
                                 'html' => '<tr><td class="nom">' . $nom . '</td><td class="mail">' . $mail . '</td><td class="admin"><button id="modifprofil" name="id" value="' . $id . '"><i class="far fa-user"></i></button></td><td class="sup"><button id="supprofil" name="id" value="' . $id . '"><i class="fas fa-times"></i></button></td></tr>'
                             
                             );
@@ -512,7 +512,7 @@
 
                             return array(
                                 'result' => false,
-                                'text' => 'Le nouvelle utilisateur n\'a pas put étre ajouter'
+                                'text' => 'Le nouvel utilisateur n\'a pas pu être ajouté'
                             );
                         }
                     }else {
@@ -521,28 +521,28 @@
                 }elseif (filter_var($mail, FILTER_VALIDATE_EMAIL) && $this->comparMail($mail) == true) {
                     return array(
                         'result' => false,
-                        'text' => 'Le mail renseigner existe déja'
+                        'text' => 'Le mail renseigné existe déjà'
                     );
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le mail renseigner n\'est pas une addresse mail'
+                        'text' => 'Le mail renseigné n\'est pas une adresse mail'
                     );
                 }
             }elseif (strlen($mail) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'L\'addresse mail ne peut faire plus de 50 caractére'
+                    'text' => 'L\'adresse mail ne peut faire plus de 50 caractères'
                 );
             }elseif ($mail == '') {
                 return array(
                     'result' => false,
-                    'text' => 'Il manque l\'addresse mail'
+                    'text' => 'Il manque l\'adresse mail'
                 );
             }elseif (strlen($nom) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom ne peut faire plus de 50 caractére'
+                    'text' => 'Le nom ne peut faire plus de 50 caractères'
                 );
             }elseif ($nom == '') {
                 return array(
@@ -665,17 +665,17 @@
             }elseif (strpos($mail, '@') === false || strpos($mail, ' ')) {
                 return array(
                     'result' => false,
-                    'text' => 'Se n\'est pas une addresse mail'
+                    'text' => 'Se n\'est pas une adresse mail'
                 );
             }elseif ($this->comparMail($mail) == false) {
                 return array(
                     'result' => false,
-                    'text' => 'Cette addresse mail n\'existe pas'
+                    'text' => 'Cette adresse mail n\'existe pas'
                 );
             }elseif (strtoupper($mail) == 'ADMIN@ADMIN') {
                 return array(
                     'result' => false,
-                    'text' => 'Ce compte ne peux pas étre modifier'
+                    'text' => 'Ce compte ne peut pas être modifié'
                 );
             }else {
                 $newmdp =  $this->mdpAleatoire();
@@ -717,7 +717,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le mot de passe n\'a pas put étre envoyer a la base de donner'
+                            'text' => 'Le mot de passe n\'a pas pu être envoyé à la base de données'
                         );
                     }
                 }else {
@@ -780,7 +780,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Les droit on étais changer'
+                            'text' => 'Les droits on été changés'
                         );
                     }else {
                         $req->closecursor();
@@ -788,7 +788,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Les droit n\'ont pas put étre changer'
+                            'text' => 'Les droits n\'ont pas pu être changés'
                         );
                     }
                 }else {
@@ -836,7 +836,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Les droit on étais changer'
+                            'text' => 'Les droits ont été changés'
                         );
                     }else {
                         $req->closecursor();
@@ -844,7 +844,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Les droit n\'ont pas put étre changer'
+                            'text' => 'Les droit n\'ont pas pu être changés'
                         );
                     }
                 }else {
@@ -887,7 +887,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le profil a étais suprimer'
+                            'text' => 'Le profil a étais supprimer'
                         );
                     }else {
                         $req->closecursor();
@@ -895,7 +895,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le profil n\'a pas étais suprimer'
+                            'text' => 'Le profil n\'a pas été supprimé'
                         );
                     }
                 }else {

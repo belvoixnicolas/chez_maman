@@ -60,7 +60,7 @@ $(document).ready(function(){
         });
     });
 
-    /// suprimer profil ///
+    /// supprimer profil ///
     $('#sectionprofil').on('click', '#supprofil', function () {
         var val = $(this).attr('value');
         var tr = $(this).parent().parent();

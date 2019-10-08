@@ -218,7 +218,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le lien n\'a pas été ajouter'
+                            'text' => 'Le lien n\'a pas été ajouté'
                         );
                     }
                 }else {
@@ -232,12 +232,12 @@
             }elseif (strlen($file['name']) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le nom du fichier ne peux faire plus de 50 caractéres.'
+                    'text' => 'Le nom du fichier ne peut faire plus de 50 caractères'
                 );
             }elseif (strlen($titre) > 50) {
                 return array(
                     'result' => false,
-                    'text' => 'Le titre ne peux faire plus de 50 caractéres.'
+                    'text' => 'Le titre ne peux faire plus de 50 caractères.'
                 );
             }elseif ($titre == '') {
                 return array(
@@ -293,7 +293,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le reseau a été mis a jour',
+                            'text' => 'Le réseau a été mis à jour',
                             'html' => $this->reseauHtml($id),
                             'id' => $id
                         );
@@ -307,7 +307,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Une erreur c\'est produit lors de la mise a jour du reseaux'
+                            'text' => 'Une erreur c\'est produit lors de la mise à jour du réseau'
                         );
                     }
                 }else {
@@ -324,7 +324,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le reseau a été mis a jour',
+                            'text' => 'Le réseau a été mis à jour',
                             'html' => $this->reseauHtml($id),
                             'id' => $id
                         );
@@ -334,14 +334,14 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Une erreur c\'est produit lors de la mise a jour du reseaux'
+                            'text' => 'Une erreur c\'est produit lors de la mise à jour du réseau'
                         );
                     }
                 }
             }elseif ($this->verifId($id) != true) {
                 return array(
                     'result' => false,
-                    'text' => 'Le reseau n\'a pas été trouver dans la base de donner'
+                    'text' => 'Le réseau n\'a pas été trouvé dans la base de données'
                 );
             }elseif ($titre == '' || strlen($titre) > 50) {
                 if ($titre == '') {
@@ -352,7 +352,7 @@
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le titre ne peux faire plus de 50 caractéres'
+                        'text' => 'Le titre ne peut faire plus de 50 caractères'
                     );
                 }
             }elseif ($url == '') {
@@ -395,7 +395,7 @@
 
                         return array(
                             'result' => true,
-                            'text' => 'Le reseau a été suprimer'
+                            'text' => 'Le réseau a été supprimé'
                         );
                     }else {
                         $req->closecursor();
@@ -403,7 +403,7 @@
 
                         return array(
                             'result' => false,
-                            'text' => 'Le reseau n\'a pas put étre suprimer'
+                            'text' => 'Le reseau n\'a pas pu être supprimé'
                         );
                     }
                 }else {
@@ -415,7 +415,7 @@
             }else {
                 return array(
                     'result' => false,
-                    'text' => 'Le reseaux n\'a pas été trouver dans la base de donner'
+                    'text' => 'Le réseau n\'a pas été trouvé dans la base de données'
                 );
             }
         }
@@ -440,18 +440,18 @@
                     if (move_uploaded_file($file['tmp_name'], 'src/reseaux/' . $file['name'])) {
                         return array(
                             'result' => true,
-                            'text' => 'L\'image a était envoyer'
+                            'text' => 'L\'image a été envoyée'
                         );
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'L\'image n\'a pas put étre uploader'
+                            'text' => 'L\'image n\'a pas pu être uploadée'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le fichier est dans un format inconue. Le format gif, jpeg, png et svg sont reconnue.',
+                        'text' => 'Le fichier est dans un format inconnu. Les formats gif, jpeg, png et svg sont reconnues.',
                     );
                 }
             }elseif ($file['name'] == '') {

@@ -12,8 +12,8 @@
             }
         ?>
 
-        <!-- laisser vide suprimer -->
-        <input type="tel" name="tel" id="tel" placeholder="Entrer un numéro de téléphone" <?= $val ?>>
+        <!-- laisser vide supprimer -->
+        <input type="tel" name="tel" id="tel" placeholder="Numéro de téléphone" <?= $val ?>>
     
         <input type="submit" value="envoyer">
     </form>

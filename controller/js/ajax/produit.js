@@ -55,7 +55,7 @@ $(document).ready(function(){
                 }, 5000);
             }
         }).fail(function () {
-            $('#message .text').html('Connexion avec le serveur perdue');
+            $('#message .text').html('Connexion avec le serveur perdu');
             $('#message').addClass('false').removeClass('hidden');
             
             var delayMessage = window.setTimeout(function () {
@@ -67,7 +67,7 @@ $(document).ready(function(){
     $('body').on('click', '#supproduit', function () {
         var id = $(this).val();
 
-        if (confirm('Cette action va suprimer le produit')) {
+        if (confirm('Cette action va supprimer le produit')) {
             var formData = new FormData();
             formData.append('action', 'supproduit');
             formData.append('id', id);
@@ -139,7 +139,7 @@ $(document).ready(function(){
         var touche = event.keyCode;
         
         if (touche == 110 || touche == 190 || touche == 59) {
-            alert('Les point ne sont pas reconue par le navigateur, utiliser les vigule a la place');
+            alert('Les points ne sont pas reconnus par le navigateur, utiliser les virgules à la place');
         }
     });
 

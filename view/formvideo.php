@@ -11,7 +11,7 @@
 
     <form action="#" method="post" id="formvideo" enctype="multipart/form-data">
         <input type="file" name="video" id="video" >
-        <label for="video">La video doit étre au format mp4 et une taille maximal de 64 Mo</label>
+        <label for="video">La vidéo doit être au format mp4 et une taille max de 64 Mo</label>
 
         <input type="submit" value="Envoyer">
     </form>

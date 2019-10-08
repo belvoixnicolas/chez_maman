@@ -59,14 +59,14 @@ $(document).ready(function(){
                         data = data.split('|');
 
                         if (data[0] == '0' && data[1] == '0') {
-                            $('#message .text').html('L\'adresse mail et le mot de passe n\'on pas put étre modifier');
+                            $('#message .text').html('L\'adresse mail et le mot de passe n\'ont pas pu être modifiés');
                             $('#message').addClass('false').removeClass('hidden');
                             
                             var delayMessage = window.setTimeout(function () {
                                 $('#message button').trigger('click');
                             }, 5000);
                         }else if (data[0] == 0) {
-                            $('#message .text').html('L\'adresse mail n\'a pas put étre modifier');
+                            $('#message .text').html('L\'adresse mail n\'a pas pu être modifié');
                             $('#message').addClass('false').removeClass('hidden');
                             $('#formident fieldset input[name=pwd]').val('').trigger('keyup');
                             
@@ -74,7 +74,7 @@ $(document).ready(function(){
                                 $('#message button').trigger('click');
                             }, 5000);
                         }else if (data[1] == 0) {
-                            $('#message .text').html('Le mot de passe n\'a pas put étre modifier');
+                            $('#message .text').html('Le mot de passe n\'a pas pu être modifié');
                             $('#message').addClass('false').removeClass('hidden');
                             $('#formident fieldset input[name=mail]').val('').trigger('keyup');
                             
@@ -82,7 +82,7 @@ $(document).ready(function(){
                                 $('#message button').trigger('click');
                             }, 5000);
                         }else {
-                            $('#message .text').html('Les modiffications on bien étais mis a jour');
+                            $('#message .text').html('Les modifications on bien étais mis à jour.');
                             $('#message').addClass('true').removeClass('hidden');
                             $('#formident fieldset input').val('').trigger('keyup');
                             
@@ -91,7 +91,7 @@ $(document).ready(function(){
                             }, 5000);
                         }
                     }else {
-                        $('#message .text').html('La modiffication à bien étais mis a jour');
+                        $('#message .text').html('La modification à bien étais mis à jour.');
                         $('#message').addClass('true').removeClass('hidden');
                         $('#formident fieldset input').val('').trigger('keyup');
                         

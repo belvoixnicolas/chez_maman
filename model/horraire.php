@@ -235,16 +235,16 @@
                             $horraireJour[$indicateur] = $val;
 
                             if (is_null($horraireJour['ouvertMat']) && is_null($horraireJour['ouvertAp'])) {
-                                $ajout = 'Penser a ajouter une heure d\'ouverture';
+                                $ajout = 'Pensez à ajouter une heure d\'ouverture';
                             }elseif(is_null($horraireJour['fermeMat']) && is_null($horraireJour['fermeAp']) || is_null($horraireJour['ouvertAp']) == false && is_null($horraireJour['fermeAp']) || is_null($horraireJour['ouvertMat']) == false && is_null($horraireJour['fermeMat']) && is_null($horraireJour['fermeAp'])) {
-                                $ajout = 'Penser a ajouter une heure de fermeture';
+                                $ajout = 'Pensez à ajouter une heure de fermeture';
                             }else {
                                 $ajout = '';
                             }
 
                             return array(
                                 'result' => true,
-                                'text' => 'L\'horraire à été mis a jour. ' . $ajout,
+                                'text' => 'L\'horaire a été mis à jour. ' . $ajout,
                                 'time' => $val
                             );
                         }else {
@@ -253,20 +253,20 @@
                             
                             return array(
                                 'result' => false,
-                                'text' => 'L\'horraire n\'a pas put étre mis a jour',
+                                'text' => 'L\'horaire n\'a pas pu être mis à jour',
                                 'time' => $horraireJour[$indicateur]
                             );
                         }
                     }else {
                         return array(
                             'result' => false,
-                            'text' => 'L\'horraire ne fait pas partie de l\'intervale autoriser'
+                            'text' => 'L\'horaire ne fait pas partie de l\'intervalle autoriser'
                         );
                     }
                 }else {
                     return array(
                         'result' => false,
-                        'text' => 'Le jour indiquer n\'est pas un jour de la semaine'
+                        'text' => 'Le jour indiqué n\'est pas un jour de la semaine'
                     );
                 }
             }else {

@@ -1,4 +1,4 @@
-<article id="horraire_et_localisation">
+<article id="horraires_et_localisation">
     <h3>
         horraire et localisation
     </h3>
