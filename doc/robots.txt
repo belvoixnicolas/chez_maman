@@ -13,5 +13,5 @@ Disallow: /controller/mod*.php
 Disallow: /controller/supadresse.php
 Disallow: /controller/postavie.php
 
-Sitemap: http://chez-maman-charleville.com/sitemap.xml
-Sitemap: https://chez-maman-charleville.com/sitemap.xml
+Sitemap: http://www.chez-maman-charleville.com/sitemap.xml
+Sitemap: https://www.chez-maman-charleville.com/sitemap.xml
